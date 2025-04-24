@@ -7,17 +7,28 @@
 
 ## 📚 Índice
 
-1. [📘 Introducción](#1-introducción)  
-2. [🛠️ Análisis y Diseño de la Infraestructura](#2-análisis-y-diseño-de-la-infraestructura)  
-3. [💻 Implementación del Clúster Proxmox](#3-implementación-del-clúster-proxmox)  
-4. [🗃️ Configuración de Ceph como Almacenamiento Distribuido](#4-configuración-de-ceph-como-almacenamiento-distribuido)  
-5. [⚙️ Alta Disponibilidad (HA)](#5-alta-disponibilidad-ha)  
-6. [🧰 Proxmox Backup Server (PBS)](#6-proxmox-backup-server-pbs)  
-7. [👥 Gestión de Usuarios y Pools de Recursos](#7-gestión-de-usuarios-y-pools-de-recursos)  
-8. [🔐 Seguridad y Buenas Prácticas](#8-seguridad-y-buenas-prácticas)  
-9. [📄 Documentación Técnica y Manual de Usuario](#9-documentación-técnica-y-manual-de-usuario)  
-10. [🧠 Conclusiones y Valoración Personal](#10-conclusiones-y-valoración-personal)  
-11. [📎 Anexos](#11-anexos)
+- [Gestió Avanzada en Proxmox](#gestió-avanzada-en-proxmox)
+  - [📚 Índice](#-índice)
+  - [1. 📘 Introducción](#1--introducción)
+    - [1.1. 🎯 Objetivos del proyecto](#11--objetivos-del-proyecto)
+    - [1.2. 🧩 Justificación de la elección de Proxmox VE](#12--justificación-de-la-elección-de-proxmox-ve)
+    - [1.3. 🗺️ Alcance del proyecto](#13-️-alcance-del-proyecto)
+    - [1.4. 🧠 Requisitos previos y conocimientos necesarios](#14--requisitos-previos-y-conocimientos-necesarios)
+  - [9. Documentación Técnica y Manual de Usuario](#9-documentación-técnica-y-manual-de-usuario)
+    - [9.1. Manual de instalación paso a paso](#91-manual-de-instalación-paso-a-paso)
+    - [9.2. Guía de administración del clúster](#92-guía-de-administración-del-clúster)
+    - [9.3. Procedimientos ante fallos comunes](#93-procedimientos-ante-fallos-comunes)
+    - [9.4. Manual de uso para usuarios delegados](#94-manual-de-uso-para-usuarios-delegados)
+  - [10. 🧠 Conclusiones y Valoración Personal](#10--conclusiones-y-valoración-personal)
+    - [10.1. Logros alcanzados](#101-logros-alcanzados)
+    - [10.2. Dificultades encontradas y soluciones](#102-dificultades-encontradas-y-soluciones)
+    - [10.3. Posibles mejoras futuras](#103-posibles-mejoras-futuras)
+    - [10.4. Valoración técnica y personal del proyecto](#104-valoración-técnica-y-personal-del-proyecto)
+  - [11. 📎 Anexos](#11--anexos)
+    - [A. Capturas de pantalla](#a-capturas-de-pantalla)
+    - [B. Scripts y comandos utilizados](#b-scripts-y-comandos-utilizados)
+    - [C. Fichas técnicas del hardware](#c-fichas-técnicas-del-hardware)
+    - [D. Enlaces de interés y bibliografía](#d-enlaces-de-interés-y-bibliografía)
 
 
 ## 1. 📘 Introducción
@@ -53,4 +64,35 @@ Para llevar a cabo este proyecto, se requieren conocimientos en:
 - Gestión de usuarios y políticas de seguridad.
 - Uso de línea de comandos y edición de archivos de configuración en Linux.
 
-Además, es recomendable experiencia previa con plataformas de virtualización o administración de servidores en entornos empresariales.
+
+## 9. Documentación Técnica y Manual de Usuario
+
+### 9.1. Manual de instalación paso a paso
+
+### 9.2. Guía de administración del clúster
+
+### 9.3. Procedimientos ante fallos comunes
+
+### 9.4. Manual de uso para usuarios delegados
+
+## 10. 🧠 Conclusiones y Valoración Personal
+
+### 10.1. Logros alcanzados
+
+### 10.2. Dificultades encontradas y soluciones
+
+### 10.3. Posibles mejoras futuras
+
+### 10.4. Valoración técnica y personal del proyecto
+
+## 11. 📎 Anexos
+
+### A. Capturas de pantalla
+
+### B. Scripts y comandos utilizados
+
+### C. Fichas técnicas del hardware
+
+### D. Enlaces de interés y bibliografía
+
+
