@@ -43,10 +43,6 @@ Projecte_Proxmox/
 - Maquinari compatible amb virtualització (Intel VT-x o AMD-V)
 - Connexió a Internet per a la descàrrega de paquets i actualitzacions
 
-
-
-Per descomptat! Ací tens la traducció del text al valencià:
-
 ---
 
 ## 📘 Introducció
@@ -84,13 +80,27 @@ Per a dur a terme aquest projecte, es requereixen coneixements en:
 
 ## 🧠 Conclusions i Valoració Personal
 
-### Fites assolides
+### Objectius aconseguits
 
 ### Dificultats trobades i solucions
 
-### Possibles millores futures
 
-### Valoració tècnica i personal del projecte
+### 🔧 Possibles millores futures
+
+Una millora plantejada per a futures iteracions del projecte seria la substitució (o complementarietat) dels contenidors Linux basats en LXC per contenidors gestionats mitjançant Docker. Tot i que LXC és una solució eficient i ben integrada dins de Proxmox VE, l'ús de Docker permet aprofitar un ecosistema molt més ampli d’imatges preconfigurades, facilita l'automatització de desplegaments mitjançant Docker Compose o Kubernetes i ofereix una major portabilitat de serveis entre entorns.
+
+Aquesta millora implicaria:
+
+- Instal·lació i configuració de Docker dins de màquines virtuals o contenidors amb suport per a systemd.
+- Avaluació de l’ús de Proxmox en combinació amb eines de gestió d’orquestració com *Portainer* o *Rancher* per simplificar l’administració dels contenidors Docker.
+- Creació de plantilles de màquines virtuals o contenidors base amb Docker preinstal·lat, per accelerar la posada en marxa de nous serveis.
+- Definició de polítiques de seguretat específiques per a l'ús de Docker, especialment en entorns multiusuari.
+
+L’adopció de Docker dins de la infraestructura no substitueix completament els contenidors LXC, però sí que pot aportar més versatilitat, especialment per a aplicacions modernes que es distribueixen com a imatges Docker. A més, obri la porta a una possible futura integració amb entorns de microserveis i tecnologies cloud-native.
+
+
+### Valoració personal del projecte
+
 
 ---
 
