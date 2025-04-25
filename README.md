@@ -13,16 +13,16 @@ Aquest projecte consisteix en la implementació d'una infraestructura virtualitz
 
 ```
 Projecte_Proxmox/
-├── documentació/
-│   ├── README.md
-│   │ 
-│   └── instalació
-│       ├──  proxmox
-│       └── proxmox backup
-│     
-│
-│
-├── configuració/
+├── README.md
+│   ├── documentació/
+    │ 
+    └── instalació/
+    │    ├── proxmox/
+    │    └── proxmox_backup/
+    │ 
+    │
+
+ configuració/
 │   ├── proxmox/
 │   └── proxmox backup server/
 ├── captures/
@@ -110,22 +110,13 @@ L’adopció de Docker dins de la infraestructura no substitueix completament el
 
 A continuació es detallen les fonts utilitzades per al desenvolupament del projecte:
 
-1. **Documentació oficial de Proxmox VE**  
-   https://pve.proxmox.com/wiki/Main_Page  
-   Documentació oficial del sistema de virtualització utilitzat en el projecte.
+1. Proxmox. *Documentació oficial de Proxmox VE*. Accés 25 d’abril de 2025. https://pve.proxmox.com/wiki/Main_Page.
 
-2. **Debian Wiki**  
-   https://wiki.debian.org/  
-   Guia oficial del sistema operatiu base emprat per a la configuració dels servidors.
+2. Debian Project. *Debian Wiki*. Accés 25 d’abril de 2025. https://wiki.debian.org/.
 
-3. **Manual d’OpenSSH**  
-   https://man.openbsd.org/ssh  
-   Referència per a la configuració segura d’accés remot a través d’SSH.
+3. OpenBSD. *Manual d’OpenSSH*. Accés 25 d’abril de 2025. https://man.openbsd.org/ssh.
 
-4. **Stack Overflow**  
-   https://stackoverflow.com/  
-   Comunitat de suport tècnic per a la resolució de problemes puntuals durant el desenvolupament.
+4. Stack Overflow. *Stack Overflow*. Accés 25 d’abril de 2025. https://stackoverflow.com/.
 
-5. **Tutorials de DigitalOcean**  
-   https://www.digitalocean.com/community/tutorials  
-   Tutorials pràctics per a la configuració de serveis en entorns Linux.
+5. DigitalOcean. *Tutorials de DigitalOcean*. Accés 25 d’abril de 2025. https://www.digitalocean.com/community/tutorials.
+
