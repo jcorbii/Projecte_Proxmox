@@ -45,57 +45,62 @@ Projecte_Proxmox/
 
 
 
-## 📘 Introducción
+Per descomptat! Ací tens la traducció del text al valencià:
 
-###  🎯 Objetivos del proyecto
+---
 
-El objetivo principal de este proyecto es diseñar, implementar y documentar una infraestructura virtualizada de alta disponibilidad utilizando Proxmox VE. El entorno incluye almacenamiento distribuido mediante Ceph y una solución centralizada de copias de seguridad con Proxmox Backup Server (PBS). Todo ello se realiza sobre un clúster compuesto por dos nodos físicos que ofrecen servicios de virtualización, replicación y resiliencia ante fallos.
+## 📘 Introducció
 
-###  🧩 Justificación de la elección de Proxmox VE
+### 🎯 Objectius del projecte
 
-Proxmox VE ha sido elegido por ser una plataforma de virtualización de código abierto que ofrece una solución completa y robusta para la gestión de máquinas virtuales y contenedores. Permite la creación de clústeres, integra almacenamiento distribuido con Ceph, ofrece gestión de backups mediante PBS, y soporta alta disponibilidad de manera nativa. Además, su interfaz web intuitiva facilita enormemente las tareas administrativas y de monitoreo, incluso para usuarios con conocimientos medios.
+L’objectiu principal d’aquest projecte és dissenyar, implementar i documentar una infraestructura virtualitzada d’alta disponibilitat utilitzant Proxmox VE. L’entorn inclou emmagatzematge distribuït mitjançant Ceph i una solució centralitzada de còpies de seguretat amb Proxmox Backup Server (PBS). Tot això es realitza sobre un clúster compost per dos nodes físics que ofereixen serveis de virtualització, replicació i resiliència davant fallades.
 
-###  🗺️ Alcance del proyecto
+### 🧩 Justificació de l’elecció de Proxmox VE
 
-Este proyecto abarca desde el diseño inicial hasta la implementación y documentación de toda la infraestructura. Incluye:
+S’ha triat Proxmox VE per ser una plataforma de virtualització de codi obert que ofereix una solució completa i robusta per a la gestió de màquines virtuals i contenidors. Permet la creació de clústers, integra emmagatzematge distribuït amb Ceph, ofereix gestió de backups mitjançant PBS i dona suport a l’alta disponibilitat de manera nativa. A més, la seua interfície web intuïtiva facilita enormement les tasques administratives i de monitoratge, fins i tot per a usuaris amb coneixements mitjans.
 
-- Instalación de dos nodos con Proxmox VE y configuración en clúster.
-- Configuración e integración de Ceph como sistema de almacenamiento distribuido.
-- Implementación de Proxmox Backup Server para copias de seguridad automatizadas.
-- Definición de estrategias de alta disponibilidad y recuperación ante fallos.
-- Gestión de usuarios y políticas de seguridad.
-- Redacción de guías técnicas para administración y uso del entorno.
+### 🗺️ Abast del projecte
 
-###  🧠 Requisitos previos y conocimientos necesarios
+Aquest projecte abasta des del disseny inicial fins a la implementació i documentació de tota la infraestructura. Inclou:
 
-Para llevar a cabo este proyecto, se requieren conocimientos en:
+- Instal·lació de dos nodes amb Proxmox VE i configuració en clúster.
+- Configuració i integració de Ceph com a sistema d’emmagatzematge distribuït.
+- Implementació de Proxmox Backup Server per a còpies de seguretat automatitzades.
+- Definició d’estratègies d’alta disponibilitat i recuperació davant fallades.
+- Gestió d’usuaris i polítiques de seguretat.
+- Redacció de guies tècniques per a l’administració i ús de l’entorn.
 
-- Sistemas operativos Linux (preferiblemente Debian o derivados).
+### 🧠 Requisits previs i coneixements necessaris
 
+Per a dur a terme aquest projecte, es requereixen coneixements en:
 
-- Virtualización (KVM, contenedores LXC).
-- Conceptos básicos de almacenamiento distribuido y Ceph.
-- Gestión de usuarios y políticas de seguridad.
-- Uso de línea de comandos y edición de archivos de configuración en Linux.
+- Sistemes operatius Linux (preferiblement Debian o derivats).
+- Virtualització (KVM, contenidors LXC).
+- Conceptes bàsics d’emmagatzematge distribuït i Ceph.
+- Gestió d’usuaris i polítiques de seguretat.
+- Ús de línia d’ordres i edició d’arxius de configuració en Linux.
 
+---
 
-##  🧠 Conclusiones y Valoración Personal
+## 🧠 Conclusions i Valoració Personal
 
-###  Logros alcanzados
+### Fites assolides
 
-###  Dificultades encontradas y soluciones
+### Dificultats trobades i solucions
 
-###  Posibles mejoras futuras
+### Possibles millores futures
 
-###  Valoración técnica y personal del proyecto
+### Valoració tècnica i personal del projecte
 
-##  📎 Anexos
+---
+
+## 📎 Annexos
 
 ## Bibliografia
 
 A continuació es detallen les fonts utilitzades per al desenvolupament del projecte:
 
-1. **Proxmox VE Official Documentation**  
+1. **Documentació oficial de Proxmox VE**  
    https://pve.proxmox.com/wiki/Main_Page  
    Documentació oficial del sistema de virtualització utilitzat en el projecte.
 
@@ -103,19 +108,14 @@ A continuació es detallen les fonts utilitzades per al desenvolupament del proj
    https://wiki.debian.org/  
    Guia oficial del sistema operatiu base emprat per a la configuració dels servidors.
 
-3. **OpenSSH Manual**  
+3. **Manual d’OpenSSH**  
    https://man.openbsd.org/ssh  
-   Referència per a la configuració segura d'accés remot a través d’SSH.
+   Referència per a la configuració segura d’accés remot a través d’SSH.
 
 4. **Stack Overflow**  
    https://stackoverflow.com/  
    Comunitat de suport tècnic per a la resolució de problemes puntuals durant el desenvolupament.
 
-5. **DigitalOcean Tutorials**  
+5. **Tutorials de DigitalOcean**  
    https://www.digitalocean.com/community/tutorials  
    Tutorials pràctics per a la configuració de serveis en entorns Linux.
-
-
-
-
-
