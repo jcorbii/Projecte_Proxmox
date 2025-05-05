@@ -16,18 +16,22 @@ Projecte_Proxmox/
 └── README.md
 │   └── documentació/
 │       │ 
-│       └── instalació/
+│       ├── instalació/
 │       │    ├── proxmox/
-
+│       │    │   ├──  install.md
+│       │    │   └──  install.pdf
 │       │    └── proxmox_backup/
-│       │ 
-│       │ 
-│       │
+│       │        ├──  install.md
+│       │        └──  install.pdf
 │       │
 │       └── configuració/
 │           ├── proxmox/
+│           │   ├──  conf.md
+│           │   └──  conf.pdf
 │           └── proxmox backup server/
-├── captures/
+│              ├──  conf.md
+│              └──  conf.pdf
+├── img/
 └──  README.md
 ```
 
