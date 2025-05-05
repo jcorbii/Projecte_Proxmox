@@ -13,20 +13,22 @@ Aquest projecte consisteix en la implementació d'una infraestructura virtualitz
 
 ```
 Projecte_Proxmox/
-├── README.md
-│   ├── documentació/
-    │ 
-    └── instalació/
-    │    ├── proxmox/
-    │    └── proxmox_backup/
-    │ 
-    │
+└── README.md
+│   └── documentació/
+│       │ 
+│       └── instalació/
+│       │    ├── proxmox/
 
- configuració/
-│   ├── proxmox/
-│   └── proxmox backup server/
+│       │    └── proxmox_backup/
+│       │ 
+│       │ 
+│       │
+│       │
+│       └── configuració/
+│           ├── proxmox/
+│           └── proxmox backup server/
 ├── captures/
-├── README.md
+└──  README.md
 ```
 
 
