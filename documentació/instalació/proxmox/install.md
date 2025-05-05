@@ -29,8 +29,7 @@
 
 🔸 Configurem la **zona horària**.
 
-![Zona horària](../../../img/image-4.png)
-
+![Zona Horariá](../../../img/image-4.png)
 🔸 Introduïm la **contrasenya d’administració** i un **correu electrònic** per a notificacions del sistema.
 
 ![Contrasenya i correu](../../../img/image-5.png)
