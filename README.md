@@ -3,7 +3,7 @@
 > IES JAUME II EL JUST (Tavernes de la Valldiga) - Curs 2023/2025  
 > Ciclo: CFGS Administració de Sistemes Informatics en Xarxa
 
-# Projecte Final de Cicle Superior d'ASIR: Virtualització amb Proxmox
+# Projecte Final de Cicle Superior d'ASIR: Gestió Avançada de Proxmox
 
 ## 📌 Descripció
 
