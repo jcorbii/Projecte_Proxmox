@@ -90,20 +90,92 @@ Per a dur a terme aquest projecte, es requereixen coneixements en:
 
 ### Dificultats trobades i solucions
 
+⚠️ Problema amb els repositoris de **Proxmox Backup Server**
+Una de les principals dificultats trobades ha sigut l’actualització dels paquets del sistema, ja que per defecte, Proxmox Backup Server ve configurat amb els repositoris enterprise, els quals requereixen una subscripció de pagament.
 
-### 🔧 Possibles millores futures
+✅ ***Solució tècnica:*** utilitzar repositoris públics
+Per tal de poder actualitzar i instal·lar paquets sense necessitat de subscripció, es pot configurar el sistema per a fer ús dels repositoris públics (no enterprise) de **Proxmox.**
 
-Una millora plantejada per a futures iteracions del projecte seria la substitució (o complementarietat) dels contenidors Linux basats en LXC per contenidors gestionats mitjançant Docker. Tot i que LXC és una solució eficient i ben integrada dins de Proxmox VE, l'ús de Docker permet aprofitar un ecosistema molt més ampli d’imatges preconfigurades, facilita l'automatització de desplegaments mitjançant Docker Compose o Kubernetes i ofereix una major portabilitat de serveis entre entorns.
+---
 
-Aquesta millora implicaria:
+### 🚀 **Possibles Millores Futures per al Nostre Entorn Proxmox**
 
-- Instal·lació i configuració de Docker dins de màquines virtuals o contenidors amb suport per a systemd.
-- Avaluació de l’ús de Proxmox en combinació amb eines de gestió d’orquestració com *Portainer* o *Rancher* per simplificar l’administració dels contenidors Docker.
-- Creació de plantilles de màquines virtuals o contenidors base amb Docker preinstal·lat, per accelerar la posada en marxa de nous serveis.
-- Definició de polítiques de seguretat específiques per a l'ús de Docker, especialment en entorns multiusuari.
+#### **1. Docker com a Complement a LXC**  
+📌 *Millora la flexibilitat i portabilitat dels contenidors*  
+- **Objectiu**: Integrar Docker dins de VMs/containers per aprofitar:  
+  - 🐋 Ecosistema més ampli d'imatges preconfigurades  
+  - 🔄 Compatibilitat amb Kubernetes i eines CI/CD  
+  - 🛠️ Plantilles predefinides amb Docker + Portainer  
+- **Reptes**:  
+  - Configurar *systemd* en LXC existents  
+  - Establir polítiques de seguretat específiques  
 
-L’adopció de Docker dins de la infraestructura no substitueix completament els contenidors LXC, però sí que pot aportar més versatilitat, especialment per a aplicacions modernes que es distribueixen com a imatges Docker. A més, obri la porta a una possible futura integració amb entorns de microserveis i tecnologies cloud-native.
+---
 
+#### **2. Seguretat Avançada**  
+🔐 *Hardening del cluster i xifrat de dades*  
+- **Certificats TLS personalitzats**:  
+  ```bash  
+  pvecm updatecerts -force  # Actualitza certificats autofirmats  
+  ```  
+- **Xifrat de discs amb LUKS** (per a PBS/Ceph):  
+  ```bash  
+  cryptsetup luksFormat /dev/sdX  # Xifrat en repòs  
+  ```  
+- **Integració amb LDAP/AD** per a gestió centralitzada d’usuaris.  
+
+---
+
+#### **3. Monitorització i Alertes**  
+📊 *Sistema proactiu de gestió d’incidents*  
+- **Grafana + Prometheus**: Visualització de mètriques en temps real.  
+- **Alertes automàtiques** (Telegram/Slack) per:  
+  - Caigudes de nodes HA  
+  - Espai d’emmagatzematge crític  
+- **Auditoria contínua**:  
+  ```bash  
+  lynis audit system  # Escaneig de vulnerabilitats  
+  ```  
+
+---
+
+#### **4. Backup i Recuperació de Desastres**  
+💾 *Replicació geogràfica i documentació*  
+- **PBS secundari** en altra ubicació:  
+  ```bash  
+  proxmox-backup-client sync --remote backup2.example.com  
+  ```  
+- **Playbook de recuperació**: Passos detallats per a:  
+  - Restauració de nodes  
+  - Recuperació de dades després de fallades greus  
+
+---
+
+#### **5. Xarxa i Aïllament**  
+🌐 *Segmentació per a major seguretat*  
+- **VLANs dedicades**:  
+  ```  
+  auto vmbr0.100  
+  iface vmbr0.100 inet static  
+      address 192.168.100.2/24  
+      vlan-raw-device vmbr0  
+  ```  
+  - Separar trànsit de gestió, Ceph i VMs.  
+
+---
+
+### **📋 Resum de Prioritats**  
+| **Àrea**          | **Acció Clau**                          | **Benefici Principal**                |  
+|--------------------|----------------------------------------|---------------------------------------|  
+| **Contenidors**    | Integració Docker + Portainer          | Portabilitat i ecosistema ampliat     |  
+| **Seguretat**      | Hardening + LUKS + LDAP                | Protecció de dades i accés controlat  |  
+| **Monitorització** | Grafana + Alertes automàtiques         | Resposta ràpida a incidents           |  
+| **Backup**         | PBS secundari + Playbook               | Resiliencia davant desastres          |  
+
+---
+
+### **🎯 Valoració**  
+Aquestes millores convertiran el nostre entorn en un sistema **més robust, segur i fàcil de gestionar**, adaptant-se tant a entorns educatius com empresarials.  
 
 ### Valoració personal del projecte
 
