@@ -15,7 +15,7 @@ apt update
 apt install zfsutils-linux -y
 ```
 
-![ZSF](image.png)
+![ZSF](../../../img/image-22.png)
 
 Això confirma que el sistema està preparat per a treballar amb pools ZFS.
 
@@ -31,7 +31,7 @@ Existien tres opcions principals per a crear el pool ZFS, depenent del nombre de
 
 👉 **Atés que en aquesta màquina només disposem de tres discos** (`/dev/vda`, `/dev/vdb` i `/dev/vdc`), la millor opció des del punt de vista tècnic és **RAID5**, ja que ens ofereix una bona capacitat d’emmagatzematge i alhora permet resistir la fallada d’un disc sense perdre les dades.
 
-![DISCOS](image-1.png)
+![DISCOS](../../../img/image-23.png)
 
 Per crear el pool:
 
@@ -39,7 +39,7 @@ Per crear el pool:
 zpool create backup-pool raidz /dev/vda /dev/vdb /dev/vdc
 ```
 
-![POOL ZFS](image-2.png)
+![POOL ZFS](../../../img/image-24.png)
 
 ---
 
@@ -51,7 +51,7 @@ Després de la creació, podem comprovar que el pool funciona correctament:
 zpool status
 ```
 
-![POOL STATUS](image-3.png)
+![POOL STATUS](../../../img/image-25.png)
 
 Hauries de veure un estat **ONLINE** i el pool anomenat `backup-pool`.
 
@@ -70,9 +70,9 @@ A través de la interfície web de PBS:
 
 - Creació del **Datastore**
 
-![DATASTORE](image-4.png)
+![DATASTORE](../../../img/image-26.png)
 
-![SUMMARY](image-5.png)
+![SUMMARY](../../../img/image-27.png)
 
 ---
 
@@ -91,7 +91,7 @@ NAME           USED  AVAIL  REFER  MOUNTPOINT
 backup-pool    96K   900G    96K   /backup-pool
 ```
 
-![ZSF](image-6.png)
+![ZSF](../../../img/image-28.png)
 
 A partir d’aquest moment, el sistema ja pot utilitzar el datastore per a còpies de seguretat, amb les garanties que ofereix ZFS quant a integritat de dades i rendiment.
 
