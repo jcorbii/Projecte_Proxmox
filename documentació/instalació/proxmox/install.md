@@ -77,3 +77,27 @@ https://10.10.10.61:8006
 I amb això, accedim de nou a la interfície de gestió de Proxmox:
 
 ![Web node 2](../../../img/image-13.png)
+
+---
+
+### 🖥️ Instal·lació del Node 3
+
+El procés d’instal·lació del **segon node** és **idèntic** al del primer, excepte pels valors del **nom del host** i la **IP**, que han de ser únics per a cada node.
+
+![Configuració node 3](../../../img/image-29.png)
+
+Com es pot comprovar en el resum, l’única diferència és la IP i el nom del host.
+
+![Resum node 3](../../../img/image-30.png)
+
+Després de completar la instal·lació, tornem a tindre accés a la interfície web per la nova IP configurada:
+
+```
+https://10.10.10.58:8006
+```
+
+![Accés node 3](../../../img/image-31.png)
+
+I amb això, accedim de nou a la interfície de gestió de Proxmox:
+
+![Web node 3](../../../img/image-32.png)
