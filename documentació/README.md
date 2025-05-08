@@ -41,8 +41,8 @@
 
 ## 7. 👥 Gestió d’Usuaris i Pools de Recursos
 - 7.1 Creació de rols personalitzats i permisos  
-- 7.3 Definició de pools de recursos  
-- 7.4 Gestió delegada i multiusuari  
+- 7.2 Definició de pools de recursos  
+- 7.3 Gestió delegada i multiusuari  
 
 ## 8. 🔐 Seguretat i Bones Pràctiques
 - 8.1 Actualitzacions i pegats de seguretat  
