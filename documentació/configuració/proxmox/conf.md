@@ -541,7 +541,13 @@ Per assegurar el correcte funcionament de la configuració HA, és recomanable f
 3. Observa com la VM és **migrada automàticament** a un altre node disponible
 4. Verifica que el servei continua operatiu sense intervenció manual
 
+![alt text](image-32.png)
+
 🔍 Es pot monitorar aquest procés des de `Datacenter → HA → Status`.
+
+![alt text](image-33.png)
+
+Per descomptat! Ací tens el fragment redactat de manera formal i clara, ideal per afegir com a continuació dins del punt 5.4 o com un subapartat pràctic de **recuperació post-fallada**:
 
 ---
 
@@ -571,4 +577,239 @@ Amb la configuració HA en Proxmox VE, es millora significativament la **resili�
 
 ---
 
-Vols que continue amb la secció **6. Proxmox Backup Server (PBS)** o vols que t’ajude a fer una portada o resum del projecte?
+
+### 🔁 Recuperació manual de màquines HA al seu node original
+
+Després d’una **caiguda temporal d’un node** del clúster, el sistema **HA de Proxmox** trasllada automàticament les màquines virtuals o contenidors afectats a un altre node disponible per garantir la continuïtat del servei.
+
+Un cop el node original torna a estar **en línia i estable**, és **recomanable migrar manualment** les màquines al seu node d'origen per:
+
+* Recuperar l’equilibri de càrrega del clúster
+* Retornar els recursos als seus entorns habituals
+* Preparar el sistema per a futures fallades
+
+---
+
+### ⚙️ Procediment per a migrar una màquina HA al node original
+
+1. Accedeix a la interfície web de Proxmox
+2. Ves al node on actualment està executant-se la màquina
+3. Selecciona la màquina virtual o contenidor
+4. Fes clic a **"Migrate"**
+5. Tria com a destinació el **node original** (ex: `node3`)
+6. Confirma l’operació
+
+📌 *Nota:* La migració es pot fer en calent (**live migration**) si la màquina suporta aquesta funcionalitat (generalment les VMs amb discs en Ceph o ZFS compartit).
+
+---
+
+### ✅ Resultat
+
+Amb aquest procés, la màquina recupera la seua ubicació inicial, mantenint-se dins del grup HA i **preparada per a futures gestions automàtiques** de tolerància a fallades.
+
+![alt text](image-34.png)
+
+---
+
+## 👥 7. Gestió d’Usuaris i Pools de Recursos
+
+En entorns virtualitzats compartits, com un clúster de **Proxmox VE**, és fonamental establir una **gestió d’usuaris estructurada**, amb **permisos diferenciats** i assignació clara de **recursos**, per garantir la **seguretat, control i eficiència operativa**.
+
+---
+
+### 🔐 7.1 Creació de Rols Personalitzats i Permisos
+
+**Proxmox VE** ofereix un sistema de permisos basat en rols, que permet definir què pot fer cada usuari dins del sistema. Aquest model RBAC (Role-Based Access Control) es basa en tres elements:
+
+* **Usuaris** (local, LDAP o via PAM)
+* **Rols** (conjunts de permisos)
+* **Objectes** (nodes, VM, storage, etc.)
+
+#### 🔧 Creació d’un rol personalitzat:
+
+1. Ves a `Datacenter → Permissions → Roles`
+2. Fes clic a **Add**
+3. Assigna un nom (ex. `gestor_vm`)
+4. Selecciona els permisos específics:
+
+   * `VM.Allocate`
+   * `VM.Config.Disk`
+   * `VM.Console`
+   * `Sys.Console`
+
+![alt text](image-35.png)
+
+
+![alt text](image-42.png)
+
+#### ➕ Assignació del rol:
+
+1. Ves a `Permissions → Add → Users`
+2. Selecciona:
+
+   * **Path:** àrea de control (`/`, `/vms`, `/pool/nom`, etc.)
+   * **User:** usuari o grup
+   * **Role:** el rol que has creat
+
+Això permet donar accés restringit a determinats recursos dins del clúster.
+
+![alt text](image-36.png)
+
+![alt text](image-38.png)
+
+En este cas he creat un usuari de prova per a assignar el rol creat.
+
+![alt text](image-37.png)
+
+---
+
+### 🗂️ 7.2 Definició de Pools de Recursos
+
+Els **pools** són agrupacions lògiques de recursos (VMs, CTs, discos, etc.) que permeten facilitar la gestió, especialment en entorns multiusuari o amb departaments diferenciats.
+
+#### 🛠️ Creació d’un pool:
+
+1. Ves a `Datacenter → Pools`
+2. Fes clic a **Create**
+
+![alt text](image-39.png)
+
+3. Emplena:
+
+   * **Nom del pool:** ex. `departament_it`, `desenvolupament`
+   * **Descripció** (opcional)
+
+![alt text](image-40.png)
+
+4. Afegeix les VMs o CTs desitjades al pool
+
+En este cas anem a fer que el usuari proba puga vore la vm 103(Windows10)
+
+![alt text](image-41.png)
+
+Assignacio del pool al usuari proba.
+
+![alt text](image-43.png)
+
+Els pools són útils per:
+
+* Aplicar permisos a grups d’usuari de forma més eficient
+* Organitzar recursos segons projectes o àrees de treball
+* Limitar l’accés només a les màquines assignades
+
+---
+
+### 👤 7.3 Gestió Delegada i Multiusuari
+
+Amb els **rols** i **pools**, es pot habilitar un entorn **multiusuari segur**, on cada usuari o equip tinga accés només als recursos que li pertoquen.
+
+#### Exemple de gestió delegada:
+
+* **Usuari:** `anna@pve`
+* **Pool assignat:** `marketing_vms`
+* **Rol aplicat:** `PVEVMUser` (amb permisos per iniciar/parar/migrar màquines)
+* Resultat: Anna només pot gestionar les VMs del pool `marketing_vms`, sense accedir a cap altre recurs del sistema
+
+![alt text](image-45.png)
+
+![alt text](image-44.png)
+
+---
+
+### ✅ Beneficis
+
+* 🔒 Major seguretat mitjançant la separació de privilegis
+* 👨‍👩‍👧‍👦 Facilitat per delegar la gestió a equips tècnics o usuaris finals
+* 🧩 Escalabilitat per a entorns educatius, empresarials o d'hosting
+
+---
+
+## 🧪 Casos Pràctics de Gestió Delegada i Multiusuari en Proxmox VE
+
+### 🎓 **Cas 1: Entorn educatiu amb alumnes de pràctiques**
+
+#### Escenari:
+
+L’institut ha desplegat un clúster de Proxmox per a alumnes del cicle de sistemes. Cada alumne ha de gestionar una VM pròpia, però sense accés al sistema complet.
+
+#### Configuració:
+
+* **Usuari:** `alumne01@pve`
+* **Pool:** `alumnes`
+* **VM assignada:** `vm105` (Debian pràctica)
+* **Rol:** `PVEVMUser`
+
+#### Resultat:
+
+L’alumne pot:
+
+* Engegar/parar la seua VM
+* Accedir per consola
+* No pot crear ni esborrar màquines
+* No pot veure cap altra VM
+
+---
+
+### 🏢 **Cas 2: Departament de Desenvolupament en una empresa**
+
+#### Escenari:
+
+L’equip de desenvolupament necessita accedir a diverses màquines de testing, però no ha de poder modificar la infraestructura general.
+
+#### Configuració:
+
+* **Usuaris:** `david@pve`, `jordi@pve`
+* **Pool:** `dev_pool`
+* **Rols:** `gestor_vm_custom` (creat amb permisos limitats com `VM.Console`, `VM.Start`, `VM.Shutdown`)
+
+#### Resultat:
+
+Els usuaris poden:
+
+* Utilitzar i gestionar les seues VMs
+* No poden crear VMs noves ni modificar configuracions globals
+
+---
+
+### 🛠️ **Cas 3: Tècnic amb accés complet a un node concret**
+
+#### Escenari:
+
+Un tècnic extern col·labora en la gestió de sistemes, però només se li vol donar accés al node `node3`.
+
+#### Configuració:
+
+* **Usuari:** `tecnic@pve`
+* **Àrea assignada:** `/nodes/node3`
+* **Rol:** `PVEAdmin`
+
+#### Resultat:
+
+Té accés complet només a les màquines i configuració d’eixe node, però no pot accedir a altres nodes ni al datacenter.
+
+---
+
+### 🧩 **Cas 4: Hosting amb gestió delegada per client**
+
+#### Escenari:
+
+Una empresa ofereix màquines virtuals com a servei. Cada client gestiona la seua pròpia màquina.
+
+#### Configuració:
+
+* **Client:** `client_a@pve`
+* **Pool:** `client_a_pool`
+* **VM assignada:** `vm201`
+* **Rol:** `PVEVMUser`
+
+#### Resultat:
+
+Cada client pot administrar la seua pròpia màquina, sense cap visibilitat sobre altres clients o parts del sistema.
+
+---
+
+### ✅ Conclusions dels casos pràctics
+
+Aquests escenaris mostren com Proxmox permet adaptar-se fàcilment a entorns **multiusuari**, amb control granular de permisos i una gestió segura i delegada, mantenint la **seguretat**, **eficiència** i **flexibilitat** del sistema.
+
+---
