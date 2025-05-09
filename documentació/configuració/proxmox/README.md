@@ -392,9 +392,6 @@ Ceph replica les dades entre OSDs segons la configuració de rèpliques (per def
 ![Restauració](../../../img/image-82.png)
 
 ---
-Perfecte! A continuació et redacte el punt **4.5 Gestió i monitoratge de Ceph**, amb to tècnic, formal i en valencià, adaptat per al teu projecte de forma clara i estructurada:
-
----
 
 ### 📈 4.5 Gestió i Monitoratge de **Ceph**
 
@@ -541,11 +538,11 @@ Per assegurar el correcte funcionament de la configuració HA, és recomanable f
 3. Observa com la VM és **migrada automàticament** a un altre node disponible
 4. Verifica que el servei continua operatiu sense intervenció manual
 
-![alt text](../../../img/image-88.png)
+![alt text](../../../img/image-89.png)
 
 🔍 Es pot monitorar aquest procés des de `Datacenter → HA → Status`.
 
-![alt text](../../../img/image-89.png)
+![alt text](../../../img/image-90.png)
 
 Per descomptat! Ací tens el fragment redactat de manera formal i clara, ideal per afegir com a continuació dins del punt 5.4 o com un subapartat pràctic de **recuperació post-fallada**:
 
@@ -607,7 +604,7 @@ Un cop el node original torna a estar **en línia i estable**, és **recomanable
 
 Amb aquest procés, la màquina recupera la seua ubicació inicial, mantenint-se dins del grup HA i **preparada per a futures gestions automàtiques** de tolerància a fallades.
 
-![alt text](../../../img/image-90.png)
+![alt text](../../../img/image-91.png)
 
 ---
 
@@ -637,10 +634,9 @@ En entorns virtualitzats compartits, com un clúster de **Proxmox VE**, és fona
    * `VM.Console`
    * `Sys.Console`
 
-![alt text](../../../img/image-91.png)
+![alt text](../../../img/image-92.png)
 
-
-![alt text](../../../img/image-98.png)
+![alt text](../../../img/image-93.png)
 
 #### ➕ Assignació del rol:
 
@@ -653,13 +649,13 @@ En entorns virtualitzats compartits, com un clúster de **Proxmox VE**, és fona
 
 Això permet donar accés restringit a determinats recursos dins del clúster.
 
-![alt text](../../../img/image-92.png)
-
 ![alt text](../../../img/image-94.png)
+
+![alt text](../../../img/image-95.png)
 
 En este cas he creat un usuari de prova per a assignar el rol creat.
 
-![alt text](../../../img/image-93.png)
+![alt text](../../../img/image-96.png)
 
 ---
 
@@ -669,25 +665,25 @@ Els **pools** són agrupacions lògiques de recursos (VMs, CTs, discos, etc.) qu
 
 #### 🛠️ Creació d’un pool:
 
-1. Ves a `Datacenter → Pools`
+1. Ves a `Datacenter → Permissions → Pools`
 2. Fes clic a **Create**
 
-![alt text](../../../img/image-95.png)
+![alt text](../../../img/image-97.png)
 
 1. Emplena:
 
    * **Nom del pool:** ex. `departament_it`, `desenvolupament`
    * **Descripció** (opcional)
 
-![alt text](../../../img/image-96.png)
+![alt text](../../../img/image-98.png)
 
-4. Afegeix les VMs o CTs desitjades al pool
+1. Afegeix les VMs o CTs desitjades al pool
 
-En este cas anem a fer que el usuari proba puga vore la vm 103(Windows10)
+En este cas anem a fer que el usuari proba puga vore la vm 108(Windows10)
 
 ![alt text](../../../img/image-99.png)
 
-Assignacio del pool al usuari proba.
+Assignacio del pool al usuari proba amb el rol  que hem creat.
 
 ![alt text](../../../img/image-100.png)
 
@@ -713,6 +709,10 @@ Amb els **rols** i **pools**, es pot habilitar un entorn **multiusuari segur**, 
 ![alt text](../../../img/image-101.png)
 
 ![alt text](../../../img/image-102.png)
+
+![alt text](../../../img/image-103.png)
+
+![alt text](../../../img/image-104.png)
 
 ---
 
