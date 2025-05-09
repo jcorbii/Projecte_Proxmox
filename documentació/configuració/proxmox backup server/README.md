@@ -250,10 +250,10 @@ Indica quin **storage** utilitzarà el contenidor.
 ### 🧮 Pas 5: Configuració de recursos
 
 * **CPU:** nombre de nuclis assignats
-  ![CPU](../../../img/image-44.png)
+![CPU](../../../img/image-44.png)
 
 * **RAM:** memòria en MB
-  ![RAM](../../../img/image-45.png)
+![RAM](../../../img/image-45.png)
 
 ---
 
