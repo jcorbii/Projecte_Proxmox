@@ -63,6 +63,4 @@
 - 10.4 Valoració tècnica i personal del projecte  
 
 ## 11. 📎 Annexos
-- A. Captures de pantalla  
-- C. Fitxes tècniques del maquinari  
-- D. Enllaços d’interés i bibliografia  
+- 11.1 Enllaços d’interés i bibliografia  

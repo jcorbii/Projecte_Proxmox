@@ -21,16 +21,16 @@ A continuació et detallem pas a pas com crear un clúster en Proxmox i unir-hi 
    * Altres paràmetres segons la teua configuració
 
 <p align="center">
-  <img src="image-1.png" alt="Crear cluster pas 1" />
+  <img src="../../../img/image-56.png" alt="Crear cluster pas 1" />
 </p>
 
 <p align="center">
-  <img src="image-2.png" alt="Crear cluster pas 2" />
+  <img src="../../../img/image-57.png" alt="Crear cluster pas 2" />
 </p>
 
 5. Un cop creat, veuràs el node com a part del clúster.
 
-![Cluster creat](image-3.png)
+![Cluster creat](../../../img/image-58.png)
 
 ---
 
@@ -41,27 +41,27 @@ Per afegir un altre node al clúster:
 1. Accedeix al segon node i ves a **Datacenter → Cluster**.
 2. Fes clic a **Unir-se al clúster** (`Join Cluster`).
 
-![Unir-se al cluster](image-4.png)
+![Unir-se al cluster](../../../img/image-59.png)
 
 3. A continuació, hauràs d’introduir la **informació del clúster**.
 
 <p align="center">
-  <img src="image-5.png" alt="Formulari unir-se" />
+  <img src="../../../img/image-60.png" alt="Formulari unir-se" />
 </p>
 
 4. Per obtindre aquesta informació, torna al node principal del clúster i fes clic a **Join Information**.
 
-![Informació per unir-se](image-6.png)
+![Informació per unir-se](../../../img/image-61.png)
 
 5. Copia aquesta informació i torna al node secundari. Enganxa-la al formulari per unir-se.
 
 <p align="center">
-  <img src="image-7.png" alt="Enganxar informació" />
+  <img src="../../../img/image-62.png" alt="Enganxar informació" />
 </p>
 
 6. Fes clic a **Unir-se**. Si tot és correcte, el node s’afegirà automàticament al clúster.
 
-![Node afegit](image-8.png)
+![Node afegit](../../../img/image-63.png)
 
 ---
 
@@ -79,7 +79,7 @@ Per afegir més nodes, repeteix exactament el mateix procés:
 
 🔚 I amb això ja tindràs un clúster Proxmox funcional amb diversos nodes!
 
-![Comprovació](image-9.png)
+![Comprovació](../../../img/image-64.png)
 
 Perfecte! Comencem pel punt **4.1 Introducció a Ceph i integració amb Proxmox**. Et deixe a continuació una proposta redactada en valencià formal, clara i adequada per al teu projecte:
 
@@ -153,25 +153,25 @@ Abans de començar amb la instal·lació, cal assegurar:
    * A l’apartat `Ceph`, fes clic a **Install Ceph**
    * El sistema instal·larà automàticament els paquets necessaris (`ceph`, `ceph-common`, etc.)
 
-![alt text](image-10.png)
+![alt text](../../../img/image-65.png)
 
-![alt text](image-11.png)
+![alt text](../../../img/image-66.png)
 
 3. **Crear els monitors (MON)**
 
    * Un mínim de **tres monitors** és recomanat per garantir el quorum
    * Des de l’apartat `Monitor`, fes clic a **Create Monitor**
 
-![alt text](image-12.png)
+![alt text](../../../img/image-67.png)
 
-![alt text](image-13.png)
+![alt text](../../../img/image-68.png)
 
 4. **Afegir el gestor (MGR)**
 
    * Necessari per a la interfície gràfica i gestió avançada
    * Crea’l des de la mateixa pestanya amb el botó **Create Manager**
 
-![alt text](image-14.png)
+![alt text](../../../img/image-69.png)
 
 5. **Afegir els OSDs (Object Storage Daemons)**
 
@@ -179,28 +179,28 @@ Abans de començar amb la instal·lació, cal assegurar:
    * Ves a `OSD → Create OSD`, selecciona el disc físic i crea’l
    * Repeteix el procés per a cada node i disc dedicat
 
-![alt text](image-15.png)
+![alt text](../../../img/image-70.png)
 
 
 <p align="center">
-  <img src="image-16.png" alt="Enganxar informació" />
+  <img src="../../../img/image-71.png" alt="Enganxar informació" />
 </p>
 
 * Com tenim 2 discos per cada node (menos en el node 3 que sols hi ha 1)de proxmox haurem de repetir el proccess dos voltes
 
 **Node 1:**
 
-![alt text](image-17.png)
+![alt text](../../../img/image-72.png)
 
 **Node 2**
 
-![alt text](image-18.png)
+![alt text](../../../img/image-73.png)
 
 **Node 3**
 
-![alt text](image-19.png)
+![alt text](../../../img/image-74.png)
 
-6. **(Opcional) Crear un MDS (Metadata Server)**
+1. **(Opcional) Crear un MDS (Metadata Server)**
 
    * Només si vols utilitzar **CephFS** com a sistema de fitxers compartit
 
@@ -252,7 +252,7 @@ Un **pool** és una agrupació lògica d’objectes dins del clúster Ceph. Cada
 2. Ves a `Datacenter → Ceph → Pools`
 3. Fes clic a **Create**
 
-![alt text](image-20.png)
+![alt text](../../../img/image-75.png)
 
 4. Emplena els camps següents:
 
@@ -269,11 +269,11 @@ Un **pool** és una agrupació lògica d’objectes dins del clúster Ceph. Cada
 
 1. Fes clic a **Create** i espera a que el pool aparega a la llista
 
-![alt text](image-22.png)
+![alt text](../../../img/image-76.png)
 
 Al pas d'un temps podem veure com en els nodes apareix l'almacenament del ceph.
 
-![alt text](image-23.png)
+![alt text](../../../img/image-77.png)
 
 ---
 
@@ -326,7 +326,7 @@ rados bench -p vm-data 60 rand
 ```
 
 <p align="center">
-  <img src="image-24.png" alt="Creació de pool en Proxmox" />
+  <img src="../../../img/image-78.png" alt="Creació de pool en Proxmox" />
 </p>
 
 ### ✅ Resultat esperat
@@ -381,7 +381,7 @@ Ceph replica les dades entre OSDs segons la configuració de rèpliques (per def
 
 2. Observa com Ceph reporta l’estat *degraded* i com reubica les dades.
 
-![Observar Ceph](image-25.png)
+![Observar Ceph](../../../img/image-79.png)
 
 3. Torna a engegar l’OSD i comprova la **reestructuració automàtica**:
 
@@ -389,7 +389,7 @@ Ceph replica les dades entre OSDs segons la configuració de rèpliques (per def
    systemctl start ceph-osd@X
    ```
 
-![Restauració](image-26.png)
+![Restauració](../../../img/image-80.png)
 
 ---
 Perfecte! A continuació et redacte el punt **4.5 Gestió i monitoratge de Ceph**, amb to tècnic, formal i en valencià, adaptat per al teu projecte de forma clara i estructurada:
@@ -492,7 +492,7 @@ Per a fer ús de la funcionalitat HA, cal que:
 * Cada node mostrarà el seu estat (online, standby, etc.)
 
 <p align="center">
-  <img src="image-27.png" alt="Gestor HA" />
+  <img src="../../../img/image-81.png" alt="Gestor HA" />
 </p>
 
 ---
@@ -505,13 +505,13 @@ Els **grups HA** permeten organitzar i assignar màquines virtuals o contenidors
 
 1. Ves a `Datacenter → HA → Groups`
 
-![alt text](image-28.png)
+![alt text](../../../img/image-82.png)
 
 1. Fes clic a **Create**
 2. Assigna:
 
 <p align="center">
-  <img src="image-29.png" alt="Gestor HA" />
+  <img src="../../../img/image-83.png" alt="Gestor HA" />
 </p>
 
    * **Nom del grup**
@@ -531,21 +531,21 @@ Per assegurar el correcte funcionament de la configuració HA, és recomanable f
 1. Assigna una VM a un grup HA
 
 <p align="center">
-  <img src="image-30.png" alt="Gestor HA" />
+  <img src="../../../img/image-84.png" alt="Gestor HA" />
 </p>
 
 2. Para o apaga un node manualment
 
-![alt text](image-31.png)
+![alt text](../../../img/image-85.png)
 
 3. Observa com la VM és **migrada automàticament** a un altre node disponible
 4. Verifica que el servei continua operatiu sense intervenció manual
 
-![alt text](image-32.png)
+![alt text](../../../img/image-86.png)
 
 🔍 Es pot monitorar aquest procés des de `Datacenter → HA → Status`.
 
-![alt text](image-33.png)
+![alt text](../../../img/image-87.png)
 
 Per descomptat! Ací tens el fragment redactat de manera formal i clara, ideal per afegir com a continuació dins del punt 5.4 o com un subapartat pràctic de **recuperació post-fallada**:
 
@@ -607,7 +607,7 @@ Un cop el node original torna a estar **en línia i estable**, és **recomanable
 
 Amb aquest procés, la màquina recupera la seua ubicació inicial, mantenint-se dins del grup HA i **preparada per a futures gestions automàtiques** de tolerància a fallades.
 
-![alt text](image-34.png)
+![alt text](../../../img/image-89.png)
 
 ---
 
@@ -637,10 +637,10 @@ En entorns virtualitzats compartits, com un clúster de **Proxmox VE**, és fona
    * `VM.Console`
    * `Sys.Console`
 
-![alt text](image-35.png)
+![alt text](../../../img/image-90.png)
 
 
-![alt text](image-42.png)
+![alt text](../../../img/image-97.png)
 
 #### ➕ Assignació del rol:
 
@@ -653,13 +653,13 @@ En entorns virtualitzats compartits, com un clúster de **Proxmox VE**, és fona
 
 Això permet donar accés restringit a determinats recursos dins del clúster.
 
-![alt text](image-36.png)
+![alt text](../../../img/image-91.png)
 
-![alt text](image-38.png)
+![alt text](../../../img/image-93.png)
 
 En este cas he creat un usuari de prova per a assignar el rol creat.
 
-![alt text](image-37.png)
+![alt text](../../../img/image-92.png)
 
 ---
 
@@ -672,24 +672,24 @@ Els **pools** són agrupacions lògiques de recursos (VMs, CTs, discos, etc.) qu
 1. Ves a `Datacenter → Pools`
 2. Fes clic a **Create**
 
-![alt text](image-39.png)
+![alt text](../../../img/image-94.png)
 
-3. Emplena:
+1. Emplena:
 
    * **Nom del pool:** ex. `departament_it`, `desenvolupament`
    * **Descripció** (opcional)
 
-![alt text](image-40.png)
+![alt text](../../../img/image-9.png)
 
 4. Afegeix les VMs o CTs desitjades al pool
 
 En este cas anem a fer que el usuari proba puga vore la vm 103(Windows10)
 
-![alt text](image-41.png)
+![alt text](../../../img/image-98.png)
 
 Assignacio del pool al usuari proba.
 
-![alt text](image-43.png)
+![alt text](../../../img/image-100.png)
 
 Els pools són útils per:
 
@@ -710,9 +710,9 @@ Amb els **rols** i **pools**, es pot habilitar un entorn **multiusuari segur**, 
 * **Rol aplicat:** `PVEVMUser` (amb permisos per iniciar/parar/migrar màquines)
 * Resultat: Anna només pot gestionar les VMs del pool `marketing_vms`, sense accedir a cap altre recurs del sistema
 
-![alt text](image-45.png)
+![alt text](../../../img/image-101.png)
 
-![alt text](image-44.png)
+![alt text](../../../img/image-101.png)
 
 ---
 

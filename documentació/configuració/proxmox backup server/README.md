@@ -115,7 +115,7 @@ Accedeix al **Proxmox Backup Server** i ves a:
 
 Esta empremta és necessària per establir una connexió segura entre els nodes de Proxmox VE i el servidor PBS.
 
-![Fingerprint del PBS](image.png)
+![Fingerprint del PBS](../../../img/image-33.png)
 
 ---
 
@@ -126,7 +126,7 @@ Una vegada copiada l’empremta, accedim a qualsevol node del clúster de **Prox
 1. Ves a **Datacenter → Storage**
 2. Fes clic a **Add** i selecciona l’opció **Proxmox Backup Server**
 
-![Afegir PBS a Proxmox](image-1.png)
+![Afegir PBS a Proxmox](../../../img/image-34.png)
 
 ---
 
@@ -135,7 +135,7 @@ Una vegada copiada l’empremta, accedim a qualsevol node del clúster de **Prox
 Ara introduïm la informació requerida del servidor PBS:
 
 <p align="center">
-  <img src="image-3.png" alt="Formulari PBS" />
+  <img src="../../../img/image-36.png" alt="Formulari PBS" />
 </p>
 
 * **ID:** Nom identificador per a l’almacenament
@@ -152,7 +152,7 @@ Ara introduïm la informació requerida del servidor PBS:
 
 Una vegada configurat, el sistema validarà les dades i l’almacenament PBS apareixerà com a disponible per a fer còpies de seguretat o restauracions.
 
-![PBS afegit amb èxit](image-2.png)
+![PBS afegit amb èxit](../../../img/image-35.png)
 
 ---
 
@@ -182,14 +182,14 @@ Per a poder crear un contenidor, és necessari **disposar d’un *template*** (p
 
 📌 En el nostre cas, utilitzarem la tercera opció: **plantilles predefinides**
 
-![Plantilles disponibles](image-4.png)
+![Plantilles disponibles](../../../img/image-37.png)
 
 Per a aquest projecte, descarregarem i utilitzarem plantilles de:
 
 * **Debian**
 * **Fedora**
 
-![Selecció de plantilles](image-5.png)
+![Selecció de plantilles](../../../img/image-38.png)
 
 ---
 
@@ -202,7 +202,7 @@ Per a crear una màquina virtual, és necessari **pujar una ISO** del sistema op
 3. Fes clic a **Upload**
 4. Pujar la imatge ISO corresponent (ex. Debian, Ubuntu, Windows...)
 
-![Upload d'una ISO](image-6.png)
+![Upload d'una ISO](../../../img/image-39.png)
 
 ---
 
@@ -213,7 +213,7 @@ Un cop tenim el *template* descarregat, podem crear un contenidor amb els passos
 ### 🧭 Pas 1: Inici de la creació
 
 1. Fes clic a **Create CT** (Crear CT)
-   ![Crear CT](image-7.png)
+   ![Crear CT](../../../img/image-40.png)
 
 ---
 
@@ -227,7 +227,7 @@ Introdueix les dades del contenidor:
 * **Resource Pool:** (opcional) agrupació de recursos
 * **Password:** per a l’accés del root
 
-![Dades bàsiques del CT](image-8.png)
+![Dades bàsiques del CT](../../../img/image-41.png)
 
 ---
 
@@ -235,7 +235,7 @@ Introdueix les dades del contenidor:
 
 Selecciona la plantilla que has descarregat anteriorment.
 
-![Selecció de template](image-9.png)
+![Selecció de template](../../../img/image-42.png)
 
 ---
 
@@ -243,17 +243,17 @@ Selecciona la plantilla que has descarregat anteriorment.
 
 Indica quin **storage** utilitzarà el contenidor.
 
-![Selecció d'emmagatzematge](image-10.png)
+![Selecció d'emmagatzematge](../../../img/image-43.png)
 
 ---
 
 ### 🧮 Pas 5: Configuració de recursos
 
 * **CPU:** nombre de nuclis assignats
-  ![CPU](image-11.png)
+  ![CPU](../../../img/image-44.png)
 
 * **RAM:** memòria en MB
-  ![RAM](image-12.png)
+  ![RAM](../../../img/image-45.png)
 
 ---
 
@@ -261,7 +261,7 @@ Indica quin **storage** utilitzarà el contenidor.
 
 Defineix la configuració de xarxa (bridge, IP, VLAN, etc.)
 
-![Xarxa](image-13.png)
+![Xarxa](../../../img/image-46.png)
 
 ---
 
@@ -269,7 +269,7 @@ Defineix la configuració de xarxa (bridge, IP, VLAN, etc.)
 
 Un cop completats tots els passos, el contenidor serà creat i apareixerà a la llista de recursos del node.
 
-![CT creat](image-14.png)
+![CT creat](../../../img/image-47.png)
 
 ---
 
@@ -327,7 +327,7 @@ La programació de còpies de seguretat ha d’anar acompanyada d’una polític
 Aquesta política es pot aplicar automàticament des de la configuració del **storage** PBS a `Datacenter → Storage → pbs → Backup Retention `.
 
 <p align="center">
-  <img src="image-19.png" alt="Formulari PBS" />
+  <img src="../../../img/image-53.png" alt="Formulari PBS" />
 </p>
 
 ---
@@ -345,7 +345,7 @@ Les tasques de còpia es poden programar fàcilment:
    * **Recursos:** tots, per pool o per ID
 
 <p align="center">
-  <img src="image-18.png" alt="Formulari PBS" />
+  <img src="../../../img/image-52.png" alt="Formulari PBS" />
 </p>
 
 ---
@@ -379,7 +379,7 @@ Proxmox permet dues modalitats principals de restauració:
 * Ves a `Datacenter → Storage → pbs`
 * Selecciona la còpia de seguretat desitjada
 
-![Backup](image-15.png)
+![Backup](../../../img/image-48.png)
 
 #### 2. Llençar la restauració
 
@@ -394,7 +394,7 @@ Proxmox permet dues modalitats principals de restauració:
   * **Storage:** tria l’emmagatzematge de destí
 
 <p align="center">
-  <img src="image-16.png" alt="Pantalla de restauració" />
+  <img src="../../../img/image-50.png" alt="Pantalla de restauració" />
 </p>
 
 #### 3. Confirmar i monitorar
@@ -403,7 +403,7 @@ Proxmox permet dues modalitats principals de restauració:
 * Segueix el procés mitjançant el registre de tasques
 * Quan acabe, comprova que la màquina funciona correctament
 
-![Restore](image-17.png)
+![Restore](../../../img/image-51.png)
 
 ---
 
@@ -445,10 +445,10 @@ En **Proxmox Backup Server (PBS)** es poden definir regles específiques per a c
 
 * `Datacenter → Storage → pbs → Backup Retention
 
-![alt text](image-21.png)
+![alt text](../../../img/image-55.png)
 
 <p align="center">
-  <img src="image-20.png" alt="Pantalla de restauració" />
+  <img src="../../../img/image-54.png" alt="Pantalla de restauració" />
 </p>
 
 #### 📝 Paràmetres comuns:
