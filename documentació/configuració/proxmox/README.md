@@ -10,7 +10,7 @@ A continuació et detallem pas a pas com crear un clúster en Proxmox i unir-hi 
 2. Ves a **Datacenter → Cluster** des del menú lateral esquerre.
 3. Fes clic a **Crear Clúster** (`Create Cluster`).
 
-![Pantalla inicial del cluster](image.png)
+![Pantalla inicial del cluster](image-56.png)
 
 
 
@@ -21,16 +21,16 @@ A continuació et detallem pas a pas com crear un clúster en Proxmox i unir-hi 
    * Altres paràmetres segons la teua configuració
 
 <p align="center">
-  <img src="../../../img/image-56.png" alt="Crear cluster pas 1" />
+  <img src="../../../img/image-57.png" alt="Crear cluster pas 1" />
 </p>
 
 <p align="center">
-  <img src="../../../img/image-57.png" alt="Crear cluster pas 2" />
+  <img src="../../../img/image-58.png" alt="Crear cluster pas 2" />
 </p>
 
 5. Un cop creat, veuràs el node com a part del clúster.
 
-![Cluster creat](../../../img/image-58.png)
+![Cluster creat](../../../img/image-59.png)
 
 ---
 
@@ -41,27 +41,27 @@ Per afegir un altre node al clúster:
 1. Accedeix al segon node i ves a **Datacenter → Cluster**.
 2. Fes clic a **Unir-se al clúster** (`Join Cluster`).
 
-![Unir-se al cluster](../../../img/image-59.png)
+![Unir-se al cluster](../../../img/image-60.png)
 
 3. A continuació, hauràs d’introduir la **informació del clúster**.
 
 <p align="center">
-  <img src="../../../img/image-60.png" alt="Formulari unir-se" />
+  <img src="../../../img/image-61.png" alt="Formulari unir-se" />
 </p>
 
 4. Per obtindre aquesta informació, torna al node principal del clúster i fes clic a **Join Information**.
 
-![Informació per unir-se](../../../img/image-61.png)
+![Informació per unir-se](../../../img/image-62.png)
 
 5. Copia aquesta informació i torna al node secundari. Enganxa-la al formulari per unir-se.
 
 <p align="center">
-  <img src="../../../img/image-62.png" alt="Enganxar informació" />
+  <img src="../../../img/image-63.png" alt="Enganxar informació" />
 </p>
 
 6. Fes clic a **Unir-se**. Si tot és correcte, el node s’afegirà automàticament al clúster.
 
-![Node afegit](../../../img/image-63.png)
+![Node afegit](../../../img/image-64.png)
 
 ---
 
