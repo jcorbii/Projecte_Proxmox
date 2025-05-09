@@ -252,7 +252,7 @@ Un **pool** és una agrupació lògica d’objectes dins del clúster Ceph. Cada
 2. Ves a `Datacenter → Ceph → Pools`
 3. Fes clic a **Create**
 
-![alt text](../../../img/image-75.png)
+![alt text](../../../img/image-76.png)
 
 4. Emplena els camps següents:
 
@@ -264,16 +264,16 @@ Un **pool** és una agrupació lògica d’objectes dins del clúster Ceph. Cada
    * **Crush Rule:** regla de distribució entre els dispositius de disc
 
 <p align="center">
-  <img src="image-21.png" alt="Creació de pool en Proxmox" />
+  <img src="image-77.png" alt="Creació de pool en Proxmox" />
 </p>
 
 1. Fes clic a **Create** i espera a que el pool aparega a la llista
 
-![alt text](../../../img/image-76.png)
+![alt text](../../../img/image-78.png)
 
 Al pas d'un temps podem veure com en els nodes apareix l'almacenament del ceph.
 
-![alt text](../../../img/image-77.png)
+![alt text](../../../img/image-79.png)
 
 ---
 
@@ -326,7 +326,7 @@ rados bench -p vm-data 60 rand
 ```
 
 <p align="center">
-  <img src="../../../img/image-78.png" alt="Creació de pool en Proxmox" />
+  <img src="../../../img/image-80.png" alt="Creació de pool en Proxmox" />
 </p>
 
 ### ✅ Resultat esperat
@@ -381,7 +381,7 @@ Ceph replica les dades entre OSDs segons la configuració de rèpliques (per def
 
 2. Observa com Ceph reporta l’estat *degraded* i com reubica les dades.
 
-![Observar Ceph](../../../img/image-79.png)
+![Observar Ceph](../../../img/image-81.png)
 
 3. Torna a engegar l’OSD i comprova la **reestructuració automàtica**:
 
@@ -389,7 +389,7 @@ Ceph replica les dades entre OSDs segons la configuració de rèpliques (per def
    systemctl start ceph-osd@X
    ```
 
-![Restauració](../../../img/image-80.png)
+![Restauració](../../../img/image-82.png)
 
 ---
 Perfecte! A continuació et redacte el punt **4.5 Gestió i monitoratge de Ceph**, amb to tècnic, formal i en valencià, adaptat per al teu projecte de forma clara i estructurada:
@@ -492,7 +492,7 @@ Per a fer ús de la funcionalitat HA, cal que:
 * Cada node mostrarà el seu estat (online, standby, etc.)
 
 <p align="center">
-  <img src="../../../img/image-81.png" alt="Gestor HA" />
+  <img src="../../../img/image-83.png" alt="Gestor HA" />
 </p>
 
 ---
@@ -505,13 +505,13 @@ Els **grups HA** permeten organitzar i assignar màquines virtuals o contenidors
 
 1. Ves a `Datacenter → HA → Groups`
 
-![alt text](../../../img/image-82.png)
+![alt text](../../../img/image-84.png)
 
 1. Fes clic a **Create**
 2. Assigna:
 
 <p align="center">
-  <img src="../../../img/image-83.png" alt="Gestor HA" />
+  <img src="../../../img/image-85.png" alt="Gestor HA" />
 </p>
 
    * **Nom del grup**
@@ -531,21 +531,21 @@ Per assegurar el correcte funcionament de la configuració HA, és recomanable f
 1. Assigna una VM a un grup HA
 
 <p align="center">
-  <img src="../../../img/image-84.png" alt="Gestor HA" />
+  <img src="../../../img/image-86.png" alt="Gestor HA" />
 </p>
 
 2. Para o apaga un node manualment
 
-![alt text](../../../img/image-85.png)
+![alt text](../../../img/image-87.png)
 
 3. Observa com la VM és **migrada automàticament** a un altre node disponible
 4. Verifica que el servei continua operatiu sense intervenció manual
 
-![alt text](../../../img/image-86.png)
+![alt text](../../../img/image-88.png)
 
 🔍 Es pot monitorar aquest procés des de `Datacenter → HA → Status`.
 
-![alt text](../../../img/image-87.png)
+![alt text](../../../img/image-89.png)
 
 Per descomptat! Ací tens el fragment redactat de manera formal i clara, ideal per afegir com a continuació dins del punt 5.4 o com un subapartat pràctic de **recuperació post-fallada**:
 
@@ -607,7 +607,7 @@ Un cop el node original torna a estar **en línia i estable**, és **recomanable
 
 Amb aquest procés, la màquina recupera la seua ubicació inicial, mantenint-se dins del grup HA i **preparada per a futures gestions automàtiques** de tolerància a fallades.
 
-![alt text](../../../img/image-89.png)
+![alt text](../../../img/image-90.png)
 
 ---
 
@@ -637,10 +637,10 @@ En entorns virtualitzats compartits, com un clúster de **Proxmox VE**, és fona
    * `VM.Console`
    * `Sys.Console`
 
-![alt text](../../../img/image-90.png)
+![alt text](../../../img/image-91.png)
 
 
-![alt text](../../../img/image-97.png)
+![alt text](../../../img/image-98.png)
 
 #### ➕ Assignació del rol:
 
@@ -653,13 +653,13 @@ En entorns virtualitzats compartits, com un clúster de **Proxmox VE**, és fona
 
 Això permet donar accés restringit a determinats recursos dins del clúster.
 
-![alt text](../../../img/image-91.png)
+![alt text](../../../img/image-92.png)
 
-![alt text](../../../img/image-93.png)
+![alt text](../../../img/image-94.png)
 
 En este cas he creat un usuari de prova per a assignar el rol creat.
 
-![alt text](../../../img/image-92.png)
+![alt text](../../../img/image-93.png)
 
 ---
 
@@ -672,20 +672,20 @@ Els **pools** són agrupacions lògiques de recursos (VMs, CTs, discos, etc.) qu
 1. Ves a `Datacenter → Pools`
 2. Fes clic a **Create**
 
-![alt text](../../../img/image-94.png)
+![alt text](../../../img/image-95.png)
 
 1. Emplena:
 
    * **Nom del pool:** ex. `departament_it`, `desenvolupament`
    * **Descripció** (opcional)
 
-![alt text](../../../img/image-9.png)
+![alt text](../../../img/image-96.png)
 
 4. Afegeix les VMs o CTs desitjades al pool
 
 En este cas anem a fer que el usuari proba puga vore la vm 103(Windows10)
 
-![alt text](../../../img/image-98.png)
+![alt text](../../../img/image-99.png)
 
 Assignacio del pool al usuari proba.
 
@@ -712,7 +712,7 @@ Amb els **rols** i **pools**, es pot habilitar un entorn **multiusuari segur**, 
 
 ![alt text](../../../img/image-101.png)
 
-![alt text](../../../img/image-101.png)
+![alt text](../../../img/image-102.png)
 
 ---
 
