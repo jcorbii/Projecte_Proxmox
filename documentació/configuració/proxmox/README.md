@@ -79,7 +79,7 @@ Per afegir més nodes, repeteix exactament el mateix procés:
 
 🔚 I amb això ja tindràs un clúster Proxmox funcional amb diversos nodes!
 
-![Comprovació](../../../img/image-64.png)
+![Comprovació](../../../img/image-65.png)
 
 Perfecte! Comencem pel punt **4.1 Introducció a Ceph i integració amb Proxmox**. Et deixe a continuació una proposta redactada en valencià formal, clara i adequada per al teu projecte:
 
@@ -153,25 +153,25 @@ Abans de començar amb la instal·lació, cal assegurar:
    * A l’apartat `Ceph`, fes clic a **Install Ceph**
    * El sistema instal·larà automàticament els paquets necessaris (`ceph`, `ceph-common`, etc.)
 
-![alt text](../../../img/image-65.png)
-
 ![alt text](../../../img/image-66.png)
+
+![alt text](../../../img/image-67.png)
 
 3. **Crear els monitors (MON)**
 
    * Un mínim de **tres monitors** és recomanat per garantir el quorum
    * Des de l’apartat `Monitor`, fes clic a **Create Monitor**
 
-![alt text](../../../img/image-67.png)
-
 ![alt text](../../../img/image-68.png)
+
+![alt text](../../../img/image-69.png)
 
 4. **Afegir el gestor (MGR)**
 
    * Necessari per a la interfície gràfica i gestió avançada
    * Crea’l des de la mateixa pestanya amb el botó **Create Manager**
 
-![alt text](../../../img/image-69.png)
+![alt text](../../../img/image-70.png)
 
 5. **Afegir els OSDs (Object Storage Daemons)**
 
@@ -179,26 +179,26 @@ Abans de començar amb la instal·lació, cal assegurar:
    * Ves a `OSD → Create OSD`, selecciona el disc físic i crea’l
    * Repeteix el procés per a cada node i disc dedicat
 
-![alt text](../../../img/image-70.png)
+![alt text](../../../img/image-71.png)
 
 
 <p align="center">
-  <img src="../../../img/image-71.png" alt="Enganxar informació" />
+  <img src="../../../img/image-72.png" alt="Enganxar informació" />
 </p>
 
 * Com tenim 2 discos per cada node (menos en el node 3 que sols hi ha 1)de proxmox haurem de repetir el proccess dos voltes
 
 **Node 1:**
 
-![alt text](../../../img/image-72.png)
+![alt text](../../../img/image-73.png)
 
 **Node 2**
 
-![alt text](../../../img/image-73.png)
+![alt text](../../../img/image-74.png)
 
 **Node 3**
 
-![alt text](../../../img/image-74.png)
+![alt text](../../../img/image-75.png)
 
 1. **(Opcional) Crear un MDS (Metadata Server)**
 
