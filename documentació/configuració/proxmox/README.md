@@ -10,7 +10,7 @@ A continuació et detallem pas a pas com crear un clúster en Proxmox i unir-hi 
 2. Ves a **Datacenter → Cluster** des del menú lateral esquerre.
 3. Fes clic a **Crear Clúster** (`Create Cluster`).
 
-![Pantalla inicial del cluster](image-56.png)
+![Pantalla inicial del cluster](../../../img/image-56.png)
 
 
 
