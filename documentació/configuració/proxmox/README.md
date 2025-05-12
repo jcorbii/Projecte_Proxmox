@@ -736,8 +736,18 @@ L’institut ha desplegat un clúster de Proxmox per a alumnes del cicle de sist
 
 * **Usuari:** `alumne01@pve`
 * **Pool:** `alumnes`
-* **VM assignada:** `vm105` (Debian pràctica)
+* **VM assignada:** `vm104` (alumne01-ubuntu24)
 * **Rol:** `PVEVMUser`
+
+![alt text](../../../img/image-105.png)
+
+![alt text](../../../img/image-106.png)
+
+![alt text](../../../img/image-107.png)
+
+![alt text](../../../img/image-108.png)
+
+![alt text](../../../img/image-109.png)
 
 #### Resultat:
 
@@ -762,6 +772,19 @@ L’equip de desenvolupament necessita accedir a diverses màquines de testing, 
 * **Pool:** `dev_pool`
 * **Rols:** `gestor_vm_custom` (creat amb permisos limitats com `VM.Console`, `VM.Start`, `VM.Shutdown`)
 
+![alt text](../../../img/image-110.png)
+
+![alt text](../../../img/image-111.png)
+
+![alt text](../../../img/image-112.png)
+
+![alt text](../../../img/image-113.png)
+
+![alt text](../../../img/image-114.png)
+
+![alt text](../../../img/image-115.png)
+
+
 #### Resultat:
 
 Els usuaris poden:
@@ -782,6 +805,14 @@ Un tècnic extern col·labora en la gestió de sistemes, però només se li vol 
 * **Usuari:** `tecnic@pve`
 * **Àrea assignada:** `/nodes/node3`
 * **Rol:** `PVEAdmin`
+
+![alt text](../../../img/image-116.png)
+
+![alt text](../../../img/image-117.png)
+
+![alt text](../../../img/image-118.png)
+
+![alt text](../../../img/image-119.png)
 
 #### Resultat:
 

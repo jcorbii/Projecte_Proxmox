@@ -343,12 +343,12 @@ Aquesta estratègia es basa en instal·lar únicament l’**agent de Netdata** a
       wget -O /tmp/netdata-kickstart.sh https://get.netdata.cloud/kickstart.sh && sh /tmp/netdata-kickstart.sh --nightly-channel --claim-token 2j7CJC_yS3oDQ9DD4eVlLNMV5ecx0WeqwfvNvfOthCcBCkXRLoysr-TKkc5GLM9BzHmlE9Bb36sQghRHfbOsn4rhSEDnd4TmTaabd__6loq4Vceb_o5BitgLI_1gfT4D5pCzx4o --claim-rooms 6ff6ecc7-275c-4404-a4a0-5fac76e79776 --claim-url https://app.netdata.cloud
      ```
 
-     ![alt text](image.png)
+     ![alt text](/img/image-120.png)
 
    * Connectar l’agent al compte de Netdata Cloud amb la comanda que proporciona el portal (normalment `netdata-claim.sh`)
 3. Accedir al panell de **Netdata Cloud** i visualitzar tots els nodes en temps real
 
-![alt text](image-1.png)
+![alt text](/img/image-121.png)
 
 ---
 
