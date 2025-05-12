@@ -830,8 +830,18 @@ Una empresa ofereix màquines virtuals com a servei. Cada client gestiona la seu
 
 * **Client:** `client_a@pve`
 * **Pool:** `client_a_pool`
-* **VM assignada:** `vm201`
+* **VM assignada:** `vm104`
 * **Rol:** `PVEVMUser`
+
+![alt text](../../../img/image-122.png)
+
+![alt text](../../../img/image-123.png)
+
+![alt text](../../../img/image-124.png)
+
+![alt text](../../../img/image-125.png)
+
+![alt text](../../../img/image-126.png)
 
 #### Resultat:
 
