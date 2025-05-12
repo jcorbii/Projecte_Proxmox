@@ -183,23 +183,6 @@ L’objectiu d’aquesta secció és definir els requisits, la xarxa i el dissen
 
 ---
 
-## 🧠 10. Conclusions i Valoració Personal
-
-### 10.1 Objectius aconseguits
-
-### 10.2 Dificultats trobades i solucions
-
-⚠️ Problema amb els repositoris de **Proxmox Backup Server**
-Una de les principals dificultats trobades ha sigut l’actualització dels paquets del sistema, ja que per defecte, Proxmox Backup Server ve configurat amb els repositoris enterprise, els quals requereixen una subscripció de pagament.
-
-✅ ***Solució tècnica:*** utilitzar repositoris públics
-Per tal de poder actualitzar i instal·lar paquets sense necessitat de subscripció, es pot configurar el sistema per a fer ús dels repositoris públics (no enterprise) de **Proxmox.**
-
-
-Per descomptat! A continuació tens tot el contingut traduït i adaptat al **valencià formal**, mantenint l’estil tècnic i estructurat:
-
----
-
 ### **8.1. Actualitzacions i Pegats de Seguretat**
 
 ✅ **Accions recomanades:**
@@ -357,6 +340,31 @@ Aquesta estratègia es basa en instal·lar únicament l’**agent de Netdata** a
 Amb aquest sistema, es garanteix una **monitorització eficaç i des de qualsevol lloc**, sense haver de desplegar ni mantindre servidors propis per a l’anàlisi. Netdata Cloud facilita una supervisió **proactiva i àgil** del clúster Proxmox i del Proxmox Backup Server (PBS).
 
 ---
+
+## 🧠 10. Conclusions i Valoració Personal
+
+### 🎯 10.1 Objectius Aconseguits
+
+Al llarg del desenvolupament d’aquest projecte, s’han assolit amb èxit els objectius plantejats inicialment, tant a nivell tècnic com formatiu.
+
+S’ha aconseguit desplegar una infraestructura virtualitzada completa mitjançant **Proxmox VE**, incloent-hi:
+
+* La creació i configuració d’un **clúster funcional** amb diversos nodes virtuals.
+* La implementació d’un sistema d’**emmagatzematge distribuït amb Ceph**, garantint alta disponibilitat de les dades.
+* La integració i ús de **Proxmox Backup Server (PBS)** com a sistema de còpies de seguretat centralitzades.
+* La configuració del sistema de **Alta Disponibilitat (HA)**, amb gestió automàtica de fallades i migració de màquines.
+* L’aplicació de mesures de **seguretat, monitoratge (amb Netdata Cloud)** i bones pràctiques d’administració.
+* La definició de **rols d’usuari i pools de recursos** per a una gestió multiusuari eficient.
+
+A més, s’ha documentat detalladament cada fase del projecte, facilitant
+
+### 10.2 Dificultats trobades i solucions
+
+⚠️ Problema amb els repositoris de **Proxmox Backup Server**
+Una de les principals dificultats trobades ha sigut l’actualització dels paquets del sistema, ja que per defecte, Proxmox Backup Server ve configurat amb els repositoris enterprise, els quals requereixen una subscripció de pagament.
+
+✅ ***Solució tècnica:*** utilitzar repositoris públics
+Per tal de poder actualitzar i instal·lar paquets sense necessitat de subscripció, es pot configurar el sistema per a fer ús dels repositoris públics (no enterprise) de **Proxmox.**
 
 ### 🚀 10.3 Possibles millores futures
 
