@@ -49,6 +49,7 @@
 - 8.2 Configuració del tallafoc en Proxmox  
 - 8.3 Còpies de seguretat de la configuració  
 - 8.4 Bones pràctiques d’administració del clúster  
+- 8.5 Monitorització del sistema amb **Netdata**
 
 ## 9. 📄 Documentació Tècnica i Manual d’Usuari
 - 9.1 Manual d’instal·lació pas a pas  

@@ -195,6 +195,121 @@ Una de les principals dificultats trobades ha sigut l’actualització dels paqu
 ✅ ***Solució tècnica:*** utilitzar repositoris públics
 Per tal de poder actualitzar i instal·lar paquets sense necessitat de subscripció, es pot configurar el sistema per a fer ús dels repositoris públics (no enterprise) de **Proxmox.**
 
+
+### **8.1. Actualización y parches de seguridad**
+✅ **Acciones recomendadas:**
+- **Actualizar regularmente**:
+  ```bash
+  apt update && apt dist-upgrade
+  ```
+- Habilitar **actualizaciones automáticas de seguridad**:
+  ```bash
+  apt install unattended-upgrades
+  dpkg-reconfigure unattended-upgrades
+  ```
+- Verificar parches de Proxmox:
+  ```bash
+  pveam update
+  ```
+
+---
+
+### **8.2. Configuración de firewall en Proxmox**
+✅ **Acciones recomendadas:**
+- Activar el **firewall integrado** en Proxmox (GUI: `Datacenter > Firewall`).
+- Reglas básicas:
+  - Permitir solo SSH (puerto 22), Proxmox Web (8006) y Ceph (si se usa) desde IPs confiables.
+  - Bloquear accesos externos a APIs no necesarias.
+- Ejemplo para permitir acceso web desde una IP específica:
+  ```bash
+  pve-firewall localnet add -enable 1 -policy in -action ACCEPT -dport 8006 -source 192.168.1.100
+  ```
+
+---
+
+### **8.3. Copias de seguridad de la configuración**
+✅ **Acciones recomendadas:**
+- **Backup de la configuración del clúster**:
+  ```bash
+  tar -czvf /backup/proxmox_config_$(date +%Y-%m-%d).tar.gz /etc/pve/
+  ```
+- **Automatizar backups** con PBS:
+  - Programar backups diarios/semanales de VMs/LXCs (GUI: `PBS > Datastore > Backup Jobs`).
+  - Usar **retención incremental** (ejemplo: 7 días diarios + 4 semanales).
+
+---
+
+### **8.4. Buenas prácticas de administración**
+✅ **Acciones recomendadas:**
+- **Usar autenticación de dos factores (2FA)** para la GUI de Proxmox (GUI: `Datacenter > Permissions > Users`).
+- **Restringir acceso SSH**:
+  ```bash
+  nano /etc/ssh/sshd_config
+  ```
+  - Añadir: `PermitRootLogin no`, `PasswordAuthentication no` (usar claves SSH).
+- **Monitoreo**:
+  - Configurar alertas por email (GUI: `Datacenter > Notifications`).
+  - Usar `ceph health` y `pveperf` para vigilar rendimiento.
+
+Perfecte! A continuació et redacte l’apartat amb una explicació clara i formal sobre què és **Netdata**, i com l’utilitzareu **en mode núvol**, instal·lant només l’**agent** als nodes de Proxmox per monitoritzar-los centralitzadament:
+
+---
+
+### 8.5 Monitorització del sistema amb **Netdata**
+
+#### 🧠 Què és Netdata?
+
+**Netdata** és una plataforma de monitorització en temps real que permet supervisar el rendiment i l’estat de sistemes i serveis de manera molt detallada. És una eina **lleugera**, de **codi obert** i fàcil d’integrar en entorns Linux, incloent **Proxmox VE**.
+
+Proporciona dades sobre:
+
+* Ús de CPU, RAM i disc
+* Tràfic i estat de la xarxa
+* Estadístiques de processos
+* Temperatura, serveis actius, ports, etc.
+
+---
+
+### ☁️ Utilització de **Netdata Cloud** al projecte
+
+En lloc de desplegar una instància de monitorització local o en cada node, en aquest projecte s’utilitzarà la **plataforma centralitzada de Netdata Cloud**.
+
+Aquesta estratègia es basa en instal·lar únicament l’**agent de Netdata** a cada node que es vulga monitoritzar, i connectar-lo al panell de control global de Netdata Cloud.
+
+#### ✅ Avantatges de fer servir el núvol:
+
+* 🔒 **Alta disponibilitat:** La plataforma està disponible 24/7 des de qualsevol lloc
+* 🌐 **Accessibilitat centralitzada:** Tots els nodes es poden supervisar des d’un únic panell
+* 📈 **Visualització interactiva:** Gràfics en temps real i alertes integrades
+* 🧩 **Zero manteniment de servidors de monitoratge locals**
+* 🔔 Possibilitat de configurar notificacions (Slack, correu, Discord...)
+
+---
+
+### 🛠️ Procediment bàsic
+
+1. Crear un compte gratuït en [https://app.netdata.cloud](https://app.netdata.cloud)
+2. En cada node que es vulga monitoritzar:
+
+   * Instal·lar l’agent amb:
+
+     ```bash
+      wget -O /tmp/netdata-kickstart.sh https://get.netdata.cloud/kickstart.sh && sh /tmp/netdata-kickstart.sh --nightly-channel --claim-token 2j7CJC_yS3oDQ9DD4eVlLNMV5ecx0WeqwfvNvfOthCcBCkXRLoysr-TKkc5GLM9BzHmlE9Bb36sQghRHfbOsn4rhSEDnd4TmTaabd__6loq4Vceb_o5BitgLI_1gfT4D5pCzx4o --claim-rooms 6ff6ecc7-275c-4404-a4a0-5fac76e79776 --claim-url https://app.netdata.cloud
+     ```
+
+     ![alt text](image.png)
+
+   * Connectar l’agent al compte de Netdata Cloud amb la comanda que proporciona el portal (normalment `netdata-claim.sh`)
+3. Accedir al panell de **Netdata Cloud** i visualitzar tots els nodes en temps real
+
+![alt text](image-1.png)
+
+---
+
+### ✅ Resultat
+
+Amb aquest sistema, es garanteix una **monitorització eficaç i des de qualsevol lloc**, sense haver de desplegar ni mantindre servidors propis per a l’anàlisi. Netdata Cloud facilita una supervisió **proactiva i àgil** del clúster Proxmox i del Proxmox Backup Server (PBS).
+
 ---
 
 ### 🚀 10.3 Possibles millores futures
@@ -222,35 +337,10 @@ Per tal de poder actualitzar i instal·lar paquets sense necessitat de subscripc
   cryptsetup luksFormat /dev/sdX  # Xifrat en repòs  
   ```  
 - **Integració amb LDAP/AD** per a gestió centralitzada d’usuaris.  
-
+- 
 ---
 
-#### **3. Monitorització i Alertes**  
-📊 *Sistema proactiu de gestió d’incidents*  
-- **Grafana + Prometheus**: Visualització de mètriques en temps real.  
-- **Alertes automàtiques** (Telegram/Slack) per:  
-  - Caigudes de nodes HA  
-  - Espai d’emmagatzematge crític  
-- **Auditoria contínua**:  
-  ```bash  
-  lynis audit system  # Escaneig de vulnerabilitats  
-  ```  
-
----
-
-#### **4. Backup i Recuperació de Desastres**  
-💾 *Replicació geogràfica i documentació*  
-- **PBS secundari** en altra ubicació:  
-  ```bash  
-  proxmox-backup-client sync --remote backup2.example.com  
-  ```  
-- **Playbook de recuperació**: Passos detallats per a:  
-  - Restauració de nodes  
-  - Recuperació de dades després de fallades greus  
-
----
-
-#### **5. Xarxa i Aïllament**  
+#### **3. Xarxa i Aïllament**  
 🌐 *Segmentació per a major seguretat*  
 - **VLANs dedicades**:  
   ```  
@@ -268,8 +358,7 @@ Per tal de poder actualitzar i instal·lar paquets sense necessitat de subscripc
 |--------------------|----------------------------------------|---------------------------------------|  
 | **Contenidors**    | Integració Docker + Portainer          | Portabilitat i ecosistema ampliat     |  
 | **Seguretat**      | Hardening + LUKS + LDAP                | Protecció de dades i accés controlat  |  
-| **Monitorització** | Grafana + Alertes automàtiques         | Resposta ràpida a incidents           |  
-| **Backup**         | PBS secundari + Playbook               | Resiliencia davant desastres          |  
+| **Xarxa**          | VLANs Dedicades                        | Segmentació per a major seguretat     |  
 
 ---
 
@@ -279,6 +368,9 @@ Aquestes millores convertiran el nostre entorn en un sistema **més robust, segu
 
 ### Valoració personal del projecte
 
+Aquest projecte m’ha permés consolidar coneixements adquirits durant el cicle formatiu, especialment en àrees com la virtualització, l’alta disponibilitat i la gestió d’infraestructures TI. A través de la implementació pràctica amb **Proxmox VE**, he pogut entendre millor el funcionament dels clústers, l’emmagatzematge distribuït amb **Ceph** i la importància de les còpies de seguretat amb **PBS**.
+
+A nivell acadèmic, ha sigut una experiència molt completa, ja que m’ha ajudat a connectar la teoria amb la pràctica, millorant la meua capacitat d’anàlisi, resolució de problemes i documentació tècnica. Considere que ha sigut un projecte molt útil per a preparar-me de cara a entorns reals i futurs reptes professionals en el sector de les tecnologies de la informació.
 
 ---
 
@@ -291,3 +383,4 @@ A continuació es detallen les fonts utilitzades per al desenvolupament del proj
 1. Proxmox. *Documentació oficial de Proxmox VE*. Accés 29 d’abril de 2025. [ Proxmox ](https://pve.proxmox.com/wiki/Main_Page).
 2. Debian Project. *Debian Wiki*. Accés 25 d’abril de 2025. [Debian](https://wiki.debian.org/).
 3. GitHub. *Repo*. Accés de seguit.[ Projecte Proxmox ](https://github.com/jcorbii/Projecte_Proxmox/)
+4. Netdata  *Instalació Netdata*. Accés 12 de maig de 2025. [Netdata](https://www.netdata.cloud/)
