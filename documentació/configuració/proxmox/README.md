@@ -4,15 +4,13 @@ A continuació et detallem pas a pas com crear un clúster en Proxmox i unir-hi 
 
 ---
 
-## 🛠️ 1. Crear el Clúster
+## 🛠️ 3.2 Configuració del clúster (pvecm)
 
 1. Accedeix a un dels nodes de Proxmox.
 2. Ves a **Datacenter → Cluster** des del menú lateral esquerre.
 3. Fes clic a **Crear Clúster** (`Create Cluster`).
 
 ![Pantalla inicial del cluster](../../../img/image-56.png)
-
-
 
 4. Ompli les dades del clúster:
 
@@ -86,43 +84,6 @@ Perfecte! Comencem pel punt **4.1 Introducció a Ceph i integració amb Proxmox*
 ---
 
 ### 🧠 4 Introducció a **Ceph** i Integració amb **Proxmox VE**
-
-**Ceph** és una plataforma d’emmagatzematge distribuït de codi obert dissenyada per oferir alta disponibilitat, escalabilitat i rendiment, sense punts únics de fallada. El seu funcionament es basa en tres components principals:
-
-* **OSD (Object Storage Daemon):** Gestiona el disc dur on s’emmagatzema la informació.
-* **MON (Monitor):** Controla l’estat del clúster, manté el mapa del clúster i garanteix el consens entre nodes.
-* **MGR (Manager):** Proporciona funcionalitats addicionals de monitoratge i interfície web.
-
-Ceph permet oferir emmagatzematge per a:
-
-* Màquines virtuals (amb RBD – Rados Block Device)
-* Sistemes d’arxius (CephFS)
-* Objectes (compatible amb S3)
-
----
-
-#### 🔗 Integració amb Proxmox VE
-
-**Proxmox VE** incorpora suport nadiu per a Ceph, cosa que facilita la seua instal·lació, gestió i integració des de la mateixa interfície web o via línia de comandes.
-
-Gràcies a aquesta integració:
-
-* Es pot configurar Ceph directament des de la interfície de **Datacenter → Ceph**
-* Els discos Ceph (RBD) poden ser utilitzats com a **emmagatzematge de màquines virtuals** i **contenidors (LXC)**
-* El sistema garanteix **alta disponibilitat**, ja que les dades estan replicades en diversos nodes
-* Permet una **escala horitzontal** fàcil, afegint més discos o nodes al clúster Ceph
-
----
-
-💡 **Per què utilitzar Ceph en Proxmox?**
-
-* Elimina la dependència de sistemes d’emmagatzematge extern (NFS, iSCSI, etc.)
-* Millora la tolerància a fallades i la continuïtat del servei
-* Ofereix una gestió centralitzada i unificada del clúster i l’emmagatzematge
-
-Perfecte! Ací tens el punt **4.2 Instal·lació i configuració de Ceph al clúster**, redactat en valencià formal i pensat per a un projecte tècnic:
-
----
 
 ### 4.2 ⚙️ Instal·lació i Configuració de **Ceph** al Clúster
 

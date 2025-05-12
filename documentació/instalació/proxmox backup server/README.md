@@ -1,6 +1,6 @@
-## 💻 Proxmox Backup Server (PBS)
+## 💻 6 Proxmox Backup Server (PBS)
 
-###  Instalación de PBS
+### 6.1 Instalación de PBS
 
 **Passos per a la instal·lació:**
 

@@ -1,6 +1,6 @@
-##  💻 Implementació del *Clúster* Proxmox
+## 💻 3.  Implementació del *Clúster* Proxmox
 
-### Instal·lació dels nodes Proxmox VE
+### 3.1  Instal·lació dels nodes Proxmox VE
 
 #### 🧱 Instal·lació del primer node de Proxmox
 
