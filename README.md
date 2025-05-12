@@ -53,6 +53,8 @@ Projecte_Proxmox/
 
 ## 📘 1. Introducció
 
+---
+
 ### 🎯 1.1 Objectius del projecte
 
 L’objectiu principal d’aquest projecte és dissenyar, desplegar i documentar una infraestructura virtualitzada d’alta disponibilitat basada en **Proxmox VE**, enfocada tant a la resiliència com a la gestió eficient de recursos. El sistema es construeix sobre un clúster format per **tres nodes físics** que ofereixen serveis de virtualització mitjançant **KVM/QEMU**, amb funcionalitats avançades de gestió centralitzada.
@@ -62,6 +64,8 @@ Per garantir la disponibilitat i continuïtat del servei davant possibles fallad
 Com a part essencial del projecte, es desplega també un **Proxmox Backup Server (PBS)** per gestionar de manera centralitzada les còpies de seguretat, amb una estratègia definida de programació, retenció i restauració eficient de màquines virtuals. Això assegura la recuperació ràpida davant d'incidències, i millora la integritat i seguretat de les dades.
 
 L’objectiu final és demostrar la viabilitat i robustesa d’una solució de virtualització empresarial utilitzant tecnologies de codi obert, tot documentant-ne la planificació, implementació, proves de rendiment i mesures de seguretat, amb una orientació clara a l’escalabilitat, la facilitat de manteniment i l’alt rendiment operatiu.
+
+---
 
 ### 🧩 1.2 Justificació de l’elecció de Proxmox VE
 
@@ -78,6 +82,8 @@ Comparat amb altres plataformes de virtualització, Proxmox destaca per:
 * **Red Hat Virtualization (RHV)**: Basat també en KVM, RHV és una plataforma potent, però **requereix subscripcions comercials** i presenta una corba d’aprenentatge més elevada. Proxmox redueix la complexitat i facilita la posada en marxa mitjançant una **interfície web intuïtiva i unificada**, apta fins i tot per a perfils tècnics intermedis.
 
 Finalment, la disponibilitat de **documentació extensa**, suport de la comunitat i la **rapidesa en desplegament** fan de Proxmox VE una opció ideal per a entorns educatius, laboratoris i pimes, sense renunciar a prestacions pròpies d’entorns empresarials. Aquesta versatilitat i autonomia en la gestió de la infraestructura virtual han estat factors decisius per escollir-lo com a tecnologia base del projecte.
+
+---
 
 ### 🧭 1.3 Abast del Projecte
 
@@ -98,6 +104,8 @@ Les accions principals que formen part de l’abast del projecte són:
 * **Elaboració de documentació tècnica detallada**, incloent manuals d’instal·lació pas a pas, guies d’administració del clúster, procediments de recuperació davant incidències i instruccions d’ús per a usuaris delegats.
 
 Aquest abast garanteix no només la posada en marxa del sistema, sinó també la seua operativitat i manteniment a llarg termini, assegurant la continuïtat del servei i la capacitat de resposta davant imprevistos. A més, s’ha tingut en compte la possibilitat d’escalabilitat futura per afegir nous nodes o serveis al clúster.
+
+---
 
 ### 🧭 1.4 Requisits Previs i Coneixements Necessaris
 
@@ -169,6 +177,8 @@ Aquest capítol és fonamental per garantir que el desplegament posterior es rea
 * Ha d’oferir un rendiment acceptable amb maquinari limitat.
 * El sistema ha de ser administrable mitjançant una interfície gràfica web intuïtiva.
 
+---
+
 ### 🌐 2.2 Topologia de Xarxa Proposada
 
 > En aquest entorn de pràctiques s’ha desplegat un únic servidor físic amb **Proxmox VE** com a hipervisor principal. Dins d’aquest servidor, s’han creat diverses màquines virtuals que simulen els diferents **nodes d’un clúster**, així com un servidor addicional amb **Proxmox Backup Server (PBS)**.
@@ -192,6 +202,8 @@ Aquest capítol és fonamental per garantir que el desplegament posterior es rea
 
 🔧 *Tots els nodes i el PBS són màquines virtuals creades dins del mateix host Proxmox VE.*
 
+---
+
 ### 🖥️ 2.3 Maquinari Utilitzat
 
 #### **Nodes del clúster (x2):**
@@ -206,7 +218,7 @@ Aquest capítol és fonamental per garantir que el desplegament posterior es rea
 * **CPU:** 12 x Intel(R) Xeon(R) CPU E5-2696 v4 @ 2.20GHz 
 * **RAM:** 24 GB DDR4
 * **Disc SSD:** 1 x 150 GB per a sistema
-* **Discos HDD:** 1 x 100 TB per a Ceph (OSD)
+* **Discos HDD:** 1 x 100 GB per a Ceph (OSD)
 
 #### **Proxmox Backup Server:**
 
@@ -214,6 +226,64 @@ Aquest capítol és fonamental per garantir que el desplegament posterior es rea
 * **RAM:** 32 GB
 * **Disc SSD:** 1 x 150 GB per al sistema
 * **HDD:** 3 x 100 GB RAID1 (datastore de còpies)
+
+---
+
+### 💰 Pressupost Estimat d’Infraestructura per a Clúster Proxmox amb HA, Ceph i PBS
+
+#### 🖥️ **Nodes del Clúster (x3)**
+
+*Servidors físics amb suport per a virtualització, alta disponibilitat i Ceph*
+
+| Component                                                           | Quantitat | Preu unitari aprox. | Subtotal    |
+| ------------------------------------------------------------------- | --------- | ------------------- | ----------- |
+| Servidor Proxmox VE (CPU 16 cores, 32-64 GB RAM, SSD + 2x HDD 4 TB) | 3         | 1.200 €             | 3.600 €     |
+| Targetes de xarxa addicionals (1/10 Gb) + cablejat                  | 3         | 100 €               | 300 €       |
+| **Subtotal nodes del clúster**                                      |           |                     | **3.900 €** |
+
+---
+
+#### 💾 **Servidor de Proxmox Backup Server (PBS)**
+
+*Servidor dedicat per a còpies de seguretat amb alta capacitat i fiabilitat*
+
+| Component                                                       | Quantitat | Preu unitari aprox. | Subtotal    |
+| --------------------------------------------------------------- | --------- | ------------------- | ----------- |
+| Servidor PBS (CPU 16 cores, 32 GB RAM, SSD + 3x HDD 4 TB RAID)  | 1         | 1.100 €             | 1.100 €     |
+| Unitat externa d'emmagatzematge (opcional per backups off-site) | 1         | 300 €               | 300 €       |
+| **Subtotal PBS**                                                |           |                     | **1.400 €** |
+
+---
+
+#### 🌐 **Infraestructura de Xarxa i Accessoris**
+
+| Component                                  | Quantitat | Preu unitari aprox. | Subtotal  |
+| ------------------------------------------ | --------- | ------------------- | --------- |
+| Switch gestionable gigabit/10Gb            | 1         | 400 €               | 400 €     |
+| SAI (Sistema d’alimentació ininterrompuda) | 1         | 300 €               | 300 €     |
+| Bastidor (rack) i accessoris               | 1         | 250 €               | 250 €     |
+| **Subtotal xarxa/accessoris**              |           |                     | **950 €** |
+
+---
+
+### 📄 **Total Pressupost Estimat**
+
+| Part                            | Cost aproximat |
+| ------------------------------- | -------------- |
+| Nodes del clúster (x3)          | 3.900 €        |
+| Proxmox Backup Server (PBS)     | 1.400 €        |
+| Infraestructura de xarxa i rack | 950 €          |
+| **TOTAL GENERAL**               | **\~6.250 €**  |
+
+---
+
+### 🧾 Notes finals:
+
+* Els preus inclouen maquinari amb capacitat real per executar entorns Ceph i HA amb garantia de rendiment.
+* Es poden reduir costos amb equips refurbished o d’ocasió, però aquest pressupost reflecteix una configuració professional i realista.
+* No s’han inclòs llicències comercials opcionals de Proxmox (el programari és lliure, però el suport és de pagament si es desitja).
+
+---
 
 ### 🧩 2.4 Disseny Lògic del Clúster Proxmox
 
@@ -244,6 +314,8 @@ Aquest model distribuït assegura que el clúster siga funcional i operatiu fins
   * A més, es mantindrà accés per línia d’ordres (`pvecm`, `ceph`, `qm`, etc.) per a tasques avançades o scripts d’automatització.
 
 Aquest disseny garanteix un **entorn equilibrat, resilient i fàcil de gestionar**, optimitzat per a oferir serveis ininterromputs, adaptable a l’escalat futur i alineat amb les millors pràctiques de virtualització en entorns empresarials.
+
+---
 
 ### 🛡️ 2.5 Consideracions d’Alta Disponibilitat i Tolerància a Fallades
 
