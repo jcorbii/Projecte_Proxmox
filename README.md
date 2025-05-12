@@ -196,62 +196,108 @@ Una de les principals dificultats trobades ha sigut l’actualització dels paqu
 Per tal de poder actualitzar i instal·lar paquets sense necessitat de subscripció, es pot configurar el sistema per a fer ús dels repositoris públics (no enterprise) de **Proxmox.**
 
 
-### **8.1. Actualización y parches de seguridad**
-✅ **Acciones recomendadas:**
-- **Actualizar regularmente**:
+Per descomptat! A continuació tens tot el contingut traduït i adaptat al **valencià formal**, mantenint l’estil tècnic i estructurat:
+
+---
+
+### **8.1. Actualitzacions i Pegats de Seguretat**
+
+✅ **Accions recomanades:**
+
+* **Actualitzar regularment**:
+
   ```bash
   apt update && apt dist-upgrade
   ```
-- Habilitar **actualizaciones automáticas de seguridad**:
+* Habilitar les **actualitzacions automàtiques de seguretat**:
+
   ```bash
   apt install unattended-upgrades
   dpkg-reconfigure unattended-upgrades
   ```
-- Verificar parches de Proxmox:
+* Verificar pegats disponibles en Proxmox:
+
   ```bash
   pveam update
   ```
 
 ---
 
-### **8.2. Configuración de firewall en Proxmox**
-✅ **Acciones recomendadas:**
-- Activar el **firewall integrado** en Proxmox (GUI: `Datacenter > Firewall`).
-- Reglas básicas:
-  - Permitir solo SSH (puerto 22), Proxmox Web (8006) y Ceph (si se usa) desde IPs confiables.
-  - Bloquear accesos externos a APIs no necesarias.
-- Ejemplo para permitir acceso web desde una IP específica:
+### **8.2. Configuració del Tallafoc en Proxmox**
+
+✅ **Accions recomanades:**
+
+* Activar el **tallafoc integrat** en Proxmox (GUI: `Datacenter > Firewall`).
+* Reglas bàsiques:
+
+  * Permetre només SSH (port 22), accés web de Proxmox (8006) i Ceph (si s’utilitza) des d’IPs de confiança.
+  * Bloquejar accessos externs a APIs no necessàries.
+* Exemple per permetre accés web només des d’una IP específica:
+
   ```bash
   pve-firewall localnet add -enable 1 -policy in -action ACCEPT -dport 8006 -source 192.168.1.100
   ```
 
 ---
 
-### **8.3. Copias de seguridad de la configuración**
-✅ **Acciones recomendadas:**
-- **Backup de la configuración del clúster**:
+### **8.3. Còpies de Seguretat de la Configuració**
+
+✅ **Accions recomanades:**
+
+* **Fer còpia de seguretat de la configuració del clúster**:
+
   ```bash
   tar -czvf /backup/proxmox_config_$(date +%Y-%m-%d).tar.gz /etc/pve/
   ```
-- **Automatizar backups** con PBS:
-  - Programar backups diarios/semanales de VMs/LXCs (GUI: `PBS > Datastore > Backup Jobs`).
-  - Usar **retención incremental** (ejemplo: 7 días diarios + 4 semanales).
+* **Automatitzar les còpies** amb PBS:
+
+  * Programar còpies diàries/setmanals de VMs/LXCs (GUI: `PBS > Datastore > Backup Jobs`).
+  * Utilitzar **retenció incremental** (exemple: 7 còpies diàries + 4 setmanals).
 
 ---
 
-### **8.4. Buenas prácticas de administración**
-✅ **Acciones recomendadas:**
-- **Usar autenticación de dos factores (2FA)** para la GUI de Proxmox (GUI: `Datacenter > Permissions > Users`).
-- **Restringir acceso SSH**:
+### **8.4. Bones Pràctiques d’Administració**
+
+✅ **Accions recomanades:**
+
+* **Activar l’autenticació en dos passos (2FA)** per a la GUI de Proxmox (GUI: `Datacenter > Permissions > Users`).
+* **Restringir l'accés per SSH**:
+
   ```bash
   nano /etc/ssh/sshd_config
   ```
-  - Añadir: `PermitRootLogin no`, `PasswordAuthentication no` (usar claves SSH).
-- **Monitoreo**:
-  - Configurar alertas por email (GUI: `Datacenter > Notifications`).
-  - Usar `ceph health` y `pveperf` para vigilar rendimiento.
 
-Perfecte! A continuació et redacte l’apartat amb una explicació clara i formal sobre què és **Netdata**, i com l’utilitzareu **en mode núvol**, instal·lant només l’**agent** als nodes de Proxmox per monitoritzar-los centralitzadament:
+  * Afegir: `PermitRootLogin no`, `PasswordAuthentication no` (usar claus SSH).
+* **Monitoratge**:
+
+  * Configurar alertes per correu electrònic (GUI: `Datacenter > Notifications`).
+  * Utilitzar `ceph health` i `pveperf` per supervisar el rendiment.
+
+---
+
+### **8.5. Monitoratge Centralitzat amb Netdata Cloud**
+
+**Netdata** és una eina de monitoratge en temps real, lleugera i de codi obert, que permet visualitzar de forma detallada l’ús de CPU, memòria, disc, xarxa, processos i molts altres paràmetres del sistema.
+
+En aquest projecte s’ha optat per utilitzar **Netdata en mode núvol** (*Netdata Cloud*) per garantir:
+
+* 🌐 **Accessibilitat des de qualsevol lloc** amb connexió a Internet
+* ☁️ **Alta disponibilitat** sense necessitat de desplegar servidors de monitoratge propis
+* 📈 Visualització centralitzada de tots els nodes Proxmox i del PBS en un únic panell
+
+#### 🛠️ Instal·lació i connexió al núvol:
+
+1. Crear un compte gratuït a [https://app.netdata.cloud](https://app.netdata.cloud)
+2. En cada node Proxmox:
+
+   * Instal·lar l’agent:
+
+     ```bash
+     bash <(curl -Ss https://my-netdata.io/kickstart.sh)
+     ```
+   * Enllaçar-lo al teu compte Netdata amb la comanda proporcionada pel portal (normalment amb `netdata-claim.sh`)
+
+Després d’això, es podrà visualitzar cada node en temps real des del tauler de **Netdata Cloud**, amb alertes, gràfics detallats i control unificat del rendiment del clúster.
 
 ---
 
