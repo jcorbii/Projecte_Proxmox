@@ -62,18 +62,25 @@ Projecte_Proxmox/
 
 ## 📘 1. Introducció
 
-Aquest projecte es basa en la **implementació d’una infraestructura virtualitzada** mitjançant la plataforma **Proxmox Virtual Environment (Proxmox VE)**. L’objectiu principal és **desplegar un clúster d’alta disponibilitat** que permeta **centralitzar la gestió de màquines virtuals (VMs) i contenidors (LXC)**, garantint alhora escalabilitat, eficiència de recursos i tolerància a fallades.
+### 🔧 **Què és Proxmox VE?**
 
-Per aconseguir-ho, s’ha configurat un entorn complet que inclou:
+**Proxmox VE (Virtual Environment)** és una **plataforma de virtualització d'entorns oberts** basada en Debian GNU/Linux, orientada a la creació i gestió de **màquines virtuals (VMs)** i **contenidors (LXCs)** en entorns de producció.
 
-* Un **clúster de Proxmox VE** amb diversos nodes interconnectats.
-* Un sistema d’**emmagatzematge distribuït** mitjançant **Ceph**, per assegurar la replicació de dades i la disponibilitat contínua.
-* La integració de **Proxmox Backup Server (PBS)** com a sistema de còpia de seguretat centralitzada i amb retenció intel·ligent.
-* La configuració d’**Alta Disponibilitat (HA)** per a la continuïtat del servei en cas de caiguda de nodes.
-* La monitorització amb **Netdata Cloud**, per obtindre visibilitat en temps real del rendiment i estat del sistema.
-* La implementació de **mecanismes de seguretat**, com tallafocs, actualitzacions automatitzades i control d’accés delegat.
+Proxmox VE integra dues tecnologies principals de virtualització:
 
-Aquest entorn permet simular escenaris reals d’administració de sistemes, facilitant la gestió dels recursos, la protecció de dades i l’automatització de tasques, tot dins d’un marc tècnic robust i preparat per a la producció o entorns educatius avançats.
+* **KVM (Kernel-based Virtual Machine):** per a la virtualització completa de sistemes operatius.
+* **LXC (Linux Containers):** per a la virtualització lleugera a nivell de sistema operatiu.
+
+A més, incorpora eines avançades com:
+
+* **Gestió de clústers:** permet agrupar múltiples nodes en una sola interfície centralitzada.
+* **Alta Disponibilitat (HA):** per a la migració automàtica de VMs/LXCs entre nodes en cas de fallada.
+* **Ceph Storage:** sistema d’emmagatzematge distribuït integrat, tolerant a fallades i altament escalable.
+* **Proxmox Backup Server (PBS):** per a còpies de seguretat eficients i amb deduplicació.
+* **Gestió de xarxes virtuals:** amb VLANs, ponts i interfícies virtuals.
+* **Interfície web intuïtiva i potent:** per gestionar tot el sistema des del navegador.
+
+Proxmox VE és una solució de virtualització completa pensada tant per a entorns empresarials com acadèmics, oferint una alternativa robusta, gratuïta i de codi obert a altres plataformes com VMware vSphere o Microsoft Hyper-V.
 
 ---
 
