@@ -240,7 +240,7 @@ Aquest capítol és fonamental per garantir que el desplegament posterior es rea
 * **CPU:** 16 x Intel(R) Xeon(R) CPU E5-2696 v4 @ 2.20GHz 
 * **RAM:** 32 GB DDR4
 * **Disc SSD:** 1x 150 GB per a sistema
-* **Discos HDD:** 2x 100 TB per a Ceph (OSD)
+* **Discos HDD:** 2x 100 GB per a Ceph (OSD)
 
 #### **Nodes del clúster 3:**
 
