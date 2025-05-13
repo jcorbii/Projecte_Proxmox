@@ -7,7 +7,18 @@
 
 ## 📌 Descripció
 
-Aquest projecte consisteix en la implementació d'una infraestructura virtualitzada utilitzant Proxmox VE. L'objectiu principal és optimitzar la gestió de recursos i facilitar la implementació de serveis en un entorn controlat i escalable.
+Aquest projecte es basa en la **implementació d’una infraestructura virtualitzada** mitjançant la plataforma **Proxmox Virtual Environment (Proxmox VE)**. L’objectiu principal és **desplegar un clúster d’alta disponibilitat** que permeta **centralitzar la gestió de màquines virtuals (VMs) i contenidors (LXC)**, garantint alhora escalabilitat, eficiència de recursos i tolerància a fallades.
+
+Per aconseguir-ho, s’ha configurat un entorn complet que inclou:
+
+* Un **clúster de Proxmox VE** amb diversos nodes interconnectats.
+* Un sistema d’**emmagatzematge distribuït** mitjançant **Ceph**, per assegurar la replicació de dades i la disponibilitat contínua.
+* La integració de **Proxmox Backup Server (PBS)** com a sistema de còpia de seguretat centralitzada i amb retenció intel·ligent.
+* La configuració d’**Alta Disponibilitat (HA)** per a la continuïtat del servei en cas de caiguda de nodes.
+* La monitorització amb **Netdata Cloud**, per obtindre visibilitat en temps real del rendiment i estat del sistema.
+* La implementació de **mecanismes de seguretat**, com tallafocs, actualitzacions automatitzades i control d’accés delegat.
+
+Aquest entorn permet simular escenaris reals d’administració de sistemes, facilitant la gestió dels recursos, la protecció de dades i l’automatització de tasques, tot dins d’un marc tècnic robust i preparat per a la producció o entorns educatius avançats.
 
 ## 🧱 Estructura del projecte
 
@@ -35,12 +46,10 @@ Projecte_Proxmox/
 └──  README.md
 ```
 
-
 ## 📄 Contingut
 
 - **Documentació/**: Conté la memòria del projecte i els annexos amb informació detallada sobre la implementació i configuració.
 - **README.md**: Aquest fitxer, que proporciona una visió general del projecte.
-
 
 ## ⚙️ Requisits
 
@@ -52,6 +61,19 @@ Projecte_Proxmox/
 ---
 
 ## 📘 1. Introducció
+
+Aquest projecte es basa en la **implementació d’una infraestructura virtualitzada** mitjançant la plataforma **Proxmox Virtual Environment (Proxmox VE)**. L’objectiu principal és **desplegar un clúster d’alta disponibilitat** que permeta **centralitzar la gestió de màquines virtuals (VMs) i contenidors (LXC)**, garantint alhora escalabilitat, eficiència de recursos i tolerància a fallades.
+
+Per aconseguir-ho, s’ha configurat un entorn complet que inclou:
+
+* Un **clúster de Proxmox VE** amb diversos nodes interconnectats.
+* Un sistema d’**emmagatzematge distribuït** mitjançant **Ceph**, per assegurar la replicació de dades i la disponibilitat contínua.
+* La integració de **Proxmox Backup Server (PBS)** com a sistema de còpia de seguretat centralitzada i amb retenció intel·ligent.
+* La configuració d’**Alta Disponibilitat (HA)** per a la continuïtat del servei en cas de caiguda de nodes.
+* La monitorització amb **Netdata Cloud**, per obtindre visibilitat en temps real del rendiment i estat del sistema.
+* La implementació de **mecanismes de seguretat**, com tallafocs, actualitzacions automatitzades i control d’accés delegat.
+
+Aquest entorn permet simular escenaris reals d’administració de sistemes, facilitant la gestió dels recursos, la protecció de dades i l’automatització de tasques, tot dins d’un marc tècnic robust i preparat per a la producció o entorns educatius avançats.
 
 ---
 
@@ -379,10 +401,6 @@ Gràcies a aquesta integració:
 * Millora la tolerància a fallades i la continuïtat del servei
 * Ofereix una gestió centralitzada i unificada del clúster i l’emmagatzematge
 
-Perfecte! Ací tens el punt **4.2 Instal·lació i configuració de Ceph al clúster**, redactat en valencià formal i pensat per a un projecte tècnic:
-
----
-
 # 5. 🛡️ Alta Disponibilitat (HA)
 
 L’**Alta Disponibilitat (HA)** és un conjunt de tecnologies i configuracions dissenyades per garantir que els serveis crítics d’un sistema **romanguen operatius de manera contínua**, fins i tot davant fallades de maquinari, programari o xarxa. En entorns virtualitzats com **Proxmox VE**, la funcionalitat HA és essencial per assegurar la **mínima interrupció dels serveis** que allotgen màquines virtuals i contenidors.
@@ -451,7 +469,7 @@ En definitiva, **Proxmox Backup Server** és una eina essencial per garantir la 
 
 ---
 
-# 👥 7. Gestió d’Usuaris i Pools de Recursos – Explicació Tècnica
+# 👥 7. Gestió d’Usuaris i Pools de Recursos 
 
 La **gestió d’usuaris** dins d’un entorn virtualitzat com **Proxmox VE** és essencial per controlar **qui pot accedir**, **què pot fer** i **sobre quins recursos pot actuar**. Aquesta gestió garanteix la **seguretat, organització i eficiència** en la utilització del sistema, especialment en entorns compartits, corporatius o amb administració delegada.
 
