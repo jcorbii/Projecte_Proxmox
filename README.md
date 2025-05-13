@@ -623,7 +623,7 @@ A nivell acadèmic, ha sigut una experiència molt completa, ja que m’ha ajuda
 
 ## 📎 11. Annexos
 
-## 11.1 Bibliografia
+### 11.1 Bibliografia
 
 A continuació es detallen les fonts utilitzades per al desenvolupament del projecte:
 
