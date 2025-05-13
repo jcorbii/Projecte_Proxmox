@@ -334,7 +334,7 @@ Aquest model distribuït assegura que el clúster siga funcional i operatiu fins
 
 * **Alta disponibilitat (HA):**
 
-  * Les màquines virtuals considerades crítiques es configuraran amb **HA groups**, de manera que, en cas de fallada d’un node, aquestes es reinicien automàticament en un altre node disponible sense intervenció manual.
+  * Les màquines virtuals considerades crítiques es configuraran amb **HA**, de manera que, en cas de fallada d’un node, aquestes es reinicien automàticament en un altre node disponible sense intervenció manual.
   * Es definiran regles de preferència i prioritat per optimitzar la distribució de càrrega i garantir la resposta immediata davant d’incidències.
 
 * **Gestió centralitzada:**
@@ -511,6 +511,69 @@ En resum, la gestió d’usuaris a Proxmox VE no sols millora la seguretat, sin�
 
 ---
 
+# 8. 🔐 Seguretat i Bones Pràctiques
+
+### 8.5 Monitorització del sistema amb Netdata
+
+**Netdata** és una eina de monitorització en temps real dissenyada per oferir una visió molt detallada del rendiment de sistemes, aplicacions, contenidors i dispositius IoT. És coneguda per la seva **interfície gràfica intuïtiva** i pel seu enfocament en la **visualització immediata** de dades de rendiment, amb una latència molt baixa.
+
+---
+
+### 🔍 **Què fa Netdata?**
+
+* Recull metadades del sistema (CPU, RAM, disc, xarxa, processos, etc.)
+* Monitoritza serveis i aplicacions (MySQL, nginx, docker, etc.)
+* Mostra les dades en **temps real (per segon o menys)**
+* Pot funcionar com a eina independent o integrat en una arquitectura de monitorització més gran.
+
+---
+
+## 🔄 Comparativa amb altres solucions similars
+
+A continuació tens una comparació amb tres eines populars de monitorització:
+
+| Característica               | **Netdata**              | **Prometheus + Grafana**          | **Zabbix**                       | **Nagios**                  |
+| ---------------------------- | ------------------------ | --------------------------------- | -------------------------------- | --------------------------- |
+| **Temps real**               | ✔ (mil·lisegons)         | ✘ (intervals mínims de 10-15s)    | ✘ (intervals configurables)      | ✘ (intervals configurables) |
+| **Interfície gràfica**       | ✔ Moderna i interactiva  | ✔ (Grafana)                       | ✔ Però més complexa              | ✘ (més bàsic o plugins)     |
+| **Facilitat d’instal·lació** | ✔ Molt fàcil (una línia) | ✘ Requereix configurar components | ✘ Requereix bastant configuració | ✘ Pot ser complexa          |
+| **Alertes**                  | ✔ Bàsiques integrades    | ✔ Amb Alertmanager                | ✔ Molt completes                 | ✔ Molt completes            |
+| **Escalabilitat**            | ✔ Amb Netdata Cloud      | ✔ Alta amb Thanos/Cortex          | ✔ Alta                           | ✔ Mitjana                   |
+| **Consum de recursos**       | ✔ Molt lleuger           | ✘ Pot ser alt depenent del cas    | ✘ Pot consumir bastant           | ✔ Lleuger                   |
+| **Extensibilitat**           | ✘ Limitada               | ✔ Molt alt                        | ✔ Alt                            | ✔ Alt                       |
+
+---
+
+## ✅ **Avantatges de Netdata**
+
+1. **Instal·lació molt senzilla:** una sola línia de comandes.
+2. **Monitorització en temps real real:** actualitzacions per segon o menys.
+3. **Poc consum de recursos:** ideal per a sistemes petits o embeguts.
+4. **Dades molt detallades:** milers de mètriques disponibles per defecte.
+5. **Interfície web interactiva:** gràfics clars i navegació fàcil.
+6. **Suport per a contenidors i microserveis.**
+
+---
+
+## ❌ **Inconvenients de Netdata**
+
+1. **No està pensat per a emmagatzematge a llarg termini:** reté dades en memòria per defecte (encara que es pot integrar amb bases de dades de sèries temporals).
+2. **Alertes bàsiques:** menys potent que Zabbix o Prometheus+Alertmanager.
+3. **Menys integracions corporatives avançades.**
+4. **Escalabilitat limitada si no s’utilitza Netdata Cloud.**
+
+---
+
+### 🧩 En resum:
+
+* **Vols veure dades en temps real de manera fàcil i ràpida?** 👉 *Netdata és ideal.*
+* **Necessites anàlisi a llarg termini, alertes complexes i integració amb sistemes grans?** 👉 *Millor Prometheus + Grafana o Zabbix.*
+* **Tens un entorn molt crític amb necessitat d’alertes robustes i historial llarg?** 👉 *Zabbix o Nagios són més adequats.*
+
+Doncs en el cas dels servidors és millor NetData i per eixe cas m'he quedat en NetData.
+
+---
+
 ## 🧠 10. Conclusions i Valoració Personal
 
 ### 🎯 10.1 Objectius Aconseguits
@@ -631,3 +694,4 @@ A continuació es detallen les fonts utilitzades per al desenvolupament del proj
 2. Debian Project. *Debian Wiki*. Accés 25 d’abril de 2025. [Debian](https://wiki.debian.org/).
 3. GitHub. *Repo*. Accés de seguit.[ Projecte Proxmox ](https://github.com/jcorbii/Projecte_Proxmox/)
 4. Netdata  *Instalació Netdata*. Accés 12 de maig de 2025. [Netdata](https://www.netdata.cloud/)
+
