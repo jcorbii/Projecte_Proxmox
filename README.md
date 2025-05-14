@@ -28,20 +28,29 @@ Projecte_Proxmox/
 │   └── documentació/
 │       │ 
 │       ├── instalació/
-│       │    ├── proxmox/
-│       │    │   ├──  README.md
-│       │    │   └──  install.pdf
-│       │    └── proxmox_backup/
-│       │        ├──  README.md
-│       │        └──  install.pdf
+│       │   ├── proxmox/
+│       │   │   ├──  README.md
+│       │   │   └──  install.pdf
+│       │   ├── proxmox_backup/
+│       │   │   ├──  README.md
+│       │   │   └──  install.pdf
+│       │   └── zabbix/
+│       │       ├──  README.md
+│       │       └──  install.pdf
+│       │
 │       │
 │       └── configuració/
 │           ├── proxmox/
 │           │   ├──  README.md
 │           │   └──  conf.pdf
-│           └── proxmox backup server/
-│              ├──  README.md
-│              └──  conf.pdf
+│           ├── proxmox backup server/
+│           │   ├──  README.md
+│           │   └──  conf.pdf
+│           └── zabbix/
+│               ├──  README.md
+│               └──  conf.pdf
+│
+│
 ├── img/
 └──  README.md
 ```
