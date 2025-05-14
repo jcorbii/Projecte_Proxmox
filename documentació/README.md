@@ -51,11 +51,12 @@
 - 8.4 Bones pràctiques d’administració del clúster  
 - 8.5 Monitorització del sistema amb **Netdata**
 
-## 9. 📄 Documentació Tècnica i Manual d’Usuari
-- 9.1 Manual d’instal·lació pas a pas  
-- 9.2 Guia d’administració del clúster  
-- 9.3 Procediments davant fallades comunes  
-- 9.4 Manual d’ús per a usuaris delegats  
+## 9. 📊 Monitoratge Centralitzat amb Zabbix
+- 9.1 Què és Zabbix i funcionalitats principals
+- 9.2 Justificació de l’elecció de Zabbix front altres solucions (Nagios, Prometheus, Netdata...)
+- 9.3 Integració amb la infraestructura virtualitzada de Proxmox VE
+- 9.4 Desplegament en Alta Disponibilitat (HA) per garantir la continuïtat del servei
+- 9.5 Possibilitats d’alertes, quadres de control i gestió proactiva d’incidències
 
 ## 10. 📈 Conclusions i Valoració Personal
 - 10.1 Objectius assolits  

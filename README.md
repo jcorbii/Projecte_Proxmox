@@ -574,6 +574,39 @@ Doncs en el cas dels servidors és millor NetData i per eixe cas m'he quedat en 
 
 ---
 
+### 🔍 9.1 Què és Zabbix i funcionalitats principals
+
+Zabbix és una plataforma de monitoratge open source que permet supervisar en temps real el rendiment i l'estat de sistemes, servidors, màquines virtuals, serveis de xarxa i aplicacions. Proporciona alertes configurables, gràfiques avançades, dashboards personalitzats i recollida d’estadístiques a llarg termini, tot des d’una interfície web centralitzada.
+
+### ✅ 9.2 Justificació de l’elecció de Zabbix front altres solucions
+
+Tot i que existeixen altres plataformes com **Nagios**, **Prometheus** o **Netdata**, s’ha escollit Zabbix per les següents raons tècniques:
+
+* **Monitoratge integral** (nivell de xarxa, sistema, servei i aplicació) en un únic entorn.
+* **Compatibilitat nativa amb Proxmox VE**, gràcies a plantilles ja desenvolupades per a la monitorització de nodes, màquines virtuals i serveis Ceph.
+* Suport per a **alertes proactives i automatització de respostes** davant esdeveniments.
+* Interfície gràfica potent amb panells i visualitzacions configurables per a administradors i usuaris.
+
+A diferència de **Prometheus**, que requereix diversos components externs per una solució completa, o de **Nagios**, que té un enfocament més bàsic i menys visual, **Zabbix ofereix una solució tot-en-u** que s’adapta millor a les necessitats del projecte.
+
+### 🔗 9.3 Integració amb la infraestructura virtualitzada de Proxmox VE
+
+Zabbix es desplegarà com a màquina virtual dins del clúster Proxmox, i mitjançant l’ús d’agents Zabbix i connexions SNMP, es recollirà informació detallada de l’estat de cada node, VM, recursos de Ceph i altres serveis crìtics. S’utilitzaran **templates oficials i personalitzades** per adaptar la monitorització als requisits de l’entorn.
+
+### 🛡️ 9.4 Desplegament en Alta Disponibilitat (HA)
+
+Per garantir la **continuitat del monitoratge fins i tot en cas de fallada d’un node del clúster**, el servidor Zabbix estarà definit com a **recurs d’alta disponibilitat (HA)** dins de Proxmox. Això implica:
+
+* Assignació a un **grup HA**.
+* Configuració del servei Zabbix com a recurs gestionat per `ha-manager`.
+* En cas de caiguda del node actiu, **el servei es migrarà automàticament** a un altre node disponible, assegurant una supervisió contínua.
+
+### 📈 9.5 Possibilitats d’alertes, quadres de control i gestió proactiva
+
+Zabbix permet definir llindars i condicions d'alerta, enviar notificacions per correu, Telegram o altres canals, i generar informes periòdics. Això facilita una **gestió proactiva de l’entorn virtualitzat**, anticipant problemes i millorant la disponibilitat general del sistema.
+
+---
+
 ## 🧠 10. Conclusions i Valoració Personal
 
 ### 🎯 10.1 Objectius Aconseguits
