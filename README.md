@@ -582,6 +582,7 @@ A continuació tens una comparació amb tres eines populars de monitorització:
 Doncs en el cas dels servidors és millor NetData i per eixe cas m'he quedat en NetData.
 
 ---
+## 9. 📊 Monitoratge Centralitzat amb Zabbix
 
 ### 🔍 9.1 Què és Zabbix i funcionalitats principals
 
@@ -609,10 +610,6 @@ Per garantir la **continuitat del monitoratge fins i tot en cas de fallada d’u
 * Assignació a un **grup HA**.
 * Configuració del servei Zabbix com a recurs gestionat per `ha-manager`.
 * En cas de caiguda del node actiu, **el servei es migrarà automàticament** a un altre node disponible, assegurant una supervisió contínua.
-
-### 📈 9.5 Possibilitats d’alertes, quadres de control i gestió proactiva
-
-Zabbix permet definir llindars i condicions d'alerta, enviar notificacions per correu, Telegram o altres canals, i generar informes periòdics. Això facilita una **gestió proactiva de l’entorn virtualitzat**, anticipant problemes i millorant la disponibilitat general del sistema.
 
 ---
 
@@ -736,4 +733,4 @@ A continuació es detallen les fonts utilitzades per al desenvolupament del proj
 2. Debian Project. *Debian Wiki*. Accés 25 d’abril de 2025. [Debian](https://wiki.debian.org/).
 3. GitHub. *Repo*. Accés de seguit.[ Projecte Proxmox ](https://github.com/jcorbii/Projecte_Proxmox/)
 4. Netdata  *Instalació Netdata*. Accés 12 de maig de 2025. [Netdata](https://www.netdata.cloud/)
-
+5. Zabbix  *Docuemntació Zabbix*. Accés 14 de maig de 2025. [Zabbix](https://www.zabbix.com/)

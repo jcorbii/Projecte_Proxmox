@@ -56,7 +56,8 @@
 - 9.2 Justificació de l’elecció de Zabbix front altres solucions (Nagios, Prometheus, Netdata...)
 - 9.3 Integració amb la infraestructura virtualitzada de Proxmox VE
 - 9.4 Desplegament en Alta Disponibilitat (HA) per garantir la continuïtat del servei
-- 9.5 Possibilitats d’alertes, quadres de control i gestió proactiva d’incidències
+- 9.5 Procés d’instal·lació del servidor Zabbix
+- 9.6 Afegeix un host al monitoratge Zabbix
 
 ## 10. 📈 Conclusions i Valoració Personal
 - 10.1 Objectius assolits  
