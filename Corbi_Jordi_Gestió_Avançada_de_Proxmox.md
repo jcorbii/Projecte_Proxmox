@@ -28,20 +28,29 @@ Projecte_Proxmox/
 │   └── documentació/
 │       │ 
 │       ├── instalació/
-│       │    ├── proxmox/
-│       │    │   ├──  README.md
-│       │    │   └──  install.pdf
-│       │    └── proxmox_backup/
-│       │        ├──  README.md
-│       │        └──  install.pdf
+│       │   ├── proxmox/
+│       │   │   ├──  README.md
+│       │   │   └──  install.pdf
+│       │   ├── proxmox_backup/
+│       │   │   ├──  README.md
+│       │   │   └──  install.pdf
+│       │   └── zabbix/
+│       │       ├──  README.md
+│       │       └──  install.pdf
+│       │
 │       │
 │       └── configuració/
 │           ├── proxmox/
 │           │   ├──  README.md
 │           │   └──  conf.pdf
-│           └── proxmox backup server/
-│              ├──  README.md
-│              └──  conf.pdf
+│           ├── proxmox backup server/
+│           │   ├──  README.md
+│           │   └──  conf.pdf
+│           └── zabbix/
+│               ├──  README.md
+│               └──  conf.pdf
+│
+│
 ├── img/
 └──  README.md
 ```
@@ -59,79 +68,6 @@ Projecte_Proxmox/
 - Connexió a Internet per a la descàrrega de paquets i actualitzacions
 
 ---
-
-# 📘 Índex del Projecte: Infraestructura Virtualitzada amb **Proxmox VE**  
-### Amb Alta Disponibilitat i Còpia de Seguretat Centralitzada
-
-## 1. 🧭 Introducció
-- 1.1 Objectius del projecte  
-- 1.2 Justificació de l’elecció de Proxmox VE  
-- 1.3 Abast del projecte  
-- 1.4 Requisits previs i coneixements necessaris  
-
-## 2. 🧱 Anàlisi i Disseny de la Infraestructura
-- 2.1 Requisits funcionals i no funcionals  
-- 2.2 Topologia de xarxa proposada  
-- 2.3 Maquinari utilitzat  
-- 2.4 Disseny lògic del clúster Proxmox  
-- 2.5 Consideracions d’alta disponibilitat i tolerància a fallades  
-
-## 3. 🖥️ Implementació del Clúster Proxmox
-- 3.1 Instal·lació dels nodes Proxmox VE  
-- 3.2 Configuració del clúster (`pvecm`)  
-
-## 4. 🧩 Configuració de **Ceph** com a Emmagatzematge Distribuït
-- 4.1 Introducció a Ceph i integració amb Proxmox  
-- 4.2 Instal·lació i configuració de Ceph al clúster  
-- 4.3 Creació de pools d’emmagatzematge  
-- 4.4 Proves de rendiment i replicació  
-- 4.5 Gestió i monitoratge de Ceph  
-
-## 5. 🛡️ Alta Disponibilitat (**HA**)
-- 5.1 Activació del gestor HA en Proxmox  
-- 5.2 Definició de grups HA  
-- 5.3 Proves de tolerància a fallades (failover de màquines virtuals)  
-- 5.4 Casos d’ús i recuperació davant caigudes de nodes  
-
-## 6. 💾 Proxmox Backup Server (**PBS**)
-- 6.1 Instal·lació de PBS  
-- 6.2 Creació del Datastore
-- 6.3 Integració amb Proxmox VE  
-- 6.4 Programació de còpies de seguretat  
-- 6.5 Restauració de màquines virtuals  
-- 6.6 Estratègia de retenció i rotació de backups  
-
-## 7. 👥 Gestió d’Usuaris i Pools de Recursos
-- 7.1 Creació de rols personalitzats i permisos  
-- 7.2 Definició de pools de recursos  
-- 7.3 Gestió delegada i multiusuari  
-
-## 8. 🔐 Seguretat i Bones Pràctiques
-- 8.1 Actualitzacions i pegats de seguretat  
-- 8.2 Configuració del tallafoc en Proxmox  
-- 8.3 Còpies de seguretat de la configuració  
-- 8.4 Bones pràctiques d’administració del clúster  
-- 8.5 Monitorització del sistema amb **Netdata**
-
-## 9. 📄 Documentació Tècnica i Manual d’Usuari
-- 9.1 Manual d’instal·lació pas a pas  
-- 9.2 Guia d’administració del clúster  
-- 9.3 Procediments davant fallades comunes  
-- 9.4 Manual d’ús per a usuaris delegats  
-
-## 10. 📈 Conclusions i Valoració Personal
-- 10.1 Objectius assolits  
-- 10.2 Dificultats trobades i solucions adoptades  
-- 10.3 Possibles millores futures  
-- 10.4 Valoració tècnica i personal del projecte  
-
-## 11. 📎 Annexos
-- 11.1 Enllaços d’interés i bibliografia  
-
----
-
-# 📄 Documentació Tècnica
-
 
 ## 📘 1. Introducció
 
@@ -189,7 +125,8 @@ Finalment, la disponibilitat de **documentació extensa**, suport de la comunita
 
 ### 🧭 1.3 Abast del Projecte
 
-Aquest projecte abasta de manera integral totes les fases necessàries per al desplegament d’una **infraestructura virtualitzada d’alta disponibilitat**, utilitzant tecnologies de codi ob.md
+Aquest projecte abasta de manera integral totes les fases necessàries per al desplegament d’una **infraestructura virtualitzada d’alta disponibilitat**, utilitzant tecnologies de codi obert amb un enfocament pràctic i escalable. La planificació, implementació i documentació cobreixen tant la part física com la lògica del sistema, assegurant un entorn robust, segur i fàcilment administrable.
+
 Les accions principals que formen part de l’abast del projecte són:
 
 * **Disseny i desplegament de tres nodes físics** amb **Proxmox VE**, configurats en mode **clúster** per oferir gestió centralitzada, suport a l’alta disponibilitat i funcionalitats avançades com la migració en viu de màquines virtuals.
@@ -645,6 +582,36 @@ A continuació tens una comparació amb tres eines populars de monitorització:
 Doncs en el cas dels servidors és millor NetData i per eixe cas m'he quedat en NetData.
 
 ---
+## 9. 📊 Monitoratge Centralitzat amb Zabbix
+
+### 🔍 9.1 Què és Zabbix i funcionalitats principals
+
+Zabbix és una plataforma de monitoratge open source que permet supervisar en temps real el rendiment i l'estat de sistemes, servidors, màquines virtuals, serveis de xarxa i aplicacions. Proporciona alertes configurables, gràfiques avançades, dashboards personalitzats i recollida d’estadístiques a llarg termini, tot des d’una interfície web centralitzada.
+
+### ✅ 9.2 Justificació de l’elecció de Zabbix front altres solucions
+
+Tot i que existeixen altres plataformes com **Nagios**, **Prometheus** o **Netdata**, s’ha escollit Zabbix per les següents raons tècniques:
+
+* **Monitoratge integral** (nivell de xarxa, sistema, servei i aplicació) en un únic entorn.
+* **Compatibilitat nativa amb Proxmox VE**, gràcies a plantilles ja desenvolupades per a la monitorització de nodes, màquines virtuals i serveis Ceph.
+* Suport per a **alertes proactives i automatització de respostes** davant esdeveniments.
+* Interfície gràfica potent amb panells i visualitzacions configurables per a administradors i usuaris.
+
+A diferència de **Prometheus**, que requereix diversos components externs per una solució completa, o de **Nagios**, que té un enfocament més bàsic i menys visual, **Zabbix ofereix una solució tot-en-u** que s’adapta millor a les necessitats del projecte.
+
+### 🔗 9.3 Integració amb la infraestructura virtualitzada de Proxmox VE
+
+Zabbix es desplegarà com a màquina virtual dins del clúster Proxmox, i mitjançant l’ús d’agents Zabbix i connexions SNMP, es recollirà informació detallada de l’estat de cada node, VM, recursos de Ceph i altres serveis crìtics. S’utilitzaran **templates oficials i personalitzades** per adaptar la monitorització als requisits de l’entorn.
+
+### 🛡️ 9.4 Desplegament en Alta Disponibilitat (HA)
+
+Per garantir la **continuitat del monitoratge fins i tot en cas de fallada d’un node del clúster**, el servidor Zabbix estarà definit com a **recurs d’alta disponibilitat (HA)** dins de Proxmox. Això implica:
+
+* Assignació a un **grup HA**.
+* Configuració del servei Zabbix com a recurs gestionat per `ha-manager`.
+* En cas de caiguda del node actiu, **el servei es migrarà automàticament** a un altre node disponible, assegurant una supervisió contínua.
+
+---
 
 ## 🧠 10. Conclusions i Valoració Personal
 
@@ -750,9 +717,11 @@ Aquestes millores convertiran el nostre entorn en un sistema **més robust, segu
 
 ### Valoració personal del projecte
 
-Aquest projecte m’ha permés consolidar coneixements adquirits durant el cicle formatiu, especialment en àrees com la virtualització, l’alta disponibilitat i la gestió d’infraestructures TI. A través de la implementació pràctica amb **Proxmox VE**, he pogut entendre millor el funcionament dels clústers, l’emmagatzematge distribuït amb **Ceph** i la importància de les còpies de seguretat amb **PBS**.
+Aquest projecte m’ha permés consolidar coneixements adquirits durant el cicle formatiu, especialment en àrees com la **virtualització**, l’**alta disponibilitat** i la **gestió d’infraestructures TI**. A través de la implementació pràctica amb **Proxmox VE**, he pogut entendre millor el funcionament dels **clústers**, l’**emmagatzematge distribuït amb Ceph** i la importància de les **còpies de seguretat mitjançant PBS**.
 
-A nivell acadèmic, ha sigut una experiència molt completa, ja que m’ha ajudat a connectar la teoria amb la pràctica, millorant la meua capacitat d’anàlisi, resolució de problemes i documentació tècnica. Considere que ha sigut un projecte molt útil per a preparar-me de cara a entorns reals i futurs reptes professionals en el sector de les tecnologies de la informació.
+A més, la incorporació de **Zabbix com a sistema de monitoratge** ha sigut fonamental per adquirir competències en la supervisió d’entorns TI. La configuració d’agents en sistemes **Windows i Linux**, així com la creació i gestió de *hosts* des de la interfície web de Zabbix, m’ha ajudat a entendre com controlar el rendiment, detectar anomalies i mantenir la salut de la infraestructura en temps real.
+
+A nivell acadèmic, ha sigut una experiència molt completa, ja que m’ha ajudat a connectar la teoria amb la pràctica, millorant la meua **capacitat d’anàlisi, resolució de problemes i documentació tècnica**. Considere que ha sigut un projecte molt útil per a preparar-me de cara a **entorns reals i futurs reptes professionals** en el sector de les tecnologies de la informació.
 
 ---
 
@@ -766,8 +735,12 @@ A continuació es detallen les fonts utilitzades per al desenvolupament del proj
 2. Debian Project. *Debian Wiki*. Accés 25 d’abril de 2025. [Debian](https://wiki.debian.org/).
 3. GitHub. *Repo*. Accés de seguit.[ Projecte Proxmox ](https://github.com/jcorbii/Projecte_Proxmox/)
 4. Netdata  *Instalació Netdata*. Accés 12 de maig de 2025. [Netdata](https://www.netdata.cloud/)
+5. Zabbix  *Docuemntació Zabbix*. Accés 14 de maig de 2025. [Zabbix](https://www.zabbix.com/)
 
-# 🛠️ Part 2: Instal·lació i Configuració
+
+# Instalacio
+
+## Proxmox
 
 ## 💻 3.  Implementació del *Clúster* Proxmox
 
@@ -872,6 +845,196 @@ https://10.10.10.58:8006
 I amb això, accedim de nou a la interfície de gestió de Proxmox:
 
 ![Web node 3](../../../img/image-32.png)
+
+## Proxmox Backup Server
+
+## 💻 6 Proxmox Backup Server (PBS)
+
+### 6.1 Instalación de PBS
+
+**Passos per a la instal·lació:**
+
+1. Baixem la imatge *ISO* de Proxmox Backup Server des de la [web oficial](https://proxmox.com/en/downloads), triant l’última versió disponible.
+2. Una vegada descarregada, la col·loquem en el dispositiu des d'on farem la instal·lació en l’equip.
+
+---
+
+🔸 El primer pas, després de col·locar la *ISO*, és la càrrega del menú *GRUB*, on hem de seleccionar el procés d’instal·lació desitjat. En este cas, triarem l'opció amb interfície gràfica.
+
+![GRUB](../../../img/image-14.png)
+
+🔸 A continuació, acceptem la **llicència d’ús** del programari.
+
+![Llicència](../../../img/image-15.png)
+
+🔸 En el següent pas, seleccionem en quin disc volem instal·lar Proxmox. En este exemple només tenim un disc disponible, així que el seleccionem. També podem configurar el sistema de fitxers. Triem **ext4**.
+
+![Disc](../../../img/image-16.png)
+
+🔸 Introduïm la **contrasenya d’administració** i un **correu electrònic** per a notificacions del sistema.
+
+![Contrasenya i correu](../../../img/image-17.png)
+
+🔸 Assignem el **nom del *host***, la **IP**, el **gateway** i els **DNS**.
+
+![Configuració de xarxa](../../../img/image-18.png)
+
+🔸 Finalment, es mostra un **resum de la configuració** triada. Confirmem i iniciem la instal·lació.
+
+![Resum](../../../img/image-19.png)
+
+🔸 Un cop finalitzada la instal·lació, a la consola apareixerà un missatge indicant que podem accedir a la interfície web de Proxmox via:
+
+```
+https://10.10.10.123:8006
+```
+
+![Accés web](../../../img/image-20.png)
+
+🔸 Així accedim a la **interfície web de Proxmox VE**:
+
+![Web Proxmox](../../../img/image-21.png)
+
+## Zabbix
+
+## 9. 📊 Monitoratge Centralitzat amb **Zabbix**
+
+### 1. Descàrrega de Zabbix
+
+Per començar, accedim a la web oficial de Zabbix: [https://www.zabbix.com](https://www.zabbix.com)
+
+Una vegada dins, cal anar a l’apartat **Download Zabbix**, on seleccionarem:
+
+* La **versió** desitjada (en aquest cas, la 7.2)
+* El **sistema operatiu** (Debian 12)
+* Els **components** (servidor, frontend, agent)
+* El tipus de **base de dades** (MySQL/MariaDB)
+* El servidor web (Apache)
+
+> ![alt text](../../../img/image-127.png)
+
+---
+
+### 2. Instal·lació i configuració del servidor Zabbix
+
+#### a. Instal·lació del repositori oficial
+
+```bash
+wget https://repo.zabbix.com/zabbix/7.2/release/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.2+debian12_all.deb
+dpkg -i zabbix-release_latest_7.2+debian12_all.deb
+apt update
+```
+
+> ![alt text](../../../img/image-128.png)
+
+---
+
+#### b. Instal·lació dels paquets principals
+
+Instal·lem el servidor Zabbix, el frontend web amb Apache, els scripts SQL i l’agent:
+
+```bash
+apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent
+```
+
+> ![alt text](../../../img/image-129.png)
+
+---
+
+#### c. Creació de la base de dades
+
+Assegura’t que el servidor de bases de dades (MariaDB o MySQL) està operatiu.
+
+Accedim al client de MySQL per crear la base de dades i l’usuari:
+
+```bash
+mysql -uroot -p
+```
+
+```sql
+CREATE DATABASE zabbix CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+CREATE USER zabbix@localhost IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON zabbix.* TO zabbix@localhost;
+SET GLOBAL log_bin_trust_function_creators = 1;
+QUIT;
+```
+
+> ![alt text](../../../img/image-130.png)
+
+---
+
+#### d. Importació de l’esquema de dades
+
+Des del servidor Zabbix, importem l’esquema i les dades inicials:
+
+```bash
+zcat /usr/share/zabbix/sql-scripts/mysql/server.sql.gz | mysql --default-character-set=utf8mb4 -uzabbix -p zabbix
+```
+
+> ![alt text](../../../img/image-131.png)
+
+Després, restaurem el valor per defecte de la directiva `log_bin_trust_function_creators`:
+
+```bash
+mysql -uroot -p
+```
+
+```sql
+SET GLOBAL log_bin_trust_function_creators = 0;
+QUIT;
+```
+
+> ![alt text](../../../img/image-132.png)
+
+---
+
+#### e. Configuració del servidor Zabbix
+
+Editem el fitxer de configuració del servidor `/etc/zabbix/zabbix_server.conf` i establim la contrasenya de la base de dades:
+
+```bash
+DBPassword=password
+```
+
+> ![alt text](../../../img/image-133.png)
+
+---
+
+#### f. Inici dels serveis
+
+Reiniciem els serveis necessaris i els activem perquè s’inicien automàticament amb el sistema:
+
+```bash
+systemctl restart zabbix-server zabbix-agent apache2
+systemctl enable zabbix-server zabbix-agent apache2
+```
+
+> ![alt text](../../../img/image-134.png)
+
+---
+
+#### g. Accés a la interfície web
+
+Una vegada tot estiga operatiu, podem accedir a la interfície web de Zabbix des del navegador:
+
+```
+http://IP_DEL_SERVIDOR/zabbix
+```
+
+Des d’ací podrem finalitzar la configuració via web GUI.
+
+> ![alt text](../../../img/image-135.png)
+
+---
+
+Amb això, el servidor Zabbix queda instal·lat i llest per a ser utilitzat per a la monitorització centralitzada de la infraestructura.
+
+> ![alt text](../../../img/image-135.png)
+
+
+# Configuració 
+
+# Proxmox
 
 # 3. 🖥️ Implementació del Clúster Proxmox
 
@@ -1847,52 +2010,7 @@ Aquests escenaris mostren com Proxmox permet adaptar-se fàcilment a entorns **m
 
 ---
 
-## 💻 6 Proxmox Backup Server (PBS)
-
-### 6.1 Instalación de PBS
-
-**Passos per a la instal·lació:**
-
-1. Baixem la imatge *ISO* de Proxmox Backup Server des de la [web oficial](https://proxmox.com/en/downloads), triant l’última versió disponible.
-2. Una vegada descarregada, la col·loquem en el dispositiu des d'on farem la instal·lació en l’equip.
-
----
-
-🔸 El primer pas, després de col·locar la *ISO*, és la càrrega del menú *GRUB*, on hem de seleccionar el procés d’instal·lació desitjat. En este cas, triarem l'opció amb interfície gràfica.
-
-![GRUB](../../../img/image-14.png)
-
-🔸 A continuació, acceptem la **llicència d’ús** del programari.
-
-![Llicència](../../../img/image-15.png)
-
-🔸 En el següent pas, seleccionem en quin disc volem instal·lar Proxmox. En este exemple només tenim un disc disponible, així que el seleccionem. També podem configurar el sistema de fitxers. Triem **ext4**.
-
-![Disc](../../../img/image-16.png)
-
-🔸 Introduïm la **contrasenya d’administració** i un **correu electrònic** per a notificacions del sistema.
-
-![Contrasenya i correu](../../../img/image-17.png)
-
-🔸 Assignem el **nom del *host***, la **IP**, el **gateway** i els **DNS**.
-
-![Configuració de xarxa](../../../img/image-18.png)
-
-🔸 Finalment, es mostra un **resum de la configuració** triada. Confirmem i iniciem la instal·lació.
-
-![Resum](../../../img/image-19.png)
-
-🔸 Un cop finalitzada la instal·lació, a la consola apareixerà un missatge indicant que podem accedir a la interfície web de Proxmox via:
-
-```
-https://10.10.10.123:8006
-```
-
-![Accés web](../../../img/image-20.png)
-
-🔸 Així accedim a la **interfície web de Proxmox VE**:
-
-![Web Proxmox](../../../img/image-21.png)
+# Proxmox Backup Server
 
 # 6. 💾 Proxmox Backup Server (PBS)
 
@@ -2380,3 +2498,102 @@ Aquestes polítiques poden combinar-se per cobrir tant recuperacions recents com
 ### ✅ Resultat
 
 Amb una estratègia de retenció ben definida, el sistema manté un equilibri entre **disponibilitat de dades** i **optimització de recursos**, evitant tant la pèrdua d’informació com la sobrecàrrega del sistema d’emmagatzematge.
+
+# Zabbix
+
+# 9.6 Incorporació d’un *host* al sistema de monitoratge amb Zabbix
+
+## 🖥️ 1. Afegir un host Windows
+
+Per integrar un sistema Windows al monitoratge mitjançant **Zabbix**, cal seguir els següents passos:
+
+1. Accedir a la pàgina oficial de Zabbix i descarregar el **paquet de l’agent Zabbix** corresponent al sistema operatiu:
+
+![alt text](../../../img/image-138.png)
+
+2. Seleccionar:
+
+   * Sistema operatiu (*Windows*)
+   * Versió del servidor Zabbix
+   * Tipus de xifrat (si és necessari)
+   * Format del paquet
+
+![alt text](../../../img/image-139.png)
+
+3. Un cop descarregat l’instal·lador, executar-lo i seguir l’assistent d’instal·lació:
+
+![alt text](../../../img/image-140.png)
+![alt text](../../../img/image-141.png)
+![alt text](../../../img/image-142.png)
+![alt text](../../../img/image-143.png)
+
+4. Verificar que el **servei de l’agent Zabbix** s’ha iniciat correctament:
+
+![alt text](../../../img/image-144.png)
+
+5. Finalment, accedir a la interfície web de Zabbix i crear el nou host:
+
+   * Menú: **Monitoring → Hosts → Create Host**
+
+![alt text](../../../img/image-145.png)
+![alt text](../../../img/image-146.png)
+
+---
+
+## 🐧 2. Afegir un host Linux
+
+Per monitoritzar un sistema Linux, cal seguir aquests passos:
+
+1. Accedir a la web de Zabbix i seleccionar l’agent corresponent al sistema (en aquest cas, per a **SUSE Linux Enterprise Server - SLES**).
+
+![alt text](../../../img/image-147.png)
+
+2. Seguir les instruccions per instal·lar l’agent:
+
+### a. Afegir el repositori oficial de Zabbix:
+
+```bash
+rpm -Uvh --nosignature https://repo.zabbix.com/zabbix/7.2/release/sles/15/noarch/zabbix-release-latest-7.2.sles15.noarch.rpm
+zypper --gpg-auto-import-keys refresh 'Zabbix Official Repository'
+```
+
+![alt text](../../../img/image-148.png)
+
+### b. Instal·lar el paquet de l’agent:
+
+```bash
+zypper in zabbix-agent
+```
+
+![alt text](../../../img/image-149.png)
+
+### c. Configurar el fitxer de configuració de l’agent:
+
+Modificar el fitxer `/etc/zabbix/zabbix_agentd.conf` per definir:
+
+* `Server=` IP del servidor Zabbix
+* `Hostname=` nom del dispositiu
+
+![alt text](../../../img/image-150.png)
+![alt text](../../../img/image-151.png)
+
+### d. Iniciar i habilitar el servei de l’agent:
+
+```bash
+systemctl restart zabbix-agent
+systemctl enable zabbix-agent
+```
+
+![alt text](../../../img/image-152.png)
+
+3. Afegir el nou host des de la interfície web del servidor Zabbix:
+
+![alt text](../../../img/image-153.png)
+
+Un cop afegits els sistemes, apareixeran llistats a l’apartat de *Hosts*:
+
+![alt text](../../../img/image-154.png)
+
+---
+
+🔍 Amb aquest procés, tant equips Windows com Linux poden ser incorporats al sistema de monitoratge, permetent la supervisió de mètriques com consum de CPU, ús de memòria, estat dels serveis i molt més, tot centralitzat des del panell de control de Zabbix.

@@ -717,9 +717,11 @@ Aquestes millores convertiran el nostre entorn en un sistema **més robust, segu
 
 ### Valoració personal del projecte
 
-Aquest projecte m’ha permés consolidar coneixements adquirits durant el cicle formatiu, especialment en àrees com la virtualització, l’alta disponibilitat i la gestió d’infraestructures TI. A través de la implementació pràctica amb **Proxmox VE**, he pogut entendre millor el funcionament dels clústers, l’emmagatzematge distribuït amb **Ceph** i la importància de les còpies de seguretat amb **PBS**.
+Aquest projecte m’ha permés consolidar coneixements adquirits durant el cicle formatiu, especialment en àrees com la **virtualització**, l’**alta disponibilitat** i la **gestió d’infraestructures TI**. A través de la implementació pràctica amb **Proxmox VE**, he pogut entendre millor el funcionament dels **clústers**, l’**emmagatzematge distribuït amb Ceph** i la importància de les **còpies de seguretat mitjançant PBS**.
 
-A nivell acadèmic, ha sigut una experiència molt completa, ja que m’ha ajudat a connectar la teoria amb la pràctica, millorant la meua capacitat d’anàlisi, resolució de problemes i documentació tècnica. Considere que ha sigut un projecte molt útil per a preparar-me de cara a entorns reals i futurs reptes professionals en el sector de les tecnologies de la informació.
+A més, la incorporació de **Zabbix com a sistema de monitoratge** ha sigut fonamental per adquirir competències en la supervisió d’entorns TI. La configuració d’agents en sistemes **Windows i Linux**, així com la creació i gestió de *hosts* des de la interfície web de Zabbix, m’ha ajudat a entendre com controlar el rendiment, detectar anomalies i mantenir la salut de la infraestructura en temps real.
+
+A nivell acadèmic, ha sigut una experiència molt completa, ja que m’ha ajudat a connectar la teoria amb la pràctica, millorant la meua **capacitat d’anàlisi, resolució de problemes i documentació tècnica**. Considere que ha sigut un projecte molt útil per a preparar-me de cara a **entorns reals i futurs reptes professionals** en el sector de les tecnologies de la informació.
 
 ---
 
