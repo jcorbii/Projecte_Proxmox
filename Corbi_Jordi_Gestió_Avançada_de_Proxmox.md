@@ -246,7 +246,7 @@ Aquest capítol és fonamental per garantir que el desplegament posterior es rea
 
 #### **Nodes del clúster (x2):**
 
-* **CPU:** 16 x Intel(R) Xeon(R) CPU E5-2696 v4 @ 2.20GHz 
+* **CPU:** 16 x Intel(R) Xeon(R) CPU E5-2696 v4 @ 2.20GHz img
 * **RAM:** 32 GB DDR4
 * **Disc SSD:** 1x 150 GB per a sistema
 * **Discos HDD:** 2x 100 GB per a Ceph (OSD)
@@ -757,34 +757,29 @@ A continuació es detallen les fonts utilitzades per al desenvolupament del proj
 
 🔸 El primer pas, després de col·locar la *ISO*, és la càrrega del menú *GRUB*, on hem de seleccionar el procés d’instal·lació desitjat. En este cas, triarem l'opció amb interfície gràfica.
 
-![GRUB](../../../img/image.png)
 
 🔸 A continuació, acceptem la **llicència d’ús** del programari.
 
-![Llicència](../../../img/image-1.png)
-
 🔸 En el següent pas, seleccionem en quin disc volem instal·lar Proxmox. En este exemple només tenim un disc disponible, així que el seleccionem. També podem configurar el sistema de fitxers. Triem **ext4**.
 
-![Disc](../../../img/image-2.png)
+<img src="../../../img/image-2.png" alt="GRUB" width="60%">
 
 🔸 Assignem la totalitat de l’espai disponible al disc, ja que només n'hi ha un.
 
-![Espai disc](../../../img/image-3.png)
+<img src="../../../img/image-3.png" alt="GRUB" width="60%">
 
 🔸 Configurem la **zona horària**.
 
-![Zona Horariá](../../../img/image-4.png)
-🔸 Introduïm la **contrasenya d’administració** i un **correu electrònic** per a notificacions del sistema.
 
-![Contrasenya i correu](../../../img/image-5.png)
+🔸 Introduïm la **contrasenya d’administració** i un **correu electrònic** per a notificacions del sistema.
 
 🔸 Assignem el **nom del *host***, la **IP**, el **gateway** i els **DNS**.
 
-![Configuració de xarxa](../../../img/image-6.png)
+<img src="../../../img/image-6.png" alt="GRUB" width="60%">
 
 🔸 Finalment, es mostra un **resum de la configuració** triada. Confirmem i iniciem la instal·lació.
 
-![Resum](../../../img/image-7.png)
+<img src="../../../img/image-7.png" alt="GRUB" width="60%">
 
 🔸 Un cop finalitzada la instal·lació, a la consola apareixerà un missatge indicant que podem accedir a la interfície web de Proxmox via:
 
@@ -792,11 +787,11 @@ A continuació es detallen les fonts utilitzades per al desenvolupament del proj
 https://10.10.10.60:8006
 ```
 
-![Accés web](../../../img/image-10.png)
+<img src="../../../img/image-8.png" alt="GRUB" width="60%">
 
 🔸 Així accedim a la **interfície web de Proxmox VE**:
 
-![Web Proxmox](../../../img/image-11.png)
+<img src="../../../img/image-11.png" alt="GRUB" width="60%">
 
 ---
 
@@ -804,11 +799,11 @@ https://10.10.10.60:8006
 
 El procés d’instal·lació del **segon node** és **idèntic** al del primer, excepte pels valors del **nom del host** i la **IP**, que han de ser únics per a cada node.
 
-![Configuració node 2](../../../img/image-8.png)
+<img src="../../../img/image-8.png" alt="GRUB" width="60%">
 
 Com es pot comprovar en el resum, l’única diferència és la IP i el nom del host.
 
-![Resum node 2](../../../img/image-9.png)
+<img src="../../../img/image-9.png" alt="GRUB" width="60%">
 
 Després de completar la instal·lació, tornem a tindre accés a la interfície web per la nova IP configurada:
 
@@ -816,11 +811,11 @@ Després de completar la instal·lació, tornem a tindre accés a la interfície
 https://10.10.10.61:8006
 ```
 
-![Accés node 2](../../../img/image-12.png)
+<img src="../../../img/image-12.png" alt="GRUB" width="60%">
 
 I amb això, accedim de nou a la interfície de gestió de Proxmox:
 
-![Web node 2](../../../img/image-13.png)
+<img src="../../../img/image-13.png" alt="GRUB" width="60%">
 
 ---
 
@@ -828,11 +823,11 @@ I amb això, accedim de nou a la interfície de gestió de Proxmox:
 
 El procés d’instal·lació del **segon node** és **idèntic** al del primer, excepte pels valors del **nom del host** i la **IP**, que han de ser únics per a cada node.
 
-![Configuració node 3](../../../img/image-29.png)
+<img src="../../../img/image-29.png" alt="GRUB" width="60%">
 
 Com es pot comprovar en el resum, l’única diferència és la IP i el nom del host.
 
-![Resum node 3](../../../img/image-30.png)
+<img src="../../../img/image-30.png" alt="GRUB" width="60%">
 
 Després de completar la instal·lació, tornem a tindre accés a la interfície web per la nova IP configurada:
 
@@ -840,11 +835,11 @@ Després de completar la instal·lació, tornem a tindre accés a la interfície
 https://10.10.10.58:8006
 ```
 
-![Accés node 3](../../../img/image-31.png)
+<img src="../../../img/image-31.png" alt="GRUB" width="60%">
 
 I amb això, accedim de nou a la interfície de gestió de Proxmox:
 
-![Web node 3](../../../img/image-32.png)
+<img src="../../../img/image-32.png" alt="GRUB" width="60%">
 
 ## Proxmox Backup Server
 
@@ -861,27 +856,24 @@ I amb això, accedim de nou a la interfície de gestió de Proxmox:
 
 🔸 El primer pas, després de col·locar la *ISO*, és la càrrega del menú *GRUB*, on hem de seleccionar el procés d’instal·lació desitjat. En este cas, triarem l'opció amb interfície gràfica.
 
-![GRUB](../../../img/image-14.png)
 
 🔸 A continuació, acceptem la **llicència d’ús** del programari.
 
-![Llicència](../../../img/image-15.png)
 
 🔸 En el següent pas, seleccionem en quin disc volem instal·lar Proxmox. En este exemple només tenim un disc disponible, així que el seleccionem. També podem configurar el sistema de fitxers. Triem **ext4**.
 
-![Disc](../../../img/image-16.png)
+<img src="../../../img/image-16.png" alt="GRUB" width="60%">
 
 🔸 Introduïm la **contrasenya d’administració** i un **correu electrònic** per a notificacions del sistema.
 
-![Contrasenya i correu](../../../img/image-17.png)
 
 🔸 Assignem el **nom del *host***, la **IP**, el **gateway** i els **DNS**.
 
-![Configuració de xarxa](../../../img/image-18.png)
+<img src="../../../img/image-18.png" alt="GRUB" width="60%">
 
 🔸 Finalment, es mostra un **resum de la configuració** triada. Confirmem i iniciem la instal·lació.
 
-![Resum](../../../img/image-19.png)
+<img src="../../../img/image-19.png" alt="GRUB" width="60%">
 
 🔸 Un cop finalitzada la instal·lació, a la consola apareixerà un missatge indicant que podem accedir a la interfície web de Proxmox via:
 
@@ -889,11 +881,11 @@ I amb això, accedim de nou a la interfície de gestió de Proxmox:
 https://10.10.10.123:8006
 ```
 
-![Accés web](../../../img/image-20.png)
+<img src="../../../img/image-20.png" alt="GRUB" width="60%">
 
 🔸 Així accedim a la **interfície web de Proxmox VE**:
 
-![Web Proxmox](../../../img/image-21.png)
+<img src="../../../img/image-21.png" alt="GRUB" width="60%">
 
 ## Zabbix
 
@@ -911,7 +903,7 @@ Una vegada dins, cal anar a l’apartat **Download Zabbix**, on seleccionarem:
 * El tipus de **base de dades** (MySQL/MariaDB)
 * El servidor web (Apache)
 
-> ![alt text](../../../img/image-127.png)
+<img src="../../../img/image-127.png" alt="GRUB" width="60%">
 
 ---
 
@@ -925,7 +917,7 @@ dpkg -i zabbix-release_latest_7.2+debian12_all.deb
 apt update
 ```
 
-> ![alt text](../../../img/image-128.png)
+<img src="../../../img/image-128.png" alt="GRUB" width="60%">
 
 ---
 
@@ -937,7 +929,7 @@ Instal·lem el servidor Zabbix, el frontend web amb Apache, els scripts SQL i l�
 apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent
 ```
 
-> ![alt text](../../../img/image-129.png)
+<img src="../../../img/image-129.png" alt="GRUB" width="60%">
 
 ---
 
@@ -959,7 +951,7 @@ SET GLOBAL log_bin_trust_function_creators = 1;
 QUIT;
 ```
 
-> ![alt text](../../../img/image-130.png)
+<img src="../../../img/image-130.png" alt="GRUB" width="60%">
 
 ---
 
@@ -971,7 +963,7 @@ Des del servidor Zabbix, importem l’esquema i les dades inicials:
 zcat /usr/share/zabbix/sql-scripts/mysql/server.sql.gz | mysql --default-character-set=utf8mb4 -uzabbix -p zabbix
 ```
 
-> ![alt text](../../../img/image-131.png)
+<img src="../../../img/image-131.png" alt="GRUB" width="60%">
 
 Després, restaurem el valor per defecte de la directiva `log_bin_trust_function_creators`:
 
@@ -984,7 +976,7 @@ SET GLOBAL log_bin_trust_function_creators = 0;
 QUIT;
 ```
 
-> ![alt text](../../../img/image-132.png)
+<img src="../../../img/image-132.png" alt="GRUB" width="60%">
 
 ---
 
@@ -996,7 +988,7 @@ Editem el fitxer de configuració del servidor `/etc/zabbix/zabbix_server.conf` 
 DBPassword=password
 ```
 
-> ![alt text](../../../img/image-133.png)
+<img src="../../../img/image-133.png" alt="GRUB" width="60%">
 
 ---
 
@@ -1009,7 +1001,7 @@ systemctl restart zabbix-server zabbix-agent apache2
 systemctl enable zabbix-server zabbix-agent apache2
 ```
 
-> ![alt text](../../../img/image-134.png)
+<img src="../../../img/image-134.png" alt="GRUB" width="60%">
 
 ---
 
@@ -1023,13 +1015,13 @@ http://IP_DEL_SERVIDOR/zabbix
 
 Des d’ací podrem finalitzar la configuració via web GUI.
 
-> ![alt text](../../../img/image-135.png)
+<img src="../../../img/image-135.png" alt="GRUB" width="60%">
 
 ---
 
 Amb això, el servidor Zabbix queda instal·lat i llest per a ser utilitzat per a la monitorització centralitzada de la infraestructura.
 
-> ![alt text](../../../img/image-135.png)
+<img src="../../../img/image-137.png" alt="GRUB" width="60%">
 
 
 # Configuració 
@@ -1048,7 +1040,7 @@ A continuació et detallem pas a pas com crear un clúster en Proxmox i unir-hi 
 2. Ves a **Datacenter → Cluster** des del menú lateral esquerre.
 3. Fes clic a **Crear Clúster** (`Create Cluster`).
 
-![Pantalla inicial del cluster](../../../img/image-56.png)
+<img src="../../../img/image-56.png" alt="GRUB" width="60%">
 
 4. Ompli les dades del clúster:
 
@@ -1056,17 +1048,16 @@ A continuació et detallem pas a pas com crear un clúster en Proxmox i unir-hi 
    * **Interfície de xarxa**
    * Altres paràmetres segons la teua configuració
 
-<p align="center">
-  <img src="../../../img/image-57.png" alt="Crear cluster pas 1" />
-</p>
 
-<p align="center">
-  <img src="../../../img/image-58.png" alt="Crear cluster pas 2" />
-</p>
+<img src="../../../img/image-57.png" alt="GRUB" width="60%">
 
-5. Un cop creat, veuràs el node com a part del clúster.
 
-![Cluster creat](../../../img/image-59.png)
+<img src="../../../img/image-58.png" alt="GRUB" width="60%">
+
+
+1. Un cop creat, veuràs el node com a part del clúster.
+
+<img src="../../../img/image-59.png" alt="GRUB" width="60%">
 
 ---
 
@@ -1077,27 +1068,25 @@ Per afegir un altre node al clúster:
 1. Accedeix al segon node i ves a **Datacenter → Cluster**.
 2. Fes clic a **Unir-se al clúster** (`Join Cluster`).
 
-![Unir-se al cluster](../../../img/image-60.png)
+<img src="../../../img/image-60.png" alt="GRUB" width="60%">
 
 3. A continuació, hauràs d’introduir la **informació del clúster**.
 
-<p align="center">
-  <img src="../../../img/image-61.png" alt="Formulari unir-se" />
-</p>
+<img src="../../../img/image-61.png" alt="GRUB" width="60%">
+
 
 4. Per obtindre aquesta informació, torna al node principal del clúster i fes clic a **Join Information**.
 
-![Informació per unir-se](../../../img/image-62.png)
+<img src="../../../img/image-62.png" alt="GRUB" width="60%">
 
 5. Copia aquesta informació i torna al node secundari. Enganxa-la al formulari per unir-se.
 
-<p align="center">
-  <img src="../../../img/image-63.png" alt="Enganxar informació" />
-</p>
+<img src="../../../img/image-63.png" alt="GRUB" width="60%">
 
-6. Fes clic a **Unir-se**. Si tot és correcte, el node s’afegirà automàticament al clúster.
 
-![Node afegit](../../../img/image-64.png)
+1. Fes clic a **Unir-se**. Si tot és correcte, el node s’afegirà automàticament al clúster.
+
+<img src="../../../img/image-64.png" alt="GRUB" width="60%">
 
 ---
 
@@ -1115,7 +1104,7 @@ Per afegir més nodes, repeteix exactament el mateix procés:
 
 🔚 I amb això ja tindràs un clúster Proxmox funcional amb diversos nodes!
 
-![Comprovació](../../../img/image-65.png)
+<img src="../../../img/image-64.png" alt="GRUB" width="60%">
 
 Perfecte! Comencem pel punt **4.1 Introducció a Ceph i integració amb Proxmox**. Et deixe a continuació una proposta redactada en valencià formal, clara i adequada per al teu projecte:
 
@@ -1152,25 +1141,25 @@ Abans de començar amb la instal·lació, cal assegurar:
    * A l’apartat `Ceph`, fes clic a **Install Ceph**
    * El sistema instal·larà automàticament els paquets necessaris (`ceph`, `ceph-common`, etc.)
 
-![alt text](../../../img/image-66.png)
+<img src="../../../img/image-66.png" alt="GRUB" width="60%">
 
-![alt text](../../../img/image-67.png)
+<img src="../../../img/image-67.png" alt="GRUB" width="60%">
 
 3. **Crear els monitors (MON)**
 
    * Un mínim de **tres monitors** és recomanat per garantir el quorum
    * Des de l’apartat `Monitor`, fes clic a **Create Monitor**
 
-![alt text](../../../img/image-68.png)
+<img src="../../../img/image-68.png" alt="GRUB" width="60%">
 
-![alt text](../../../img/image-69.png)
+<img src="../../../img/image-69.png" alt="GRUB" width="60%">
 
 4. **Afegir el gestor (MGR)**
 
    * Necessari per a la interfície gràfica i gestió avançada
    * Crea’l des de la mateixa pestanya amb el botó **Create Manager**
 
-![alt text](../../../img/image-70.png)
+<img src="../../../img/image-70.png" alt="GRUB" width="60%">
 
 5. **Afegir els OSDs (Object Storage Daemons)**
 
@@ -1178,26 +1167,26 @@ Abans de començar amb la instal·lació, cal assegurar:
    * Ves a `OSD → Create OSD`, selecciona el disc físic i crea’l
    * Repeteix el procés per a cada node i disc dedicat
 
-![alt text](../../../img/image-71.png)
+<img src="../../../img/image-71.png" alt="GRUB" width="60%">
 
 
 <p align="center">
-  <img src="../../../img/image-72.png" alt="Enganxar informació" />
+<img src="../../../img/image-72.png" alt="GRUB" width="60%">
 </p>
 
 * Com tenim 2 discos per cada node (menos en el node 3 que sols hi ha 1)de proxmox haurem de repetir el proccess dos voltes
 
 **Node 1:**
 
-![alt text](../../../img/image-73.png)
+<img src="../../../img/image-73.png" alt="GRUB" width="60%">
 
 **Node 2**
 
-![alt text](../../../img/image-74.png)
+<img src="../../../img/image-74.png" alt="GRUB" width="60%">
 
 **Node 3**
 
-![alt text](../../../img/image-75.png)
+<img src="../../../img/image-75.png" alt="GRUB" width="60%">
 
 1. **(Opcional) Crear un MDS (Metadata Server)**
 
@@ -1251,7 +1240,7 @@ Un **pool** és una agrupació lògica d’objectes dins del clúster Ceph. Cada
 2. Ves a `Datacenter → Ceph → Pools`
 3. Fes clic a **Create**
 
-![alt text](../../../img/image-76.png)
+<img src="../../../img/image-76.png" alt="GRUB" width="60%">
 
 4. Emplena els camps següents:
 
@@ -1263,16 +1252,16 @@ Un **pool** és una agrupació lògica d’objectes dins del clúster Ceph. Cada
    * **Crush Rule:** regla de distribució entre els dispositius de disc
 
 <p align="center">
-  <img src="image-77.png" alt="Creació de pool en Proxmox" />
+<img src="../../../img/image-77.png" alt="GRUB" width="60%">
 </p>
 
 1. Fes clic a **Create** i espera a que el pool aparega a la llista
 
-![alt text](../../../img/image-78.png)
+<img src="../../../img/image-78.png" alt="GRUB" width="60%">
 
 Al pas d'un temps podem veure com en els nodes apareix l'almacenament del ceph.
 
-![alt text](../../../img/image-79.png)
+<img src="../../../img/image-79.png" alt="GRUB" width="60%">
 
 ---
 
@@ -1325,7 +1314,7 @@ rados bench -p vm-data 60 rand
 ```
 
 <p align="center">
-  <img src="../../../img/image-80.png" alt="Creació de pool en Proxmox" />
+<img src="../../../img/image-80.png" alt="GRUB" width="60%">
 </p>
 
 ### ✅ Resultat esperat
@@ -1380,7 +1369,7 @@ Ceph replica les dades entre OSDs segons la configuració de rèpliques (per def
 
 2. Observa com Ceph reporta l’estat *degraded* i com reubica les dades.
 
-![Observar Ceph](../../../img/image-81.png)
+<img src="../../../img/image-81.png" alt="GRUB" width="60%">
 
 3. Torna a engegar l’OSD i comprova la **reestructuració automàtica**:
 
@@ -1388,7 +1377,7 @@ Ceph replica les dades entre OSDs segons la configuració de rèpliques (per def
    systemctl start ceph-osd@X
    ```
 
-![Restauració](../../../img/image-82.png)
+<img src="../../../img/image-82.png" alt="GRUB" width="60%">
 
 ---
 
@@ -1488,7 +1477,7 @@ Per a fer ús de la funcionalitat HA, cal que:
 * Cada node mostrarà el seu estat (online, standby, etc.)
 
 <p align="center">
-  <img src="../../../img/image-83.png" alt="Gestor HA" />
+<img src="../../../img/image-83.png" alt="GRUB" width="60%">
 </p>
 
 ---
@@ -1501,13 +1490,13 @@ Els **grups HA** permeten organitzar i assignar màquines virtuals o contenidors
 
 1. Ves a `Datacenter → HA → Groups`
 
-![alt text](../../../img/image-84.png)
+<img src="../../../img/image-84.png" alt="GRUB" width="60%">
 
 1. Fes clic a **Create**
 2. Assigna:
 
 <p align="center">
-  <img src="../../../img/image-85.png" alt="Gestor HA" />
+<img src="../../../img/image-85.png" alt="GRUB" width="60%">
 </p>
 
    * **Nom del grup**
@@ -1527,21 +1516,21 @@ Per assegurar el correcte funcionament de la configuració HA, és recomanable f
 1. Assigna una VM a un grup HA
 
 <p align="center">
-  <img src="../../../img/image-86.png" alt="Gestor HA" />
+<img src="../../../img/image-86.png" alt="GRUB" width="60%">
 </p>
 
 2. Para o apaga un node manualment
 
-![alt text](../../../img/image-87.png)
+<img src="../../../img/image-87.png" alt="GRUB" width="60%">
 
 3. Observa com la VM és **migrada automàticament** a un altre node disponible
 4. Verifica que el servei continua operatiu sense intervenció manual
 
-![alt text](../../../img/image-89.png)
+<img src="../../../img/image-89.png" alt="GRUB" width="60%">
 
 🔍 Es pot monitorar aquest procés des de `Datacenter → HA → Status`.
 
-![alt text](../../../img/image-90.png)
+<img src="../../../img/image-90.png" alt="GRUB" width="60%">
 
 Per descomptat! Ací tens el fragment redactat de manera formal i clara, ideal per afegir com a continuació dins del punt 5.4 o com un subapartat pràctic de **recuperació post-fallada**:
 
@@ -1603,7 +1592,7 @@ Un cop el node original torna a estar **en línia i estable**, és **recomanable
 
 Amb aquest procés, la màquina recupera la seua ubicació inicial, mantenint-se dins del grup HA i **preparada per a futures gestions automàtiques** de tolerància a fallades.
 
-![alt text](../../../img/image-91.png)
+<img src="../../../img/image-91.png" alt="GRUB" width="60%">
 
 ---
 
@@ -1633,9 +1622,9 @@ En entorns virtualitzats compartits, com un clúster de **Proxmox VE**, és fona
    * `VM.Console`
    * `Sys.Console`
 
-![alt text](../../../img/image-92.png)
+<img src="../../../img/image-92.png" alt="GRUB" width="60%">
 
-![alt text](../../../img/image-93.png)
+<img src="../../../img/image-93.png" alt="GRUB" width="60%">
 
 #### ➕ Assignació del rol:
 
@@ -1648,13 +1637,13 @@ En entorns virtualitzats compartits, com un clúster de **Proxmox VE**, és fona
 
 Això permet donar accés restringit a determinats recursos dins del clúster.
 
-![alt text](../../../img/image-94.png)
+<img src="../../../img/image-94.png" alt="GRUB" width="60%">
 
-![alt text](../../../img/image-95.png)
+<img src="../../../img/image-95.png" alt="GRUB" width="60%">
 
 En este cas he creat un usuari de prova per a assignar el rol creat.
 
-![alt text](../../../img/image-96.png)
+<img src="../../../img/image-96.png" alt="GRUB" width="60%">
 
 ---
 
@@ -1667,24 +1656,24 @@ Els **pools** són agrupacions lògiques de recursos (VMs, CTs, discos, etc.) qu
 1. Ves a `Datacenter → Permissions → Pools`
 2. Fes clic a **Create**
 
-![alt text](../../../img/image-97.png)
+<img src="../../../img/image-97.png" alt="GRUB" width="60%">
 
 1. Emplena:
 
    * **Nom del pool:** ex. `departament_it`, `desenvolupament`
    * **Descripció** (opcional)
 
-![alt text](../../../img/image-98.png)
+<img src="../../../img/image-98.png" alt="GRUB" width="60%">
 
 1. Afegeix les VMs o CTs desitjades al pool
 
 En este cas anem a fer que el usuari proba puga vore la vm 108(Windows10)
 
-![alt text](../../../img/image-99.png)
+<img src="../../../img/image-99.png" alt="GRUB" width="60%">
 
 Assignacio del pool al usuari proba amb el rol  que hem creat.
 
-![alt text](../../../img/image-100.png)
+<img src="../../../img/image-100.png" alt="GRUB" width="60%">
 
 Els pools són útils per:
 
@@ -1705,13 +1694,13 @@ Amb els **rols** i **pools**, es pot habilitar un entorn **multiusuari segur**, 
 * **Rol aplicat:** `PVEVMUser` (amb permisos per iniciar/parar/migrar màquines)
 * Resultat: Anna només pot gestionar les VMs del pool `marketing_vms`, sense accedir a cap altre recurs del sistema
 
-![alt text](../../../img/image-101.png)
+<img src="../../../img/image-101.png" alt="GRUB" width="60%">
 
-![alt text](../../../img/image-102.png)
+<img src="../../../img/image-102.png" alt="GRUB" width="60%">
 
-![alt text](../../../img/image-103.png)
+<img src="../../../img/image-103.png" alt="GRUB" width="60%">
 
-![alt text](../../../img/image-104.png)
+<img src="../../../img/image-104.png" alt="GRUB" width="60%">
 
 ---
 
@@ -1866,12 +1855,12 @@ Aquesta estratègia es basa en instal·lar únicament l’**agent de Netdata** a
       wget -O /tmp/netdata-kickstart.sh https://get.netdata.cloud/kickstart.sh && sh /tmp/netdata-kickstart.sh --nightly-channel --claim-token 2j7CJC_yS3oDQ9DD4eVlLNMV5ecx0WeqwfvNvfOthCcBCkXRLoysr-TKkc5GLM9BzHmlE9Bb36sQghRHfbOsn4rhSEDnd4TmTaabd__6loq4Vceb_o5BitgLI_1gfT4D5pCzx4o --claim-rooms 6ff6ecc7-275c-4404-a4a0-5fac76e79776 --claim-url https://app.netdata.cloud
      ```
 
-     ![alt text](/img/image-120.png)
+      <img src="../../../img/image-120.png" alt="GRUB" width="60%">
 
    * Connectar l’agent al compte de Netdata Cloud amb la comanda que proporciona el portal (normalment `netdata-claim.sh`)
 3. Accedir al panell de **Netdata Cloud** i visualitzar tots els nodes en temps real
 
-![alt text](/img/image-121.png)
+<img src="../../../img/image-121.png" alt="GRUB" width="60%">
 
 ---
 
@@ -1894,15 +1883,15 @@ L’institut ha desplegat un clúster de Proxmox per a alumnes del cicle de sist
 * **VM assignada:** `vm104` (alumne01-ubuntu24)
 * **Rol:** `PVEVMUser`
 
-![alt text](../../../img/image-105.png)
+<img src="../../../img/image-105.png" alt="GRUB" width="60%">
 
-![alt text](../../../img/image-106.png)
+<img src="../../../img/image-106.png" alt="GRUB" width="60%">
 
-![alt text](../../../img/image-107.png)
+<img src="../../../img/image-107.png" alt="GRUB" width="60%">
 
-![alt text](../../../img/image-108.png)
+<img src="../../../img/image-108.png" alt="GRUB" width="60%">
 
-![alt text](../../../img/image-109.png)
+<img src="../../../img/image-109.png" alt="GRUB" width="60%">
 
 #### Resultat:
 
@@ -1927,18 +1916,17 @@ L’equip de desenvolupament necessita accedir a diverses màquines de testing, 
 * **Pool:** `dev_pool`
 * **Rols:** `gestor_vm_custom` (creat amb permisos limitats com `VM.Console`, `VM.Start`, `VM.Shutdown`)
 
-![alt text](../../../img/image-110.png)
+<img src="../../../img/image-110.png" alt="GRUB" width="60%">
 
-![alt text](../../../img/image-111.png)
+<img src="../../../img/image-111.png" alt="GRUB" width="60%">
 
-![alt text](../../../img/image-112.png)
+<img src="../../../img/image-112.png" alt="GRUB" width="60%">
 
-![alt text](../../../img/image-113.png)
+<img src="../../../img/image-113.png" alt="GRUB" width="60%">
 
-![alt text](../../../img/image-114.png)
+<img src="../../../img/image-114.png" alt="GRUB" width="60%">
 
-![alt text](../../../img/image-115.png)
-
+<img src="../../../img/image-115.png" alt="GRUB" width="60%">
 
 #### Resultat:
 
@@ -1961,13 +1949,13 @@ Un tècnic extern col·labora en la gestió de sistemes, però només se li vol 
 * **Àrea assignada:** `/nodes/node3`
 * **Rol:** `PVEAdmin`
 
-![alt text](../../../img/image-116.png)
+<img src="../../../img/image-116.png" alt="GRUB" width="60%">
 
-![alt text](../../../img/image-117.png)
+<img src="../../../img/image-117.png" alt="GRUB" width="60%">
 
-![alt text](../../../img/image-118.png)
+<img src="../../../img/image-118.png" alt="GRUB" width="60%">
 
-![alt text](../../../img/image-119.png)
+<img src="../../../img/image-119.png" alt="GRUB" width="60%">
 
 #### Resultat:
 
@@ -1988,15 +1976,15 @@ Una empresa ofereix màquines virtuals com a servei. Cada client gestiona la seu
 * **VM assignada:** `vm104`
 * **Rol:** `PVEVMUser`
 
-![alt text](../../../img/image-122.png)
+<img src="../../../img/image-122.png" alt="GRUB" width="60%">
 
-![alt text](../../../img/image-123.png)
+<img src="../../../img/image-123.png" alt="GRUB" width="60%">
 
-![alt text](../../../img/image-124.png)
+<img src="../../../img/image-124.png" alt="GRUB" width="60%">
 
-![alt text](../../../img/image-125.png)
+<img src="../../../img/image-125.png" alt="GRUB" width="60%">
 
-![alt text](../../../img/image-126.png)
+<img src="../../../img/image-126.png" alt="GRUB" width="60%">
 
 #### Resultat:
 
@@ -2031,7 +2019,7 @@ apt update
 apt install zfsutils-linux -y
 ```
 
-![ZSF](../../../img/image-22.png)
+<img src="../../../img/image-22.png" alt="GRUB" width="60%">
 
 Això confirma que el sistema està preparat per a treballar amb pools ZFS.
 
@@ -2047,7 +2035,7 @@ Existien tres opcions principals per a crear el pool ZFS, depenent del nombre de
 
 👉 **Atés que en aquesta màquina només disposem de tres discos** (`/dev/vda`, `/dev/vdb` i `/dev/vdc`), la millor opció des del punt de vista tècnic és **RAIDZ**, ja que ens ofereix una bona capacitat d’emmagatzematge i alhora permet resistir la fallada d’un disc sense perdre les dades.
 
-![DISCOS](../../../img/image-23.png)
+<img src="../../../img/image-23.png" alt="GRUB" width="60%">
 
 Per crear el pool:
 
@@ -2055,7 +2043,7 @@ Per crear el pool:
 zpool create backup-pool raidz /dev/vda /dev/vdb /dev/vdc
 ```
 
-![POOL ZFS](../../../img/image-24.png)
+<img src="../../../img/image-24.png" alt="GRUB" width="60%">
 
 ---
 
@@ -2067,7 +2055,7 @@ Després de la creació, podem comprovar que el pool funciona correctament:
 zpool status
 ```
 
-![POOL STATUS](../../../img/image-25.png)
+<img src="../../../img/image-25.png" alt="GRUB" width="60%">
 
 Hauries de veure un estat **ONLINE** i el pool anomenat `backup-pool`.
 
@@ -2086,9 +2074,9 @@ A través de la interfície web de PBS:
 
 - Creació del **Datastore**
 
-![DATASTORE](../../../img/image-26.png)
+<img src="../../../img/image-26.png" alt="GRUB" width="60%">
 
-![SUMMARY](../../../img/image-27.png)
+<img src="../../../img/image-27.png" alt="GRUB" width="60%">
 
 ---
 
@@ -2107,7 +2095,7 @@ NAME           USED  AVAIL  REFER  MOUNTPOINT
 backup-pool    96K   900G    96K   /backup-pool
 ```
 
-![ZSF](../../../img/image-28.png)
+<img src="../../../img/image-28.png" alt="GRUB" width="60%">
 
 A partir d’aquest moment, el sistema ja pot utilitzar el datastore per a còpies de seguretat, amb les garanties que ofereix ZFS quant a integritat de dades i rendiment.
 
@@ -2129,7 +2117,7 @@ Accedeix al **Proxmox Backup Server** i ves a:
 
 Esta empremta és necessària per establir una connexió segura entre els nodes de Proxmox VE i el servidor PBS.
 
-![Fingerprint del PBS](../../../img/image-33.png)
+<img src="../../../img/image-33.png" alt="GRUB" width="60%">
 
 ---
 
@@ -2140,7 +2128,7 @@ Una vegada copiada l’empremta, accedim a qualsevol node del clúster de **Prox
 1. Ves a **Datacenter → Storage**
 2. Fes clic a **Add** i selecciona l’opció **Proxmox Backup Server**
 
-![Afegir PBS a Proxmox](../../../img/image-34.png)
+<img src="../../../img/image-34.png" alt="GRUB" width="60%">
 
 ---
 
@@ -2149,7 +2137,7 @@ Una vegada copiada l’empremta, accedim a qualsevol node del clúster de **Prox
 Ara introduïm la informació requerida del servidor PBS:
 
 <p align="center">
-  <img src="../../../img/image-36.png" alt="Formulari PBS" />
+<img src="../../../img/image-36.png" alt="GRUB" width="60%">
 </p>
 
 * **ID:** Nom identificador per a l’almacenament
@@ -2166,7 +2154,7 @@ Ara introduïm la informació requerida del servidor PBS:
 
 Una vegada configurat, el sistema validarà les dades i l’almacenament PBS apareixerà com a disponible per a fer còpies de seguretat o restauracions.
 
-![PBS afegit amb èxit](../../../img/image-35.png)
+<img src="../../../img/image-35.png" alt="GRUB" width="60%">
 
 ---
 
@@ -2196,14 +2184,14 @@ Per a poder crear un contenidor, és necessari **disposar d’un *template*** (p
 
 📌 En el nostre cas, utilitzarem la tercera opció: **plantilles predefinides**
 
-![Plantilles disponibles](../../../img/image-37.png)
+<img src="../../../img/image-37.png" alt="GRUB" width="60%">
 
 Per a aquest projecte, descarregarem i utilitzarem plantilles de:
 
 * **Debian**
 * **Fedora**
 
-![Selecció de plantilles](../../../img/image-38.png)
+<img src="../../../img/image-38.png" alt="GRUB" width="60%">
 
 ---
 
@@ -2216,7 +2204,7 @@ Per a crear una màquina virtual, és necessari **pujar una ISO** del sistema op
 3. Fes clic a **Upload**
 4. Pujar la imatge ISO corresponent (ex. Debian, Ubuntu, Windows...)
 
-![Upload d'una ISO](../../../img/image-39.png)
+<img src="../../../img/image-39.png" alt="GRUB" width="60%">
 
 ---
 
@@ -2227,7 +2215,8 @@ Un cop tenim el *template* descarregat, podem crear un contenidor amb els passos
 ### 🧭 Pas 1: Inici de la creació
 
 1. Fes clic a **Create CT** (Crear CT)
-   ![Crear CT](../../../img/image-40.png)
+
+<img src="../../../img/image-40.png" alt="GRUB" width="60%">
 
 ---
 
@@ -2241,7 +2230,7 @@ Introdueix les dades del contenidor:
 * **Resource Pool:** (opcional) agrupació de recursos
 * **Password:** per a l’accés del root
 
-![Dades bàsiques del CT](../../../img/image-41.png)
+<img src="../../../img/image-41.png" alt="GRUB" width="60%">
 
 ---
 
@@ -2249,7 +2238,7 @@ Introdueix les dades del contenidor:
 
 Selecciona la plantilla que has descarregat anteriorment.
 
-![Selecció de template](../../../img/image-42.png)
+<img src="../../../img/image-42.png" alt="GRUB" width="60%">
 
 ---
 
@@ -2257,17 +2246,17 @@ Selecciona la plantilla que has descarregat anteriorment.
 
 Indica quin **storage** utilitzarà el contenidor.
 
-![Selecció d'emmagatzematge](../../../img/image-43.png)
+<img src="../../../img/image-43.png" alt="GRUB" width="60%">
 
 ---
 
 ### 🧮 Pas 5: Configuració de recursos
 
 * **CPU:** nombre de nuclis assignats
-![CPU](../../../img/image-44.png)
+<img src="../../../img/image-44.png" alt="GRUB" width="60%">
 
 * **RAM:** memòria en MB
-![RAM](../../../img/image-45.png)
+<img src="../../../img/image-45.png" alt="GRUB" width="60%">
 
 ---
 
@@ -2275,7 +2264,7 @@ Indica quin **storage** utilitzarà el contenidor.
 
 Defineix la configuració de xarxa (bridge, IP, VLAN, etc.)
 
-![Xarxa](../../../img/image-46.png)
+<img src="../../../img/image-46.png" alt="GRUB" width="60%">
 
 ---
 
@@ -2283,7 +2272,7 @@ Defineix la configuració de xarxa (bridge, IP, VLAN, etc.)
 
 Un cop completats tots els passos, el contenidor serà creat i apareixerà a la llista de recursos del node.
 
-![CT creat](../../../img/image-47.png)
+<img src="../../../img/image-47.png" alt="GRUB" width="60%">
 
 ---
 
@@ -2341,7 +2330,7 @@ La programació de còpies de seguretat ha d’anar acompanyada d’una polític
 Aquesta política es pot aplicar automàticament des de la configuració del **storage** PBS a `Datacenter → Storage → pbs → Backup Retention `.
 
 <p align="center">
-  <img src="../../../img/image-53.png" alt="Formulari PBS" />
+  <img src="../../../img/image-53.png" alt="GRUB" width="60%">
 </p>
 
 ---
@@ -2359,7 +2348,7 @@ Les tasques de còpia es poden programar fàcilment:
    * **Recursos:** tots, per pool o per ID
 
 <p align="center">
-  <img src="../../../img/image-52.png" alt="Formulari PBS" />
+  <img src="../../../img/image-52.png" alt="GRUB" width="60%">
 </p>
 
 ---
@@ -2393,7 +2382,7 @@ Proxmox permet dues modalitats principals de restauració:
 * Ves a `Datacenter → Storage → pbs`
 * Selecciona la còpia de seguretat desitjada
 
-![Backup](../../../img/image-48.png)
+  <img src="../../../img/image-48.png" alt="GRUB" width="60%">
 
 #### 2. Llençar la restauració
 
@@ -2408,7 +2397,7 @@ Proxmox permet dues modalitats principals de restauració:
   * **Storage:** tria l’emmagatzematge de destí
 
 <p align="center">
-  <img src="../../../img/image-50.png" alt="Pantalla de restauració" />
+  <img src="../../../img/image-50.png" alt="GRUB" width="60%">
 </p>
 
 #### 3. Confirmar i monitorar
@@ -2417,7 +2406,7 @@ Proxmox permet dues modalitats principals de restauració:
 * Segueix el procés mitjançant el registre de tasques
 * Quan acabe, comprova que la màquina funciona correctament
 
-![Restore](../../../img/image-51.png)
+  <img src="../../../img/image-51.png" alt="GRUB" width="60%">
 
 ---
 
@@ -2459,10 +2448,10 @@ En **Proxmox Backup Server (PBS)** es poden definir regles específiques per a c
 
 * `Datacenter → Storage → pbs → Backup Retention
 
-![alt text](../../../img/image-55.png)
+  <img src="../../../img/image-55.png" alt="GRUB" width="60%">
 
 <p align="center">
-  <img src="../../../img/image-54.png" alt="Pantalla de restauració" />
+  <img src="../../../img/image-54.png" alt="GRUB" width="60%">
 </p>
 
 #### 📝 Paràmetres comuns:
@@ -2509,7 +2498,7 @@ Per integrar un sistema Windows al monitoratge mitjançant **Zabbix**, cal segui
 
 1. Accedir a la pàgina oficial de Zabbix i descarregar el **paquet de l’agent Zabbix** corresponent al sistema operatiu:
 
-![alt text](../../../img/image-138.png)
+<img src="../../../img/image-138.png" alt="GRUB" width="60%">
 
 2. Seleccionar:
 
@@ -2518,25 +2507,25 @@ Per integrar un sistema Windows al monitoratge mitjançant **Zabbix**, cal segui
    * Tipus de xifrat (si és necessari)
    * Format del paquet
 
-![alt text](../../../img/image-139.png)
+<img src="../../../img/image-139.png" alt="GRUB" width="60%">
 
 3. Un cop descarregat l’instal·lador, executar-lo i seguir l’assistent d’instal·lació:
 
-![alt text](../../../img/image-140.png)
-![alt text](../../../img/image-141.png)
-![alt text](../../../img/image-142.png)
-![alt text](../../../img/image-143.png)
+<img src="../../../img/image-140.png" alt="GRUB" width="60%">
+<img src="../../../img/image-141.png" alt="GRUB" width="60%">
+<img src="../../../img/image-142.png" alt="GRUB" width="60%">
+<img src="../../../img/image-143.png" alt="GRUB" width="60%">
 
 4. Verificar que el **servei de l’agent Zabbix** s’ha iniciat correctament:
 
-![alt text](../../../img/image-144.png)
+<img src="../../../img/image-144.png" alt="GRUB" width="60%">
 
 5. Finalment, accedir a la interfície web de Zabbix i crear el nou host:
 
    * Menú: **Monitoring → Hosts → Create Host**
 
-![alt text](../../../img/image-145.png)
-![alt text](../../../img/image-146.png)
+<img src="../../../img/image-145.png" alt="GRUB" width="60%">
+<img src="../../../img/image-146.png" alt="GRUB" width="60%">
 
 ---
 
@@ -2546,7 +2535,7 @@ Per monitoritzar un sistema Linux, cal seguir aquests passos:
 
 1. Accedir a la web de Zabbix i seleccionar l’agent corresponent al sistema (en aquest cas, per a **SUSE Linux Enterprise Server - SLES**).
 
-![alt text](../../../img/image-147.png)
+<img src="../../../img/image-147.png" alt="GRUB" width="60%">
 
 2. Seguir les instruccions per instal·lar l’agent:
 
@@ -2557,7 +2546,7 @@ rpm -Uvh --nosignature https://repo.zabbix.com/zabbix/7.2/release/sles/15/noarch
 zypper --gpg-auto-import-keys refresh 'Zabbix Official Repository'
 ```
 
-![alt text](../../../img/image-148.png)
+<img src="../../../img/image-148.png" alt="GRUB" width="60%">
 
 ### b. Instal·lar el paquet de l’agent:
 
@@ -2565,7 +2554,7 @@ zypper --gpg-auto-import-keys refresh 'Zabbix Official Repository'
 zypper in zabbix-agent
 ```
 
-![alt text](../../../img/image-149.png)
+<img src="../../../img/image-149.png" alt="GRUB" width="60%">
 
 ### c. Configurar el fitxer de configuració de l’agent:
 
@@ -2574,8 +2563,8 @@ Modificar el fitxer `/etc/zabbix/zabbix_agentd.conf` per definir:
 * `Server=` IP del servidor Zabbix
 * `Hostname=` nom del dispositiu
 
-![alt text](../../../img/image-150.png)
-![alt text](../../../img/image-151.png)
+<img src="../../../img/image-150.png" alt="GRUB" width="60%">
+<img src="../../../img/image-151.png" alt="GRUB" width="60%">
 
 ### d. Iniciar i habilitar el servei de l’agent:
 
@@ -2584,15 +2573,15 @@ systemctl restart zabbix-agent
 systemctl enable zabbix-agent
 ```
 
-![alt text](../../../img/image-152.png)
+<img src="../../../img/image-152.png" alt="GRUB" width="60%">
 
 3. Afegir el nou host des de la interfície web del servidor Zabbix:
 
-![alt text](../../../img/image-153.png)
+<img src="../../../img/image-153.png" alt="GRUB" width="60%">
 
 Un cop afegits els sistemes, apareixeran llistats a l’apartat de *Hosts*:
 
-![alt text](../../../img/image-154.png)
+<img src="../../../img/image-154.png" alt="GRUB" width="60%">
 
 ---
 
