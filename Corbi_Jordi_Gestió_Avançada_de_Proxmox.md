@@ -3,9 +3,7 @@
 > IES JAUME II EL JUST (Tavernes de la Valldiga) - Curs 2023/2025  
 > Cicle: Administració de Sistemes Informatics en Xarxa
 
-# Projecte Final de Cicle Superior d'ASIR: Gestió Avançada de Proxmox
-
-## 📌 Descripció
+## \emoji{pushpin} Descripció
 
 Aquest projecte es basa en la **implementació d’una infraestructura virtualitzada** mitjançant la plataforma **Proxmox Virtual Environment (Proxmox VE)**. L’objectiu principal és **desplegar un clúster d’alta disponibilitat** que permeta **centralitzar la gestió de màquines virtuals (VMs) i contenidors (LXC)**, garantint alhora escalabilitat, eficiència de recursos i tolerància a fallades.
 
@@ -20,7 +18,7 @@ Per aconseguir-ho, s’ha configurat un entorn complet que inclou:
 
 Aquest entorn permet simular escenaris reals d’administració de sistemes, facilitant la gestió dels recursos, la protecció de dades i l’automatització de tasques, tot dins d’un marc tècnic robust i preparat per a la producció o entorns educatius avançats.
 
-## 🧱 Estructura del projecte
+## \emoji{bricks} Estructura del projecte
 
 ```
 Projecte_Proxmox/
@@ -55,23 +53,23 @@ Projecte_Proxmox/
 └──  README.md
 ```
 
-## 📄 Contingut
+## \emoji{page facing up} Contingut
 
 - **Documentació/**: Conté la memòria del projecte i els annexos amb informació detallada sobre la implementació i configuració.
 - **README.md**: Aquest fitxer, que proporciona una visió general del projecte.
 
-## ⚙️ Requisits
+## \emoji{gear} Requisits
 
 - Proxmox VE 8.x
 - Proxmox Backup Server 
 - Maquinari compatible amb virtualització (Intel VT-x o AMD-V)
 - Connexió a Internet per a la descàrrega de paquets i actualitzacions
 
----
+\newpage
 
-## 📘 1. Introducció
+## \emoji{blue book} 1. Introducció
 
-### 🔧 **Què és Proxmox VE?**
+### \emoji{wrench} **Què és Proxmox VE?**
 
 **Proxmox VE (Virtual Environment)** és una **plataforma de virtualització d'entorns oberts** basada en Debian GNU/Linux, orientada a la creació i gestió de **màquines virtuals (VMs)** i **contenidors (LXCs)** en entorns de producció.
 
@@ -91,9 +89,7 @@ A més, incorpora eines avançades com:
 
 Proxmox VE és una solució de virtualització completa pensada tant per a entorns empresarials com acadèmics, oferint una alternativa robusta, gratuïta i de codi obert a altres plataformes com VMware vSphere o Microsoft Hyper-V.
 
----
-
-### 🎯 1.1 Objectius del projecte
+### \emoji{direct hit} 1.1 Objectius del projecte
 
 L’objectiu principal d’aquest projecte és dissenyar, desplegar i documentar una infraestructura virtualitzada d’alta disponibilitat basada en **Proxmox VE**, enfocada tant a la resiliència com a la gestió eficient de recursos. El sistema es construeix sobre un clúster format per **tres nodes físics** que ofereixen serveis de virtualització mitjançant **KVM/QEMU**, amb funcionalitats avançades de gestió centralitzada.
 
@@ -103,9 +99,7 @@ Com a part essencial del projecte, es desplega també un **Proxmox Backup Server
 
 L’objectiu final és demostrar la viabilitat i robustesa d’una solució de virtualització empresarial utilitzant tecnologies de codi obert, tot documentant-ne la planificació, implementació, proves de rendiment i mesures de seguretat, amb una orientació clara a l’escalabilitat, la facilitat de manteniment i l’alt rendiment operatiu.
 
----
-
-### 🧩 1.2 Justificació de l’elecció de Proxmox VE
+### \emoji{puzzle piece} 1.2 Justificació de l’elecció de Proxmox VE
 
 S’ha triat **Proxmox VE (Virtual Environment)** com a plataforma base del projecte per la seua naturalesa de codi obert, la seua gran comunitat, i la capacitat d’oferir una **solució integral de virtualització** sense requerir llicències comercials costoses. Proxmox combina potents tecnologies com **KVM (Kernel-based Virtual Machine)** per a la virtualització completa i **LXC (Linux Containers)** per a la virtualització lleugera, permetent adaptar-se a diversos escenaris d’ús amb eficiència de recursos.
 
@@ -121,9 +115,7 @@ Comparat amb altres plataformes de virtualització, Proxmox destaca per:
 
 Finalment, la disponibilitat de **documentació extensa**, suport de la comunitat i la **rapidesa en desplegament** fan de Proxmox VE una opció ideal per a entorns educatius, laboratoris i pimes, sense renunciar a prestacions pròpies d’entorns empresarials. Aquesta versatilitat i autonomia en la gestió de la infraestructura virtual han estat factors decisius per escollir-lo com a tecnologia base del projecte.
 
----
-
-### 🧭 1.3 Abast del Projecte
+### \emoji{compass} 1.3 Abast del Projecte
 
 Aquest projecte abasta de manera integral totes les fases necessàries per al desplegament d’una **infraestructura virtualitzada d’alta disponibilitat**, utilitzant tecnologies de codi obert amb un enfocament pràctic i escalable. La planificació, implementació i documentació cobreixen tant la part física com la lògica del sistema, assegurant un entorn robust, segur i fàcilment administrable.
 
@@ -143,9 +135,7 @@ Les accions principals que formen part de l’abast del projecte són:
 
 Aquest abast garanteix no només la posada en marxa del sistema, sinó també la seua operativitat i manteniment a llarg termini, assegurant la continuïtat del servei i la capacitat de resposta davant imprevistos. A més, s’ha tingut en compte la possibilitat d’escalabilitat futura per afegir nous nodes o serveis al clúster.
 
----
-
-### 🧭 1.4 Requisits Previs i Coneixements Necessaris
+### \emoji{compass} 1.4 Requisits Previs i Coneixements Necessaris
 
 Per tal de dur a terme amb èxit aquest projecte d’infraestructura virtualitzada amb alta disponibilitat, és imprescindible disposar d’uns **coneixements previs sòlids** en diverses àrees tècniques relacionades amb sistemes, virtualització i administració de xarxes. Aquests coneixements permeten no només la correcta implementació de les tecnologies involucrades, sinó també la resolució eficient de problemes i l’optimització de l’entorn.
 
@@ -169,9 +159,9 @@ A més, es valora tenir coneixements generals en:
 
 Aquest conjunt de coneixements assegura que l’usuari o equip executor puga afrontar amb autonomia la planificació, el desplegament i la gestió operativa d’una infraestructura virtualitzada basada en Proxmox VE.
 
----
+\newpage
 
-## 🧱 2. Anàlisi i Disseny de la Infraestructura
+## \emoji{bricks} 2. Anàlisi i Disseny de la Infraestructura
 
 L’objectiu d’aquesta secció és definir amb detall els **requisits funcionals i tècnics**, la **topologia de xarxa** i el **disseny lògic** de la infraestructura necessària per desplegar un **clúster Proxmox VE amb alta disponibilitat**, integrant tant un **sistema d’emmagatzematge distribuït Ceph** com una **solució de còpia de seguretat centralitzada amb Proxmox Backup Server (PBS)**.
 
@@ -196,9 +186,7 @@ Els punts que es desenvolupen en aquesta secció són:
 
 Aquest capítol és fonamental per garantir que el desplegament posterior es realitze sobre una base ben definida, coherent i alineada amb les necessitats del projecte. Un disseny acurat minimitza riscos, facilita la gestió a llarg termini i assegura una millor resposta davant incidències.
 
----
-
-### ✅ 2.1 Requisits Funcionals i No Funcionals
+### \emoji{check mark button} 2.1 Requisits Funcionals i No Funcionals
 
 #### **Requisits funcionals**
 
@@ -215,17 +203,13 @@ Aquest capítol és fonamental per garantir que el desplegament posterior es rea
 * Ha d’oferir un rendiment acceptable amb maquinari limitat.
 * El sistema ha de ser administrable mitjançant una interfície gràfica web intuïtiva.
 
----
-
-### 🌐 2.2 Topologia de Xarxa Proposada
+### \emoji{globe with meridians} 2.2 Topologia de Xarxa Proposada
 
 > En aquest entorn de pràctiques s’ha desplegat un únic servidor físic amb **Proxmox VE** com a hipervisor principal. Dins d’aquest servidor, s’han creat diverses màquines virtuals que simulen els diferents **nodes d’un clúster**, així com un servidor addicional amb **Proxmox Backup Server (PBS)**.
 >
 > Aquesta arquitectura permet **reproduir un escenari realista** amb alta disponibilitat, emmagatzematge distribuït (Ceph) i còpies de seguretat centralitzades, però en un entorn virtualitzat controlat i sense necessitat de diversos equips físics.
 
----
-
-### 🖥️ Diagrama:
+### \emoji{desktop computer} Diagrama:
 
 ```plaintext
              ┌───────────────────────────────────────────────────────────────────────┐
@@ -238,11 +222,9 @@ Aquest capítol és fonamental per garantir que el desplegament posterior es rea
              └───────────────────────────────────────────────────────────────────────┘
 ```
 
-🔧 *Tots els nodes i el PBS són màquines virtuals creades dins del mateix host Proxmox VE.*
+\emoji{wrench} *Tots els nodes i el PBS són màquines virtuals creades dins del mateix host Proxmox VE.*
 
----
-
-### 🖥️ 2.3 Maquinari Utilitzat
+### \emoji{desktop computer} 2.3 Maquinari Utilitzat
 
 #### **Nodes del clúster (x2):**
 
@@ -265,11 +247,9 @@ Aquest capítol és fonamental per garantir que el desplegament posterior es rea
 * **Disc SSD:** 1 x 150 GB per al sistema
 * **HDD:** 3 x 100 GB RAID1 (datastore de còpies)
 
----
+### \emoji{money bag} Pressupost Estimat d’Infraestructura per a Clúster Proxmox amb HA, Ceph i PBS
 
-### 💰 Pressupost Estimat d’Infraestructura per a Clúster Proxmox amb HA, Ceph i PBS
-
-#### 🖥️ **Nodes del Clúster (x3)**
+#### \emoji{desktop computer} **Nodes del Clúster (x3)**
 
 *Servidors físics amb suport per a virtualització, alta disponibilitat i Ceph*
 
@@ -279,9 +259,7 @@ Aquest capítol és fonamental per garantir que el desplegament posterior es rea
 | Targetes de xarxa addicionals (1/10 Gb) + cablejat                  | 3         | 100 €               | 300 €       |
 | **Subtotal nodes del clúster**                                      |           |                     | **3.900 €** |
 
----
-
-#### 💾 **Servidor de Proxmox Backup Server (PBS)**
+#### \emoji{floppy disk} **Servidor de Proxmox Backup Server (PBS)**
 
 *Servidor dedicat per a còpies de seguretat amb alta capacitat i fiabilitat*
 
@@ -291,9 +269,7 @@ Aquest capítol és fonamental per garantir que el desplegament posterior es rea
 | Unitat externa d'emmagatzematge (opcional per backups off-site) | 1         | 300 €               | 300 €       |
 | **Subtotal PBS**                                                |           |                     | **1.400 €** |
 
----
-
-#### 🌐 **Infraestructura de Xarxa i Accessoris**
+#### \emoji{globe with meridians} **Infraestructura de Xarxa i Accessoris**
 
 | Component                                  | Quantitat | Preu unitari aprox. | Subtotal  |
 | ------------------------------------------ | --------- | ------------------- | --------- |
@@ -302,9 +278,7 @@ Aquest capítol és fonamental per garantir que el desplegament posterior es rea
 | Bastidor (rack) i accessoris               | 1         | 250 €               | 250 €     |
 | **Subtotal xarxa/accessoris**              |           |                     | **950 €** |
 
----
-
-### 📄 **Total Pressupost Estimat**
+### \emoji{page facing up} **Total Pressupost Estimat**
 
 | Part                            | Cost aproximat |
 | ------------------------------- | -------------- |
@@ -313,17 +287,13 @@ Aquest capítol és fonamental per garantir que el desplegament posterior es rea
 | Infraestructura de xarxa i rack | 950 €          |
 | **TOTAL GENERAL**               | **\~6.250 €**  |
 
----
-
-### 🧾 Notes finals:
+### \emoji{receipt} Notes finals:
 
 * Els preus inclouen maquinari amb capacitat real per executar entorns Ceph i HA amb garantia de rendiment.
 * Es poden reduir costos amb equips refurbished o d’ocasió, però aquest pressupost reflecteix una configuració professional i realista.
 * No s’han inclòs llicències comercials opcionals de Proxmox (el programari és lliure, però el suport és de pagament si es desitja).
 
----
-
-### 🧩 2.4 Disseny Lògic del Clúster Proxmox
+### \emoji{puzzle piece} 2.4 Disseny Lògic del Clúster Proxmox
 
 El disseny lògic del clúster està orientat a garantir **alta disponibilitat, rendiment i escalabilitat**, aprofitant les funcionalitats natives de **Proxmox VE** i la seua integració directa amb **Ceph** com a plataforma d’emmagatzematge distribuït.
 
@@ -353,9 +323,7 @@ Aquest model distribuït assegura que el clúster siga funcional i operatiu fins
 
 Aquest disseny garanteix un **entorn equilibrat, resilient i fàcil de gestionar**, optimitzat per a oferir serveis ininterromputs, adaptable a l’escalat futur i alineat amb les millors pràctiques de virtualització en entorns empresarials.
 
----
-
-### 🛡️ 2.5 Consideracions d’Alta Disponibilitat i Tolerància a Fallades
+### \emoji{shield} 2.5 Consideracions d’Alta Disponibilitat i Tolerància a Fallades
 
 L’arquitectura proposada ha estat dissenyada per oferir **alta disponibilitat (HA)** i **tolerància a fallades**, garantint així la continuïtat dels serveis virtualitzats davant de caigudes parcials del sistema. La combinació de tecnologies com **Proxmox VE, Ceph i Proxmox Backup Server (PBS)** permet una resposta automàtica, eficient i segura davant incidències crítiques.
 
@@ -378,11 +346,11 @@ Els principals mecanismes de disponibilitat són:
 
 Aquesta estratègia global d’alta disponibilitat i resiliència proporciona un entorn fiable i apte per a entorns de producció, minimitzant tant els riscos de pèrdua de dades com els temps d’interrupció dels serveis.
 
----
+\newpage
 
-# 4. 🧩 Configuració de Ceph com a Emmagatzematge Distribuït
+# 4. \emoji{puzzle piece} Configuració de Ceph com a Emmagatzematge Distribuït
 
-### 🧠 4.1 Introducció a **Ceph** i Integració amb **Proxmox VE**
+### \emoji{brain} 4.1 Introducció a **Ceph** i Integració amb **Proxmox VE**
 
 **Ceph** és una plataforma d’emmagatzematge distribuït de codi obert dissenyada per oferir alta disponibilitat, escalabilitat i rendiment, sense punts únics de fallada. El seu funcionament es basa en tres components principals:
 
@@ -396,9 +364,7 @@ Ceph permet oferir emmagatzematge per a:
 * Sistemes d’arxius (CephFS)
 * Objectes (compatible amb S3)
 
----
-
-#### 🔗 Integració amb Proxmox VE
+#### \emoji{link} Integració amb Proxmox VE
 
 **Proxmox VE** incorpora suport nadiu per a Ceph, cosa que facilita la seua instal·lació, gestió i integració des de la mateixa interfície web o via línia de comandes.
 
@@ -409,23 +375,23 @@ Gràcies a aquesta integració:
 * El sistema garanteix **alta disponibilitat**, ja que les dades estan replicades en diversos nodes
 * Permet una **escala horitzontal** fàcil, afegint més discos o nodes al clúster Ceph
 
----
-
-💡 **Per què utilitzar Ceph en Proxmox?**
+\emoji{light bulb} **Per què utilitzar Ceph en Proxmox?**
 
 * Elimina la dependència de sistemes d’emmagatzematge extern (NFS, iSCSI, etc.)
 * Millora la tolerància a fallades i la continuïtat del servei
 * Ofereix una gestió centralitzada i unificada del clúster i l’emmagatzematge
 
-# 5. 🛡️ Alta Disponibilitat (HA)
+\newpage
+
+# 5. \emoji{shield} Alta Disponibilitat (HA)
 
 L’**Alta Disponibilitat (HA)** és un conjunt de tecnologies i configuracions dissenyades per garantir que els serveis crítics d’un sistema **romanguen operatius de manera contínua**, fins i tot davant fallades de maquinari, programari o xarxa. En entorns virtualitzats com **Proxmox VE**, la funcionalitat HA és essencial per assegurar la **mínima interrupció dels serveis** que allotgen màquines virtuals i contenidors.
 
-#### 🎯 Finalitat de la HA:
+#### \emoji{direct hit} Finalitat de la HA:
 
 L'objectiu principal de la HA és **reduir al màxim el temps d’inactivitat (downtime)**. Quan un servidor físic (node) del clúster deixa de funcionar —ja siga per avaria, reinici o manteniment imprevist—, el sistema HA detecta automàticament la fallada i **reinicia les màquines virtuals afectades en un altre node actiu** del clúster, sense intervenció manual.
 
-#### ⚙️ Funcionament dins de Proxmox VE:
+#### \emoji{gear} Funcionament dins de Proxmox VE:
 
 Proxmox VE incorpora un subsistema HA que treballa estretament amb **Corosync**, el qual s’encarrega de supervisar la salut dels nodes i mantenir el quòrum del clúster. Les màquines virtuals que es volen protegir es configuren dins de **grups HA**, i el gestor HA pren decisions automàtiques segons l’estat dels nodes.
 
@@ -436,7 +402,7 @@ El sistema HA inclou:
 * **Policies de gestió de recursos**, com assignació preferida de nodes o prioritats.
 * **Integració amb l’emmagatzematge compartit (ex. Ceph)** per garantir que les dades estiguen disponibles des de qualsevol node.
 
-#### 🧩 Avantatges clau:
+#### \emoji{puzzle piece} Avantatges clau:
 
 * **Continuïtat del servei** sense intervencions manuals.
 * **Millora de la tolerància a fallades** en entorns crítics.
@@ -445,13 +411,13 @@ El sistema HA inclou:
 
 En resum, la **Alta Disponibilitat** és un component fonamental en infraestructures professionals, ja que **automatitza la resposta davant incidències**, manté els serveis actius i contribueix a una experiència d’usuari contínua i fiable, fins i tot en condicions adverses.
 
----
+\newpage
 
-# 6. 💾 Proxmox Backup Server (PBS)
+# 6. \emoji{floppy disk} Proxmox Backup Server (PBS)
 
 **Proxmox Backup Server (PBS)** és una solució de còpia de seguretat **específicament dissenyada per a entorns virtualitzats amb Proxmox VE**. Proporciona una plataforma eficient, ràpida i segura per realitzar **backups i restauracions** de màquines virtuals (VMs), contenidors (CTs) i fins i tot discos individuals, garantint la **protecció i recuperació de dades** davant de fallades o pèrdua d’informació.
 
-#### 🎯 Finalitat de PBS:
+#### \emoji{direct hit} Finalitat de PBS:
 
 PBS s’encarrega de centralitzar totes les còpies de seguretat dels recursos virtuals del clúster, amb funcionalitats com:
 
@@ -460,7 +426,7 @@ PBS s’encarrega de centralitzar totes les còpies de seguretat dels recursos v
 * **Xifratge (opcional)**: garanteix la confidencialitat de les dades tant en repòs com en trànsit.
 * **Verificació de consistència**: comprova automàticament la integritat dels backups emmagatzemats.
 
-#### ⚙️ Integració amb Proxmox VE:
+#### \emoji{gear} Integració amb Proxmox VE:
 
 PBS s’integra directament amb **Proxmox VE**, permetent configurar des de la pròpia interfície de Proxmox:
 
@@ -470,11 +436,11 @@ PBS s’integra directament amb **Proxmox VE**, permetent configurar des de la p
 
 Les comunicacions entre Proxmox VE i PBS es realitzen a través del protocol **Proxmox Backup Protocol**, altament optimitzat per rendiment i seguretat.
 
-#### 🔒 Seguretat i Recuperació:
+#### \emoji{locked} Seguretat i Recuperació:
 
 PBS pot situar-se **fora del clúster principal** (recomanat), la qual cosa el converteix en una **última línia de defensa** en cas de fallida total del clúster o corrupció de dades. Aquesta separació física i lògica assegura que, fins i tot si els nodes de Proxmox fallen completament, les còpies de seguretat puguen ser recuperades des d’un sistema aïllat.
 
-#### 🧩 Beneficis principals:
+#### \emoji{puzzle piece} Beneficis principals:
 
 * **Automatització completa de backups i restauracions**.
 * **Reducció de l’impacte en el rendiment del clúster** gràcies al backup incremental.
@@ -483,19 +449,17 @@ PBS pot situar-se **fora del clúster principal** (recomanat), la qual cosa el c
 
 En definitiva, **Proxmox Backup Server** és una eina essencial per garantir la **resiliència i recuperació** del sistema virtualitzat, protegint-lo de pèrdues accidentals, errors humans o fallades greus de maquinari.
 
----
+\newpage
 
-# 👥 7. Gestió d’Usuaris i Pools de Recursos 
+# \emoji{busts in silhouette} 7. Gestió d’Usuaris i Pools de Recursos 
 
 La **gestió d’usuaris** dins d’un entorn virtualitzat com **Proxmox VE** és essencial per controlar **qui pot accedir**, **què pot fer** i **sobre quins recursos pot actuar**. Aquesta gestió garanteix la **seguretat, organització i eficiència** en la utilització del sistema, especialment en entorns compartits, corporatius o amb administració delegada.
 
----
-
-#### 🎯 Finalitat de la gestió d’usuaris:
+#### \emoji{direct hit} Finalitat de la gestió d’usuaris:
 
 L’objectiu principal és **definir rols i permisos específics per a cada usuari o grup d’usuaris**, segons les seues responsabilitats o necessitats. Això evita l’accés indegut a recursos crítics i redueix el risc d’errors humans que podrien afectar el funcionament del clúster o les màquines virtuals.
 
-#### ⚙️ Funcionalitats clau a Proxmox VE:
+#### \emoji{gear} Funcionalitats clau a Proxmox VE:
 
 * **Creació d’usuaris locals o via integració externa (LDAP/AD):**
   Permet administrar tant usuaris interns com externs mitjançant sistemes d’autenticació centralitzada.
@@ -509,7 +473,7 @@ L’objectiu principal és **definir rols i permisos específics per a cada usua
 * **Definició de Pools de Recursos:**
   Els *pools* permeten agrupar màquines virtuals, contenidors i recursos assignats a usuaris o equips, facilitant-ne la gestió i limitant el seu accés només a la seua àrea de treball.
 
-#### 🔐 Avantatges de gestionar correctament els usuaris:
+#### \emoji{locked with key} Avantatges de gestionar correctament els usuaris:
 
 * **Millora la seguretat del sistema** evitant accessos no autoritzats o accions destructives.
 * **Facilita la traçabilitat** (log dels usuaris i accions realitzades).
@@ -518,26 +482,22 @@ L’objectiu principal és **definir rols i permisos específics per a cada usua
 
 En resum, la gestió d’usuaris a Proxmox VE no sols millora la seguretat, sinó que és fonamental per estructurar un entorn **multiusuari estable, escalable i eficient**, tant per a entorns educatius, com empresarials o laboratoris de proves.
 
----
+\newpage
 
-# 8. 🔐 Seguretat i Bones Pràctiques
+# 8. \emoji{locked with key} Seguretat i Bones Pràctiques
 
 ### 8.5 Monitorització del sistema amb Netdata
 
 **Netdata** és una eina de monitorització en temps real dissenyada per oferir una visió molt detallada del rendiment de sistemes, aplicacions, contenidors i dispositius IoT. És coneguda per la seva **interfície gràfica intuïtiva** i pel seu enfocament en la **visualització immediata** de dades de rendiment, amb una latència molt baixa.
 
----
-
-### 🔍 **Què fa Netdata?**
+### \emoji{magnifying glass tilted left} **Què fa Netdata?**
 
 * Recull metadades del sistema (CPU, RAM, disc, xarxa, processos, etc.)
 * Monitoritza serveis i aplicacions (MySQL, nginx, docker, etc.)
 * Mostra les dades en **temps real (per segon o menys)**
 * Pot funcionar com a eina independent o integrat en una arquitectura de monitorització més gran.
 
----
-
-## 🔄 Comparativa amb altres solucions similars
+## \emoji{repeat} Comparativa amb altres solucions similars
 
 A continuació tens una comparació amb tres eines populars de monitorització:
 
@@ -551,9 +511,7 @@ A continuació tens una comparació amb tres eines populars de monitorització:
 | **Consum de recursos**       | ✔ Molt lleuger           | ✘ Pot ser alt depenent del cas    | ✘ Pot consumir bastant           | ✔ Lleuger                   |
 | **Extensibilitat**           | ✘ Limitada               | ✔ Molt alt                        | ✔ Alt                            | ✔ Alt                       |
 
----
-
-## ✅ **Avantatges de Netdata**
+## \emoji{check mark button} **Avantatges de Netdata**
 
 1. **Instal·lació molt senzilla:** una sola línia de comandes.
 2. **Monitorització en temps real real:** actualitzacions per segon o menys.
@@ -562,33 +520,30 @@ A continuació tens una comparació amb tres eines populars de monitorització:
 5. **Interfície web interactiva:** gràfics clars i navegació fàcil.
 6. **Suport per a contenidors i microserveis.**
 
----
-
-## ❌ **Inconvenients de Netdata**
+## \emoji{cross mark} **Inconvenients de Netdata**
 
 1. **No està pensat per a emmagatzematge a llarg termini:** reté dades en memòria per defecte (encara que es pot integrar amb bases de dades de sèries temporals).
 2. **Alertes bàsiques:** menys potent que Zabbix o Prometheus+Alertmanager.
 3. **Menys integracions corporatives avançades.**
 4. **Escalabilitat limitada si no s’utilitza Netdata Cloud.**
 
----
+### \emoji{puzzle piece} En resum:
 
-### 🧩 En resum:
-
-* **Vols veure dades en temps real de manera fàcil i ràpida?** 👉 *Netdata és ideal.*
-* **Necessites anàlisi a llarg termini, alertes complexes i integració amb sistemes grans?** 👉 *Millor Prometheus + Grafana o Zabbix.*
-* **Tens un entorn molt crític amb necessitat d’alertes robustes i historial llarg?** 👉 *Zabbix o Nagios són més adequats.*
+* **Vols veure dades en temps real de manera fàcil i ràpida?** \emoji{backhand index pointing right} *Netdata és ideal.*
+* **Necessites anàlisi a llarg termini, alertes complexes i integració amb sistemes grans?** \emoji{backhand index pointing right} *Millor Prometheus + Grafana o Zabbix.*
+* **Tens un entorn molt crític amb necessitat d’alertes robustes i historial llarg?** \emoji{backhand index pointing right} *Zabbix o Nagios són més adequats.*
 
 Doncs en el cas dels servidors és millor NetData i per eixe cas m'he quedat en NetData.
 
----
-## 9. 📊 Monitoratge Centralitzat amb Zabbix
+\newpage
 
-### 🔍 9.1 Què és Zabbix i funcionalitats principals
+## 9. \emoji{bar chart} Monitoratge Centralitzat amb Zabbix
+
+### \emoji{magnifying glass tilted left} 9.1 Què és Zabbix i funcionalitats principals
 
 Zabbix és una plataforma de monitoratge open source que permet supervisar en temps real el rendiment i l'estat de sistemes, servidors, màquines virtuals, serveis de xarxa i aplicacions. Proporciona alertes configurables, gràfiques avançades, dashboards personalitzats i recollida d’estadístiques a llarg termini, tot des d’una interfície web centralitzada.
 
-### ✅ 9.2 Justificació de l’elecció de Zabbix front altres solucions
+### \emoji{check mark button} 9.2 Justificació de l’elecció de Zabbix front altres solucions
 
 Tot i que existeixen altres plataformes com **Nagios**, **Prometheus** o **Netdata**, s’ha escollit Zabbix per les següents raons tècniques:
 
@@ -599,11 +554,11 @@ Tot i que existeixen altres plataformes com **Nagios**, **Prometheus** o **Netda
 
 A diferència de **Prometheus**, que requereix diversos components externs per una solució completa, o de **Nagios**, que té un enfocament més bàsic i menys visual, **Zabbix ofereix una solució tot-en-u** que s’adapta millor a les necessitats del projecte.
 
-### 🔗 9.3 Integració amb la infraestructura virtualitzada de Proxmox VE
+### \emoji{link} 9.3 Integració amb la infraestructura virtualitzada de Proxmox VE
 
 Zabbix es desplegarà com a màquina virtual dins del clúster Proxmox, i mitjançant l’ús d’agents Zabbix i connexions SNMP, es recollirà informació detallada de l’estat de cada node, VM, recursos de Ceph i altres serveis crìtics. S’utilitzaran **templates oficials i personalitzades** per adaptar la monitorització als requisits de l’entorn.
 
-### 🛡️ 9.4 Desplegament en Alta Disponibilitat (HA)
+### \emoji{shield} 9.4 Desplegament en Alta Disponibilitat (HA)
 
 Per garantir la **continuitat del monitoratge fins i tot en cas de fallada d’un node del clúster**, el servidor Zabbix estarà definit com a **recurs d’alta disponibilitat (HA)** dins de Proxmox. Això implica:
 
@@ -611,11 +566,11 @@ Per garantir la **continuitat del monitoratge fins i tot en cas de fallada d’u
 * Configuració del servei Zabbix com a recurs gestionat per `ha-manager`.
 * En cas de caiguda del node actiu, **el servei es migrarà automàticament** a un altre node disponible, assegurant una supervisió contínua.
 
----
+\newpage
 
-## 🧠 10. Conclusions i Valoració Personal
+## \emoji{brain}10. Conclusions i Valoració Personal
 
-### 🎯 10.1 Objectius Aconseguits
+### \emoji{direct hit} 10.1 Objectius Aconseguits
 
 Al llarg del desenvolupament d’aquest projecte, s’han assolit amb èxit els objectius plantejats inicialment, tant a nivell tècnic com formatiu.
 
@@ -632,15 +587,13 @@ A més, s’ha documentat detalladament cada fase del projecte, facilitant
 
 ### 10.2 Dificultats trobades i solucions
 
-⚠️ Problema amb els repositoris de **Proxmox Backup Server**
+\emoji{warning} Problema amb els repositoris de **Proxmox Backup Server**
 Una de les principals dificultats trobades ha sigut l’actualització dels paquets del sistema, ja que per defecte, Proxmox Backup Server ve configurat amb els repositoris enterprise, els quals requereixen una subscripció de pagament.
 
-✅ ***Solució tècnica:*** utilitzar repositoris públics
+\emoji{check mark button} ***Solució tècnica:*** utilitzar repositoris públics
 Per tal de poder actualitzar i instal·lar paquets sense necessitat de subscripció, es pot configurar el sistema per a fer ús dels repositoris públics (no enterprise) de **Proxmox.**
 
----
-
-#### ⚠️ Problema amb el almacenament del Ceph:
+#### \emoji{warning} Problema amb el almacenament del Ceph:
 
 Durant el procés de configuració i ús del sistema **Ceph** com a emmagatzematge distribuït dins del clúster Proxmox VE, es va presentar una **incidència crítica relacionada amb la pèrdua de redundància de les dades**.
 
@@ -648,7 +601,7 @@ Concretament, després d’un període de funcionament estable, es va detectar q
 
 Aquest comportament és esperable en entorns Ceph, ja que per garantir la replicació i integritat de les dades, el sistema necessita un marge suficient de capacitat lliure. Un cop aquest marge desapareix, el sistema prioritza la protecció de les dades existents però ja **no pot garantir la redundància completa**, fet que suposa un risc en cas de fallada addicional d’un OSD o node.
 
-#### ✅ Solució adoptada:
+#### \emoji{check mark button} Solució adoptada:
 
 Per resoldre aquest problema, es va procedir a:
 
@@ -659,38 +612,36 @@ Per resoldre aquest problema, es va procedir a:
 
 Aquesta experiència va posar en relleu la **importància de monitorar proactivament l’espai lliure** dins d’un entorn Ceph i definir alertes abans d’arribar a llindars crítics, així com planificar amb antelació l’escalabilitat del sistema d’emmagatzematge.
 
----
-
-### 🚀 10.3 Possibles millores futures
+### \emoji{rocket} 10.3 Possibles millores futures
 
 #### **1. Docker com a Complement a LXC**  
-📌 *Millora la flexibilitat i portabilitat dels contenidors*  
+\emoji{pushpin} *Millora la flexibilitat i portabilitat dels contenidors*  
 - **Objectiu**: Integrar Docker dins de VMs/containers per aprofitar:  
-  - 🐋 Ecosistema més ampli d'imatges preconfigurades  
-  - 🔄 Compatibilitat amb Kubernetes i eines CI/CD  
-  - 🛠️ Plantilles predefinides amb Docker + Portainer  
+  - \emoji{whale} Ecosistema més ampli d'imatges preconfigurades  
+  - \emoji{repeat} Compatibilitat amb Kubernetes i eines CI/CD  
+  - \emoji{hammer and wrench} Plantilles predefinides amb Docker + Portainer  
 - **Reptes**:  
   - Configurar *systemd* en LXC existents  
   - Establir polítiques de seguretat específiques  
 
----
-
 #### **2. Seguretat Avançada**  
-🔐 *Hardening del cluster i xifrat de dades*  
+\emoji{locked with key} *Hardening del cluster i xifrat de dades* 
 - **Certificats TLS personalitzats**:  
+  
   ```bash  
   pvecm updatecerts -force  # Actualitza certificats autofirmats  
   ```  
+
 - **Xifrat de discs amb LUKS** (per a PBS/Ceph):  
+  
   ```bash  
   cryptsetup luksFormat /dev/sdX  # Xifrat en repòs  
   ```  
-- **Integració amb LDAP/AD** per a gestió centralitzada d’usuaris.  
-- 
----
+
+- **Integració amb LDAP/AD** per a gestió centralitzada d’usuaris.
 
 #### **3. Xarxa i Aïllament**  
-🌐 *Segmentació per a major seguretat*  
+\emoji{globe with meridians} *Segmentació per a major seguretat*  
 - **VLANs dedicades**:  
   ```  
   auto vmbr0.100  
@@ -700,18 +651,14 @@ Aquesta experiència va posar en relleu la **importància de monitorar proactiva
   ```  
   - Separar trànsit de gestió, Ceph i VMs.  
 
----
-
-### **📋 Resum de Prioritats**  
+### **\emoji{clipboard} Resum de Prioritats**  
 | **Àrea**          | **Acció Clau**                          | **Benefici Principal**                |  
 |--------------------|----------------------------------------|---------------------------------------|  
 | **Contenidors**    | Integració Docker + Portainer          | Portabilitat i ecosistema ampliat     |  
 | **Seguretat**      | Hardening + LUKS + LDAP                | Protecció de dades i accés controlat  |  
 | **Xarxa**          | VLANs Dedicades                        | Segmentació per a major seguretat     |  
 
----
-
-### 🎯 10.4 Valoració tècnica i personal del projecte
+### \emoji{direct hit} 10.4 Valoració tècnica i personal del projecte
 
 Aquestes millores convertiran el nostre entorn en un sistema **més robust, segur i fàcil de gestionar**, adaptant-se tant a entorns educatius com empresarials.  
 
@@ -723,30 +670,31 @@ A més, la incorporació de **Zabbix com a sistema de monitoratge** ha sigut fon
 
 A nivell acadèmic, ha sigut una experiència molt completa, ja que m’ha ajudat a connectar la teoria amb la pràctica, millorant la meua **capacitat d’anàlisi, resolució de problemes i documentació tècnica**. Considere que ha sigut un projecte molt útil per a preparar-me de cara a **entorns reals i futurs reptes professionals** en el sector de les tecnologies de la informació.
 
----
+\newpage
 
-## 📎 11. Annexos
+## \emoji{paperclip} 11. Annexos
 
-### 11.1 Bibliografia
+### \emoji{paperclip} 11.1 Bibliografia
 
 A continuació es detallen les fonts utilitzades per al desenvolupament del projecte:
 
 1. Proxmox. *Documentació oficial de Proxmox VE*. Accés 29 d’abril de 2025. [ Proxmox ](https://pve.proxmox.com/wiki/Main_Page).
 2. Debian Project. *Debian Wiki*. Accés 25 d’abril de 2025. [Debian](https://wiki.debian.org/).
 3. GitHub. *Repo*. Accés de seguit.[ Projecte Proxmox ](https://github.com/jcorbii/Projecte_Proxmox/)
-4. Netdata  *Instalació Netdata*. Accés 12 de maig de 2025. [Netdata](https://www.netdata.cloud/)
+4. Netdata  *Instal·lació Netdata*. Accés 12 de maig de 2025. [Netdata](https://www.netdata.cloud/)
 5. Zabbix  *Docuemntació Zabbix*. Accés 14 de maig de 2025. [Zabbix](https://www.zabbix.com/)
 
+\newpage
 
-# Instalacio
+# Instal·lació
 
 ## Proxmox
 
-## 💻 3.  Implementació del *Clúster* Proxmox
+## \emoji{laptop computer} 3.  Implementació del *Clúster* Proxmox
 
 ### 3.1  Instal·lació dels nodes Proxmox VE
 
-#### 🧱 Instal·lació del primer node de Proxmox
+#### \emoji{bricks} Instal·lació del primer node de Proxmox
 
 **Passos per a la instal·lació:**
 
@@ -795,7 +743,7 @@ https://10.10.10.60:8006
 
 ---
 
-### 🖥️ Instal·lació del Node 2
+### \emoji{desktop computer} Instal·lació del Node 2
 
 El procés d’instal·lació del **segon node** és **idèntic** al del primer, excepte pels valors del **nom del host** i la **IP**, que han de ser únics per a cada node.
 
@@ -819,7 +767,7 @@ I amb això, accedim de nou a la interfície de gestió de Proxmox:
 
 ---
 
-### 🖥️ Instal·lació del Node 3
+### \emoji{desktop computer} Instal·lació del Node 3
 
 El procés d’instal·lació del **segon node** és **idèntic** al del primer, excepte pels valors del **nom del host** i la **IP**, que han de ser únics per a cada node.
 
@@ -843,7 +791,7 @@ I amb això, accedim de nou a la interfície de gestió de Proxmox:
 
 ## Proxmox Backup Server
 
-## 💻 6 Proxmox Backup Server (PBS)
+## \emoji{desktop computer} 6 Proxmox Backup Server (PBS)
 
 ### 6.1 Instalación de PBS
 
@@ -889,7 +837,7 @@ https://10.10.10.123:8006
 
 ## Zabbix
 
-## 9. 📊 Monitoratge Centralitzat amb **Zabbix**
+## 9. \emoji{bar chart} Monitoratge Centralitzat amb **Zabbix**
 
 ### 1. Descàrrega de Zabbix
 
@@ -905,8 +853,6 @@ Una vegada dins, cal anar a l’apartat **Download Zabbix**, on seleccionarem:
 
 <img src="../../../img/image-127.png" alt="GRUB" width="60%">
 
----
-
 ### 2. Instal·lació i configuració del servidor Zabbix
 
 #### a. Instal·lació del repositori oficial
@@ -919,8 +865,6 @@ apt update
 
 <img src="../../../img/image-128.png" alt="GRUB" width="60%">
 
----
-
 #### b. Instal·lació dels paquets principals
 
 Instal·lem el servidor Zabbix, el frontend web amb Apache, els scripts SQL i l’agent:
@@ -930,8 +874,6 @@ apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sq
 ```
 
 <img src="../../../img/image-129.png" alt="GRUB" width="60%">
-
----
 
 #### c. Creació de la base de dades
 
@@ -952,8 +894,6 @@ QUIT;
 ```
 
 <img src="../../../img/image-130.png" alt="GRUB" width="60%">
-
----
 
 #### d. Importació de l’esquema de dades
 
@@ -978,8 +918,6 @@ QUIT;
 
 <img src="../../../img/image-132.png" alt="GRUB" width="60%">
 
----
-
 #### e. Configuració del servidor Zabbix
 
 Editem el fitxer de configuració del servidor `/etc/zabbix/zabbix_server.conf` i establim la contrasenya de la base de dades:
@@ -989,8 +927,6 @@ DBPassword=password
 ```
 
 <img src="../../../img/image-133.png" alt="GRUB" width="60%">
-
----
 
 #### f. Inici dels serveis
 
@@ -1002,8 +938,6 @@ systemctl enable zabbix-server zabbix-agent apache2
 ```
 
 <img src="../../../img/image-134.png" alt="GRUB" width="60%">
-
----
 
 #### g. Accés a la interfície web
 
@@ -1017,24 +951,21 @@ Des d’ací podrem finalitzar la configuració via web GUI.
 
 <img src="../../../img/image-135.png" alt="GRUB" width="60%">
 
----
-
 Amb això, el servidor Zabbix queda instal·lat i llest per a ser utilitzat per a la monitorització centralitzada de la infraestructura.
 
 <img src="../../../img/image-137.png" alt="GRUB" width="60%">
 
+\newpage
 
 # Configuració 
 
 # Proxmox
 
-# 3. 🖥️ Implementació del Clúster Proxmox
+# 3. \emoji{desktop computer} Implementació del Clúster Proxmox
 
 A continuació et detallem pas a pas com crear un clúster en Proxmox i unir-hi altres nodes.
 
----
-
-## 🛠️ 3.2 Configuració del clúster (pvecm)
+## \emoji{hammer and wrench} 3.2 Configuració del clúster (pvecm)
 
 1. Accedeix a un dels nodes de Proxmox.
 2. Ves a **Datacenter → Cluster** des del menú lateral esquerre.
@@ -1048,7 +979,6 @@ A continuació et detallem pas a pas com crear un clúster en Proxmox i unir-hi 
    * **Interfície de xarxa**
    * Altres paràmetres segons la teua configuració
 
-
 <img src="../../../img/image-57.png" alt="GRUB" width="60%">
 
 
@@ -1059,9 +989,7 @@ A continuació et detallem pas a pas com crear un clúster en Proxmox i unir-hi 
 
 <img src="../../../img/image-59.png" alt="GRUB" width="60%">
 
----
-
-## 🔗 2. Unir Nodes al Clúster
+## \emoji{link} 2. Unir Nodes al Clúster
 
 Per afegir un altre node al clúster:
 
@@ -1088,9 +1016,7 @@ Per afegir un altre node al clúster:
 
 <img src="../../../img/image-64.png" alt="GRUB" width="60%">
 
----
-
-## ➕ 3. Afegir més nodes
+## \emoji{heavy plus sign} 3. Afegir més nodes
 
 Per afegir més nodes, repeteix exactament el mateix procés:
 
@@ -1100,25 +1026,19 @@ Per afegir més nodes, repeteix exactament el mateix procés:
 * Copia la informació del node principal
 * Enganxa-la i uneix el node
 
----
-
-🔚 I amb això ja tindràs un clúster Proxmox funcional amb diversos nodes!
+\emoji{end} I amb això ja tindràs un clúster Proxmox funcional amb diversos nodes!
 
 <img src="../../../img/image-64.png" alt="GRUB" width="60%">
 
-Perfecte! Comencem pel punt **4.1 Introducció a Ceph i integració amb Proxmox**. Et deixe a continuació una proposta redactada en valencià formal, clara i adequada per al teu projecte:
+\newpage
 
----
+### \emoji{brain} 4 Introducció a **Ceph** i Integració amb **Proxmox VE**
 
-### 🧠 4 Introducció a **Ceph** i Integració amb **Proxmox VE**
-
-### 4.2 ⚙️ Instal·lació i Configuració de **Ceph** al Clúster
+### 4.2 \emoji{gear} Instal·lació i Configuració de **Ceph** al Clúster
 
 La instal·lació de Ceph en un entorn **Proxmox VE** es pot fer de manera centralitzada i senzilla gràcies a la seua integració nativa. A continuació es detallen els passos principals per a desplegar Ceph en un clúster de Proxmox:
 
----
-
-#### 🧩 Requisits previs
+#### \emoji{puzzle piece} Requisits previs
 
 Abans de començar amb la instal·lació, cal assegurar:
 
@@ -1127,9 +1047,7 @@ Abans de començar amb la instal·lació, cal assegurar:
 * Discos dedicats per a Ceph (no utilitzar el mateix disc que el sistema operatiu)
 * Una configuració bàsica del clúster de Proxmox ja establida
 
----
-
-#### 🛠️ Passos d’instal·lació
+#### \emoji{hammer and wrench} Passos d’instal·lació
 
 1. **Accedir a la interfície web de Proxmox**
 
@@ -1192,7 +1110,7 @@ Abans de començar amb la instal·lació, cal assegurar:
 
    * Només si vols utilitzar **CephFS** com a sistema de fitxers compartit
 
-    ##### **📂 Què són els metadades?**
+    ##### **\emoji{open file folder} Què són els metadades?**
     Els metadades són informació sobre els fitxers, com ara:
 
     Noms de fitxers i directoris
@@ -1205,8 +1123,7 @@ Abans de començar amb la instal·lació, cal assegurar:
 
     Dates de creació o modificació
 
-    
-    ##### 🧠 Què fa exactament el MDS?
+    ##### \emoji{brain} Què fa exactament el MDS?
     
     Quan utilitzes CephFS (el sistema de fitxers distribuït de Ceph), el Metadata Server:
 
@@ -1218,23 +1135,15 @@ Abans de començar amb la instal·lació, cal assegurar:
 
     Allibera als OSDs d’aquesta tasca perquè es centren només en llegir i escriure dades
 
-Perfecte! Ací tens el punt **4.3 Creació de pools d’emmagatzematge** redactat de manera formal i clara en valencià, seguint l’estil dels punts anteriors:
-
----
-
-### 4.3 🏗️ Creació de Pools d’Emmagatzematge en Ceph
+### 4.3 \emoji{building construction} Creació de Pools d’Emmagatzematge en Ceph
 
 Els **pools d’emmagatzematge** són una part fonamental en l’arquitectura de **Ceph**, ja que representen els espais lògics on es distribueixen les dades entre els diferents OSDs del clúster. A cada pool se li pot assignar una funció específica, com ara allotjar màquines virtuals, contenidors o fitxers de CephFS.
 
----
-
-### 🔍 Què és un Pool?
+### \emoji{magnifying glass tilted left} Què és un Pool?
 
 Un **pool** és una agrupació lògica d’objectes dins del clúster Ceph. Cada objecte dins d’un pool es reparteix entre els OSDs segons una política de distribució definida, garantint així la replicació i la tolerància a fallades.
 
----
-
-### 🛠️ Creació d’un Pool pas a pas en Proxmox VE
+### \emoji{hammer and wrench} Creació d’un Pool pas a pas en Proxmox VE
 
 1. Accedeix a la interfície web de **Proxmox VE**
 2. Ves a `Datacenter → Ceph → Pools`
@@ -1243,8 +1152,6 @@ Un **pool** és una agrupació lògica d’objectes dins del clúster Ceph. Cada
 <img src="../../../img/image-76.png" alt="GRUB" width="60%">
 
 4. Emplena els camps següents:
-
-
 
    * **Nom del pool:** (ex. `vm_data`, `cephfs_data`, `backups`)
    * **Nombre de rèpliques (Size):** recomanat mínim **3** per a alta disponibilitat
@@ -1263,17 +1170,13 @@ Al pas d'un temps podem veure com en els nodes apareix l'almacenament del ceph.
 
 <img src="../../../img/image-79.png" alt="GRUB" width="60%">
 
----
-
-### 🧠 Consideracions importants
+### \emoji{brain} Consideracions importants
 
 * Els pools amb més rèpliques consumeixen més espai però ofereixen més redundància.
 * És possible crear **pools separats** per a diferents usos (ex: un per a VM i un altre per a CephFS).
 * Es poden utilitzar **regles CRUSH** per controlar com es distribueixen les dades per racks, discos o ubicacions físiques.
 
----
-
-### ✅ Resultat
+### \emoji{check mark button} Resultat
 
 Amb el pool creat, ja pots:
 
@@ -1281,21 +1184,15 @@ Amb el pool creat, ja pots:
 * Utilitzar-lo per a **CephFS**
 * Monitorar el seu estat i ús des de la pestanya de **Ceph → Pools**
 
-Perfecte! A continuació et presente el punt **4.4 Proves de rendiment i replicació** redactat de manera formal i clara, mantenint l’estil del teu projecte en valencià:
-
----
-
-### 4.4 🚀 Proves de Rendiment i Replicació en Ceph
+### 4.4 \emoji{rocket} Proves de Rendiment i Replicació en Ceph
 
 Una vegada el clúster Ceph està desplegat i operatiu, és fonamental realitzar proves de **rendiment** i **replicació** per a verificar el correcte funcionament de l’emmagatzematge distribuït, així com garantir la **fiabilitat** i **eficiència** del sistema.
 
----
-
-### 📊 Proves de rendiment
+### \emoji{bar chart} Proves de rendiment
 
 Les proves de rendiment ens permeten mesurar la **velocitat de lectura i escriptura** dels dispositius Ceph, així com la **latència** i **capacitat de resposta** del clúster.
 
-#### 🧪 Eines recomanades:
+#### \emoji{test tube} Eines recomanades:
 
 * `rados bench` → eina pròpia de Ceph per mesurar el rendiment de lectura/escriptura
 * `fio` → eina externa per fer proves personalitzades d’I/O
@@ -1317,12 +1214,12 @@ rados bench -p vm-data 60 rand
 <img src="../../../img/image-80.png" alt="GRUB" width="60%">
 </p>
 
-### ✅ Resultat esperat
+### \emoji{check mark button} Resultat esperat
 
 * Les proves d’escriptura i lectura han de mostrar valors de rendiment estables i adequats segons el teu hardware.
 * La replicació ha de funcionar de manera automàtica, garantint la integritat i disponibilitat de les dades davant qualsevol fallada.
 
-#### 📌 Exemple de comandes via CLI
+#### \emoji{pushpin} Exemple de comandes via CLI
 
 Alternativament, es pot fer la instal·lació via línia de comandes:
 
@@ -1337,9 +1234,7 @@ pveceph mon create
 pveceph osd create /dev/sdX
 ```
 
----
-
-### ✅ Resultat
+### \emoji{check mark button} Resultat
 
 Una vegada configurats els **MON**, **MGR** i **OSD**, el clúster Ceph estarà operatiu. Ja pots procedir a:
 
@@ -1347,16 +1242,14 @@ Una vegada configurats els **MON**, **MGR** i **OSD**, el clúster Ceph estarà 
 * Assignar-los com a backend per a màquines virtuals
 * Monitorar l’estat del clúster des de la interfície de Proxmox
 
----
-
-### ♻️ Proves de replicació
+### \emoji{recycling symbol} Proves de replicació
 
 Ceph replica les dades entre OSDs segons la configuració de rèpliques (per defecte 3). És important verificar que:
 
 1. **Les dades es repliquen correctament** a múltiples discos.
 2. **Quan cau un OSD o node**, Ceph automàticament redistribueix les rèpliques.
 
-#### 🔄 Prova de fallada simulada:
+#### \emoji{repeat} Prova de fallada simulada:
 
 1. Apaga un OSD manualment:
 
@@ -1379,19 +1272,15 @@ Ceph replica les dades entre OSDs segons la configuració de rèpliques (per def
 
 <img src="../../../img/image-82.png" alt="GRUB" width="60%">
 
----
-
-### 📈 4.5 Gestió i Monitoratge de **Ceph**
+### \emoji{chart increasing} 4.5 Gestió i Monitoratge de **Ceph**
 
 Una vegada desplegat el clúster **Ceph**, és fonamental realitzar una gestió i monitoratge continuat per garantir l’estabilitat, el rendiment i la disponibilitat de les dades. Proxmox VE ofereix una **integració nativa amb Ceph**, que facilita tant el control operatiu com la detecció anticipada de possibles incidències.
 
----
-
-### 🛠️ Eines de gestió disponibles
+### \emoji{hammer and wrench} Eines de gestió disponibles
 
 Proxmox proporciona diversos mètodes per gestionar Ceph:
 
-#### 📌 Interfície web de Proxmox VE
+#### \emoji{pushpin} Interfície web de Proxmox VE
 
 Des de la GUI es pot accedir a:
 
@@ -1401,7 +1290,7 @@ Des de la GUI es pot accedir a:
 * **Creació i eliminació de pools**
 * **Configuració i gestió de CephFS**
 
-#### 🔧 Línia de comandes (CLI)
+#### \emoji{wrench} Línia de comandes (CLI)
 
 Per a gestió avançada i automatitzacions:
 
@@ -1413,9 +1302,7 @@ ceph health detail      # Informació detallada de salut
 ceph osd out/in <id>    # Marcar un OSD com a fora o dins del clúster
 ```
 
----
-
-### 📊 Monitoratge actiu del clúster
+### \emoji{bar chart} Monitoratge actiu del clúster
 
 Els principals paràmetres a controlar de forma contínua són:
 
@@ -1426,9 +1313,7 @@ Els principals paràmetres a controlar de forma contínua són:
 * **Latències de lectura i escriptura**
 * **Rebalanceig de dades en cas de fallada o afegit de nous discos**
 
----
-
-### 📡 Integració amb eines externes
+### \emoji{satellite antenna} Integració amb eines externes
 
 Encara que Proxmox proporciona visualització bàsica, pots integrar Ceph amb eines de monitoratge més potents com:
 
@@ -1436,33 +1321,22 @@ Encara que Proxmox proporciona visualització bàsica, pots integrar Ceph amb ei
 * **Zabbix** o **Nagios**, mitjançant plugins
 * Alertes per correu electrònic o sistemes de notificació
 
----
+### \emoji{light bulb} Recomanacions de manteniment
 
-### 💡 Recomanacions de manteniment
+* \emoji{repeat button} **Revisar l’estat del clúster regularment**
+* \emoji{test tube} **Simular fallades controlades** per validar la replicació i recuperació
+* \emoji{package} **No sobrecarregar els OSDs**; mantindre un marge de capacitat lliure
+* \emoji{stop sign} **Evitar la pèrdua simultània de múltiples discos** amb rèpliques mínimes
 
-* 🔁 **Revisar l’estat del clúster regularment**
-* 🧪 **Simular fallades controlades** per validar la replicació i recuperació
-* 📦 **No sobrecarregar els OSDs**; mantindre un marge de capacitat lliure
-* 🛑 **Evitar la pèrdua simultània de múltiples discos** amb rèpliques mínimes
-
----
-
-### ✅ Resultat
+### \emoji{check mark button} Resultat
 
 Amb una correcta gestió i monitoratge, es garanteix que el clúster Ceph oferisca un rendiment estable, altament disponible i resistent a fallades, adaptat a les necessitats de l’entorn virtualitzat en Proxmox VE.
 
-
-Perfecte! Ací tens el punt **5. Alta Disponibilitat (HA)** completament redactat en valencià formal i tècnic, amb icones i una estructura clara per a incloure’l al teu projecte:
-
----
-
-## 🛡️ 5. Alta Disponibilitat (**HA**) en Proxmox VE
+## \emoji{shield} 5. Alta Disponibilitat (**HA**) en Proxmox VE
 
 La **Alta Disponibilitat (High Availability)** és una funcionalitat clau en entorns crítics, ja que permet garantir la **continuïtat del servei** davant la caiguda d’un node. Amb Proxmox VE, aquesta característica s’integra de manera nativa quan es treballa amb un **clúster**.
 
----
-
-### ⚙️ 5.1 Activació del Gestor HA en Proxmox
+### \emoji{gear} 5.1 Activació del Gestor HA en Proxmox
 
 Per a fer ús de la funcionalitat HA, cal que:
 
@@ -1470,7 +1344,7 @@ Per a fer ús de la funcionalitat HA, cal que:
 2. Els nodes tinguen **Corosync** i **pve-ha-crm** actius
 3. Els recursos (VM o CT) estiguen ubicats en **storage compartit** o Ceph
 
-#### 🔄 Procediment:
+#### \emoji{repeat} Procediment:
 
 * Ves a `Datacenter → HA`
 * Assegura’t que el **HA Manager** està actiu
@@ -1480,9 +1354,7 @@ Per a fer ús de la funcionalitat HA, cal que:
 <img src="../../../img/image-83.png" alt="GRUB" width="60%">
 </p>
 
----
-
-### 🧩 5.2 Definició de Grups HA
+### \emoji{puzzle piece} 5.2 Definició de Grups HA
 
 Els **grups HA** permeten organitzar i assignar màquines virtuals o contenidors per a gestionar millor les polítiques de tolerància a fallades.
 
@@ -1505,9 +1377,7 @@ Els **grups HA** permeten organitzar i assignar màquines virtuals o contenidors
 
 Després, quan crees o edites una VM/CT, pots assignar-la a un grup HA.
 
----
-
-### 🔁 5.3 Proves de Tolerància a Fallades (Failover de Màquines Virtuals)
+### \emoji{repeat button} 5.3 Proves de Tolerància a Fallades (Failover de Màquines Virtuals)
 
 Per assegurar el correcte funcionament de la configuració HA, és recomanable fer proves de **failover controlades**:
 
@@ -1528,21 +1398,19 @@ Per assegurar el correcte funcionament de la configuració HA, és recomanable f
 
 <img src="../../../img/image-89.png" alt="GRUB" width="60%">
 
-🔍 Es pot monitorar aquest procés des de `Datacenter → HA → Status`.
+\emoji{magnifying glass tilted left} Es pot monitorar aquest procés des de `Datacenter → HA → Status`.
 
 <img src="../../../img/image-90.png" alt="GRUB" width="60%">
 
 Per descomptat! Ací tens el fragment redactat de manera formal i clara, ideal per afegir com a continuació dins del punt 5.4 o com un subapartat pràctic de **recuperació post-fallada**:
 
----
-
-### 💡 5.4 Casos d’Ús i Recuperació davant Caigudes de Nodes
+### \emoji{light bulb} 5.4 Casos d’Ús i Recuperació davant Caigudes de Nodes
 
 Els entorns amb HA actiu poden recuperar-se de forma automàtica en diferents situacions:
 
-* 🔌 **Fallada de hardware o energia** en un node
-* 🧯 **Actualitzacions crítiques** que requereixen reinici
-* ⚙️ **Errors de sistema** o problemes de rendiment greu
+* \emoji{electric plug} **Fallada de hardware o energia** en un node
+* \emoji{fire extinguisher} **Actualitzacions crítiques** que requereixen reinici
+* \emoji{gear} **Errors de sistema** o problemes de rendiment greu
 
 En cada cas:
 
@@ -1554,16 +1422,11 @@ En cada cas:
 
 Una màquina virtual crítica (servidor web, base de dades, etc.) està configurada amb HA. Si el node cau inesperadament, aquesta VM es reinicia en un altre node en qüestió de segons, garantint la continuïtat del servei.
 
----
-
-### ✅ Resultat
+### \emoji{check mark button} Resultat
 
 Amb la configuració HA en Proxmox VE, es millora significativament la **resiliència de la infraestructura virtualitzada**, assegurant que els serveis essencials estiguen disponibles **24/7**, fins i tot davant fallades greus.
 
----
-
-
-### 🔁 Recuperació manual de màquines HA al seu node original
+### \emoji{repeat button} Recuperació manual de màquines HA al seu node original
 
 Després d’una **caiguda temporal d’un node** del clúster, el sistema **HA de Proxmox** trasllada automàticament les màquines virtuals o contenidors afectats a un altre node disponible per garantir la continuïtat del servei.
 
@@ -1573,9 +1436,7 @@ Un cop el node original torna a estar **en línia i estable**, és **recomanable
 * Retornar els recursos als seus entorns habituals
 * Preparar el sistema per a futures fallades
 
----
-
-### ⚙️ Procediment per a migrar una màquina HA al node original
+### \emoji{gear} Procediment per a migrar una màquina HA al node original
 
 1. Accedeix a la interfície web de Proxmox
 2. Ves al node on actualment està executant-se la màquina
@@ -1584,25 +1445,19 @@ Un cop el node original torna a estar **en línia i estable**, és **recomanable
 5. Tria com a destinació el **node original** (ex: `node3`)
 6. Confirma l’operació
 
-📌 *Nota:* La migració es pot fer en calent (**live migration**) si la màquina suporta aquesta funcionalitat (generalment les VMs amb discs en Ceph o ZFS compartit).
+\emoji{pushpin} *Nota:* La migració es pot fer en calent (**live migration**) si la màquina suporta aquesta funcionalitat (generalment les VMs amb discs en Ceph o ZFS compartit).
 
----
-
-### ✅ Resultat
+### \emoji{check mark button} Resultat
 
 Amb aquest procés, la màquina recupera la seua ubicació inicial, mantenint-se dins del grup HA i **preparada per a futures gestions automàtiques** de tolerància a fallades.
 
 <img src="../../../img/image-91.png" alt="GRUB" width="60%">
 
----
-
-## 👥 7. Gestió d’Usuaris i Pools de Recursos
+## \emoji{busts in silhouette} 7. Gestió d’Usuaris i Pools de Recursos
 
 En entorns virtualitzats compartits, com un clúster de **Proxmox VE**, és fonamental establir una **gestió d’usuaris estructurada**, amb **permisos diferenciats** i assignació clara de **recursos**, per garantir la **seguretat, control i eficiència operativa**.
 
----
-
-### 🔐 7.1 Creació de Rols Personalitzats i Permisos
+### \emoji{locked with key} 7.1 Creació de Rols Personalitzats i Permisos
 
 **Proxmox VE** ofereix un sistema de permisos basat en rols, que permet definir què pot fer cada usuari dins del sistema. Aquest model RBAC (Role-Based Access Control) es basa en tres elements:
 
@@ -1610,7 +1465,7 @@ En entorns virtualitzats compartits, com un clúster de **Proxmox VE**, és fona
 * **Rols** (conjunts de permisos)
 * **Objectes** (nodes, VM, storage, etc.)
 
-#### 🔧 Creació d’un rol personalitzat:
+#### \emoji{wrench} Creació d’un rol personalitzat:
 
 1. Ves a `Datacenter → Permissions → Roles`
 2. Fes clic a **Add**
@@ -1626,7 +1481,7 @@ En entorns virtualitzats compartits, com un clúster de **Proxmox VE**, és fona
 
 <img src="../../../img/image-93.png" alt="GRUB" width="60%">
 
-#### ➕ Assignació del rol:
+#### \emoji{plus} Assignació del rol:
 
 1. Ves a `Permissions → Add → Users`
 2. Selecciona:
@@ -1645,13 +1500,11 @@ En este cas he creat un usuari de prova per a assignar el rol creat.
 
 <img src="../../../img/image-96.png" alt="GRUB" width="60%">
 
----
-
-### 🗂️ 7.2 Definició de Pools de Recursos
+### \emoji{card index dividers} 7.2 Definició de Pools de Recursos
 
 Els **pools** són agrupacions lògiques de recursos (VMs, CTs, discos, etc.) que permeten facilitar la gestió, especialment en entorns multiusuari o amb departaments diferenciats.
 
-#### 🛠️ Creació d’un pool:
+#### \emoji{hammer and wrench} Creació d’un pool:
 
 1. Ves a `Datacenter → Permissions → Pools`
 2. Fes clic a **Create**
@@ -1681,9 +1534,7 @@ Els pools són útils per:
 * Organitzar recursos segons projectes o àrees de treball
 * Limitar l’accés només a les màquines assignades
 
----
-
-### 👤 7.3 Gestió Delegada i Multiusuari
+### \emoji{bust in silhouette} 7.3 Gestió Delegada i Multiusuari
 
 Amb els **rols** i **pools**, es pot habilitar un entorn **multiusuari segur**, on cada usuari o equip tinga accés només als recursos que li pertoquen.
 
@@ -1702,19 +1553,15 @@ Amb els **rols** i **pools**, es pot habilitar un entorn **multiusuari segur**, 
 
 <img src="../../../img/image-104.png" alt="GRUB" width="60%">
 
----
+### \emoji{check mark button} Beneficis
 
-### ✅ Beneficis
-
-* 🔒 Major seguretat mitjançant la separació de privilegis
-* 👨‍👩‍👧‍👦 Facilitat per delegar la gestió a equips tècnics o usuaris finals
-* 🧩 Escalabilitat per a entorns educatius, empresarials o d'hosting
-
----
+* \emoji{locked} Major seguretat mitjançant la separació de privilegis
+* \emoji{family} Facilitat per delegar la gestió a equips tècnics o usuaris finals
+* \emoji{puzzle piece} Escalabilitat per a entorns educatius, empresarials o d'hosting
 
 ### **8.1. Actualitzacions i Pegats de Seguretat**
 
-✅ **Accions recomanades:**
+\emoji{check mark button} **Accions recomanades:**
 
 * **Actualitzar regularment**:
 
@@ -1733,11 +1580,9 @@ Amb els **rols** i **pools**, es pot habilitar un entorn **multiusuari segur**, 
   pveam update
   ```
 
----
-
 ### **8.2. Configuració del Tallafoc en Proxmox**
 
-✅ **Accions recomanades:**
+\emoji{check mark button} **Accions recomanades:**
 
 * Activar el **tallafoc integrat** en Proxmox (GUI: `Datacenter > Firewall`).
 * Reglas bàsiques:
@@ -1750,11 +1595,9 @@ Amb els **rols** i **pools**, es pot habilitar un entorn **multiusuari segur**, 
   pve-firewall localnet add -enable 1 -policy in -action ACCEPT -dport 8006 -source 192.168.1.100
   ```
 
----
-
 ### **8.3. Còpies de Seguretat de la Configuració**
 
-✅ **Accions recomanades:**
+\emoji{check mark button} **Accions recomanades:**
 
 * **Fer còpia de seguretat de la configuració del clúster**:
 
@@ -1766,11 +1609,9 @@ Amb els **rols** i **pools**, es pot habilitar un entorn **multiusuari segur**, 
   * Programar còpies diàries/setmanals de VMs/LXCs (GUI: `PBS > Datastore > Backup Jobs`).
   * Utilitzar **retenció incremental** (exemple: 7 còpies diàries + 4 setmanals).
 
----
-
 ### **8.4. Bones Pràctiques d’Administració**
 
-✅ **Accions recomanades:**
+\emoji{check mark button} **Accions recomanades:**
 
 * **Activar l’autenticació en dos passos (2FA)** per a la GUI de Proxmox (GUI: `Datacenter > Permissions > Users`).
 * **Restringir l'accés per SSH**:
@@ -1785,19 +1626,17 @@ Amb els **rols** i **pools**, es pot habilitar un entorn **multiusuari segur**, 
   * Configurar alertes per correu electrònic (GUI: `Datacenter > Notifications`).
   * Utilitzar `ceph health` i `pveperf` per supervisar el rendiment.
 
----
-
 ### **8.5. Monitoratge Centralitzat amb Netdata Cloud**
 
 **Netdata** és una eina de monitoratge en temps real, lleugera i de codi obert, que permet visualitzar de forma detallada l’ús de CPU, memòria, disc, xarxa, processos i molts altres paràmetres del sistema.
 
 En aquest projecte s’ha optat per utilitzar **Netdata en mode núvol** (*Netdata Cloud*) per garantir:
 
-* 🌐 **Accessibilitat des de qualsevol lloc** amb connexió a Internet
-* ☁️ **Alta disponibilitat** sense necessitat de desplegar servidors de monitoratge propis
-* 📈 Visualització centralitzada de tots els nodes Proxmox i del PBS en un únic panell
+* \emoji{globe with meridians} **Accessibilitat des de qualsevol lloc** amb connexió a Internet
+* \emoji{cloud} **Alta disponibilitat** sense necessitat de desplegar servidors de monitoratge propis
+* \emoji{chart increasing} Visualització centralitzada de tots els nodes Proxmox i del PBS en un únic panell
 
-#### 🛠️ Instal·lació i connexió al núvol:
+#### \emoji{hammer and wrench} Instal·lació i connexió al núvol:
 
 1. Crear un compte gratuït a [https://app.netdata.cloud](https://app.netdata.cloud)
 2. En cada node Proxmox:
@@ -1811,11 +1650,9 @@ En aquest projecte s’ha optat per utilitzar **Netdata en mode núvol** (*Netda
 
 Després d’això, es podrà visualitzar cada node en temps real des del tauler de **Netdata Cloud**, amb alertes, gràfics detallats i control unificat del rendiment del clúster.
 
----
-
 ### 8.5 Monitorització del sistema amb **Netdata**
 
-#### 🧠 Què és Netdata?
+#### \emoji{brain} Què és Netdata?
 
 **Netdata** és una plataforma de monitorització en temps real que permet supervisar el rendiment i l’estat de sistemes i serveis de manera molt detallada. És una eina **lleugera**, de **codi obert** i fàcil d’integrar en entorns Linux, incloent **Proxmox VE**.
 
@@ -1826,25 +1663,21 @@ Proporciona dades sobre:
 * Estadístiques de processos
 * Temperatura, serveis actius, ports, etc.
 
----
-
-### ☁️ Utilització de **Netdata Cloud** al projecte
+### \emoji{cloud} Utilització de **Netdata Cloud** al projecte
 
 En lloc de desplegar una instància de monitorització local o en cada node, en aquest projecte s’utilitzarà la **plataforma centralitzada de Netdata Cloud**.
 
 Aquesta estratègia es basa en instal·lar únicament l’**agent de Netdata** a cada node que es vulga monitoritzar, i connectar-lo al panell de control global de Netdata Cloud.
 
-#### ✅ Avantatges de fer servir el núvol:
+#### \emoji{check mark button} Avantatges de fer servir el núvol:
 
-* 🔒 **Alta disponibilitat:** La plataforma està disponible 24/7 des de qualsevol lloc
-* 🌐 **Accessibilitat centralitzada:** Tots els nodes es poden supervisar des d’un únic panell
-* 📈 **Visualització interactiva:** Gràfics en temps real i alertes integrades
-* 🧩 **Zero manteniment de servidors de monitoratge locals**
-* 🔔 Possibilitat de configurar notificacions (Slack, correu, Discord...)
+* \emoji{locked} **Alta disponibilitat:** La plataforma està disponible 24/7 des de qualsevol lloc
+* \emoji{globe with meridians} **Accessibilitat centralitzada:** Tots els nodes es poden supervisar des d’un únic panell
+* \emoji{chart increasing} **Visualització interactiva:** Gràfics en temps real i alertes integrades
+* \emoji{puzzle piece} **Zero manteniment de servidors de monitoratge locals**
+* \emoji{bell} Possibilitat de configurar notificacions (Slack, correu, Discord...)
 
----
-
-### 🛠️ Procediment bàsic
+### \emoji{hammer and wrench} Procediment bàsic
 
 1. Crear un compte gratuït en [https://app.netdata.cloud](https://app.netdata.cloud)
 2. En cada node que es vulga monitoritzar:
@@ -1861,8 +1694,6 @@ Aquesta estratègia es basa en instal·lar únicament l’**agent de Netdata** a
 3. Accedir al panell de **Netdata Cloud** i visualitzar tots els nodes en temps real
 
 <img src="../../../img/image-121.png" alt="GRUB" width="60%">
-
----
 
 ### ✅ Resultat
 
