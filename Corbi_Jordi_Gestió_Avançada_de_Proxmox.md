@@ -1904,150 +1904,6 @@ Amb els **rols** i **pools**, es pot habilitar un entorn **multiusuari segur**, 
 * \emoji{family} Facilitat per delegar la gestió a equips tècnics o usuaris finals
 * \emoji{puzzle-piece} Escalabilitat per a entorns educatius, empresarials o d'hosting
 
-### **8.1. Actualitzacions i Pegats de Seguretat**
-
-\emoji{check-mark-button} **Accions recomanades:**
-
-* **Actualitzar regularment**:
-
-  ```bash
-  apt update && apt dist-upgrade
-  ```
-* Habilitar les **actualitzacions automàtiques de seguretat**:
-
-  ```bash
-  apt install unattended-upgrades
-  dpkg-reconfigure unattended-upgrades
-  ```
-* Verificar pegats disponibles en Proxmox:
-
-  ```bash
-  pveam update
-  ```
-
-### **8.2. Configuració del Tallafoc en Proxmox**
-
-\emoji{check-mark-button} **Accions recomanades:**
-
-* Activar el **tallafoc integrat** en Proxmox (GUI: `Datacenter > Firewall`).
-* Reglas bàsiques:
-
-  * Permetre només SSH (port 22), accés web de Proxmox (8006) i Ceph (si s’utilitza) des d’IPs de confiança.
-  * Bloquejar accessos externs a APIs no necessàries.
-* Exemple per permetre accés web només des d’una IP específica:
-
-  ```bash
-  pve-firewall localnet add -enable 1 -policy in -action ACCEPT -dport 8006 -source 192.168.1.100
-  ```
-
-### **8.3. Còpies de Seguretat de la Configuració**
-
-\emoji{check-mark-button} **Accions recomanades:**
-
-* **Fer còpia de seguretat de la configuració del clúster**:
-
-  ```bash
-  tar -czvf /backup/proxmox_config_$(date +%Y-%m-%d).tar.gz /etc/pve/
-  ```
-* **Automatitzar les còpies** amb PBS:
-
-  * Programar còpies diàries/setmanals de VMs/LXCs (GUI: `PBS > Datastore > Backup Jobs`).
-  * Utilitzar **retenció incremental** (exemple: 7 còpies diàries + 4 setmanals).
-
-### **8.4. Bones Pràctiques d’Administració**
-
-\emoji{check-mark-button} **Accions recomanades:**
-
-* **Activar l’autenticació en dos passos (2FA)** per a la GUI de Proxmox (GUI: `Datacenter > Permissions > Users`).
-* **Restringir l'accés per SSH**:
-
-  ```bash
-  nano /etc/ssh/sshd_config
-  ```
-
-  * Afegir: `PermitRootLogin no`, `PasswordAuthentication no` (usar claus SSH).
-* **Monitoratge**:
-
-  * Configurar alertes per correu electrònic (GUI: `Datacenter > Notifications`).
-  * Utilitzar `ceph health` i `pveperf` per supervisar el rendiment.
-
-### **8.5. Monitoratge Centralitzat amb Netdata Cloud**
-
-**Netdata** és una eina de monitoratge en temps real, lleugera i de codi obert, que permet visualitzar de forma detallada l’ús de CPU, memòria, disc, xarxa, processos i molts altres paràmetres del sistema.
-
-En aquest projecte s’ha optat per utilitzar **Netdata en mode núvol** (*Netdata Cloud*) per garantir:
-
-* \emoji{globe-with-meridians} **Accessibilitat des de qualsevol lloc** amb connexió a Internet
-* \emoji{cloud} **Alta disponibilitat** sense necessitat de desplegar servidors de monitoratge propis
-* \emoji{chart-increasing} Visualització centralitzada de tots els nodes Proxmox i del PBS en un únic panell
-
-#### \emoji{hammer-and-wrench} Instal·lació i connexió al núvol:
-
-1. Crear un compte gratuït a [https://app.netdata.cloud](https://app.netdata.cloud)
-2. En cada node Proxmox:
-
-   * Instal·lar l’agent:
-
-     ```bash
-     bash <(curl -Ss https://my-netdata.io/kickstart.sh)
-     ```
-   * Enllaçar-lo al teu compte Netdata amb la comanda proporcionada pel portal (normalment amb `netdata-claim.sh`)
-
-Després d’això, es podrà visualitzar cada node en temps real des del tauler de **Netdata Cloud**, amb alertes, gràfics detallats i control unificat del rendiment del clúster.
-
-### 8.5 Monitorització del sistema amb **Netdata**
-
-#### \emoji{brain} Què és Netdata?
-
-**Netdata** és una plataforma de monitorització en temps real que permet supervisar el rendiment i l’estat de sistemes i serveis de manera molt detallada. És una eina **lleugera**, de **codi obert** i fàcil d’integrar en entorns Linux, incloent **Proxmox VE**.
-
-Proporciona dades sobre:
-
-* Ús de CPU, RAM i disc
-* Tràfic i estat de la xarxa
-* Estadístiques de processos
-* Temperatura, serveis actius, ports, etc.
-
-### \emoji{cloud} Utilització de **Netdata Cloud** al projecte
-
-En lloc de desplegar una instància de monitorització local o en cada node, en aquest projecte s’utilitzarà la **plataforma centralitzada de Netdata Cloud**.
-
-Aquesta estratègia es basa en instal·lar únicament l’**agent de Netdata** a cada node que es vulga monitoritzar, i connectar-lo al panell de control global de Netdata Cloud.
-
-#### \emoji{check-mark-button} Avantatges de fer servir el núvol:
-
-* \emoji{locked} **Alta disponibilitat:** La plataforma està disponible 24/7 des de qualsevol lloc
-* \emoji{globe-with-meridians} **Accessibilitat centralitzada:** Tots els nodes es poden supervisar des d’un únic panell
-* \emoji{chart-increasing} **Visualització interactiva:** Gràfics en temps real i alertes integrades
-* \emoji{puzzle-piece} **Zero manteniment de servidors de monitoratge locals**
-* \emoji{bell} Possibilitat de configurar notificacions (Slack, correu, Discord...)
-
-### \emoji{hammer-and-wrench} Procediment bàsic
-
-1. Crear un compte gratuït en [https://app.netdata.cloud](https://app.netdata.cloud)
-2. En cada node que es vulga monitoritzar:
-
-   * Instal·lar l’agent amb:
-
-     ```bash
-      wget -O /tmp/netdata-kickstart.sh https://get.netdata.cloud/kickstart.sh && sh /tmp/netdata-kickstart.sh --nightly-channel --claim-token 2j7CJC_yS3oDQ9DD4eVlLNMV5ecx0WeqwfvNvfOthCcBCkXRLoysr-TKkc5GLM9BzHmlE9Bb36sQghRHfbOsn4rhSEDnd4TmTaabd__6loq4Vceb_o5BitgLI_1gfT4D5pCzx4o --claim-rooms 6ff6ecc7-275c-4404-a4a0-5fac76e79776 --claim-url https://app.netdata.cloud
-     ```
-
-      \begin{center}
-          \includegraphics[width=0.6\textwidth]{../../../img/image-120.png}
-      \end{center}
-
-   * Connectar l’agent al compte de Netdata Cloud amb la comanda que proporciona el portal (normalment `netdata-claim.sh`)
-3. Accedir al panell de **Netdata Cloud** i visualitzar tots els nodes en temps real
-
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{../../../img/image-121.png}
-\end{center}
-
-###  Resultat
-
-Amb aquest sistema, es garanteix una **monitorització eficaç i des de qualsevol lloc**, sense haver de desplegar ni mantindre servidors propis per a l’anàlisi. Netdata Cloud facilita una supervisió **proactiva i àgil** del clúster Proxmox i del Proxmox Backup Server (PBS).
-
 ## \emoji{test-tube} Casos Pràctics de Gestió Delegada i Multiusuari en Proxmox VE
 
 ### \emoji{graduation-cap} **Cas 1: Entorn educatiu amb alumnes de pràctiques**
@@ -2208,6 +2064,150 @@ Cada client pot administrar la seua pròpia màquina, sense cap visibilitat sobr
 ### Conclusions dels casos pràctics
 
 Aquests escenaris mostren com Proxmox permet adaptar-se fàcilment a entorns **multiusuari**, amb control granular de permisos i una gestió segura i delegada, mantenint la **seguretat**, **eficiència** i **flexibilitat** del sistema.
+
+### **8.1. Actualitzacions i Pegats de Seguretat**
+
+\emoji{check-mark-button} **Accions recomanades:**
+
+* **Actualitzar regularment**:
+
+  ```bash
+  apt update && apt dist-upgrade
+  ```
+* Habilitar les **actualitzacions automàtiques de seguretat**:
+
+  ```bash
+  apt install unattended-upgrades
+  dpkg-reconfigure unattended-upgrades
+  ```
+* Verificar pegats disponibles en Proxmox:
+
+  ```bash
+  pveam update
+  ```
+
+### **8.2. Configuració del Tallafoc en Proxmox**
+
+\emoji{check-mark-button} **Accions recomanades:**
+
+* Activar el **tallafoc integrat** en Proxmox (GUI: `Datacenter > Firewall`).
+* Reglas bàsiques:
+
+  * Permetre només SSH (port 22), accés web de Proxmox (8006) i Ceph (si s’utilitza) des d’IPs de confiança.
+  * Bloquejar accessos externs a APIs no necessàries.
+* Exemple per permetre accés web només des d’una IP específica:
+
+  ```bash
+  pve-firewall localnet add -enable 1 -policy in -action ACCEPT -dport 8006 -source 192.168.1.100
+  ```
+
+### **8.3. Còpies de Seguretat de la Configuració**
+
+\emoji{check-mark-button} **Accions recomanades:**
+
+* **Fer còpia de seguretat de la configuració del clúster**:
+
+  ```bash
+  tar -czvf /backup/proxmox_config_$(date +%Y-%m-%d).tar.gz /etc/pve/
+  ```
+* **Automatitzar les còpies** amb PBS:
+
+  * Programar còpies diàries/setmanals de VMs/LXCs (GUI: `PBS > Datastore > Backup Jobs`).
+  * Utilitzar **retenció incremental** (exemple: 7 còpies diàries + 4 setmanals).
+
+### **8.4. Bones Pràctiques d’Administració**
+
+\emoji{check-mark-button} **Accions recomanades:**
+
+* **Activar l’autenticació en dos passos (2FA)** per a la GUI de Proxmox (GUI: `Datacenter > Permissions > Users`).
+* **Restringir l'accés per SSH**:
+
+  ```bash
+  nano /etc/ssh/sshd_config
+  ```
+
+  * Afegir: `PermitRootLogin no`, `PasswordAuthentication no` (usar claus SSH).
+* **Monitoratge**:
+
+  * Configurar alertes per correu electrònic (GUI: `Datacenter > Notifications`).
+  * Utilitzar `ceph health` i `pveperf` per supervisar el rendiment.
+
+### **8.5. Monitoratge Centralitzat amb Netdata Cloud**
+
+**Netdata** és una eina de monitoratge en temps real, lleugera i de codi obert, que permet visualitzar de forma detallada l’ús de CPU, memòria, disc, xarxa, processos i molts altres paràmetres del sistema.
+
+En aquest projecte s’ha optat per utilitzar **Netdata en mode núvol** (*Netdata Cloud*) per garantir:
+
+* \emoji{globe-with-meridians} **Accessibilitat des de qualsevol lloc** amb connexió a Internet
+* \emoji{cloud} **Alta disponibilitat** sense necessitat de desplegar servidors de monitoratge propis
+* \emoji{chart-increasing} Visualització centralitzada de tots els nodes Proxmox i del PBS en un únic panell
+
+#### \emoji{hammer-and-wrench} Instal·lació i connexió al núvol:
+
+1. Crear un compte gratuït a [https://app.netdata.cloud](https://app.netdata.cloud)
+2. En cada node Proxmox:
+
+   * Instal·lar l’agent:
+
+     ```bash
+     bash <(curl -Ss https://my-netdata.io/kickstart.sh)
+     ```
+   * Enllaçar-lo al teu compte Netdata amb la comanda proporcionada pel portal (normalment amb `netdata-claim.sh`)
+
+Després d’això, es podrà visualitzar cada node en temps real des del tauler de **Netdata Cloud**, amb alertes, gràfics detallats i control unificat del rendiment del clúster.
+
+### 8.5 Monitorització del sistema amb **Netdata**
+
+#### \emoji{brain} Què és Netdata?
+
+**Netdata** és una plataforma de monitorització en temps real que permet supervisar el rendiment i l’estat de sistemes i serveis de manera molt detallada. És una eina **lleugera**, de **codi obert** i fàcil d’integrar en entorns Linux, incloent **Proxmox VE**.
+
+Proporciona dades sobre:
+
+* Ús de CPU, RAM i disc
+* Tràfic i estat de la xarxa
+* Estadístiques de processos
+* Temperatura, serveis actius, ports, etc.
+
+### \emoji{cloud} Utilització de **Netdata Cloud** al projecte
+
+En lloc de desplegar una instància de monitorització local o en cada node, en aquest projecte s’utilitzarà la **plataforma centralitzada de Netdata Cloud**.
+
+Aquesta estratègia es basa en instal·lar únicament l’**agent de Netdata** a cada node que es vulga monitoritzar, i connectar-lo al panell de control global de Netdata Cloud.
+
+#### \emoji{check-mark-button} Avantatges de fer servir el núvol:
+
+* \emoji{locked} **Alta disponibilitat:** La plataforma està disponible 24/7 des de qualsevol lloc
+* \emoji{globe-with-meridians} **Accessibilitat centralitzada:** Tots els nodes es poden supervisar des d’un únic panell
+* \emoji{chart-increasing} **Visualització interactiva:** Gràfics en temps real i alertes integrades
+* \emoji{puzzle-piece} **Zero manteniment de servidors de monitoratge locals**
+* \emoji{bell} Possibilitat de configurar notificacions (Slack, correu, Discord...)
+
+### \emoji{hammer-and-wrench} Procediment bàsic
+
+1. Crear un compte gratuït en [https://app.netdata.cloud](https://app.netdata.cloud)
+2. En cada node que es vulga monitoritzar:
+
+   * Instal·lar l’agent amb:
+
+     ```bash
+      wget -O /tmp/netdata-kickstart.sh https://get.netdata.cloud/kickstart.sh && sh /tmp/netdata-kickstart.sh --nightly-channel --claim-token 2j7CJC_yS3oDQ9DD4eVlLNMV5ecx0WeqwfvNvfOthCcBCkXRLoysr-TKkc5GLM9BzHmlE9Bb36sQghRHfbOsn4rhSEDnd4TmTaabd__6loq4Vceb_o5BitgLI_1gfT4D5pCzx4o --claim-rooms 6ff6ecc7-275c-4404-a4a0-5fac76e79776 --claim-url https://app.netdata.cloud
+     ```
+
+      \begin{center}
+          \includegraphics[width=0.6\textwidth]{../../../img/image-120.png}
+      \end{center}
+
+   * Connectar l’agent al compte de Netdata Cloud amb la comanda que proporciona el portal (normalment `netdata-claim.sh`)
+3. Accedir al panell de **Netdata Cloud** i visualitzar tots els nodes en temps real
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-121.png}
+\end{center}
+
+###  Resultat
+
+Amb aquest sistema, es garanteix una **monitorització eficaç i des de qualsevol lloc**, sense haver de desplegar ni mantindre servidors propis per a l’anàlisi. Netdata Cloud facilita una supervisió **proactiva i àgil** del clúster Proxmox i del Proxmox Backup Server (PBS).
 
 # Proxmox Backup Server
 
