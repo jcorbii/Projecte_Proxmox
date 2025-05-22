@@ -619,13 +619,13 @@ A continuació tens una comparació amb tres eines populars de monitorització:
 
 | Característica               | **Netdata**              | **Prometheus + Grafana**          | **Zabbix**                       | **Nagios**                  |
 | ---------------------------- | ------------------------ | --------------------------------- | -------------------------------- | --------------------------- |
-| **Temps real**               | ✔ (mil·lisegons)         | ✘ (intervals mínims de 10-15s)    | ✘ (intervals configurables)      | ✘ (intervals configurables) |
-| **Interfície gràfica**       | ✔ Moderna i interactiva  | ✔ (Grafana)                       | ✔ Però més complexa              | ✘ (més bàsic o plugins)     |
-| **Facilitat d’instal·lació** | ✔ Molt fàcil (una línia) | ✘ Requereix configurar components | ✘ Requereix bastant configuració | ✘ Pot ser complexa          |
-| **Alertes**                  | ✔ Bàsiques integrades    | ✔ Amb Alertmanager                | ✔ Molt completes                 | ✔ Molt completes            |
-| **Escalabilitat**            | ✔ Amb Netdata Cloud      | ✔ Alta amb Thanos/Cortex          | ✔ Alta                           | ✔ Mitjana                   |
-| **Consum de recursos**       | ✔ Molt lleuger           | ✘ Pot ser alt depenent del cas    | ✘ Pot consumir bastant           | ✔ Lleuger                   |
-| **Extensibilitat**           | ✘ Limitada               | ✔ Molt alt                        | ✔ Alt                            | ✔ Alt                       |
+| **Temps real**               | \emoji{heavy-check-mark} (mil·lisegons)         | \emoji{cross-mark} (intervals mínims de 10-15s)    | \emoji{cross-mark} (intervals configurables)      | \emoji{cross-mark} (intervals configurables) |
+| **Interfície gràfica**       | \emoji{heavy-check-mark} Moderna i interactiva  | \emoji{heavy-check-mark} (Grafana)                       | \emoji{heavy-check-mark} Però més complexa              | \emoji{cross-mark} (més bàsic o plugins)     |
+| **Facilitat d’instal·lació** | \emoji{heavy-check-mark} Molt fàcil (una línia) | \emoji{cross-mark} Requereix configurar components | \emoji{cross-mark} Requereix bastant configuració | \emoji{cross-mark} Pot ser complexa          |
+| **Alertes**                  | \emoji{heavy-check-mark} Bàsiques integrades    | \emoji{heavy-check-mark} Amb Alertmanager                | \emoji{heavy-check-mark} Molt completes                 | \emoji{heavy-check-mark} Molt completes            |
+| **Escalabilitat**            | \emoji{heavy-check-mark} Amb Netdata Cloud      | \emoji{heavy-check-mark} Alta amb Thanos/Cortex          | \emoji{heavy-check-mark} Alta                           | \emoji{heavy-check-mark} Mitjana                   |
+| **Consum de recursos**       | \emoji{heavy-check-mark} Molt lleuger           | \emoji{cross-mark} Pot ser alt depenent del cas    | \emoji{cross-mark} Pot consumir bastant           | \emoji{heavy-check-mark} Lleuger                   |
+| **Extensibilitat**           | \emoji{cross-mark} Limitada               | \emoji{heavy-check-mark} Molt alt                        | \emoji{heavy-check-mark} Alt                            | \emoji{heavy-check-mark} Alt                       |
 
 ## \emoji{check-mark-button} **Avantatges de Netdata**
 
@@ -816,11 +816,15 @@ A continuació es detallen les fonts utilitzades per al desenvolupament del proj
 
 \emoji{small-orange-diamond} En el següent pas, seleccionem en quin disc volem instal·lar Proxmox. En este exemple només tenim un disc disponible, així que el seleccionem. També podem configurar el sistema de fitxers. Triem **ext4**.
 
-![](../../../img/image-2.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-2.png}
+\end{center}
 
 \emoji{small-orange-diamond} Assignem la totalitat de l’espai disponible al disc, ja que només n'hi ha un.
 
-![](../../../img/image-3.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-3.png}
+\end{center}
 
 \emoji{small-orange-diamond} Configurem la **zona horària**.
 
@@ -828,11 +832,14 @@ A continuació es detallen les fonts utilitzades per al desenvolupament del proj
 
 \emoji{small-orange-diamond} Assignem el **nom del *host***, la **IP**, el **gateway** i els **DNS**.
 
-![](../../../img/image-6.png){ width=60% }
-
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-6.png}
+\end{center}
 \emoji{small-orange-diamond} Finalment, es mostra un **resum de la configuració** triada. Confirmem i iniciem la instal·lació.
 
-![](../../../img/image-7.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-7.png}
+\end{center}
 
 \emoji{small-orange-diamond} Un cop finalitzada la instal·lació, a la consola apareixerà un missatge indicant que podem accedir a la interfície web de Proxmox via:
 
@@ -840,21 +847,29 @@ A continuació es detallen les fonts utilitzades per al desenvolupament del proj
 https://10.10.10.60:8006
 ```
 
-![](../../../img/image-8.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-8.png}
+\end{center}
 
 \emoji{small-orange-diamond} Així accedim a la **interfície web de Proxmox VE**:
 
-![](../../../img/image-11.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-11.png}
+\end{center}
 
 ### \emoji{desktop-computer} Instal·lació del Node 2
 
 El procés d’instal·lació del **segon node** és **idèntic** al del primer, excepte pels valors del **nom del host** i la **IP**, que han de ser únics per a cada node.
 
-![](../../../img/image-8.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-8.png}
+\end{center}
 
 Com es pot comprovar en el resum, l’única diferència és la IP i el nom del host.
 
-![](../../../img/image-9.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-9.png}
+\end{center}
 
 Després de completar la instal·lació, tornem a tindre accés a la interfície web per la nova IP configurada:
 
@@ -862,21 +877,29 @@ Després de completar la instal·lació, tornem a tindre accés a la interfície
 https://10.10.10.61:8006
 ```
 
-![](../../../img/image-12.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-12.png}
+\end{center}
 
 I amb això, accedim de nou a la interfície de gestió de Proxmox:
 
-![](../../../img/image-13.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-13.png}
+\end{center}
 
 ### \emoji{desktop-computer} Instal·lació del Node 3
 
 El procés d’instal·lació del **segon node** és **idèntic** al del primer, excepte pels valors del **nom del host** i la **IP**, que han de ser únics per a cada node.
 
-![](../../../img/image-29.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-29.png}
+\end{center}
 
 Com es pot comprovar en el resum, l’única diferència és la IP i el nom del host.
 
-![](../../../img/image-30.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-30.png}
+\end{center}
 
 Després de completar la instal·lació, tornem a tindre accés a la interfície web per la nova IP configurada:
 
@@ -884,7 +907,9 @@ Després de completar la instal·lació, tornem a tindre accés a la interfície
 https://10.10.10.58:8006
 ```
 
-![](../../../img/image-31.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-31.png}
+\end{center}
 
 I amb això, accedim de nou a la interfície de gestió de Proxmox:
 
@@ -1197,19 +1222,25 @@ Indica quin **storage** utilitzarà el contenidor.
 
 * **RAM:** memòria en MB
 * 
-![](../../../img/image-45.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-45.png}
+\end{center}
 
 ### \emoji{globe-with-meridians} Pas 6: Xarxa
 
 Defineix la configuració de xarxa (bridge, IP, VLAN, etc.)
 
-![](../../../img/image-46.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-46.png}
+\end{center}
 
 ### Finalització
 
 Un cop completats tots els passos, el contenidor serà creat i apareixerà a la llista de recursos del node.
 
-![](../../../img/image-47.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-47.png}
+\end{center}
 
 ## \emoji{desktop-computer} Creació d’una Màquina Virtual (VM)
 
@@ -1248,25 +1279,35 @@ Abans de començar amb la instal·lació, cal assegurar:
    * A l’apartat `Ceph`, fes clic a **Install Ceph**
    * El sistema instal·larà automàticament els paquets necessaris (`ceph`, `ceph-common`, etc.)
 
-![](../../../img/image-66.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-66.png}
+\end{center}
 
-![](../../../img/image-67.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-67.png}
+\end{center}
 
 1. **Crear els monitors (MON)**
 
    * Un mínim de **tres monitors** és recomanat per garantir el quorum
    * Des de l’apartat `Monitor`, fes clic a **Create Monitor**
 
-![](../../../img/image-68.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-68.png}
+\end{center}
 
-![](../../../img/image-69.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-69.png}
+\end{center}
 
 1. **Afegir el gestor (MGR)**
 
    * Necessari per a la interfície gràfica i gestió avançada
    * Crea’l des de la mateixa pestanya amb el botó **Create Manager**
 
-![](../../../img/image-70.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-70.png}
+\end{center}
 
 1. **Afegir els OSDs (Object Storage Daemons)**
 
@@ -1274,23 +1315,33 @@ Abans de començar amb la instal·lació, cal assegurar:
    * Ves a `OSD → Create OSD`, selecciona el disc físic i crea’l
    * Repeteix el procés per a cada node i disc dedicat
 
-![](../../../img/image-71.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-71.png}
+\end{center}
 
-![](../../../img/image-72.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-72.png}
+\end{center}
 
 * Com tenim 2 discos per cada node (menos en el node 3 que sols hi ha 1)de proxmox haurem de repetir el proccess dos voltes
 
 **Node 1:**
 
-![](../../../img/image-73.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-73.png}
+\end{center}
 
 **Node 2**
 
-![](../../../img/image-74.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-74.png}
+\end{center}
 
 **Node 3**
 
-![](../../../img/image-75.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-75.png}
+\end{center}
 
 1. **(Opcional) Crear un MDS (Metadata Server)**
 
@@ -1329,7 +1380,9 @@ Abans de començar amb la instal·lació, cal assegurar:
 2. Ves a `Datacenter → Ceph → Pools`
 3. Fes clic a **Create**
 
-![](../../../img/image-76.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-76.png}
+\end{center}
 
 1. Emplena els camps següents:
 
@@ -1338,15 +1391,21 @@ Abans de començar amb la instal·lació, cal assegurar:
    * **Min. rèpliques (Min. Size):** mínim **2** per a mantenir el servei actiu amb una fallada
    * **Crush Rule:** regla de distribució entre els dispositius de disc
 
-![](../../../img/image-77.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-77.png}
+\end{center}
 
 1. Fes clic a **Create** i espera a que el pool aparega a la llista
 
-![](../../../img/image-78.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-78.png}
+\end{center}
 
 Al pas d'un temps podem veure com en els nodes apareix l'almacenament del ceph.
 
-![](../../../img/image-79.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-79.png}
+\end{center}
 
 ### \emoji{brain} Consideracions importants
 
@@ -1388,7 +1447,9 @@ rados bench -p vm-data 60 seq
 rados bench -p vm-data 60 rand
 ```
 
-![](../../../img/image-80.png){ width=60% }</p>
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-80.png}
+\end{center}
 
 ### \emoji{check-mark-button} Resultat esperat
 
@@ -1438,7 +1499,9 @@ Ceph replica les dades entre OSDs segons la configuració de rèpliques (per def
 
 2. Observa com Ceph reporta l’estat *degraded* i com reubica les dades.
 
-![](../../../img/image-81.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-81.png}
+\end{center}
 
 1. Torna a engegar l’OSD i comprova la **reestructuració automàtica**:
 
@@ -1446,7 +1509,9 @@ Ceph replica les dades entre OSDs segons la configuració de rèpliques (per def
    systemctl start ceph-osd@X
    ```
 
-![](../../../img/image-82.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-82.png}
+\end{center}
 
 ### \emoji{chart-increasing} 4.5 Gestió i Monitoratge de **Ceph**
 
@@ -1526,7 +1591,9 @@ Per a fer ús de la funcionalitat HA, cal que:
 * Assegura’t que el **HA Manager** està actiu
 * Cada node mostrarà el seu estat (online, standby, etc.)
 
-![](../../../img/image-83.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-83.png}
+\end{center}
 
 ### \emoji{puzzle-piece} 5.2 Definició de Grups HA
 
@@ -1536,11 +1603,16 @@ Els **grups HA** permeten organitzar i assignar màquines virtuals o contenidors
 
 1. Ves a `Datacenter → HA → Groups`
 
-![](../../../img/image-84.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-84.png}
+\end{center}
+
 1. Fes clic a **Create**
 2. Assigna:
 
-![](../../../img/image-85.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-85.png}
+\end{center}
 
    * **Nom del grup**
    * **Nodes preferits** per executar el servei
@@ -1556,20 +1628,28 @@ Per assegurar el correcte funcionament de la configuració HA, és recomanable f
 
 1. Assigna una VM a un grup HA
 
-![](../../../img/image-86.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-86.png}
+\end{center}
 
 1. Para o apaga un node manualment
 
-![](../../../img/image-87.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-87.png}
+\end{center}
 
 1. Observa com la VM és **migrada automàticament** a un altre node disponible
 2. Verifica que el servei continua operatiu sense intervenció manual
 
-![](../../../img/image-89.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-89.png}
+\end{center}
 
 \emoji{magnifying-glass-tilted-left} Es pot monitorar aquest procés des de `Datacenter → HA → Status`.
 
-![](../../../img/image-90.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-90.png}
+\end{center}
 
 Per descomptat! Ací tens el fragment redactat de manera formal i clara, ideal per afegir com a continuació dins del punt 5.4 o com un subapartat pràctic de **recuperació post-fallada**:
 
@@ -1620,7 +1700,9 @@ Un cop el node original torna a estar **en línia i estable**, és **recomanable
 
 Amb aquest procés, la màquina recupera la seua ubicació inicial, mantenint-se dins del grup HA i **preparada per a futures gestions automàtiques** de tolerància a fallades.
 
-![](../../../img/image-91.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-91.png}
+\end{center}
 
 ## \emoji{busts-in-silhouette} 7. Gestió d’Usuaris i Pools de Recursos
 
@@ -1646,9 +1728,13 @@ En entorns virtualitzats compartits, com un clúster de **Proxmox VE**, és fona
    * `VM.Console`
    * `Sys.Console`
 
-![](../../../img/image-92.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-92.png}
+\end{center}
 
-![](../../../img/image-93.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-93.png}
+\end{center}
 
 #### \emoji{plus} Assignació del rol:
 
@@ -1661,13 +1747,19 @@ En entorns virtualitzats compartits, com un clúster de **Proxmox VE**, és fona
 
 Això permet donar accés restringit a determinats recursos dins del clúster.
 
-![](../../../img/image-94.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-94.png}
+\end{center}
 
-![](../../../img/image-95.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-95.png}
+\end{center}
 
 En este cas he creat un usuari de prova per a assignar el rol creat.
 
-![](../../../img/image-96.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-96.png}
+\end{center}
 
 ### \emoji{card-index-dividers} 7.2 Definició de Pools de Recursos
 
@@ -1678,24 +1770,32 @@ Els **pools** són agrupacions lògiques de recursos (VMs, CTs, discos, etc.) qu
 1. Ves a `Datacenter → Permissions → Pools`
 2. Fes clic a **Create**
 
-![](../../../img/image-97.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-97.png}
+\end{center}
 
 1. Emplena:
 
    * **Nom del pool:** ex. `departament_it`, `desenvolupament`
    * **Descripció** (opcional)
 
-![](../../../img/image-98.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-98.png}
+\end{center}
 
 1. Afegeix les VMs o CTs desitjades al pool
 
 En este cas anem a fer que el usuari proba puga vore la vm 108(Windows10)
 
-![](../../../img/image-99.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-99.png}
+\end{center}
 
 Assignacio del pool al usuari proba amb el rol  que hem creat.
 
-![](../../../img/image-100.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-100.png}
+\end{center}
 
 Els pools són útils per:
 
@@ -1714,13 +1814,21 @@ Amb els **rols** i **pools**, es pot habilitar un entorn **multiusuari segur**, 
 * **Rol aplicat:** `PVEVMUser` (amb permisos per iniciar/parar/migrar màquines)
 * Resultat: Anna només pot gestionar les VMs del pool `marketing_vms`, sense accedir a cap altre recurs del sistema
 
-![](../../../img/image-101.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-101.png}
+\end{center}
 
-![](../../../img/image-102.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-102.png}
+\end{center}
 
-![](../../../img/image-103.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-103.png}
+\end{center}
 
-![](../../../img/image-104.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-104.png}
+\end{center}
 
 ### \emoji{check-mark-button} Beneficis
 
@@ -1857,12 +1965,16 @@ Aquesta estratègia es basa en instal·lar únicament l’**agent de Netdata** a
       wget -O /tmp/netdata-kickstart.sh https://get.netdata.cloud/kickstart.sh && sh /tmp/netdata-kickstart.sh --nightly-channel --claim-token 2j7CJC_yS3oDQ9DD4eVlLNMV5ecx0WeqwfvNvfOthCcBCkXRLoysr-TKkc5GLM9BzHmlE9Bb36sQghRHfbOsn4rhSEDnd4TmTaabd__6loq4Vceb_o5BitgLI_1gfT4D5pCzx4o --claim-rooms 6ff6ecc7-275c-4404-a4a0-5fac76e79776 --claim-url https://app.netdata.cloud
      ```
 
-      ![](../../../img/image-120.png){ width=60% }
+      \begin{center}
+          \includegraphics[width=0.6\textwidth]{../../../img/image-120.png}
+      \end{center}
 
    * Connectar l’agent al compte de Netdata Cloud amb la comanda que proporciona el portal (normalment `netdata-claim.sh`)
 3. Accedir al panell de **Netdata Cloud** i visualitzar tots els nodes en temps real
 
-![](../../../img/image-121.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-121.png}
+\end{center}
 
 ###  Resultat
 
@@ -1883,15 +1995,25 @@ L’institut ha desplegat un clúster de Proxmox per a alumnes del cicle de sist
 * **VM assignada:** `vm104` (alumne01-ubuntu24)
 * **Rol:** `PVEVMUser`
 
-![](../../../img/image-105.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-105.png}
+\end{center}
 
-![](../../../img/image-106.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-106.png}
+\end{center}
 
-![](../../../img/image-107.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-107.png}
+\end{center}
 
-![](../../../img/image-108.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-108.png}
+\end{center}
 
-![](../../../img/image-109.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-109.png}
+\end{center}
 
 #### Resultat:
 
@@ -1914,17 +2036,29 @@ L’equip de desenvolupament necessita accedir a diverses màquines de testing, 
 * **Pool:** `dev_pool`
 * **Rols:** `gestor_vm_custom` (creat amb permisos limitats com `VM.Console`, `VM.Start`, `VM.Shutdown`)
 
-![](../../../img/image-110.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-110.png}
+\end{center}
 
-![](../../../img/image-111.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-111.png}
+\end{center}
 
-![](../../../img/image-112.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-112.png}
+\end{center}
 
-![](../../../img/image-113.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-113.png}
+\end{center}
 
-![](../../../img/image-114.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-114.png}
+\end{center}
 
-![](../../../img/image-115.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-115.png}
+\end{center}
 
 #### Resultat:
 
@@ -1945,13 +2079,21 @@ Un tècnic extern col·labora en la gestió de sistemes, però només se li vol 
 * **Àrea assignada:** `/nodes/node3`
 * **Rol:** `PVEAdmin`
 
-![](../../../img/image-116.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-116.png}
+\end{center}
 
-![](../../../img/image-117.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-117.png}
+\end{center}
 
-![](../../../img/image-118.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-118.png}
+\end{center}
 
-![](../../../img/image-119.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-119.png}
+\end{center}
 
 #### Resultat:
 
@@ -1970,16 +2112,25 @@ Una empresa ofereix màquines virtuals com a servei. Cada client gestiona la seu
 * **VM assignada:** `vm104`
 * **Rol:** `PVEVMUser`
 
-![](../../../img/image-122.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-122.png}
+\end{center}
 
-![](../../../img/image-123.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-123.png}
+\end{center}
 
-![](../../../img/image-124.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-124.png}
+\end{center}
 
-![](../../../img/image-125.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-125.png}
+\end{center}
 
-![](../../../img/image-126.png){ width=60% }
-
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-126.png}
+\end{center}
 
 
 #### Resultat:
@@ -2009,7 +2160,9 @@ apt update
 apt install zfsutils-linux -y
 ```
 
-![](../../../img/image-22.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-22.png}
+\end{center}
 
 Això confirma que el sistema està preparat per a treballar amb pools ZFS.
 
@@ -2023,7 +2176,9 @@ Existien tres opcions principals per a crear el pool ZFS, depenent del nombre de
 
 \emoji{backhand-index-pointing-right} **Atés que en aquesta màquina només disposem de tres discos** (`/dev/vda`, `/dev/vdb` i `/dev/vdc`), la millor opció des del punt de vista tècnic és **RAIDZ**, ja que ens ofereix una bona capacitat d’emmagatzematge i alhora permet resistir la fallada d’un disc sense perdre les dades.
 
-![](../../../img/image-23.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-23.png}
+\end{center}
 
 Per crear el pool:
 
@@ -2031,7 +2186,9 @@ Per crear el pool:
 zpool create backup-pool raidz /dev/vda /dev/vdb /dev/vdc
 ```
 
-![](../../../img/image-24.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-24.png}
+\end{center}
 
 ### 3. Verificar l’estat del pool
 
@@ -2041,7 +2198,9 @@ Després de la creació, podem comprovar que el pool funciona correctament:
 zpool status
 ```
 
-![](../../../img/image-25.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-25.png}
+\end{center}
 
 Hauries de veure un estat **ONLINE** i el pool anomenat `backup-pool`.
 
@@ -2059,9 +2218,13 @@ A través de la interfície web de PBS:
 
 - Creació del **Datastore**
 
-![](../../../img/image-26.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-26.png}
+\end{center}
 
-![](../../../img/image-27.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-27.png}
+\end{center}
 
 ### \emoji{counterclockwise-arrows-button} 5. Comprovació i muntatge automàtic
 
@@ -2078,7 +2241,9 @@ NAME           USED  AVAIL  REFER  MOUNTPOINT
 backup-pool    96K   900G    96K   /backup-pool
 ```
 
-![](../../../img/image-28.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-28.png}
+\end{center}
 
 A partir d’aquest moment, el sistema ja pot utilitzar el datastore per a còpies de seguretat, amb les garanties que ofereix ZFS quant a integritat de dades i rendiment.
 
@@ -2094,8 +2259,9 @@ Accedeix al **Proxmox Backup Server** i ves a:
 
 Esta empremta és necessària per establir una connexió segura entre els nodes de Proxmox VE i el servidor PBS.
 
-![](../../../img/image-33.png){ width=60% }
-
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-33.png}
+\end{center}
 
 ### \emoji{heavy-plus-sign} 2. Afegir l’Almacenament al Clúster de Proxmox
 
@@ -2104,13 +2270,17 @@ Una vegada copiada l’empremta, accedim a qualsevol node del clúster de **Prox
 1. Ves a **Datacenter → Storage**
 2. Fes clic a **Add** i selecciona l’opció **Proxmox Backup Server**
 
-![](../../../img/image-34.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-34.png}
+\end{center}
 
 ### \emoji{memo} 3. Omplir les Dades de Connexió
 
 Ara introduïm la informació requerida del servidor PBS:
 
-![](../../../img/image-36.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-36.png}
+\end{center}
 
 * **ID:** Nom identificador per a l’almacenament
 * **Server:** IP o domini del servidor PBS
@@ -2124,7 +2294,9 @@ Ara introduïm la informació requerida del servidor PBS:
 
 Una vegada configurat, el sistema validarà les dades i l’almacenament PBS apareixerà com a disponible per a fer còpies de seguretat o restauracions.
 
-![](../../../img/image-35.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-35.png}
+\end{center}
 
 \emoji{end-arrow} **Amb aquests passos, ja tens el teu Proxmox Backup Server integrat dins del clúster de Proxmox VE.** Això et permet gestionar còpies de seguretat de forma centralitzada, eficient i segura.
 
@@ -2161,7 +2333,9 @@ La programació de còpies de seguretat ha d’anar acompanyada d’una polític
 
 Aquesta política es pot aplicar automàticament des de la configuració del **storage** PBS a `Datacenter → Storage → pbs → Backup Retention `.
 
-![](../../../img/image-53.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-53.png}
+\end{center}
 
 ### \emoji{gear} Automatització des de Proxmox VE
 
@@ -2175,7 +2349,9 @@ Les tasques de còpia es poden programar fàcilment:
    * **Mode:** snapshot, suspend o stop
    * **Recursos:** tots, per pool o per ID
 
-![](../../../img/image-52.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-52.png}
+\end{center}
 
 ### Resultat
 
@@ -2214,7 +2390,9 @@ Proxmox permet dues modalitats principals de restauració:
     * **Live restore (per a VMs):** restauració mentre la màquina torna a estar en funcionament (recomanat per a entorns amb poca tolerància a caigudes)
   * **Storage:** tria l’emmagatzematge de destí
 
-![](../../../img/image-50.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-50.png}
+\end{center}
 
 #### 3. Confirmar i monitorar
 
@@ -2222,7 +2400,9 @@ Proxmox permet dues modalitats principals de restauració:
 * Segueix el procés mitjançant el registre de tasques
 * Quan acabe, comprova que la màquina funciona correctament
 
-![](../../../img/image-51.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-51.png}
+\end{center}
 
 ### \emoji{light-bulb} Consells pràctics
 
@@ -2254,9 +2434,13 @@ En **Proxmox Backup Server (PBS)** es poden definir regles específiques per a c
 
 * `Datacenter → Storage → pbs → Backup Retention
 
-![](../../../img/image-55.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-55.png}
+\end{center}
 
-![](../../../img/image-54.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-54.png}
+\end{center}
 
 #### \emoji{memo} Paràmetres comuns:
 
@@ -2296,7 +2480,9 @@ Per integrar un sistema Windows al monitoratge mitjançant **Zabbix**, cal segui
 
 1. Accedir a la pàgina oficial de Zabbix i descarregar el **paquet de l’agent Zabbix** corresponent al sistema operatiu:
 
-![](../../../img/image-138.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-138.png}
+\end{center}
 
 1. Seleccionar:
 
@@ -2305,29 +2491,45 @@ Per integrar un sistema Windows al monitoratge mitjançant **Zabbix**, cal segui
    * Tipus de xifrat (si és necessari)
    * Format del paquet
 
-![](../../../img/image-139.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-139.png}
+\end{center}
 
 1. Un cop descarregat l’instal·lador, executar-lo i seguir l’assistent d’instal·lació:
 
-![](../../../img/image-140.png){ width=60% }>
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-140.png}
+\end{center}
 
-![](../../../img/image-141.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-141.png}
+\end{center}
 
-![](../../../img/image-142.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-142.png}
+\end{center}
 
-![](../../../img/image-143.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-143.png}
+\end{center}
 
 1. Verificar que el **servei de l’agent Zabbix** s’ha iniciat correctament:
 
-![](../../../img/image-144.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-144.png}
+\end{center}
 
 1. Finalment, accedir a la interfície web de Zabbix i crear el nou host:
 
    * Menú: **Monitoring → Hosts → Create Host**
 
-![](../../../img/image-145.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-145.png}
+\end{center}
 
-![](../../../img/image-146.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-146.png}
+\end{center}
 
 ## \emoji{penguin} 2. Afegir un host Linux
 
@@ -2335,7 +2537,9 @@ Per monitoritzar un sistema Linux, cal seguir aquests passos:
 
 1. Accedir a la web de Zabbix i seleccionar l’agent corresponent al sistema (en aquest cas, per a **SUSE Linux Enterprise Server - SLES**).
 
-![](../../../img/image-147.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-147.png}
+\end{center}
 
 1. Seguir les instruccions per instal·lar l’agent:
 
@@ -2346,7 +2550,9 @@ rpm -Uvh --nosignature https://repo.zabbix.com/zabbix/7.2/release/sles/15/noarch
 zypper --gpg-auto-import-keys refresh 'Zabbix Official Repository'
 ```
 
-![](../../../img/image-148.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-148.png}
+\end{center}
 
 ### b. Instal·lar el paquet de l’agent:
 
@@ -2354,7 +2560,9 @@ zypper --gpg-auto-import-keys refresh 'Zabbix Official Repository'
 zypper in zabbix-agent
 ```
 
-![](../../../img/image-149.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-149.png}
+\end{center}
 
 ### c. Configurar el fitxer de configuració de l’agent:
 
@@ -2363,9 +2571,13 @@ Modificar el fitxer `/etc/zabbix/zabbix_agentd.conf` per definir:
 * `Server=` IP del servidor Zabbix
 * `Hostname=` nom del dispositiu
 
-![](../../../img/image-150.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-150.png}
+\end{center}
 
-![](../../../img/image-151.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-151.png}
+\end{center}
 
 ### d. Iniciar i habilitar el servei de l’agent:
 
@@ -2374,14 +2586,20 @@ systemctl restart zabbix-agent
 systemctl enable zabbix-agent
 ```
 
-![](../../../img/image-152.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-152.png}
+\end{center}
 
 1. Afegir el nou host des de la interfície web del servidor Zabbix:
 
-![](../../../img/image-153.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-153.png}
+\end{center}
 
 Un cop afegits els sistemes, apareixeran llistats a l’apartat de *Hosts*:
 
-![](../../../img/image-154.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-154.png}
+\end{center}
 
 \emoji{magnifying-glass-tilted-left} Amb aquest procés, tant equips Windows com Linux poden ser incorporats al sistema de monitoratge, permetent la supervisió de mètriques com consum de CPU, ús de memòria, estat dels serveis i molt més, tot centralitzat des del panell de control de Zabbix.
