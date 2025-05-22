@@ -913,7 +913,9 @@ https://10.10.10.58:8006
 
 I amb això, accedim de nou a la interfície de gestió de Proxmox:
 
-![](../../../img/image-32.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-32.png}
+\end{center}
 
 ## Proxmox Backup Server
 
@@ -933,17 +935,23 @@ I amb això, accedim de nou a la interfície de gestió de Proxmox:
 
 \emoji{small-orange-diamond} En el següent pas, seleccionem en quin disc volem instal·lar Proxmox. En este exemple només tenim un disc disponible, així que el seleccionem. També podem configurar el sistema de fitxers. Triem **ext4**.
 
-![](../../../img/image-16.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-16.png}
+\end{center}
 
 \emoji{small-orange-diamond} Introduïm la **contrasenya d’administració** i un **correu electrònic** per a notificacions del sistema.
 
 \emoji{small-orange-diamond} Assignem el **nom del *host***, la **IP**, el **gateway** i els **DNS**.
 
-![](../../../img/image-18.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-18.png}
+\end{center}
 
 \emoji{small-orange-diamond} Finalment, es mostra un **resum de la configuració** triada. Confirmem i iniciem la instal·lació.
 
-![](../../../img/image-19.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-19.png}
+\end{center}
 
 \emoji{small-orange-diamond} Un cop finalitzada la instal·lació, a la consola apareixerà un missatge indicant que podem accedir a la interfície web de Proxmox via:
 
@@ -951,11 +959,15 @@ I amb això, accedim de nou a la interfície de gestió de Proxmox:
 https://10.10.10.123:8006
 ```
 
-![](../../../img/image-20.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-20.png}
+\end{center}
 
 \emoji{small-orange-diamond} Així accedim a la **interfície web de Proxmox VE**:
 
-![](../../../img/image-21.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-21.png}
+\end{center}
 
 ## Zabbix
 
@@ -973,7 +985,9 @@ Una vegada dins, cal anar a l’apartat **Download Zabbix**, on seleccionarem:
 * El tipus de **base de dades** (MySQL/MariaDB)
 * El servidor web (Apache)
 
-![](../../../img/image-127.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-127.png}
+\end{center}
 
 ### 2. Instal·lació i configuració del servidor Zabbix
 
@@ -985,7 +999,9 @@ dpkg -i zabbix-release_latest_7.2+debian12_all.deb
 apt update
 ```
 
-![](../../../img/image-128.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-128.png}
+\end{center}
 
 #### b. Instal·lació dels paquets principals
 
@@ -995,7 +1011,9 @@ Instal·lem el servidor Zabbix, el frontend web amb Apache, els scripts SQL i l�
 apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent
 ```
 
-![](../../../img/image-129.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-129.png}
+\end{center}
 
 #### c. Creació de la base de dades
 
@@ -1015,7 +1033,9 @@ SET GLOBAL log_bin_trust_function_creators = 1;
 QUIT;
 ```
 
-![](../../../img/image-130.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-130.png}
+\end{center}
 
 #### d. Importació de l’esquema de dades
 
@@ -1025,7 +1045,9 @@ Des del servidor Zabbix, importem l’esquema i les dades inicials:
 zcat /usr/share/zabbix/sql-scripts/mysql/server.sql.gz | mysql --default-character-set=utf8mb4 -uzabbix -p zabbix
 ```
 
-![](../../../img/image-131.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-131.png}
+\end{center}
 
 Després, restaurem el valor per defecte de la directiva `log_bin_trust_function_creators`:
 
@@ -1038,7 +1060,9 @@ SET GLOBAL log_bin_trust_function_creators = 0;
 QUIT;
 ```
 
-![](../../../img/image-132.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-132.png}
+\end{center}
 
 #### e. Configuració del servidor Zabbix
 
@@ -1048,7 +1072,9 @@ Editem el fitxer de configuració del servidor `/etc/zabbix/zabbix_server.conf` 
 DBPassword=password
 ```
 
-![](../../../img/image-133.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-133.png}
+\end{center}
 
 #### f. Inici dels serveis
 
@@ -1059,7 +1085,9 @@ systemctl restart zabbix-server zabbix-agent apache2
 systemctl enable zabbix-server zabbix-agent apache2
 ```
 
-![](../../../img/image-134.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-134.png}
+\end{center}
 
 #### g. Accés a la interfície web
 
@@ -1071,11 +1099,15 @@ http://IP_DEL_SERVIDOR/zabbix
 
 Des d’ací podrem finalitzar la configuració via web GUI.
 
-![](../../../img/image-135.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-135.png}
+\end{center}
 
 Amb això, el servidor Zabbix queda instal·lat i llest per a ser utilitzat per a la monitorització centralitzada de la infraestructura.
 
-![](../../../img/image-137.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-136.png}
+\end{center}
 
 # Configuració 
 
@@ -1091,7 +1123,9 @@ A continuació et detallem pas a pas com crear un clúster en Proxmox i unir-hi 
 2. Ves a **Datacenter → Cluster** des del menú lateral esquerre.
 3. Fes clic a **Crear Clúster** (`Create Cluster`).
 
-![](../../../img/image-56.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-56.png}
+\end{center}
 
 1. Ompli les dades del clúster:
 
@@ -1099,13 +1133,19 @@ A continuació et detallem pas a pas com crear un clúster en Proxmox i unir-hi 
    * **Interfície de xarxa**
    * Altres paràmetres segons la teua configuració
 
-![](../../../img/image-57.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-57.png}
+\end{center}
 
-![](../../../img/image-58.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-58.png}
+\end{center}
 
 1. Un cop creat, veuràs el node com a part del clúster.
 
-![](../../../img/image-59.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-59.png}
+\end{center}
 
 ## \emoji{link} 2. Unir Nodes al Clúster
 
@@ -1114,23 +1154,33 @@ Per afegir un altre node al clúster:
 1. Accedeix al segon node i ves a **Datacenter → Cluster**.
 2. Fes clic a **Unir-se al clúster** (`Join Cluster`).
 
-![](../../../img/image-60.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-60.png}
+\end{center}
 
 1. A continuació, hauràs d’introduir la **informació del clúster**.
 
-![](../../../img/image-61.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-61.png}
+\end{center}
 
 1. Per obtindre aquesta informació, torna al node principal del clúster i fes clic a **Join Information**.
 
-![](../../../img/image-62.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-62.png}
+\end{center}
 
 1. Copia aquesta informació i torna al node secundari. Enganxa-la al formulari per unir-se.
 
-![](../../../img/image-63.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-63.png}
+\end{center}
 
 1. Fes clic a **Unir-se**. Si tot és correcte, el node s’afegirà automàticament al clúster.
 
-![](../../../img/image-64.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-64.png}
+\end{center}
 
 ## \emoji{heavy-plus-sign} 3. Afegir més nodes
 
@@ -1144,7 +1194,9 @@ Per afegir més nodes, repeteix exactament el mateix procés:
 
 \emoji{end} I amb això ja tindràs un clúster Proxmox funcional amb diversos nodes!
 
-![](../../../img/image-64.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-64.png}
+\end{center}
 
 ### \emoji{package} Descàrrega de plantilles per a Contenidors (CT)
 
@@ -1160,14 +1212,18 @@ Per a poder crear un contenidor, és necessari **disposar d’un *template*** (p
 
 \emoji{pushpin} En el nostre cas, utilitzarem la tercera opció: **plantilles predefinides**
 
-![](../../../img/image-37.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-37.png}
+\end{center}
 
 Per a aquest projecte, descarregarem i utilitzarem plantilles de:
 
 * **Debian**
 * **Fedora**
 
-![](../../../img/image-38.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-38.png}
+\end{center}
 
 ### \emoji{file-folder} Preparació per a crear una Màquina Virtual (VM)
 
@@ -1178,7 +1234,9 @@ Per a crear una màquina virtual, és necessari **pujar una ISO** del sistema op
 3. Fes clic a **Upload**
 4. Pujar la imatge ISO corresponent (ex. Debian, Ubuntu, Windows...)
 
-![](../../../img/image-39.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-39.png}
+\end{center}
 
 ## \emoji{bricks} Creació d’un Contenidor (CT)
 
@@ -1188,7 +1246,9 @@ Un cop tenim el *template* descarregat, podem crear un contenidor amb els passos
 
 1. Fes clic a **Create CT** (Crear CT)
 
-![](../../../img/image-40.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-40.png}
+\end{center}
 
 ### \emoji{memo} Pas 2: Informació bàsica
 
@@ -1200,25 +1260,33 @@ Introdueix les dades del contenidor:
 * **Resource Pool:** (opcional) agrupació de recursos
 * **Password:** per a l’accés del root
 
-![](../../../img/image-41.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-41.png}
+\end{center}
 
 ### \emoji{package} Pas 3: Selecció del *Template*
 
 Selecciona la plantilla que has descarregat anteriorment.
 
-![](../../../img/image-42.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-42.png}
+\end{center}
 
 ### \emoji{computer-disk} Pas 4: Emmagatzematge
 
 Indica quin **storage** utilitzarà el contenidor.
 
-![](../../../img/image-43.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-43.png}
+\end{center}
 
 ### \emoji{abacus} Pas 5: Configuració de recursos
 
 * **CPU:** nombre de nuclis assignats
 * 
-![](../../../img/image-44.png){ width=60% }
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-44.png}
+\end{center}
 
 * **RAM:** memòria en MB
 * 
