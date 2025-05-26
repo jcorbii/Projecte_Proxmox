@@ -1,7 +1,5 @@
 ---
-title:
 titlepage: true
-subtitle:
 lang: es
 documentclass: scrartcl
 toc-own-page: true
@@ -32,6 +30,7 @@ header-includes:
     - \definecolor{byzantium}{rgb}{0.44, 0.16, 0.39}
     - \definecolor{thistle}{rgb}{0.85, 0.75, 0.85}
 ---
+\begin{document}
 
 \section*{\emoji{blue-book} Índex del Projecte: Infraestructura Virtualitzada amb \textbf{Proxmox VE}}  
 \subsection*{Amb Alta Disponibilitat i Còpia de Seguretat Centralitzada}
@@ -124,6 +123,8 @@ header-includes:
 \begin{itemize}
   \item 11.1 Enllaços d’interés i bibliografia  
 \end{itemize}
+
+\end{document}
 
 \newpage
 
