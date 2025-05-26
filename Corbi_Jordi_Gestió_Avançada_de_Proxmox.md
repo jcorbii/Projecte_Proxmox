@@ -1,7 +1,131 @@
-<a name="top"></a>
-> Jordi Corbí Micó
-> IES JAUME II EL JUST (Tavernes de la Valldiga) - Curs 2023/2025  
-> Cicle: Administració de Sistemes Informatics en Xarxa
+---
+title: "Projecte Final de Cicle Superior d'ASIX: Gestió Avançada de Proxmox"
+titlepage: true
+subtitle: "Jordi Corbí Micó"
+lang: es
+documentclass: scrartcl
+toc-own-page: true
+toc-title: Índex
+numbersections: false
+titlepage-rule-height: 0
+titlepage-text-color: "7714C6"
+titlepage-background: "../../backgrounds/background5.pdf"
+footer-left: IES Jaume II el Just - Projecte ASIX
+footer-right: \thepage/\pageref{LastPage}
+header-includes:
+    - \usepackage{graphicx}
+    - \usepackage{lastpage}
+    - \usepackage{xltxtra}
+    - \usepackage{listings}
+    - \usepackage{pdflscape}
+    - \usepackage{xcolor,tikz,tcolorbox}
+    - \usepackage{emoji}
+    - \setemojifont{Twemoji Mozilla}
+    - \tcbuselibrary{raster}
+    - \definecolor{lightblue}{rgb}{0.68, 0.85, 0.9}
+    - \definecolor{ballblue}{rgb}{0.13, 0.67, 0.8}
+    - \definecolor{cerulean}{rgb}{0.0, 0.48, 0.65}
+    - \definecolor{almond}{rgb}{0.94, 0.87, 0.8}
+    - \definecolor{apricot}{rgb}{0.98, 0.81, 0.69}
+    - \definecolor{cream}{rgb}{1.0, 0.99, 0.82}
+    - \definecolor{coralred}{rgb}{1.0, 0.25, 0.25}
+    - \definecolor{byzantium}{rgb}{0.44, 0.16, 0.39}
+    - \definecolor{thistle}{rgb}{0.85, 0.75, 0.85}
+---
+
+\section*{\emoji{blue-book} Índex del Projecte: Infraestructura Virtualitzada amb \textbf{Proxmox VE}}  
+\subsection*{Amb Alta Disponibilitat i Còpia de Seguretat Centralitzada}
+
+\section*{1. \emoji{compass} Introducció}
+\begin{itemize}
+  \item 1.1 Objectius del projecte  
+  \item 1.2 Justificació de l’elecció de Proxmox VE  
+  \item 1.3 Abast del projecte  
+  \item 1.4 Requisits previs i coneixements necessaris  
+\end{itemize}
+
+\section*{2. \emoji{bricks} Anàlisi i Disseny de la Infraestructura}
+\begin{itemize}
+  \item 2.1 Requisits funcionals i no funcionals  
+  \item 2.2 Topologia de xarxa proposada  
+  \item 2.3 Maquinari utilitzat  
+  \item 2.4 Disseny lògic del clúster Proxmox  
+  \item 2.5 Consideracions d’alta disponibilitat i tolerància a fallades  
+\end{itemize}
+
+\section*{3. \emoji{desktop-computer} Implementació del Clúster Proxmox}
+\begin{itemize}
+  \item 3.1 Instal·lació dels nodes Proxmox VE  
+  \item 3.2 Configuració del clúster (\texttt{pvecm})  
+\end{itemize}
+
+\section*{4. \emoji{jigsaw} Configuració de \textbf{Ceph} com a Emmagatzematge Distribuït}
+\begin{itemize}
+  \item 4.1 Introducció a Ceph i integració amb Proxmox  
+  \item 4.2 Instal·lació i configuració de Ceph al clúster  
+  \item 4.3 Creació de pools d’emmagatzematge  
+  \item 4.4 Proves de rendiment i replicació  
+  \item 4.5 Gestió i monitoratge de Ceph  
+\end{itemize}
+
+\section*{5. \emoji{shield} Alta Disponibilitat (\textbf{HA})}
+\begin{itemize}
+  \item 5.1 Activació del gestor HA en Proxmox  
+  \item 5.2 Definició de grups HA  
+  \item 5.3 Proves de tolerància a fallades (failover de màquines virtuals)  
+  \item 5.4 Casos d’ús i recuperació davant caigudes de nodes  
+\end{itemize}
+
+\section*{6. \emoji{floppy-disk} Proxmox Backup Server (\textbf{PBS})}
+\begin{itemize}
+  \item 6.1 Instal·lació de PBS  
+  \item 6.2 Creació del Datastore
+  \item 6.3 Integració amb Proxmox VE  
+  \item 6.4 Programació de còpies de seguretat  
+  \item 6.5 Restauració de màquines virtuals  
+  \item 6.6 Estratègia de retenció i rotació de backups  
+\end{itemize}
+
+\section*{7. \emoji{busts-in-silhouette} Gestió d’Usuaris i Pools de Recursos}
+\begin{itemize}
+  \item 7.1 Creació de rols personalitzats i permisos  
+  \item 7.2 Definició de pools de recursos  
+  \item 7.3 Gestió delegada i multiusuari  
+\end{itemize}
+
+\section*{8. \emoji{locked-with-key} Seguretat i Bones Pràctiques}
+\begin{itemize}
+  \item 8.1 Actualitzacions i pegats de seguretat  
+  \item 8.2 Configuració del tallafoc en Proxmox  
+  \item 8.3 Còpies de seguretat de la configuració  
+  \item 8.4 Bones pràctiques d’administració del clúster  
+  \item 8.5 Monitorització del sistema amb \textbf{Netdata}  
+\end{itemize}
+
+\section*{9. \emoji{bar-chart} Monitoratge Centralitzat amb Zabbix}
+\begin{itemize}
+  \item 9.1 Què és Zabbix i funcionalitats principals  
+  \item 9.2 Justificació de l’elecció de Zabbix front altres solucions (Nagios, Prometheus, Netdata...)  
+  \item 9.3 Integració amb la infraestructura virtualitzada de Proxmox VE  
+  \item 9.4 Desplegament en Alta Disponibilitat (HA) per garantir la continuïtat del servei  
+  \item 9.5 Procés d’instal·lació del servidor Zabbix  
+  \item 9.6 Afegeix un host al monitoratge Zabbix  
+\end{itemize}
+
+\section*{10. \emoji{chart-increasing} Conclusions i Valoració Personal}
+\begin{itemize}
+  \item 10.1 Objectius assolits  
+  \item 10.2 Dificultats trobades i solucions adoptades  
+  \item 10.3 Possibles millores futures  
+  \item 10.4 Valoració tècnica i personal del projecte  
+\end{itemize}
+
+\section*{11. \emoji{paperclip} Annexos}
+\begin{itemize}
+  \item 11.1 Enllaços d’interés i bibliografia  
+\end{itemize}
+
+\newpage
 
 ## \emoji{pushpin} Descripció
 
@@ -53,7 +177,7 @@ Projecte_Proxmox/
 └──  README.md
 ```
 
-## \emoji{page facing up} Contingut
+## \emoji{page-facing-up} Contingut
 
 - **Documentació/**: Conté la memòria del projecte i els annexos amb informació detallada sobre la implementació i configuració.
 - **README.md**: Aquest fitxer, que proporciona una visió general del projecte.
@@ -65,9 +189,7 @@ Projecte_Proxmox/
 - Maquinari compatible amb virtualització (Intel VT-x o AMD-V)
 - Connexió a Internet per a la descàrrega de paquets i actualitzacions
 
-\newpage
-
-## \emoji{blue book} 1. Introducció
+## \emoji{blue-book} 1. Introducció
 
 ### \emoji{wrench} **Què és Proxmox VE?**
 
@@ -89,7 +211,7 @@ A més, incorpora eines avançades com:
 
 Proxmox VE és una solució de virtualització completa pensada tant per a entorns empresarials com acadèmics, oferint una alternativa robusta, gratuïta i de codi obert a altres plataformes com VMware vSphere o Microsoft Hyper-V.
 
-### \emoji{direct hit} 1.1 Objectius del projecte
+### 1.1 Objectius del projecte
 
 L’objectiu principal d’aquest projecte és dissenyar, desplegar i documentar una infraestructura virtualitzada d’alta disponibilitat basada en **Proxmox VE**, enfocada tant a la resiliència com a la gestió eficient de recursos. El sistema es construeix sobre un clúster format per **tres nodes físics** que ofereixen serveis de virtualització mitjançant **KVM/QEMU**, amb funcionalitats avançades de gestió centralitzada.
 
@@ -99,7 +221,7 @@ Com a part essencial del projecte, es desplega també un **Proxmox Backup Server
 
 L’objectiu final és demostrar la viabilitat i robustesa d’una solució de virtualització empresarial utilitzant tecnologies de codi obert, tot documentant-ne la planificació, implementació, proves de rendiment i mesures de seguretat, amb una orientació clara a l’escalabilitat, la facilitat de manteniment i l’alt rendiment operatiu.
 
-### \emoji{puzzle piece} 1.2 Justificació de l’elecció de Proxmox VE
+### \emoji{puzzle-piece} 1.2 Justificació de l’elecció de Proxmox VE
 
 S’ha triat **Proxmox VE (Virtual Environment)** com a plataforma base del projecte per la seua naturalesa de codi obert, la seua gran comunitat, i la capacitat d’oferir una **solució integral de virtualització** sense requerir llicències comercials costoses. Proxmox combina potents tecnologies com **KVM (Kernel-based Virtual Machine)** per a la virtualització completa i **LXC (Linux Containers)** per a la virtualització lleugera, permetent adaptar-se a diversos escenaris d’ús amb eficiència de recursos.
 
@@ -159,8 +281,6 @@ A més, es valora tenir coneixements generals en:
 
 Aquest conjunt de coneixements assegura que l’usuari o equip executor puga afrontar amb autonomia la planificació, el desplegament i la gestió operativa d’una infraestructura virtualitzada basada en Proxmox VE.
 
-\newpage
-
 ## \emoji{bricks} 2. Anàlisi i Disseny de la Infraestructura
 
 L’objectiu d’aquesta secció és definir amb detall els **requisits funcionals i tècnics**, la **topologia de xarxa** i el **disseny lògic** de la infraestructura necessària per desplegar un **clúster Proxmox VE amb alta disponibilitat**, integrant tant un **sistema d’emmagatzematge distribuït Ceph** com una **solució de còpia de seguretat centralitzada amb Proxmox Backup Server (PBS)**.
@@ -186,7 +306,7 @@ Els punts que es desenvolupen en aquesta secció són:
 
 Aquest capítol és fonamental per garantir que el desplegament posterior es realitze sobre una base ben definida, coherent i alineada amb les necessitats del projecte. Un disseny acurat minimitza riscos, facilita la gestió a llarg termini i assegura una millor resposta davant incidències.
 
-### \emoji{check mark button} 2.1 Requisits Funcionals i No Funcionals
+### \emoji{check-mark-button} 2.1 Requisits Funcionals i No Funcionals
 
 #### **Requisits funcionals**
 
@@ -203,13 +323,13 @@ Aquest capítol és fonamental per garantir que el desplegament posterior es rea
 * Ha d’oferir un rendiment acceptable amb maquinari limitat.
 * El sistema ha de ser administrable mitjançant una interfície gràfica web intuïtiva.
 
-### \emoji{globe with meridians} 2.2 Topologia de Xarxa Proposada
+### \emoji{globe-with-meridians} 2.2 Topologia de Xarxa Proposada
 
 > En aquest entorn de pràctiques s’ha desplegat un únic servidor físic amb **Proxmox VE** com a hipervisor principal. Dins d’aquest servidor, s’han creat diverses màquines virtuals que simulen els diferents **nodes d’un clúster**, així com un servidor addicional amb **Proxmox Backup Server (PBS)**.
 >
 > Aquesta arquitectura permet **reproduir un escenari realista** amb alta disponibilitat, emmagatzematge distribuït (Ceph) i còpies de seguretat centralitzades, però en un entorn virtualitzat controlat i sense necessitat de diversos equips físics.
 
-### \emoji{desktop computer} Diagrama:
+### \emoji{desktop-computer} Diagrama:
 
 ```plaintext
              ┌───────────────────────────────────────────────────────────────────────┐
@@ -224,7 +344,7 @@ Aquest capítol és fonamental per garantir que el desplegament posterior es rea
 
 \emoji{wrench} *Tots els nodes i el PBS són màquines virtuals creades dins del mateix host Proxmox VE.*
 
-### \emoji{desktop computer} 2.3 Maquinari Utilitzat
+### \emoji{desktop-computer} 2.3 Maquinari Utilitzat
 
 #### **Nodes del clúster (x2):**
 
@@ -247,9 +367,9 @@ Aquest capítol és fonamental per garantir que el desplegament posterior es rea
 * **Disc SSD:** 1 x 150 GB per al sistema
 * **HDD:** 3 x 100 GB RAID1 (datastore de còpies)
 
-### \emoji{money bag} Pressupost Estimat d’Infraestructura per a Clúster Proxmox amb HA, Ceph i PBS
+### \emoji{money-bag} Pressupost Estimat d’Infraestructura per a Clúster Proxmox amb HA, Ceph i PBS
 
-#### \emoji{desktop computer} **Nodes del Clúster (x3)**
+#### \emoji{desktop-computer} **Nodes del Clúster (x3)**
 
 *Servidors físics amb suport per a virtualització, alta disponibilitat i Ceph*
 
@@ -259,7 +379,7 @@ Aquest capítol és fonamental per garantir que el desplegament posterior es rea
 | Targetes de xarxa addicionals (1/10 Gb) + cablejat                  | 3         | 100 €               | 300 €       |
 | **Subtotal nodes del clúster**                                      |           |                     | **3.900 €** |
 
-#### \emoji{floppy disk} **Servidor de Proxmox Backup Server (PBS)**
+#### \emoji{floppy-disk} **Servidor de Proxmox Backup Server (PBS)**
 
 *Servidor dedicat per a còpies de seguretat amb alta capacitat i fiabilitat*
 
@@ -269,7 +389,7 @@ Aquest capítol és fonamental per garantir que el desplegament posterior es rea
 | Unitat externa d'emmagatzematge (opcional per backups off-site) | 1         | 300 €               | 300 €       |
 | **Subtotal PBS**                                                |           |                     | **1.400 €** |
 
-#### \emoji{globe with meridians} **Infraestructura de Xarxa i Accessoris**
+#### \emoji{globe-with-meridians} **Infraestructura de Xarxa i Accessoris**
 
 | Component                                  | Quantitat | Preu unitari aprox. | Subtotal  |
 | ------------------------------------------ | --------- | ------------------- | --------- |
@@ -278,7 +398,7 @@ Aquest capítol és fonamental per garantir que el desplegament posterior es rea
 | Bastidor (rack) i accessoris               | 1         | 250 €               | 250 €     |
 | **Subtotal xarxa/accessoris**              |           |                     | **950 €** |
 
-### \emoji{page facing up} **Total Pressupost Estimat**
+### \emoji{page-facing-up} **Total Pressupost Estimat**
 
 | Part                            | Cost aproximat |
 | ------------------------------- | -------------- |
@@ -293,7 +413,7 @@ Aquest capítol és fonamental per garantir que el desplegament posterior es rea
 * Es poden reduir costos amb equips refurbished o d’ocasió, però aquest pressupost reflecteix una configuració professional i realista.
 * No s’han inclòs llicències comercials opcionals de Proxmox (el programari és lliure, però el suport és de pagament si es desitja).
 
-### \emoji{puzzle piece} 2.4 Disseny Lògic del Clúster Proxmox
+### \emoji{puzzle-piece} 2.4 Disseny Lògic del Clúster Proxmox
 
 El disseny lògic del clúster està orientat a garantir **alta disponibilitat, rendiment i escalabilitat**, aprofitant les funcionalitats natives de **Proxmox VE** i la seua integració directa amb **Ceph** com a plataforma d’emmagatzematge distribuït.
 
@@ -346,9 +466,7 @@ Els principals mecanismes de disponibilitat són:
 
 Aquesta estratègia global d’alta disponibilitat i resiliència proporciona un entorn fiable i apte per a entorns de producció, minimitzant tant els riscos de pèrdua de dades com els temps d’interrupció dels serveis.
 
-\newpage
-
-# 4. \emoji{puzzle piece} Configuració de Ceph com a Emmagatzematge Distribuït
+# 4. \emoji{puzzle-piece} Configuració de Ceph com a Emmagatzematge Distribuït
 
 ### \emoji{brain} 4.1 Introducció a **Ceph** i Integració amb **Proxmox VE**
 
@@ -364,6 +482,12 @@ Ceph permet oferir emmagatzematge per a:
 * Sistemes d’arxius (CephFS)
 * Objectes (compatible amb S3)
 
+Els **pools d’emmagatzematge** són una part fonamental en l’arquitectura de **Ceph**, ja que representen els espais lògics on es distribueixen les dades entre els diferents OSDs del clúster. A cada pool se li pot assignar una funció específica, com ara allotjar màquines virtuals, contenidors o fitxers de CephFS.
+
+### \emoji{magnifying-glass-tilted-left} Què és un Pool?
+
+Un **pool** és una agrupació lògica d’objectes dins del clúster Ceph. Cada objecte dins d’un pool es reparteix entre els OSDs segons una política de distribució definida, garantint així la replicació i la tolerància a fallades.
+
 #### \emoji{link} Integració amb Proxmox VE
 
 **Proxmox VE** incorpora suport nadiu per a Ceph, cosa que facilita la seua instal·lació, gestió i integració des de la mateixa interfície web o via línia de comandes.
@@ -375,19 +499,17 @@ Gràcies a aquesta integració:
 * El sistema garanteix **alta disponibilitat**, ja que les dades estan replicades en diversos nodes
 * Permet una **escala horitzontal** fàcil, afegint més discos o nodes al clúster Ceph
 
-\emoji{light bulb} **Per què utilitzar Ceph en Proxmox?**
+\emoji{light-bulb} **Per què utilitzar Ceph en Proxmox?**
 
 * Elimina la dependència de sistemes d’emmagatzematge extern (NFS, iSCSI, etc.)
 * Millora la tolerància a fallades i la continuïtat del servei
 * Ofereix una gestió centralitzada i unificada del clúster i l’emmagatzematge
 
-\newpage
-
 # 5. \emoji{shield} Alta Disponibilitat (HA)
 
 L’**Alta Disponibilitat (HA)** és un conjunt de tecnologies i configuracions dissenyades per garantir que els serveis crítics d’un sistema **romanguen operatius de manera contínua**, fins i tot davant fallades de maquinari, programari o xarxa. En entorns virtualitzats com **Proxmox VE**, la funcionalitat HA és essencial per assegurar la **mínima interrupció dels serveis** que allotgen màquines virtuals i contenidors.
 
-#### \emoji{direct hit} Finalitat de la HA:
+#### Finalitat de la HA:
 
 L'objectiu principal de la HA és **reduir al màxim el temps d’inactivitat (downtime)**. Quan un servidor físic (node) del clúster deixa de funcionar —ja siga per avaria, reinici o manteniment imprevist—, el sistema HA detecta automàticament la fallada i **reinicia les màquines virtuals afectades en un altre node actiu** del clúster, sense intervenció manual.
 
@@ -402,7 +524,7 @@ El sistema HA inclou:
 * **Policies de gestió de recursos**, com assignació preferida de nodes o prioritats.
 * **Integració amb l’emmagatzematge compartit (ex. Ceph)** per garantir que les dades estiguen disponibles des de qualsevol node.
 
-#### \emoji{puzzle piece} Avantatges clau:
+#### \emoji{puzzle-piece} Avantatges clau:
 
 * **Continuïtat del servei** sense intervencions manuals.
 * **Millora de la tolerància a fallades** en entorns crítics.
@@ -411,13 +533,11 @@ El sistema HA inclou:
 
 En resum, la **Alta Disponibilitat** és un component fonamental en infraestructures professionals, ja que **automatitza la resposta davant incidències**, manté els serveis actius i contribueix a una experiència d’usuari contínua i fiable, fins i tot en condicions adverses.
 
-\newpage
-
-# 6. \emoji{floppy disk} Proxmox Backup Server (PBS)
+# 6. \emoji{floppy-disk} Proxmox Backup Server (PBS)
 
 **Proxmox Backup Server (PBS)** és una solució de còpia de seguretat **específicament dissenyada per a entorns virtualitzats amb Proxmox VE**. Proporciona una plataforma eficient, ràpida i segura per realitzar **backups i restauracions** de màquines virtuals (VMs), contenidors (CTs) i fins i tot discos individuals, garantint la **protecció i recuperació de dades** davant de fallades o pèrdua d’informació.
 
-#### \emoji{direct hit} Finalitat de PBS:
+#### Finalitat de PBS:
 
 PBS s’encarrega de centralitzar totes les còpies de seguretat dels recursos virtuals del clúster, amb funcionalitats com:
 
@@ -440,7 +560,7 @@ Les comunicacions entre Proxmox VE i PBS es realitzen a través del protocol **P
 
 PBS pot situar-se **fora del clúster principal** (recomanat), la qual cosa el converteix en una **última línia de defensa** en cas de fallida total del clúster o corrupció de dades. Aquesta separació física i lògica assegura que, fins i tot si els nodes de Proxmox fallen completament, les còpies de seguretat puguen ser recuperades des d’un sistema aïllat.
 
-#### \emoji{puzzle piece} Beneficis principals:
+#### \emoji{puzzle-piece} Beneficis principals:
 
 * **Automatització completa de backups i restauracions**.
 * **Reducció de l’impacte en el rendiment del clúster** gràcies al backup incremental.
@@ -449,13 +569,11 @@ PBS pot situar-se **fora del clúster principal** (recomanat), la qual cosa el c
 
 En definitiva, **Proxmox Backup Server** és una eina essencial per garantir la **resiliència i recuperació** del sistema virtualitzat, protegint-lo de pèrdues accidentals, errors humans o fallades greus de maquinari.
 
-\newpage
-
-# \emoji{busts in silhouette} 7. Gestió d’Usuaris i Pools de Recursos 
+# \emoji{busts-in-silhouette} 7. Gestió d’Usuaris i Pools de Recursos 
 
 La **gestió d’usuaris** dins d’un entorn virtualitzat com **Proxmox VE** és essencial per controlar **qui pot accedir**, **què pot fer** i **sobre quins recursos pot actuar**. Aquesta gestió garanteix la **seguretat, organització i eficiència** en la utilització del sistema, especialment en entorns compartits, corporatius o amb administració delegada.
 
-#### \emoji{direct hit} Finalitat de la gestió d’usuaris:
+#### Finalitat de la gestió d’usuaris:
 
 L’objectiu principal és **definir rols i permisos específics per a cada usuari o grup d’usuaris**, segons les seues responsabilitats o necessitats. Això evita l’accés indegut a recursos crítics i redueix el risc d’errors humans que podrien afectar el funcionament del clúster o les màquines virtuals.
 
@@ -473,7 +591,7 @@ L’objectiu principal és **definir rols i permisos específics per a cada usua
 * **Definició de Pools de Recursos:**
   Els *pools* permeten agrupar màquines virtuals, contenidors i recursos assignats a usuaris o equips, facilitant-ne la gestió i limitant el seu accés només a la seua àrea de treball.
 
-#### \emoji{locked with key} Avantatges de gestionar correctament els usuaris:
+#### \emoji{locked-with-key} Avantatges de gestionar correctament els usuaris:
 
 * **Millora la seguretat del sistema** evitant accessos no autoritzats o accions destructives.
 * **Facilita la traçabilitat** (log dels usuaris i accions realitzades).
@@ -482,15 +600,13 @@ L’objectiu principal és **definir rols i permisos específics per a cada usua
 
 En resum, la gestió d’usuaris a Proxmox VE no sols millora la seguretat, sinó que és fonamental per estructurar un entorn **multiusuari estable, escalable i eficient**, tant per a entorns educatius, com empresarials o laboratoris de proves.
 
-\newpage
-
-# 8. \emoji{locked with key} Seguretat i Bones Pràctiques
+# 8. \emoji{locked-with-key} Seguretat i Bones Pràctiques
 
 ### 8.5 Monitorització del sistema amb Netdata
 
 **Netdata** és una eina de monitorització en temps real dissenyada per oferir una visió molt detallada del rendiment de sistemes, aplicacions, contenidors i dispositius IoT. És coneguda per la seva **interfície gràfica intuïtiva** i pel seu enfocament en la **visualització immediata** de dades de rendiment, amb una latència molt baixa.
 
-### \emoji{magnifying glass tilted left} **Què fa Netdata?**
+### \emoji{magnifying-glass-tilted-left} **Què fa Netdata?**
 
 * Recull metadades del sistema (CPU, RAM, disc, xarxa, processos, etc.)
 * Monitoritza serveis i aplicacions (MySQL, nginx, docker, etc.)
@@ -503,15 +619,15 @@ A continuació tens una comparació amb tres eines populars de monitorització:
 
 | Característica               | **Netdata**              | **Prometheus + Grafana**          | **Zabbix**                       | **Nagios**                  |
 | ---------------------------- | ------------------------ | --------------------------------- | -------------------------------- | --------------------------- |
-| **Temps real**               | ✔ (mil·lisegons)         | ✘ (intervals mínims de 10-15s)    | ✘ (intervals configurables)      | ✘ (intervals configurables) |
-| **Interfície gràfica**       | ✔ Moderna i interactiva  | ✔ (Grafana)                       | ✔ Però més complexa              | ✘ (més bàsic o plugins)     |
-| **Facilitat d’instal·lació** | ✔ Molt fàcil (una línia) | ✘ Requereix configurar components | ✘ Requereix bastant configuració | ✘ Pot ser complexa          |
-| **Alertes**                  | ✔ Bàsiques integrades    | ✔ Amb Alertmanager                | ✔ Molt completes                 | ✔ Molt completes            |
-| **Escalabilitat**            | ✔ Amb Netdata Cloud      | ✔ Alta amb Thanos/Cortex          | ✔ Alta                           | ✔ Mitjana                   |
-| **Consum de recursos**       | ✔ Molt lleuger           | ✘ Pot ser alt depenent del cas    | ✘ Pot consumir bastant           | ✔ Lleuger                   |
-| **Extensibilitat**           | ✘ Limitada               | ✔ Molt alt                        | ✔ Alt                            | ✔ Alt                       |
+| **Temps real**               | \emoji{heavy-check-mark} (mil·lisegons)         | \emoji{cross-mark} (intervals mínims de 10-15s)    | \emoji{cross-mark} (intervals configurables)      | \emoji{cross-mark} (intervals configurables) |
+| **Interfície gràfica**       | \emoji{heavy-check-mark} Moderna i interactiva  | \emoji{heavy-check-mark} (Grafana)                       | \emoji{heavy-check-mark} Però més complexa              | \emoji{cross-mark} (més bàsic o plugins)     |
+| **Facilitat d’instal·lació** | \emoji{heavy-check-mark} Molt fàcil (una línia) | \emoji{cross-mark} Requereix configurar components | \emoji{cross-mark} Requereix bastant configuració | \emoji{cross-mark} Pot ser complexa          |
+| **Alertes**                  | \emoji{heavy-check-mark} Bàsiques integrades    | \emoji{heavy-check-mark} Amb Alertmanager                | \emoji{heavy-check-mark} Molt completes                 | \emoji{heavy-check-mark} Molt completes            |
+| **Escalabilitat**            | \emoji{heavy-check-mark} Amb Netdata Cloud      | \emoji{heavy-check-mark} Alta amb Thanos/Cortex          | \emoji{heavy-check-mark} Alta                           | \emoji{heavy-check-mark} Mitjana                   |
+| **Consum de recursos**       | \emoji{heavy-check-mark} Molt lleuger           | \emoji{cross-mark} Pot ser alt depenent del cas    | \emoji{cross-mark} Pot consumir bastant           | \emoji{heavy-check-mark} Lleuger                   |
+| **Extensibilitat**           | \emoji{cross-mark} Limitada               | \emoji{heavy-check-mark} Molt alt                        | \emoji{heavy-check-mark} Alt                            | \emoji{heavy-check-mark} Alt                       |
 
-## \emoji{check mark button} **Avantatges de Netdata**
+## \emoji{check-mark-button} **Avantatges de Netdata**
 
 1. **Instal·lació molt senzilla:** una sola línia de comandes.
 2. **Monitorització en temps real real:** actualitzacions per segon o menys.
@@ -520,30 +636,28 @@ A continuació tens una comparació amb tres eines populars de monitorització:
 5. **Interfície web interactiva:** gràfics clars i navegació fàcil.
 6. **Suport per a contenidors i microserveis.**
 
-## \emoji{cross mark} **Inconvenients de Netdata**
+## \emoji{cross-mark} **Inconvenients de Netdata**
 
 1. **No està pensat per a emmagatzematge a llarg termini:** reté dades en memòria per defecte (encara que es pot integrar amb bases de dades de sèries temporals).
 2. **Alertes bàsiques:** menys potent que Zabbix o Prometheus+Alertmanager.
 3. **Menys integracions corporatives avançades.**
 4. **Escalabilitat limitada si no s’utilitza Netdata Cloud.**
 
-### \emoji{puzzle piece} En resum:
+### \emoji{puzzle-piece} En resum:
 
-* **Vols veure dades en temps real de manera fàcil i ràpida?** \emoji{backhand index pointing right} *Netdata és ideal.*
-* **Necessites anàlisi a llarg termini, alertes complexes i integració amb sistemes grans?** \emoji{backhand index pointing right} *Millor Prometheus + Grafana o Zabbix.*
-* **Tens un entorn molt crític amb necessitat d’alertes robustes i historial llarg?** \emoji{backhand index pointing right} *Zabbix o Nagios són més adequats.*
+* **Vols veure dades en temps real de manera fàcil i ràpida?** \emoji{backhand-index-pointing-right} *Netdata és ideal.*
+* **Necessites anàlisi a llarg termini, alertes complexes i integració amb sistemes grans?** \emoji{backhand-index-pointing-right} *Millor Prometheus + Grafana o Zabbix.*
+* **Tens un entorn molt crític amb necessitat d’alertes robustes i historial llarg?** \emoji{backhand-index-pointing-right} *Zabbix o Nagios són més adequats.*
 
 Doncs en el cas dels servidors és millor NetData i per eixe cas m'he quedat en NetData.
 
-\newpage
+## 9. \emoji{bar-chart} Monitoratge Centralitzat amb Zabbix
 
-## 9. \emoji{bar chart} Monitoratge Centralitzat amb Zabbix
-
-### \emoji{magnifying glass tilted left} 9.1 Què és Zabbix i funcionalitats principals
+### \emoji{magnifying-glass-tilted-left} 9.1 Què és Zabbix i funcionalitats principals
 
 Zabbix és una plataforma de monitoratge open source que permet supervisar en temps real el rendiment i l'estat de sistemes, servidors, màquines virtuals, serveis de xarxa i aplicacions. Proporciona alertes configurables, gràfiques avançades, dashboards personalitzats i recollida d’estadístiques a llarg termini, tot des d’una interfície web centralitzada.
 
-### \emoji{check mark button} 9.2 Justificació de l’elecció de Zabbix front altres solucions
+### \emoji{check-mark-button} 9.2 Justificació de l’elecció de Zabbix front altres solucions
 
 Tot i que existeixen altres plataformes com **Nagios**, **Prometheus** o **Netdata**, s’ha escollit Zabbix per les següents raons tècniques:
 
@@ -566,11 +680,10 @@ Per garantir la **continuitat del monitoratge fins i tot en cas de fallada d’u
 * Configuració del servei Zabbix com a recurs gestionat per `ha-manager`.
 * En cas de caiguda del node actiu, **el servei es migrarà automàticament** a un altre node disponible, assegurant una supervisió contínua.
 
-\newpage
 
 ## \emoji{brain}10. Conclusions i Valoració Personal
 
-### \emoji{direct hit} 10.1 Objectius Aconseguits
+### 10.1 Objectius Aconseguits
 
 Al llarg del desenvolupament d’aquest projecte, s’han assolit amb èxit els objectius plantejats inicialment, tant a nivell tècnic com formatiu.
 
@@ -590,7 +703,7 @@ A més, s’ha documentat detalladament cada fase del projecte, facilitant
 \emoji{warning} Problema amb els repositoris de **Proxmox Backup Server**
 Una de les principals dificultats trobades ha sigut l’actualització dels paquets del sistema, ja que per defecte, Proxmox Backup Server ve configurat amb els repositoris enterprise, els quals requereixen una subscripció de pagament.
 
-\emoji{check mark button} ***Solució tècnica:*** utilitzar repositoris públics
+\emoji{check-mark-button} ***Solució tècnica:*** utilitzar repositoris públics
 Per tal de poder actualitzar i instal·lar paquets sense necessitat de subscripció, es pot configurar el sistema per a fer ús dels repositoris públics (no enterprise) de **Proxmox.**
 
 #### \emoji{warning} Problema amb el almacenament del Ceph:
@@ -601,7 +714,7 @@ Concretament, després d’un període de funcionament estable, es va detectar q
 
 Aquest comportament és esperable en entorns Ceph, ja que per garantir la replicació i integritat de les dades, el sistema necessita un marge suficient de capacitat lliure. Un cop aquest marge desapareix, el sistema prioritza la protecció de les dades existents però ja **no pot garantir la redundància completa**, fet que suposa un risc en cas de fallada addicional d’un OSD o node.
 
-#### \emoji{check mark button} Solució adoptada:
+#### \emoji{check-mark-button} Solució adoptada:
 
 Per resoldre aquest problema, es va procedir a:
 
@@ -619,13 +732,13 @@ Aquesta experiència va posar en relleu la **importància de monitorar proactiva
 - **Objectiu**: Integrar Docker dins de VMs/containers per aprofitar:  
   - \emoji{whale} Ecosistema més ampli d'imatges preconfigurades  
   - \emoji{repeat} Compatibilitat amb Kubernetes i eines CI/CD  
-  - \emoji{hammer and wrench} Plantilles predefinides amb Docker + Portainer  
+  - \emoji{hammer-and-wrench} Plantilles predefinides amb Docker + Portainer  
 - **Reptes**:  
   - Configurar *systemd* en LXC existents  
   - Establir polítiques de seguretat específiques  
 
 #### **2. Seguretat Avançada**  
-\emoji{locked with key} *Hardening del cluster i xifrat de dades* 
+\emoji{locked-with-key} *Hardening del cluster i xifrat de dades* 
 - **Certificats TLS personalitzats**:  
   
   ```bash  
@@ -641,7 +754,7 @@ Aquesta experiència va posar en relleu la **importància de monitorar proactiva
 - **Integració amb LDAP/AD** per a gestió centralitzada d’usuaris.
 
 #### **3. Xarxa i Aïllament**  
-\emoji{globe with meridians} *Segmentació per a major seguretat*  
+\emoji{globe-with-meridians} *Segmentació per a major seguretat*  
 - **VLANs dedicades**:  
   ```  
   auto vmbr0.100  
@@ -658,7 +771,7 @@ Aquesta experiència va posar en relleu la **importància de monitorar proactiva
 | **Seguretat**      | Hardening + LUKS + LDAP                | Protecció de dades i accés controlat  |  
 | **Xarxa**          | VLANs Dedicades                        | Segmentació per a major seguretat     |  
 
-### \emoji{direct hit} 10.4 Valoració tècnica i personal del projecte
+### 10.4 Valoració tècnica i personal del projecte
 
 Aquestes millores convertiran el nostre entorn en un sistema **més robust, segur i fàcil de gestionar**, adaptant-se tant a entorns educatius com empresarials.  
 
@@ -669,8 +782,6 @@ Aquest projecte m’ha permés consolidar coneixements adquirits durant el cicle
 A més, la incorporació de **Zabbix com a sistema de monitoratge** ha sigut fonamental per adquirir competències en la supervisió d’entorns TI. La configuració d’agents en sistemes **Windows i Linux**, així com la creació i gestió de *hosts* des de la interfície web de Zabbix, m’ha ajudat a entendre com controlar el rendiment, detectar anomalies i mantenir la salut de la infraestructura en temps real.
 
 A nivell acadèmic, ha sigut una experiència molt completa, ja que m’ha ajudat a connectar la teoria amb la pràctica, millorant la meua **capacitat d’anàlisi, resolució de problemes i documentació tècnica**. Considere que ha sigut un projecte molt útil per a preparar-me de cara a **entorns reals i futurs reptes professionals** en el sector de les tecnologies de la informació.
-
-\newpage
 
 ## \emoji{paperclip} 11. Annexos
 
@@ -684,13 +795,11 @@ A continuació es detallen les fonts utilitzades per al desenvolupament del proj
 4. Netdata  *Instal·lació Netdata*. Accés 12 de maig de 2025. [Netdata](https://www.netdata.cloud/)
 5. Zabbix  *Docuemntació Zabbix*. Accés 14 de maig de 2025. [Zabbix](https://www.zabbix.com/)
 
-\newpage
-
 # Instal·lació
 
 ## Proxmox
 
-## \emoji{laptop computer} 3.  Implementació del *Clúster* Proxmox
+## \emoji{laptop} 3.  Implementació del *Clúster* Proxmox
 
 ### 3.1  Instal·lació dels nodes Proxmox VE
 
@@ -701,57 +810,66 @@ A continuació es detallen les fonts utilitzades per al desenvolupament del proj
 1. Baixem la imatge *ISO* de Proxmox des de la [web oficial](https://proxmox.com/en/downloads), triant l’última versió disponible.
 2. Una vegada descarregada, la col·loquem en el dispositiu des d'on farem la instal·lació en l’equip.
 
----
+\emoji{small-orange-diamond} El primer pas, després de col·locar la *ISO*, és la càrrega del menú *GRUB*, on hem de seleccionar el procés d’instal·lació desitjat. En este cas, triarem l'opció amb interfície gràfica.
 
-🔸 El primer pas, després de col·locar la *ISO*, és la càrrega del menú *GRUB*, on hem de seleccionar el procés d’instal·lació desitjat. En este cas, triarem l'opció amb interfície gràfica.
+\emoji{small-orange-diamond} A continuació, acceptem la **llicència d’ús** del programari.
 
+\emoji{small-orange-diamond} En el següent pas, seleccionem en quin disc volem instal·lar Proxmox. En este exemple només tenim un disc disponible, així que el seleccionem. També podem configurar el sistema de fitxers. Triem **ext4**.
 
-🔸 A continuació, acceptem la **llicència d’ús** del programari.
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-2.png}
+\end{center}
 
-🔸 En el següent pas, seleccionem en quin disc volem instal·lar Proxmox. En este exemple només tenim un disc disponible, així que el seleccionem. També podem configurar el sistema de fitxers. Triem **ext4**.
+\emoji{small-orange-diamond} Assignem la totalitat de l’espai disponible al disc, ja que només n'hi ha un.
 
-<img src="../../../img/image-2.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-3.png}
+\end{center}
 
-🔸 Assignem la totalitat de l’espai disponible al disc, ja que només n'hi ha un.
+\emoji{small-orange-diamond} Configurem la **zona horària**.
 
-<img src="../../../img/image-3.png" alt="GRUB" width="60%">
+\emoji{small-orange-diamond} Introduïm la **contrasenya d’administració** i un **correu electrònic** per a notificacions del sistema.
 
-🔸 Configurem la **zona horària**.
+\emoji{small-orange-diamond} Assignem el **nom del *host***, la **IP**, el **gateway** i els **DNS**.
 
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-6.png}
+\end{center}
+\emoji{small-orange-diamond} Finalment, es mostra un **resum de la configuració** triada. Confirmem i iniciem la instal·lació.
 
-🔸 Introduïm la **contrasenya d’administració** i un **correu electrònic** per a notificacions del sistema.
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-7.png}
+\end{center}
 
-🔸 Assignem el **nom del *host***, la **IP**, el **gateway** i els **DNS**.
-
-<img src="../../../img/image-6.png" alt="GRUB" width="60%">
-
-🔸 Finalment, es mostra un **resum de la configuració** triada. Confirmem i iniciem la instal·lació.
-
-<img src="../../../img/image-7.png" alt="GRUB" width="60%">
-
-🔸 Un cop finalitzada la instal·lació, a la consola apareixerà un missatge indicant que podem accedir a la interfície web de Proxmox via:
+\emoji{small-orange-diamond} Un cop finalitzada la instal·lació, a la consola apareixerà un missatge indicant que podem accedir a la interfície web de Proxmox via:
 
 ```
 https://10.10.10.60:8006
 ```
 
-<img src="../../../img/image-8.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-8.png}
+\end{center}
 
-🔸 Així accedim a la **interfície web de Proxmox VE**:
+\emoji{small-orange-diamond} Així accedim a la **interfície web de Proxmox VE**:
 
-<img src="../../../img/image-11.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-11.png}
+\end{center}
 
----
-
-### \emoji{desktop computer} Instal·lació del Node 2
+### \emoji{desktop-computer} Instal·lació del Node 2
 
 El procés d’instal·lació del **segon node** és **idèntic** al del primer, excepte pels valors del **nom del host** i la **IP**, que han de ser únics per a cada node.
 
-<img src="../../../img/image-8.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-8.png}
+\end{center}
 
 Com es pot comprovar en el resum, l’única diferència és la IP i el nom del host.
 
-<img src="../../../img/image-9.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-9.png}
+\end{center}
 
 Després de completar la instal·lació, tornem a tindre accés a la interfície web per la nova IP configurada:
 
@@ -759,23 +877,29 @@ Després de completar la instal·lació, tornem a tindre accés a la interfície
 https://10.10.10.61:8006
 ```
 
-<img src="../../../img/image-12.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-12.png}
+\end{center}
 
 I amb això, accedim de nou a la interfície de gestió de Proxmox:
 
-<img src="../../../img/image-13.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-13.png}
+\end{center}
 
----
-
-### \emoji{desktop computer} Instal·lació del Node 3
+### \emoji{desktop-computer} Instal·lació del Node 3
 
 El procés d’instal·lació del **segon node** és **idèntic** al del primer, excepte pels valors del **nom del host** i la **IP**, que han de ser únics per a cada node.
 
-<img src="../../../img/image-29.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-29.png}
+\end{center}
 
 Com es pot comprovar en el resum, l’única diferència és la IP i el nom del host.
 
-<img src="../../../img/image-30.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-30.png}
+\end{center}
 
 Després de completar la instal·lació, tornem a tindre accés a la interfície web per la nova IP configurada:
 
@@ -783,15 +907,19 @@ Després de completar la instal·lació, tornem a tindre accés a la interfície
 https://10.10.10.58:8006
 ```
 
-<img src="../../../img/image-31.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-31.png}
+\end{center}
 
 I amb això, accedim de nou a la interfície de gestió de Proxmox:
 
-<img src="../../../img/image-32.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-32.png}
+\end{center}
 
 ## Proxmox Backup Server
 
-## \emoji{desktop computer} 6 Proxmox Backup Server (PBS)
+## \emoji{desktop-computer} 6 Proxmox Backup Server (PBS)
 
 ### 6.1 Instalación de PBS
 
@@ -800,44 +928,50 @@ I amb això, accedim de nou a la interfície de gestió de Proxmox:
 1. Baixem la imatge *ISO* de Proxmox Backup Server des de la [web oficial](https://proxmox.com/en/downloads), triant l’última versió disponible.
 2. Una vegada descarregada, la col·loquem en el dispositiu des d'on farem la instal·lació en l’equip.
 
----
-
-🔸 El primer pas, després de col·locar la *ISO*, és la càrrega del menú *GRUB*, on hem de seleccionar el procés d’instal·lació desitjat. En este cas, triarem l'opció amb interfície gràfica.
+\emoji{small-orange-diamond} El primer pas, després de col·locar la *ISO*, és la càrrega del menú *GRUB*, on hem de seleccionar el procés d’instal·lació desitjat. En este cas, triarem l'opció amb interfície gràfica.
 
 
-🔸 A continuació, acceptem la **llicència d’ús** del programari.
+\emoji{small-orange-diamond} A continuació, acceptem la **llicència d’ús** del programari.
 
+\emoji{small-orange-diamond} En el següent pas, seleccionem en quin disc volem instal·lar Proxmox. En este exemple només tenim un disc disponible, així que el seleccionem. També podem configurar el sistema de fitxers. Triem **ext4**.
 
-🔸 En el següent pas, seleccionem en quin disc volem instal·lar Proxmox. En este exemple només tenim un disc disponible, així que el seleccionem. També podem configurar el sistema de fitxers. Triem **ext4**.
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-16.png}
+\end{center}
 
-<img src="../../../img/image-16.png" alt="GRUB" width="60%">
+\emoji{small-orange-diamond} Introduïm la **contrasenya d’administració** i un **correu electrònic** per a notificacions del sistema.
 
-🔸 Introduïm la **contrasenya d’administració** i un **correu electrònic** per a notificacions del sistema.
+\emoji{small-orange-diamond} Assignem el **nom del *host***, la **IP**, el **gateway** i els **DNS**.
 
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-18.png}
+\end{center}
 
-🔸 Assignem el **nom del *host***, la **IP**, el **gateway** i els **DNS**.
+\emoji{small-orange-diamond} Finalment, es mostra un **resum de la configuració** triada. Confirmem i iniciem la instal·lació.
 
-<img src="../../../img/image-18.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-19.png}
+\end{center}
 
-🔸 Finalment, es mostra un **resum de la configuració** triada. Confirmem i iniciem la instal·lació.
-
-<img src="../../../img/image-19.png" alt="GRUB" width="60%">
-
-🔸 Un cop finalitzada la instal·lació, a la consola apareixerà un missatge indicant que podem accedir a la interfície web de Proxmox via:
+\emoji{small-orange-diamond} Un cop finalitzada la instal·lació, a la consola apareixerà un missatge indicant que podem accedir a la interfície web de Proxmox via:
 
 ```
 https://10.10.10.123:8006
 ```
 
-<img src="../../../img/image-20.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-20.png}
+\end{center}
 
-🔸 Així accedim a la **interfície web de Proxmox VE**:
+\emoji{small-orange-diamond} Així accedim a la **interfície web de Proxmox VE**:
 
-<img src="../../../img/image-21.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-21.png}
+\end{center}
 
 ## Zabbix
 
-## 9. \emoji{bar chart} Monitoratge Centralitzat amb **Zabbix**
+## 9. \emoji{bar-chart} Monitoratge Centralitzat amb **Zabbix**
 
 ### 1. Descàrrega de Zabbix
 
@@ -851,7 +985,9 @@ Una vegada dins, cal anar a l’apartat **Download Zabbix**, on seleccionarem:
 * El tipus de **base de dades** (MySQL/MariaDB)
 * El servidor web (Apache)
 
-<img src="../../../img/image-127.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-127.png}
+\end{center}
 
 ### 2. Instal·lació i configuració del servidor Zabbix
 
@@ -863,7 +999,9 @@ dpkg -i zabbix-release_latest_7.2+debian12_all.deb
 apt update
 ```
 
-<img src="../../../img/image-128.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-128.png}
+\end{center}
 
 #### b. Instal·lació dels paquets principals
 
@@ -873,7 +1011,9 @@ Instal·lem el servidor Zabbix, el frontend web amb Apache, els scripts SQL i l�
 apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent
 ```
 
-<img src="../../../img/image-129.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-129.png}
+\end{center}
 
 #### c. Creació de la base de dades
 
@@ -893,7 +1033,9 @@ SET GLOBAL log_bin_trust_function_creators = 1;
 QUIT;
 ```
 
-<img src="../../../img/image-130.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-130.png}
+\end{center}
 
 #### d. Importació de l’esquema de dades
 
@@ -903,7 +1045,9 @@ Des del servidor Zabbix, importem l’esquema i les dades inicials:
 zcat /usr/share/zabbix/sql-scripts/mysql/server.sql.gz | mysql --default-character-set=utf8mb4 -uzabbix -p zabbix
 ```
 
-<img src="../../../img/image-131.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-131.png}
+\end{center}
 
 Després, restaurem el valor per defecte de la directiva `log_bin_trust_function_creators`:
 
@@ -916,7 +1060,9 @@ SET GLOBAL log_bin_trust_function_creators = 0;
 QUIT;
 ```
 
-<img src="../../../img/image-132.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-132.png}
+\end{center}
 
 #### e. Configuració del servidor Zabbix
 
@@ -926,7 +1072,9 @@ Editem el fitxer de configuració del servidor `/etc/zabbix/zabbix_server.conf` 
 DBPassword=password
 ```
 
-<img src="../../../img/image-133.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-133.png}
+\end{center}
 
 #### f. Inici dels serveis
 
@@ -937,7 +1085,9 @@ systemctl restart zabbix-server zabbix-agent apache2
 systemctl enable zabbix-server zabbix-agent apache2
 ```
 
-<img src="../../../img/image-134.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-134.png}
+\end{center}
 
 #### g. Accés a la interfície web
 
@@ -949,45 +1099,53 @@ http://IP_DEL_SERVIDOR/zabbix
 
 Des d’ací podrem finalitzar la configuració via web GUI.
 
-<img src="../../../img/image-135.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-135.png}
+\end{center}
 
 Amb això, el servidor Zabbix queda instal·lat i llest per a ser utilitzat per a la monitorització centralitzada de la infraestructura.
 
-<img src="../../../img/image-137.png" alt="GRUB" width="60%">
-
-\newpage
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-136.png}
+\end{center}
 
 # Configuració 
 
 # Proxmox
 
-# 3. \emoji{desktop computer} Implementació del Clúster Proxmox
+# 3. \emoji{desktop-computer} Implementació del Clúster Proxmox
 
 A continuació et detallem pas a pas com crear un clúster en Proxmox i unir-hi altres nodes.
 
-## \emoji{hammer and wrench} 3.2 Configuració del clúster (pvecm)
+## \emoji{hammer-and-wrench} 3.2 Configuració del clúster (pvecm)
 
 1. Accedeix a un dels nodes de Proxmox.
 2. Ves a **Datacenter → Cluster** des del menú lateral esquerre.
 3. Fes clic a **Crear Clúster** (`Create Cluster`).
 
-<img src="../../../img/image-56.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-56.png}
+\end{center}
 
-4. Ompli les dades del clúster:
+1. Ompli les dades del clúster:
 
    * **Nom del Clúster**
    * **Interfície de xarxa**
    * Altres paràmetres segons la teua configuració
 
-<img src="../../../img/image-57.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-57.png}
+\end{center}
 
-
-<img src="../../../img/image-58.png" alt="GRUB" width="60%">
-
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-58.png}
+\end{center}
 
 1. Un cop creat, veuràs el node com a part del clúster.
 
-<img src="../../../img/image-59.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-59.png}
+\end{center}
 
 ## \emoji{link} 2. Unir Nodes al Clúster
 
@@ -996,27 +1154,35 @@ Per afegir un altre node al clúster:
 1. Accedeix al segon node i ves a **Datacenter → Cluster**.
 2. Fes clic a **Unir-se al clúster** (`Join Cluster`).
 
-<img src="../../../img/image-60.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-60.png}
+\end{center}
 
-3. A continuació, hauràs d’introduir la **informació del clúster**.
+1. A continuació, hauràs d’introduir la **informació del clúster**.
 
-<img src="../../../img/image-61.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-61.png}
+\end{center}
 
+1. Per obtindre aquesta informació, torna al node principal del clúster i fes clic a **Join Information**.
 
-4. Per obtindre aquesta informació, torna al node principal del clúster i fes clic a **Join Information**.
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-62.png}
+\end{center}
 
-<img src="../../../img/image-62.png" alt="GRUB" width="60%">
+1. Copia aquesta informació i torna al node secundari. Enganxa-la al formulari per unir-se.
 
-5. Copia aquesta informació i torna al node secundari. Enganxa-la al formulari per unir-se.
-
-<img src="../../../img/image-63.png" alt="GRUB" width="60%">
-
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-63.png}
+\end{center}
 
 1. Fes clic a **Unir-se**. Si tot és correcte, el node s’afegirà automàticament al clúster.
 
-<img src="../../../img/image-64.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-64.png}
+\end{center}
 
-## \emoji{heavy plus sign} 3. Afegir més nodes
+## \emoji{heavy-plus-sign} 3. Afegir més nodes
 
 Per afegir més nodes, repeteix exactament el mateix procés:
 
@@ -1028,9 +1194,111 @@ Per afegir més nodes, repeteix exactament el mateix procés:
 
 \emoji{end} I amb això ja tindràs un clúster Proxmox funcional amb diversos nodes!
 
-<img src="../../../img/image-64.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-64.png}
+\end{center}
 
-\newpage
+### \emoji{package} Descàrrega de plantilles per a Contenidors (CT)
+
+Per a poder crear un contenidor, és necessari **disposar d’un *template*** (plantilla) corresponent al sistema operatiu desitjat.
+
+1. Ves a la secció de **Storage** (almacenament)
+2. Selecciona l’opció **Templates**
+3. Tens diverses maneres d’obtindre una plantilla:
+
+   * \emoji{outbox-tray} **Pujar-la manualment** (upload)
+   * \emoji{link} **Descarregar-la des d’una URL externa**
+   * \emoji{inbox-tray} **Utilitzar les plantilles predefinides** que ofereix Proxmox
+
+\emoji{pushpin} En el nostre cas, utilitzarem la tercera opció: **plantilles predefinides**
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-37.png}
+\end{center}
+
+Per a aquest projecte, descarregarem i utilitzarem plantilles de:
+
+* **Debian**
+* **Fedora**
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-38.png}
+\end{center}
+
+### \emoji{file-folder} Preparació per a crear una Màquina Virtual (VM)
+
+Per a crear una màquina virtual, és necessari **pujar una ISO** del sistema operatiu al nostre *storage*. Aquesta ISO s’ubica dins de la categoria de **"ISO Images"**.
+
+1. Ves a `Datacenter → Storage`
+2. Selecciona el teu emmagatzematge
+3. Fes clic a **Upload**
+4. Pujar la imatge ISO corresponent (ex. Debian, Ubuntu, Windows...)
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-39.png}
+\end{center}
+
+## \emoji{bricks} Creació d’un Contenidor (CT)
+
+Un cop tenim el *template* descarregat, podem crear un contenidor amb els passos següents:
+
+### \emoji{compass} Pas 1: Inici de la creació
+
+1. Fes clic a **Create CT** (Crear CT)
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-40.png}
+\end{center}
+
+### \emoji{memo} Pas 2: Informació bàsica
+
+Introdueix les dades del contenidor:
+
+* **Node:** on es desplegarà
+* **CT ID:** identificador únic
+* **Hostname:** nom del sistema
+* **Resource Pool:** (opcional) agrupació de recursos
+* **Password:** per a l’accés del root
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-41.png}
+\end{center}
+
+### \emoji{package} Pas 3: Selecció del *Template*
+
+Selecciona la plantilla que has descarregat anteriorment.
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-42.png}
+\end{center}
+
+### \emoji{computer-disk} Pas 4: Emmagatzematge
+
+Indica quin **storage** utilitzarà el contenidor.
+
+### \emoji{abacus} Pas 5: Configuració de recursos
+
+* **CPU:** nombre de nuclis assignats
+
+* **RAM:** memòria en MB
+
+### \emoji{globe-with-meridians} Pas 6: Xarxa
+
+Defineix la configuració de xarxa (bridge, IP, VLAN, etc.)
+
+### Finalització
+
+Un cop completats tots els passos, el contenidor serà creat i apareixerà a la llista de recursos del node.
+
+## \emoji{desktop-computer} Creació d’una Màquina Virtual (VM)
+
+Els passos per crear una màquina virtual són **molt similars** als del contenidor, amb l’única diferència que:
+
+* Es selecciona una **ISO** en lloc d’un *template*
+* Es configura un **disc virtual** (en format qcow2, raw o ZFS)
+* Es defineixen opcions d’instal·lació del sistema operatiu (com si fos una màquina física)
+
+\emoji{repeat-button} Un cop creats els contenidors i les màquines virtuals, ja es poden **programar còpies de seguretat regulars** mitjançant **Proxmox Backup Server (PBS)** o les eines integrades en Proxmox VE.
 
 ### \emoji{brain} 4 Introducció a **Ceph** i Integració amb **Proxmox VE**
 
@@ -1038,7 +1306,7 @@ Per afegir més nodes, repeteix exactament el mateix procés:
 
 La instal·lació de Ceph en un entorn **Proxmox VE** es pot fer de manera centralitzada i senzilla gràcies a la seua integració nativa. A continuació es detallen els passos principals per a desplegar Ceph en un clúster de Proxmox:
 
-#### \emoji{puzzle piece} Requisits previs
+#### \emoji{puzzle-piece} Requisits previs
 
 Abans de començar amb la instal·lació, cal assegurar:
 
@@ -1047,7 +1315,7 @@ Abans de començar amb la instal·lació, cal assegurar:
 * Discos dedicats per a Ceph (no utilitzar el mateix disc que el sistema operatiu)
 * Una configuració bàsica del clúster de Proxmox ja establida
 
-#### \emoji{hammer and wrench} Passos d’instal·lació
+#### \emoji{hammer-and-wrench} Passos d’instal·lació
 
 1. **Accedir a la interfície web de Proxmox**
 
@@ -1059,58 +1327,75 @@ Abans de començar amb la instal·lació, cal assegurar:
    * A l’apartat `Ceph`, fes clic a **Install Ceph**
    * El sistema instal·larà automàticament els paquets necessaris (`ceph`, `ceph-common`, etc.)
 
-<img src="../../../img/image-66.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-66.png}
+\end{center}
 
-<img src="../../../img/image-67.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-67.png}
+\end{center}
 
-3. **Crear els monitors (MON)**
+1. **Crear els monitors (MON)**
 
    * Un mínim de **tres monitors** és recomanat per garantir el quorum
    * Des de l’apartat `Monitor`, fes clic a **Create Monitor**
 
-<img src="../../../img/image-68.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-68.png}
+\end{center}
 
-<img src="../../../img/image-69.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-69.png}
+\end{center}
 
-4. **Afegir el gestor (MGR)**
+1. **Afegir el gestor (MGR)**
 
    * Necessari per a la interfície gràfica i gestió avançada
    * Crea’l des de la mateixa pestanya amb el botó **Create Manager**
 
-<img src="../../../img/image-70.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-70.png}
+\end{center}
 
-5. **Afegir els OSDs (Object Storage Daemons)**
+1. **Afegir els OSDs (Object Storage Daemons)**
 
    * Els OSDs són els processos que gestionen els discos durs del clúster
    * Ves a `OSD → Create OSD`, selecciona el disc físic i crea’l
    * Repeteix el procés per a cada node i disc dedicat
 
-<img src="../../../img/image-71.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-71.png}
+\end{center}
 
-
-<p align="center">
-<img src="../../../img/image-72.png" alt="GRUB" width="60%">
-</p>
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-72.png}
+\end{center}
 
 * Com tenim 2 discos per cada node (menos en el node 3 que sols hi ha 1)de proxmox haurem de repetir el proccess dos voltes
 
 **Node 1:**
 
-<img src="../../../img/image-73.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-73.png}
+\end{center}
 
 **Node 2**
 
-<img src="../../../img/image-74.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-74.png}
+\end{center}
 
 **Node 3**
 
-<img src="../../../img/image-75.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-75.png}
+\end{center}
 
 1. **(Opcional) Crear un MDS (Metadata Server)**
 
    * Només si vols utilitzar **CephFS** com a sistema de fitxers compartit
 
-    ##### **\emoji{open file folder} Què són els metadades?**
+    ##### **\emoji{open-file-folder} Què són els metadades?**
     Els metadades són informació sobre els fitxers, com ara:
 
     Noms de fitxers i directoris
@@ -1127,48 +1412,48 @@ Abans de començar amb la instal·lació, cal assegurar:
     
     Quan utilitzes CephFS (el sistema de fitxers distribuït de Ceph), el Metadata Server:
 
-    Controla l’estructura i organització del sistema de fitxers
+    - Controla l’estructura i organització del sistema de fitxers
 
-    Processa operacions com ls, mkdir, rm, mv, etc.
+    - Processa operacions com ls, mkdir, rm, mv, etc.
 
-    Fa que les consultes de fitxers siguen ràpides i escalables
+    - Fa que les consultes de fitxers siguen ràpides i escalables
 
-    Allibera als OSDs d’aquesta tasca perquè es centren només en llegir i escriure dades
+    - Allibera als OSDs d’aquesta tasca perquè es centren només en llegir i escriure dades
 
-### 4.3 \emoji{building construction} Creació de Pools d’Emmagatzematge en Ceph
+### 4.3 \emoji{building-construction} Creació de Pools d’Emmagatzematge en Ceph
 
-Els **pools d’emmagatzematge** són una part fonamental en l’arquitectura de **Ceph**, ja que representen els espais lògics on es distribueixen les dades entre els diferents OSDs del clúster. A cada pool se li pot assignar una funció específica, com ara allotjar màquines virtuals, contenidors o fitxers de CephFS.
-
-### \emoji{magnifying glass tilted left} Què és un Pool?
-
-Un **pool** és una agrupació lògica d’objectes dins del clúster Ceph. Cada objecte dins d’un pool es reparteix entre els OSDs segons una política de distribució definida, garantint així la replicació i la tolerància a fallades.
-
-### \emoji{hammer and wrench} Creació d’un Pool pas a pas en Proxmox VE
+### \emoji{hammer-and-wrench} Creació d’un Pool pas a pas en Proxmox VE
 
 1. Accedeix a la interfície web de **Proxmox VE**
 2. Ves a `Datacenter → Ceph → Pools`
 3. Fes clic a **Create**
 
-<img src="../../../img/image-76.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-76.png}
+\end{center}
 
-4. Emplena els camps següents:
+1. Emplena els camps següents:
 
    * **Nom del pool:** (ex. `vm_data`, `cephfs_data`, `backups`)
    * **Nombre de rèpliques (Size):** recomanat mínim **3** per a alta disponibilitat
    * **Min. rèpliques (Min. Size):** mínim **2** per a mantenir el servei actiu amb una fallada
    * **Crush Rule:** regla de distribució entre els dispositius de disc
 
-<p align="center">
-<img src="../../../img/image-77.png" alt="GRUB" width="60%">
-</p>
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-77.png}
+\end{center}
 
 1. Fes clic a **Create** i espera a que el pool aparega a la llista
 
-<img src="../../../img/image-78.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-78.png}
+\end{center}
 
 Al pas d'un temps podem veure com en els nodes apareix l'almacenament del ceph.
 
-<img src="../../../img/image-79.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-79.png}
+\end{center}
 
 ### \emoji{brain} Consideracions importants
 
@@ -1176,7 +1461,7 @@ Al pas d'un temps podem veure com en els nodes apareix l'almacenament del ceph.
 * És possible crear **pools separats** per a diferents usos (ex: un per a VM i un altre per a CephFS).
 * Es poden utilitzar **regles CRUSH** per controlar com es distribueixen les dades per racks, discos o ubicacions físiques.
 
-### \emoji{check mark button} Resultat
+### \emoji{check-mark-button} Resultat
 
 Amb el pool creat, ja pots:
 
@@ -1188,11 +1473,11 @@ Amb el pool creat, ja pots:
 
 Una vegada el clúster Ceph està desplegat i operatiu, és fonamental realitzar proves de **rendiment** i **replicació** per a verificar el correcte funcionament de l’emmagatzematge distribuït, així com garantir la **fiabilitat** i **eficiència** del sistema.
 
-### \emoji{bar chart} Proves de rendiment
+### \emoji{bar-chart} Proves de rendiment
 
 Les proves de rendiment ens permeten mesurar la **velocitat de lectura i escriptura** dels dispositius Ceph, així com la **latència** i **capacitat de resposta** del clúster.
 
-#### \emoji{test tube} Eines recomanades:
+#### \emoji{test-tube} Eines recomanades:
 
 * `rados bench` → eina pròpia de Ceph per mesurar el rendiment de lectura/escriptura
 * `fio` → eina externa per fer proves personalitzades d’I/O
@@ -1210,11 +1495,11 @@ rados bench -p vm-data 60 seq
 rados bench -p vm-data 60 rand
 ```
 
-<p align="center">
-<img src="../../../img/image-80.png" alt="GRUB" width="60%">
-</p>
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-80.png}
+\end{center}
 
-### \emoji{check mark button} Resultat esperat
+### \emoji{check-mark-button} Resultat esperat
 
 * Les proves d’escriptura i lectura han de mostrar valors de rendiment estables i adequats segons el teu hardware.
 * La replicació ha de funcionar de manera automàtica, garantint la integritat i disponibilitat de les dades davant qualsevol fallada.
@@ -1234,7 +1519,7 @@ pveceph mon create
 pveceph osd create /dev/sdX
 ```
 
-### \emoji{check mark button} Resultat
+### \emoji{check-mark-button} Resultat
 
 Una vegada configurats els **MON**, **MGR** i **OSD**, el clúster Ceph estarà operatiu. Ja pots procedir a:
 
@@ -1242,7 +1527,7 @@ Una vegada configurats els **MON**, **MGR** i **OSD**, el clúster Ceph estarà 
 * Assignar-los com a backend per a màquines virtuals
 * Monitorar l’estat del clúster des de la interfície de Proxmox
 
-### \emoji{recycling symbol} Proves de replicació
+### \emoji{recycling-symbol} Proves de replicació
 
 Ceph replica les dades entre OSDs segons la configuració de rèpliques (per defecte 3). És important verificar que:
 
@@ -1262,21 +1547,25 @@ Ceph replica les dades entre OSDs segons la configuració de rèpliques (per def
 
 2. Observa com Ceph reporta l’estat *degraded* i com reubica les dades.
 
-<img src="../../../img/image-81.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-81.png}
+\end{center}
 
-3. Torna a engegar l’OSD i comprova la **reestructuració automàtica**:
+1. Torna a engegar l’OSD i comprova la **reestructuració automàtica**:
 
    ```bash
    systemctl start ceph-osd@X
    ```
 
-<img src="../../../img/image-82.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-82.png}
+\end{center}
 
-### \emoji{chart increasing} 4.5 Gestió i Monitoratge de **Ceph**
+### \emoji{chart-increasing} 4.5 Gestió i Monitoratge de **Ceph**
 
 Una vegada desplegat el clúster **Ceph**, és fonamental realitzar una gestió i monitoratge continuat per garantir l’estabilitat, el rendiment i la disponibilitat de les dades. Proxmox VE ofereix una **integració nativa amb Ceph**, que facilita tant el control operatiu com la detecció anticipada de possibles incidències.
 
-### \emoji{hammer and wrench} Eines de gestió disponibles
+### \emoji{hammer-and-wrench} Eines de gestió disponibles
 
 Proxmox proporciona diversos mètodes per gestionar Ceph:
 
@@ -1302,7 +1591,7 @@ ceph health detail      # Informació detallada de salut
 ceph osd out/in <id>    # Marcar un OSD com a fora o dins del clúster
 ```
 
-### \emoji{bar chart} Monitoratge actiu del clúster
+### \emoji{bar-chart} Monitoratge actiu del clúster
 
 Els principals paràmetres a controlar de forma contínua són:
 
@@ -1313,7 +1602,7 @@ Els principals paràmetres a controlar de forma contínua són:
 * **Latències de lectura i escriptura**
 * **Rebalanceig de dades en cas de fallada o afegit de nous discos**
 
-### \emoji{satellite antenna} Integració amb eines externes
+### \emoji{satellite-antenna} Integració amb eines externes
 
 Encara que Proxmox proporciona visualització bàsica, pots integrar Ceph amb eines de monitoratge més potents com:
 
@@ -1321,14 +1610,14 @@ Encara que Proxmox proporciona visualització bàsica, pots integrar Ceph amb ei
 * **Zabbix** o **Nagios**, mitjançant plugins
 * Alertes per correu electrònic o sistemes de notificació
 
-### \emoji{light bulb} Recomanacions de manteniment
+### \emoji{light-bulb} Recomanacions de manteniment
 
-* \emoji{repeat button} **Revisar l’estat del clúster regularment**
-* \emoji{test tube} **Simular fallades controlades** per validar la replicació i recuperació
+* \emoji{repeat-button} **Revisar l’estat del clúster regularment**
+* \emoji{test-tube} **Simular fallades controlades** per validar la replicació i recuperació
 * \emoji{package} **No sobrecarregar els OSDs**; mantindre un marge de capacitat lliure
-* \emoji{stop sign} **Evitar la pèrdua simultània de múltiples discos** amb rèpliques mínimes
+* \emoji{stop-sign} **Evitar la pèrdua simultània de múltiples discos** amb rèpliques mínimes
 
-### \emoji{check mark button} Resultat
+### \emoji{check-mark-button} Resultat
 
 Amb una correcta gestió i monitoratge, es garanteix que el clúster Ceph oferisca un rendiment estable, altament disponible i resistent a fallades, adaptat a les necessitats de l’entorn virtualitzat en Proxmox VE.
 
@@ -1350,11 +1639,11 @@ Per a fer ús de la funcionalitat HA, cal que:
 * Assegura’t que el **HA Manager** està actiu
 * Cada node mostrarà el seu estat (online, standby, etc.)
 
-<p align="center">
-<img src="../../../img/image-83.png" alt="GRUB" width="60%">
-</p>
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-83.png}
+\end{center}
 
-### \emoji{puzzle piece} 5.2 Definició de Grups HA
+### \emoji{puzzle-piece} 5.2 Definició de Grups HA
 
 Els **grups HA** permeten organitzar i assignar màquines virtuals o contenidors per a gestionar millor les polítiques de tolerància a fallades.
 
@@ -1362,14 +1651,16 @@ Els **grups HA** permeten organitzar i assignar màquines virtuals o contenidors
 
 1. Ves a `Datacenter → HA → Groups`
 
-<img src="../../../img/image-84.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-84.png}
+\end{center}
 
 1. Fes clic a **Create**
 2. Assigna:
 
-<p align="center">
-<img src="../../../img/image-85.png" alt="GRUB" width="60%">
-</p>
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-85.png}
+\end{center}
 
    * **Nom del grup**
    * **Nodes preferits** per executar el servei
@@ -1377,7 +1668,7 @@ Els **grups HA** permeten organitzar i assignar màquines virtuals o contenidors
 
 Després, quan crees o edites una VM/CT, pots assignar-la a un grup HA.
 
-### \emoji{repeat button} 5.3 Proves de Tolerància a Fallades (Failover de Màquines Virtuals)
+### \emoji{repeat-button} 5.3 Proves de Tolerància a Fallades (Failover de Màquines Virtuals)
 
 Per assegurar el correcte funcionament de la configuració HA, és recomanable fer proves de **failover controlades**:
 
@@ -1385,31 +1676,37 @@ Per assegurar el correcte funcionament de la configuració HA, és recomanable f
 
 1. Assigna una VM a un grup HA
 
-<p align="center">
-<img src="../../../img/image-86.png" alt="GRUB" width="60%">
-</p>
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-86.png}
+\end{center}
 
-2. Para o apaga un node manualment
+1. Para o apaga un node manualment
 
-<img src="../../../img/image-87.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-87.png}
+\end{center}
 
-3. Observa com la VM és **migrada automàticament** a un altre node disponible
-4. Verifica que el servei continua operatiu sense intervenció manual
+1. Observa com la VM és **migrada automàticament** a un altre node disponible
+2. Verifica que el servei continua operatiu sense intervenció manual
 
-<img src="../../../img/image-89.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-89.png}
+\end{center}
 
-\emoji{magnifying glass tilted left} Es pot monitorar aquest procés des de `Datacenter → HA → Status`.
+\emoji{magnifying-glass-tilted-left} Es pot monitorar aquest procés des de `Datacenter → HA → Status`.
 
-<img src="../../../img/image-90.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-90.png}
+\end{center}
 
 Per descomptat! Ací tens el fragment redactat de manera formal i clara, ideal per afegir com a continuació dins del punt 5.4 o com un subapartat pràctic de **recuperació post-fallada**:
 
-### \emoji{light bulb} 5.4 Casos d’Ús i Recuperació davant Caigudes de Nodes
+### \emoji{light-bulb} 5.4 Casos d’Ús i Recuperació davant Caigudes de Nodes
 
 Els entorns amb HA actiu poden recuperar-se de forma automàtica en diferents situacions:
 
-* \emoji{electric plug} **Fallada de hardware o energia** en un node
-* \emoji{fire extinguisher} **Actualitzacions crítiques** que requereixen reinici
+* \emoji{electric-plug} **Fallada de hardware o energia** en un node
+* \emoji{fire-extinguisher} **Actualitzacions crítiques** que requereixen reinici
 * \emoji{gear} **Errors de sistema** o problemes de rendiment greu
 
 En cada cas:
@@ -1422,11 +1719,11 @@ En cada cas:
 
 Una màquina virtual crítica (servidor web, base de dades, etc.) està configurada amb HA. Si el node cau inesperadament, aquesta VM es reinicia en un altre node en qüestió de segons, garantint la continuïtat del servei.
 
-### \emoji{check mark button} Resultat
+### \emoji{check-mark-button} Resultat
 
 Amb la configuració HA en Proxmox VE, es millora significativament la **resiliència de la infraestructura virtualitzada**, assegurant que els serveis essencials estiguen disponibles **24/7**, fins i tot davant fallades greus.
 
-### \emoji{repeat button} Recuperació manual de màquines HA al seu node original
+### \emoji{repeat-button} Recuperació manual de màquines HA al seu node original
 
 Després d’una **caiguda temporal d’un node** del clúster, el sistema **HA de Proxmox** trasllada automàticament les màquines virtuals o contenidors afectats a un altre node disponible per garantir la continuïtat del servei.
 
@@ -1447,17 +1744,19 @@ Un cop el node original torna a estar **en línia i estable**, és **recomanable
 
 \emoji{pushpin} *Nota:* La migració es pot fer en calent (**live migration**) si la màquina suporta aquesta funcionalitat (generalment les VMs amb discs en Ceph o ZFS compartit).
 
-### \emoji{check mark button} Resultat
+### \emoji{check-mark-button} Resultat
 
 Amb aquest procés, la màquina recupera la seua ubicació inicial, mantenint-se dins del grup HA i **preparada per a futures gestions automàtiques** de tolerància a fallades.
 
-<img src="../../../img/image-91.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-91.png}
+\end{center}
 
-## \emoji{busts in silhouette} 7. Gestió d’Usuaris i Pools de Recursos
+## \emoji{busts-in-silhouette} 7. Gestió d’Usuaris i Pools de Recursos
 
 En entorns virtualitzats compartits, com un clúster de **Proxmox VE**, és fonamental establir una **gestió d’usuaris estructurada**, amb **permisos diferenciats** i assignació clara de **recursos**, per garantir la **seguretat, control i eficiència operativa**.
 
-### \emoji{locked with key} 7.1 Creació de Rols Personalitzats i Permisos
+### \emoji{locked-with-key} 7.1 Creació de Rols Personalitzats i Permisos
 
 **Proxmox VE** ofereix un sistema de permisos basat en rols, que permet definir què pot fer cada usuari dins del sistema. Aquest model RBAC (Role-Based Access Control) es basa en tres elements:
 
@@ -1477,9 +1776,13 @@ En entorns virtualitzats compartits, com un clúster de **Proxmox VE**, és fona
    * `VM.Console`
    * `Sys.Console`
 
-<img src="../../../img/image-92.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-92.png}
+\end{center}
 
-<img src="../../../img/image-93.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-93.png}
+\end{center}
 
 #### \emoji{plus} Assignació del rol:
 
@@ -1492,41 +1795,55 @@ En entorns virtualitzats compartits, com un clúster de **Proxmox VE**, és fona
 
 Això permet donar accés restringit a determinats recursos dins del clúster.
 
-<img src="../../../img/image-94.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-94.png}
+\end{center}
 
-<img src="../../../img/image-95.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-95.png}
+\end{center}
 
 En este cas he creat un usuari de prova per a assignar el rol creat.
 
-<img src="../../../img/image-96.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-96.png}
+\end{center}
 
-### \emoji{card index dividers} 7.2 Definició de Pools de Recursos
+### \emoji{card-index-dividers} 7.2 Definició de Pools de Recursos
 
 Els **pools** són agrupacions lògiques de recursos (VMs, CTs, discos, etc.) que permeten facilitar la gestió, especialment en entorns multiusuari o amb departaments diferenciats.
 
-#### \emoji{hammer and wrench} Creació d’un pool:
+#### \emoji{hammer-and-wrench} Creació d’un pool:
 
 1. Ves a `Datacenter → Permissions → Pools`
 2. Fes clic a **Create**
 
-<img src="../../../img/image-97.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-97.png}
+\end{center}
 
 1. Emplena:
 
    * **Nom del pool:** ex. `departament_it`, `desenvolupament`
    * **Descripció** (opcional)
 
-<img src="../../../img/image-98.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-98.png}
+\end{center}
 
 1. Afegeix les VMs o CTs desitjades al pool
 
 En este cas anem a fer que el usuari proba puga vore la vm 108(Windows10)
 
-<img src="../../../img/image-99.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-99.png}
+\end{center}
 
 Assignacio del pool al usuari proba amb el rol  que hem creat.
 
-<img src="../../../img/image-100.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-100.png}
+\end{center}
 
 Els pools són útils per:
 
@@ -1534,7 +1851,7 @@ Els pools són útils per:
 * Organitzar recursos segons projectes o àrees de treball
 * Limitar l’accés només a les màquines assignades
 
-### \emoji{bust in silhouette} 7.3 Gestió Delegada i Multiusuari
+### \emoji{bust-in-silhouette} 7.3 Gestió Delegada i Multiusuari
 
 Amb els **rols** i **pools**, es pot habilitar un entorn **multiusuari segur**, on cada usuari o equip tinga accés només als recursos que li pertoquen.
 
@@ -1545,23 +1862,188 @@ Amb els **rols** i **pools**, es pot habilitar un entorn **multiusuari segur**, 
 * **Rol aplicat:** `PVEVMUser` (amb permisos per iniciar/parar/migrar màquines)
 * Resultat: Anna només pot gestionar les VMs del pool `marketing_vms`, sense accedir a cap altre recurs del sistema
 
-<img src="../../../img/image-101.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-101.png}
+\end{center}
 
-<img src="../../../img/image-102.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-102.png}
+\end{center}
 
-<img src="../../../img/image-103.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-103.png}
+\end{center}
 
-<img src="../../../img/image-104.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-104.png}
+\end{center}
 
-### \emoji{check mark button} Beneficis
+### \emoji{check-mark-button} Beneficis
 
 * \emoji{locked} Major seguretat mitjançant la separació de privilegis
 * \emoji{family} Facilitat per delegar la gestió a equips tècnics o usuaris finals
-* \emoji{puzzle piece} Escalabilitat per a entorns educatius, empresarials o d'hosting
+* \emoji{puzzle-piece} Escalabilitat per a entorns educatius, empresarials o d'hosting
+
+## \emoji{test-tube} Casos Pràctics de Gestió Delegada i Multiusuari en Proxmox VE
+
+### \emoji{graduation-cap} **Cas 1: Entorn educatiu amb alumnes de pràctiques**
+
+#### Escenari:
+
+L’institut ha desplegat un clúster de Proxmox per a alumnes del cicle de sistemes. Cada alumne ha de gestionar una VM pròpia, però sense accés al sistema complet.
+
+#### Configuració:
+
+* **Usuari:** `alumne01@pve`
+* **Pool:** `alumnes`
+* **VM assignada:** `vm104` (alumne01-ubuntu24)
+* **Rol:** `PVEVMUser`
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-105.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-106.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-107.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-108.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-109.png}
+\end{center}
+
+#### Resultat:
+
+L’alumne pot:
+
+* Engegar/parar la seua VM
+* Accedir per consola
+* No pot crear ni esborrar màquines
+* No pot veure cap altra VM
+
+### \emoji{office-building} **Cas 2: Departament de Desenvolupament en una empresa**
+
+#### Escenari:
+
+L’equip de desenvolupament necessita accedir a diverses màquines de testing, però no ha de poder modificar la infraestructura general.
+
+#### Configuració:
+
+* **Usuaris:** `david@pve`, `jordi@pve`
+* **Pool:** `dev_pool`
+* **Rols:** `gestor_vm_custom` (creat amb permisos limitats com `VM.Console`, `VM.Start`, `VM.Shutdown`)
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-110.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-111.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-112.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-113.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-114.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-115.png}
+\end{center}
+
+#### Resultat:
+
+Els usuaris poden:
+
+* Utilitzar i gestionar les seues VMs
+* No poden crear VMs noves ni modificar configuracions globals
+
+### \emoji{hammer-and-wrench} **Cas 3: Tècnic amb accés complet a un node concret**
+
+#### Escenari:
+
+Un tècnic extern col·labora en la gestió de sistemes, però només se li vol donar accés al node `node3`.
+
+#### Configuració:
+
+* **Usuari:** `tecnic@pve`
+* **Àrea assignada:** `/nodes/node3`
+* **Rol:** `PVEAdmin`
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-116.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-117.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-118.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-119.png}
+\end{center}
+
+#### Resultat:
+
+Té accés complet només a les màquines i configuració d’eixe node, però no pot accedir a altres nodes ni al datacenter.
+
+### \emoji{jigsaw} **Cas 4: Hosting amb gestió delegada per client**
+
+#### Escenari:
+
+Una empresa ofereix màquines virtuals com a servei. Cada client gestiona la seua pròpia màquina.
+
+#### Configuració:
+
+* **Client:** `client_a@pve`
+* **Pool:** `client_a_pool`
+* **VM assignada:** `vm104`
+* **Rol:** `PVEVMUser`
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-122.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-123.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-124.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-125.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-126.png}
+\end{center}
+
+
+#### Resultat:
+
+Cada client pot administrar la seua pròpia màquina, sense cap visibilitat sobre altres clients o parts del sistema.
 
 ### **8.1. Actualitzacions i Pegats de Seguretat**
 
-\emoji{check mark button} **Accions recomanades:**
+\emoji{check-mark-button} **Accions recomanades:**
 
 * **Actualitzar regularment**:
 
@@ -1582,7 +2064,7 @@ Amb els **rols** i **pools**, es pot habilitar un entorn **multiusuari segur**, 
 
 ### **8.2. Configuració del Tallafoc en Proxmox**
 
-\emoji{check mark button} **Accions recomanades:**
+\emoji{check-mark-button} **Accions recomanades:**
 
 * Activar el **tallafoc integrat** en Proxmox (GUI: `Datacenter > Firewall`).
 * Reglas bàsiques:
@@ -1597,7 +2079,7 @@ Amb els **rols** i **pools**, es pot habilitar un entorn **multiusuari segur**, 
 
 ### **8.3. Còpies de Seguretat de la Configuració**
 
-\emoji{check mark button} **Accions recomanades:**
+\emoji{check-mark-button} **Accions recomanades:**
 
 * **Fer còpia de seguretat de la configuració del clúster**:
 
@@ -1611,7 +2093,7 @@ Amb els **rols** i **pools**, es pot habilitar un entorn **multiusuari segur**, 
 
 ### **8.4. Bones Pràctiques d’Administració**
 
-\emoji{check mark button} **Accions recomanades:**
+\emoji{check-mark-button} **Accions recomanades:**
 
 * **Activar l’autenticació en dos passos (2FA)** per a la GUI de Proxmox (GUI: `Datacenter > Permissions > Users`).
 * **Restringir l'accés per SSH**:
@@ -1632,11 +2114,11 @@ Amb els **rols** i **pools**, es pot habilitar un entorn **multiusuari segur**, 
 
 En aquest projecte s’ha optat per utilitzar **Netdata en mode núvol** (*Netdata Cloud*) per garantir:
 
-* \emoji{globe with meridians} **Accessibilitat des de qualsevol lloc** amb connexió a Internet
+* \emoji{globe-with-meridians} **Accessibilitat des de qualsevol lloc** amb connexió a Internet
 * \emoji{cloud} **Alta disponibilitat** sense necessitat de desplegar servidors de monitoratge propis
-* \emoji{chart increasing} Visualització centralitzada de tots els nodes Proxmox i del PBS en un únic panell
+* \emoji{chart-increasing} Visualització centralitzada de tots els nodes Proxmox i del PBS en un únic panell
 
-#### \emoji{hammer and wrench} Instal·lació i connexió al núvol:
+#### \emoji{hammer-and-wrench} Instal·lació i connexió al núvol:
 
 1. Crear un compte gratuït a [https://app.netdata.cloud](https://app.netdata.cloud)
 2. En cada node Proxmox:
@@ -1669,15 +2151,15 @@ En lloc de desplegar una instància de monitorització local o en cada node, en 
 
 Aquesta estratègia es basa en instal·lar únicament l’**agent de Netdata** a cada node que es vulga monitoritzar, i connectar-lo al panell de control global de Netdata Cloud.
 
-#### \emoji{check mark button} Avantatges de fer servir el núvol:
+#### \emoji{check-mark-button} Avantatges de fer servir el núvol:
 
 * \emoji{locked} **Alta disponibilitat:** La plataforma està disponible 24/7 des de qualsevol lloc
-* \emoji{globe with meridians} **Accessibilitat centralitzada:** Tots els nodes es poden supervisar des d’un únic panell
-* \emoji{chart increasing} **Visualització interactiva:** Gràfics en temps real i alertes integrades
-* \emoji{puzzle piece} **Zero manteniment de servidors de monitoratge locals**
+* \emoji{globe-with-meridians} **Accessibilitat centralitzada:** Tots els nodes es poden supervisar des d’un únic panell
+* \emoji{chart-increasing} **Visualització interactiva:** Gràfics en temps real i alertes integrades
+* \emoji{puzzle-piece} **Zero manteniment de servidors de monitoratge locals**
 * \emoji{bell} Possibilitat de configurar notificacions (Slack, correu, Discord...)
 
-### \emoji{hammer and wrench} Procediment bàsic
+### \emoji{hammer-and-wrench} Procediment bàsic
 
 1. Crear un compte gratuït en [https://app.netdata.cloud](https://app.netdata.cloud)
 2. En cada node que es vulga monitoritzar:
@@ -1688,175 +2170,51 @@ Aquesta estratègia es basa en instal·lar únicament l’**agent de Netdata** a
       wget -O /tmp/netdata-kickstart.sh https://get.netdata.cloud/kickstart.sh && sh /tmp/netdata-kickstart.sh --nightly-channel --claim-token 2j7CJC_yS3oDQ9DD4eVlLNMV5ecx0WeqwfvNvfOthCcBCkXRLoysr-TKkc5GLM9BzHmlE9Bb36sQghRHfbOsn4rhSEDnd4TmTaabd__6loq4Vceb_o5BitgLI_1gfT4D5pCzx4o --claim-rooms 6ff6ecc7-275c-4404-a4a0-5fac76e79776 --claim-url https://app.netdata.cloud
      ```
 
-      <img src="../../../img/image-120.png" alt="GRUB" width="60%">
+      \begin{center}
+          \includegraphics[width=0.6\textwidth]{../../../img/image-120.png}
+      \end{center}
 
    * Connectar l’agent al compte de Netdata Cloud amb la comanda que proporciona el portal (normalment `netdata-claim.sh`)
 3. Accedir al panell de **Netdata Cloud** i visualitzar tots els nodes en temps real
 
-<img src="../../../img/image-121.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-121.png}
+\end{center}
 
-### ✅ Resultat
+###  Resultat
 
 Amb aquest sistema, es garanteix una **monitorització eficaç i des de qualsevol lloc**, sense haver de desplegar ni mantindre servidors propis per a l’anàlisi. Netdata Cloud facilita una supervisió **proactiva i àgil** del clúster Proxmox i del Proxmox Backup Server (PBS).
 
-## 🧪 Casos Pràctics de Gestió Delegada i Multiusuari en Proxmox VE
-
-### 🎓 **Cas 1: Entorn educatiu amb alumnes de pràctiques**
-
-#### Escenari:
-
-L’institut ha desplegat un clúster de Proxmox per a alumnes del cicle de sistemes. Cada alumne ha de gestionar una VM pròpia, però sense accés al sistema complet.
-
-#### Configuració:
-
-* **Usuari:** `alumne01@pve`
-* **Pool:** `alumnes`
-* **VM assignada:** `vm104` (alumne01-ubuntu24)
-* **Rol:** `PVEVMUser`
-
-<img src="../../../img/image-105.png" alt="GRUB" width="60%">
-
-<img src="../../../img/image-106.png" alt="GRUB" width="60%">
-
-<img src="../../../img/image-107.png" alt="GRUB" width="60%">
-
-<img src="../../../img/image-108.png" alt="GRUB" width="60%">
-
-<img src="../../../img/image-109.png" alt="GRUB" width="60%">
-
-#### Resultat:
-
-L’alumne pot:
-
-* Engegar/parar la seua VM
-* Accedir per consola
-* No pot crear ni esborrar màquines
-* No pot veure cap altra VM
-
----
-
-### 🏢 **Cas 2: Departament de Desenvolupament en una empresa**
-
-#### Escenari:
-
-L’equip de desenvolupament necessita accedir a diverses màquines de testing, però no ha de poder modificar la infraestructura general.
-
-#### Configuració:
-
-* **Usuaris:** `david@pve`, `jordi@pve`
-* **Pool:** `dev_pool`
-* **Rols:** `gestor_vm_custom` (creat amb permisos limitats com `VM.Console`, `VM.Start`, `VM.Shutdown`)
-
-<img src="../../../img/image-110.png" alt="GRUB" width="60%">
-
-<img src="../../../img/image-111.png" alt="GRUB" width="60%">
-
-<img src="../../../img/image-112.png" alt="GRUB" width="60%">
-
-<img src="../../../img/image-113.png" alt="GRUB" width="60%">
-
-<img src="../../../img/image-114.png" alt="GRUB" width="60%">
-
-<img src="../../../img/image-115.png" alt="GRUB" width="60%">
-
-#### Resultat:
-
-Els usuaris poden:
-
-* Utilitzar i gestionar les seues VMs
-* No poden crear VMs noves ni modificar configuracions globals
-
----
-
-### 🛠️ **Cas 3: Tècnic amb accés complet a un node concret**
-
-#### Escenari:
-
-Un tècnic extern col·labora en la gestió de sistemes, però només se li vol donar accés al node `node3`.
-
-#### Configuració:
-
-* **Usuari:** `tecnic@pve`
-* **Àrea assignada:** `/nodes/node3`
-* **Rol:** `PVEAdmin`
-
-<img src="../../../img/image-116.png" alt="GRUB" width="60%">
-
-<img src="../../../img/image-117.png" alt="GRUB" width="60%">
-
-<img src="../../../img/image-118.png" alt="GRUB" width="60%">
-
-<img src="../../../img/image-119.png" alt="GRUB" width="60%">
-
-#### Resultat:
-
-Té accés complet només a les màquines i configuració d’eixe node, però no pot accedir a altres nodes ni al datacenter.
-
----
-
-### 🧩 **Cas 4: Hosting amb gestió delegada per client**
-
-#### Escenari:
-
-Una empresa ofereix màquines virtuals com a servei. Cada client gestiona la seua pròpia màquina.
-
-#### Configuració:
-
-* **Client:** `client_a@pve`
-* **Pool:** `client_a_pool`
-* **VM assignada:** `vm104`
-* **Rol:** `PVEVMUser`
-
-<img src="../../../img/image-122.png" alt="GRUB" width="60%">
-
-<img src="../../../img/image-123.png" alt="GRUB" width="60%">
-
-<img src="../../../img/image-124.png" alt="GRUB" width="60%">
-
-<img src="../../../img/image-125.png" alt="GRUB" width="60%">
-
-<img src="../../../img/image-126.png" alt="GRUB" width="60%">
-
-#### Resultat:
-
-Cada client pot administrar la seua pròpia màquina, sense cap visibilitat sobre altres clients o parts del sistema.
-
----
-
-### ✅ Conclusions dels casos pràctics
+### Conclusions dels casos pràctics
 
 Aquests escenaris mostren com Proxmox permet adaptar-se fàcilment a entorns **multiusuari**, amb control granular de permisos i una gestió segura i delegada, mantenint la **seguretat**, **eficiència** i **flexibilitat** del sistema.
 
----
-
 # Proxmox Backup Server
 
-# 6. 💾 Proxmox Backup Server (PBS)
+# 6. \emoji{floppy-disk} Proxmox Backup Server (PBS)
 
-## 📂 6.2 Creació del Datastore en Proxmox Backup Server
+## \emoji{open-file-folder} 6.2 Creació del Datastore en Proxmox Backup Server
 
-### 🛑 **Requisits previs**
+### \emoji{stop-sign} **Requisits previs**
 
-> ⚠️ Tots els discos seran esborrats. Assegura’t que **no continguen dades importants** abans de continuar.
+> \emoji{warning} Tots els discos seran esborrats. Assegura’t que **no continguen dades importants** abans de continuar.
 
----
+### \emoji{wrench} 1. Verificar instal·lació de ZFS
 
-### 🔧 1. Verificar instal·lació de ZFS
-
-🔧  Instalar ZFS (si encara no está instalat)
+\emoji{wrench}  Instalar ZFS (si encara no está instalat)
 
 ```bash
 apt update
 apt install zfsutils-linux -y
 ```
 
-<img src="../../../img/image-22.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-22.png}
+\end{center}
 
 Això confirma que el sistema està preparat per a treballar amb pools ZFS.
 
----
-
-### 🗂️ 2. Creació del ZFS pool
+### \emoji{card-index-dividers} 2. Creació del ZFS pool
 
 Existien tres opcions principals per a crear el pool ZFS, depenent del nombre de discos disponibles i les necessitats d’emmagatzematge i redundància:
 
@@ -1864,9 +2222,11 @@ Existien tres opcions principals per a crear el pool ZFS, depenent del nombre de
 * **Opció B**: `mirror` – redundància completa però requereix un nombre parell de discos.
 * **Opció C**: `raidz` – una combinació equilibrada entre espai disponible i tolerància a falles (similar a RAID 5).
 
-👉 **Atés que en aquesta màquina només disposem de tres discos** (`/dev/vda`, `/dev/vdb` i `/dev/vdc`), la millor opció des del punt de vista tècnic és **RAIDZ**, ja que ens ofereix una bona capacitat d’emmagatzematge i alhora permet resistir la fallada d’un disc sense perdre les dades.
+\emoji{backhand-index-pointing-right} **Atés que en aquesta màquina només disposem de tres discos** (`/dev/vda`, `/dev/vdb` i `/dev/vdc`), la millor opció des del punt de vista tècnic és **RAIDZ**, ja que ens ofereix una bona capacitat d’emmagatzematge i alhora permet resistir la fallada d’un disc sense perdre les dades.
 
-<img src="../../../img/image-23.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-23.png}
+\end{center}
 
 Per crear el pool:
 
@@ -1874,11 +2234,11 @@ Per crear el pool:
 zpool create backup-pool raidz /dev/vda /dev/vdb /dev/vdc
 ```
 
-<img src="../../../img/image-24.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-24.png}
+\end{center}
 
----
-
-### ✅ 3. Verificar l’estat del pool
+### 3. Verificar l’estat del pool
 
 Després de la creació, podem comprovar que el pool funciona correctament:
 
@@ -1886,13 +2246,13 @@ Després de la creació, podem comprovar que el pool funciona correctament:
 zpool status
 ```
 
-<img src="../../../img/image-25.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-25.png}
+\end{center}
 
 Hauries de veure un estat **ONLINE** i el pool anomenat `backup-pool`.
 
----
-
-### 🗃️ 4. Crear el datastore en PBS
+### \emoji{card-file-box} 4. Crear el datastore en PBS
 
 A través de la interfície web de PBS:
 
@@ -1901,17 +2261,20 @@ A través de la interfície web de PBS:
 
    * **ID**: `zfs-backup`
    * **Path**: `/backup-pool` (punt de muntatge automàtic creat per ZFS)
+
 3. Fer clic a **Create**
 
 - Creació del **Datastore**
 
-<img src="../../../img/image-26.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-26.png}
+\end{center}
 
-<img src="../../../img/image-27.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-27.png}
+\end{center}
 
----
-
-### 🔄 5. Comprovació i muntatge automàtic
+### \emoji{counterclockwise-arrows-button} 5. Comprovació i muntatge automàtic
 
 ZFS gestiona automàticament el muntatge del pool. Per comprovar-ho:
 
@@ -1926,50 +2289,46 @@ NAME           USED  AVAIL  REFER  MOUNTPOINT
 backup-pool    96K   900G    96K   /backup-pool
 ```
 
-<img src="../../../img/image-28.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-28.png}
+\end{center}
 
 A partir d’aquest moment, el sistema ja pot utilitzar el datastore per a còpies de seguretat, amb les garanties que ofereix ZFS quant a integritat de dades i rendiment.
 
-Perfecte! Ací tens la redacció millorada en **valencià formal**, amb **iconografia** i amb les **faltes corregides**, mantenint el format Markdown:
-
----
-
-## 💾 6.3 Integració amb Proxmox VE
+## \emoji{floppy-disk} 6.3 Integració amb Proxmox VE
 
 Per integrar el **Proxmox Backup Server (PBS)** com a sistema d’emmagatzematge dins del clúster de **Proxmox VE**, cal seguir els passos següents:
 
----
-
-### 🔐 1. Copiar l’**Empremta digital (Fingerprint)** del PBS
+### \emoji{locked-with-key} 1. Copiar l’**Empremta digital (Fingerprint)** del PBS
 
 Accedeix al **Proxmox Backup Server** i ves a:
 
-📍 `Dashboard → Show Fingerprint`
+\emoji{round-pushpin} `Dashboard → Show Fingerprint`
 
 Esta empremta és necessària per establir una connexió segura entre els nodes de Proxmox VE i el servidor PBS.
 
-<img src="../../../img/image-33.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-33.png}
+\end{center}
 
----
-
-### ➕ 2. Afegir l’Almacenament al Clúster de Proxmox
+### \emoji{heavy-plus-sign} 2. Afegir l’Almacenament al Clúster de Proxmox
 
 Una vegada copiada l’empremta, accedim a qualsevol node del clúster de **Proxmox VE** i seguim els passos següents:
 
 1. Ves a **Datacenter → Storage**
 2. Fes clic a **Add** i selecciona l’opció **Proxmox Backup Server**
 
-<img src="../../../img/image-34.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-34.png}
+\end{center}
 
----
-
-### 📝 3. Omplir les Dades de Connexió
+### \emoji{memo} 3. Omplir les Dades de Connexió
 
 Ara introduïm la informació requerida del servidor PBS:
 
-<p align="center">
-<img src="../../../img/image-36.png" alt="GRUB" width="60%">
-</p>
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-36.png}
+\end{center}
 
 * **ID:** Nom identificador per a l’almacenament
 * **Server:** IP o domini del servidor PBS
@@ -1979,159 +2338,25 @@ Ara introduïm la informació requerida del servidor PBS:
 * **Datastore:** Nom del repositori, per exemple `zfs-backups`
 * **Namespace:** Espai de noms (opcional, si s’utilitzen subespais dins el datastore)
 
----
-
-### ✅ 4. Confirmar i Finalitzar
+### 4. Confirmar i Finalitzar
 
 Una vegada configurat, el sistema validarà les dades i l’almacenament PBS apareixerà com a disponible per a fer còpies de seguretat o restauracions.
 
-<img src="../../../img/image-35.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-35.png}
+\end{center}
 
----
+\emoji{end-arrow} **Amb aquests passos, ja tens el teu Proxmox Backup Server integrat dins del clúster de Proxmox VE.** Això et permet gestionar còpies de seguretat de forma centralitzada, eficient i segura.
 
-🔚 **Amb aquests passos, ja tens el teu Proxmox Backup Server integrat dins del clúster de Proxmox VE.** Això et permet gestionar còpies de seguretat de forma centralitzada, eficient i segura.
-
-Clar! Ací tens la redacció **revisada, tècnica i formal** en valencià, amb correccions gramaticals i millor estructuració del contingut. Mantinc les imatges i el format Markdown:
-
----
-
-## 💡 6.4 Programació de Còpies de Seguretat i Creació de Màquines Virtuals i Contenidors
+## \emoji{light-bulb} 6.4 Programació de Còpies de Seguretat i Creació de Màquines Virtuals i Contenidors
 
 En aquest entorn, treballarem tant amb **contenidors (LXC)** com amb **màquines virtuals (KVM)**. Per a gestionar correctament les còpies de seguretat i automatitzar-les, primer hem de tindre clar com es creen els recursos que es volen protegir.
 
----
-
-### 📦 Descàrrega de plantilles per a Contenidors (CT)
-
-Per a poder crear un contenidor, és necessari **disposar d’un *template*** (plantilla) corresponent al sistema operatiu desitjat.
-
-1. Ves a la secció de **Storage** (almacenament)
-2. Selecciona l’opció **Templates**
-3. Tens diverses maneres d’obtindre una plantilla:
-
-   * 📤 **Pujar-la manualment** (upload)
-   * 🔗 **Descarregar-la des d’una URL externa**
-   * 📥 **Utilitzar les plantilles predefinides** que ofereix Proxmox
-
-📌 En el nostre cas, utilitzarem la tercera opció: **plantilles predefinides**
-
-<img src="../../../img/image-37.png" alt="GRUB" width="60%">
-
-Per a aquest projecte, descarregarem i utilitzarem plantilles de:
-
-* **Debian**
-* **Fedora**
-
-<img src="../../../img/image-38.png" alt="GRUB" width="60%">
-
----
-
-### 📁 Preparació per a crear una Màquina Virtual (VM)
-
-Per a crear una màquina virtual, és necessari **pujar una ISO** del sistema operatiu al nostre *storage*. Aquesta ISO s’ubica dins de la categoria de **"ISO Images"**.
-
-1. Ves a `Datacenter → Storage`
-2. Selecciona el teu emmagatzematge
-3. Fes clic a **Upload**
-4. Pujar la imatge ISO corresponent (ex. Debian, Ubuntu, Windows...)
-
-<img src="../../../img/image-39.png" alt="GRUB" width="60%">
-
----
-
-## 🧱 Creació d’un Contenidor (CT)
-
-Un cop tenim el *template* descarregat, podem crear un contenidor amb els passos següents:
-
-### 🧭 Pas 1: Inici de la creació
-
-1. Fes clic a **Create CT** (Crear CT)
-
-<img src="../../../img/image-40.png" alt="GRUB" width="60%">
-
----
-
-### 📝 Pas 2: Informació bàsica
-
-Introdueix les dades del contenidor:
-
-* **Node:** on es desplegarà
-* **CT ID:** identificador únic
-* **Hostname:** nom del sistema
-* **Resource Pool:** (opcional) agrupació de recursos
-* **Password:** per a l’accés del root
-
-<img src="../../../img/image-41.png" alt="GRUB" width="60%">
-
----
-
-### 📦 Pas 3: Selecció del *Template*
-
-Selecciona la plantilla que has descarregat anteriorment.
-
-<img src="../../../img/image-42.png" alt="GRUB" width="60%">
-
----
-
-### 💽 Pas 4: Emmagatzematge
-
-Indica quin **storage** utilitzarà el contenidor.
-
-<img src="../../../img/image-43.png" alt="GRUB" width="60%">
-
----
-
-### 🧮 Pas 5: Configuració de recursos
-
-* **CPU:** nombre de nuclis assignats
-<img src="../../../img/image-44.png" alt="GRUB" width="60%">
-
-* **RAM:** memòria en MB
-<img src="../../../img/image-45.png" alt="GRUB" width="60%">
-
----
-
-### 🌐 Pas 6: Xarxa
-
-Defineix la configuració de xarxa (bridge, IP, VLAN, etc.)
-
-<img src="../../../img/image-46.png" alt="GRUB" width="60%">
-
----
-
-### ✅ Finalització
-
-Un cop completats tots els passos, el contenidor serà creat i apareixerà a la llista de recursos del node.
-
-<img src="../../../img/image-47.png" alt="GRUB" width="60%">
-
----
-
-## 🖥️ Creació d’una Màquina Virtual (VM)
-
-Els passos per crear una màquina virtual són **molt similars** als del contenidor, amb l’única diferència que:
-
-* Es selecciona una **ISO** en lloc d’un *template*
-* Es configura un **disc virtual** (en format qcow2, raw o ZFS)
-* Es defineixen opcions d’instal·lació del sistema operatiu (com si fos una màquina física)
-
----
-
-🔁 Un cop creats els contenidors i les màquines virtuals, ja es poden **programar còpies de seguretat regulars** mitjançant **Proxmox Backup Server (PBS)** o les eines integrades en Proxmox VE.
-
-Perfecte! A continuació tens el punt **6.4 Restauració de màquines virtuals i contenidors** redactat en valencià formal i tècnic, mantenint la coherència amb l’estructura del teu projecte:
-
-Clar! Ací tens el punt **6.4 Programació de Còpies de Seguretat** (nota: l’has tornat a enumerar com 6.4, però com que ja s’ha usat aquest número, aquest seria realment el **6.5**, a menys que vulgues reorganitzar). Et deixe el contingut redactat tècnicament i en valencià formal:
-
----
-
-### 🔄  Programació de Còpies de Seguretat
+### \emoji{counterclockwise-arrows-button}  Programació de Còpies de Seguretat
 
 Una correcta **estratègia de programació de còpies de seguretat** és essencial per a garantir la disponibilitat i recuperació de dades en entorns de producció. Amb **Proxmox VE** i la integració amb **Proxmox Backup Server (PBS)**, es pot automatitzar aquest procés de forma eficient.
 
----
-
-### 🗓️ Planificació de les còpies
+### \emoji{spiral-calendar} Planificació de les còpies
 
 La planificació ha de tindre en compte:
 
@@ -2140,17 +2365,13 @@ La planificació ha de tindre en compte:
 * **Recursos inclosos:** contenidors, màquines virtuals o pools de recursos
 * **Duració esperada:** basada en la mida i nombre de sistemes a protegir
 
----
+### \emoji{brain} Bones pràctiques de planificació
 
-### 🧠 Bones pràctiques de planificació
+* \emoji{jigsaw} **Dividir per grups de càrrega:** programar còpies per pools o per tipus de màquines
+* \emoji{one-oclock} **Evitar solapaments:** distribuint les tasques durant la nit o cap de setmana
+* \emoji{test-tube} **Fer proves de restauració regulars** per validar les còpies
 
-* 🧩 **Dividir per grups de càrrega:** programar còpies per pools o per tipus de màquines
-* 🕐 **Evitar solapaments:** distribuint les tasques durant la nit o cap de setmana
-* 🧪 **Fer proves de restauració regulars** per validar les còpies
-
----
-
-### 🔐 Integració amb polítiques de retenció
+### \emoji{locked-with-key} Integració amb polítiques de retenció
 
 La programació de còpies de seguretat ha d’anar acompanyada d’una política de **retenció** que mantinga un nombre raonable de còpies antigues per evitar saturació de l’emmagatzematge:
 
@@ -2160,13 +2381,11 @@ La programació de còpies de seguretat ha d’anar acompanyada d’una polític
 
 Aquesta política es pot aplicar automàticament des de la configuració del **storage** PBS a `Datacenter → Storage → pbs → Backup Retention `.
 
-<p align="center">
-  <img src="../../../img/image-53.png" alt="GRUB" width="60%">
-</p>
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-53.png}
+\end{center}
 
----
-
-### ⚙️ Automatització des de Proxmox VE
+### \emoji{gear} Automatització des de Proxmox VE
 
 Les tasques de còpia es poden programar fàcilment:
 
@@ -2178,34 +2397,26 @@ Les tasques de còpia es poden programar fàcilment:
    * **Mode:** snapshot, suspend o stop
    * **Recursos:** tots, per pool o per ID
 
-<p align="center">
-  <img src="../../../img/image-52.png" alt="GRUB" width="60%">
-</p>
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-52.png}
+\end{center}
 
----
-
-### ✅ Resultat
+### Resultat
 
 Amb una programació adequada i una estratègia de retenció ben definida, s'assegura la **protecció contínua de les dades** i es redueix el risc de pèrdua d'informació crítica, mantenint a la vegada l'emmagatzematge net i eficient.
 
----
-
-### ♻️ 6.5 Restauració de Màquines Virtuals i Contenidors
+### \emoji{recycling-symbol} 6.5 Restauració de Màquines Virtuals i Contenidors
 
 Una de les funcionalitats més potents del **Proxmox Backup Server (PBS)** és la possibilitat de restaurar còpies de seguretat de manera ràpida i fiable, tant de **màquines virtuals (KVM)** com de **contenidors (LXC)**.
 
----
-
-### 🔁 Tipus de restauració
+### \emoji{repeat-button} Tipus de restauració
 
 Proxmox permet dues modalitats principals de restauració:
 
 * **Restauració completa:** es crea una nova instància basada en la còpia de seguretat
 * **Restauració in situ:** reemplaça una màquina existent per una còpia anterior (amb precaució)
 
----
-
-### 🛠️ Procediment de restauració
+### \emoji{hammer-and-wrench} Procediment de restauració
 
 #### 1. Accedir al la backup
 
@@ -2213,7 +2424,7 @@ Proxmox permet dues modalitats principals de restauració:
 * Ves a `Datacenter → Storage → pbs`
 * Selecciona la còpia de seguretat desitjada
 
-  <img src="../../../img/image-48.png" alt="GRUB" width="60%">
+![](../../../img/image-48.png){ width=60% }
 
 #### 2. Llençar la restauració
 
@@ -2227,9 +2438,9 @@ Proxmox permet dues modalitats principals de restauració:
     * **Live restore (per a VMs):** restauració mentre la màquina torna a estar en funcionament (recomanat per a entorns amb poca tolerància a caigudes)
   * **Storage:** tria l’emmagatzematge de destí
 
-<p align="center">
-  <img src="../../../img/image-50.png" alt="GRUB" width="60%">
-</p>
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-50.png}
+\end{center}
 
 #### 3. Confirmar i monitorar
 
@@ -2237,55 +2448,49 @@ Proxmox permet dues modalitats principals de restauració:
 * Segueix el procés mitjançant el registre de tasques
 * Quan acabe, comprova que la màquina funciona correctament
 
-  <img src="../../../img/image-51.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-51.png}
+\end{center}
 
----
+### \emoji{light-bulb} Consells pràctics
 
-### 💡 Consells pràctics
+*  Fes proves de restauració periòdiques per assegurar que les còpies són vàlides
+*  Assigna nous ID o noms per evitar conflictes amb màquines existents
+* \emoji{warning} Evita restaurar sobre una màquina activa si no és estrictament necessari
 
-* ✅ Fes proves de restauració periòdiques per assegurar que les còpies són vàlides
-* ✅ Assigna nous ID o noms per evitar conflictes amb màquines existents
-* ⚠️ Evita restaurar sobre una màquina activa si no és estrictament necessari
-
----
-
-### ✅ Resultat
+### Resultat
 
 Amb aquest procediment, pots restaurar màquines virtuals i contenidors des del **PBS** amb alta flexibilitat i mínima interrupció del servei, millorant així la continuïtat i seguretat de la infraestructura virtualitzada.
 
 Perfecte! Ací tens el punt **6.6 Estratègia de retenció i rotació de backups**, redactat de manera formal, tècnica i en valencià, seguint la línia del teu projecte:
 
----
-
-### ♻️ 6.6 Estratègia de Retenció i Rotació de Backups
+### \emoji{recycling-symbol} 6.6 Estratègia de Retenció i Rotació de Backups
 
 Una gestió adequada de la **retenció i rotació de còpies de seguretat** és fonamental per a garantir un ús eficient de l’emmagatzematge, així com per assegurar la disponibilitat de punts de restauració recents i rellevants.
 
----
-
-### 🎯 Objectius de la retenció
+###  Objectius de la retenció
 
 * Mantindre còpies suficients per cobrir escenaris de recuperació (errors recents, corrupció, ciberatacs...)
 * Evitar la saturació del sistema d’emmagatzematge
 * Automatitzar l’eliminació de còpies antigues innecessàries
 
----
-
-### 🛠️ Configuració de la política de retenció
+### \emoji{hammer-and-wrench} Configuració de la política de retenció
 
 En **Proxmox Backup Server (PBS)** es poden definir regles específiques per a cada tasca de backup, o de manera global per a cada **datastore**.
 
-#### 📍 Localització:
+#### \emoji{round-pushpin} Localització:
 
 * `Datacenter → Storage → pbs → Backup Retention
 
-  <img src="../../../img/image-55.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-55.png}
+\end{center}
 
-<p align="center">
-  <img src="../../../img/image-54.png" alt="GRUB" width="60%">
-</p>
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-54.png}
+\end{center}
 
-#### 📝 Paràmetres comuns:
+#### \emoji{memo} Paràmetres comuns:
 
 | Paràmetre      | Descripció                                 | Exemple |
 | -------------- | ------------------------------------------ | ------- |
@@ -2297,25 +2502,19 @@ En **Proxmox Backup Server (PBS)** es poden definir regles específiques per a c
 
 Aquestes polítiques poden combinar-se per cobrir tant recuperacions recents com arxius històrics.
 
----
-
-### 🔄 Procés de rotació
+### \emoji{counterclockwise-arrows-button} Procés de rotació
 
 1. Quan s'executa una nova còpia de seguretat, **PBS comprova si s'excedeixen els límits configurats**
 2. Si és així, **pruna (elimina)** les còpies més antigues segons la política definida
 3. Aquest procés és **automàtic** i es registra en els **logs** del sistema
 
----
+### \emoji{light-bulb} Recomanacions
 
-### 💡 Recomanacions
+* \emoji{abacus} Defineix polítiques diferents segons la criticitat de cada màquina o servei
+* \emoji{spiral-calendar} Combina còpies **diàries** amb còpies **mensuals de llarg termini**
+* \emoji{test-tube} Revisa periòdicament l’estat dels datastores i els **logs de prunes**
 
-* 🧮 Defineix polítiques diferents segons la criticitat de cada màquina o servei
-* 🗓️ Combina còpies **diàries** amb còpies **mensuals de llarg termini**
-* 🧪 Revisa periòdicament l’estat dels datastores i els **logs de prunes**
-
----
-
-### ✅ Resultat
+### Resultat
 
 Amb una estratègia de retenció ben definida, el sistema manté un equilibri entre **disponibilitat de dades** i **optimització de recursos**, evitant tant la pèrdua d’informació com la sobrecàrrega del sistema d’emmagatzematge.
 
@@ -2323,52 +2522,74 @@ Amb una estratègia de retenció ben definida, el sistema manté un equilibri en
 
 # 9.6 Incorporació d’un *host* al sistema de monitoratge amb Zabbix
 
-## 🖥️ 1. Afegir un host Windows
+## \emoji{desktop-computer} 1. Afegir un host Windows
 
 Per integrar un sistema Windows al monitoratge mitjançant **Zabbix**, cal seguir els següents passos:
 
 1. Accedir a la pàgina oficial de Zabbix i descarregar el **paquet de l’agent Zabbix** corresponent al sistema operatiu:
 
-<img src="../../../img/image-138.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-138.png}
+\end{center}
 
-2. Seleccionar:
+1. Seleccionar:
 
    * Sistema operatiu (*Windows*)
    * Versió del servidor Zabbix
    * Tipus de xifrat (si és necessari)
    * Format del paquet
 
-<img src="../../../img/image-139.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-139.png}
+\end{center}
 
-3. Un cop descarregat l’instal·lador, executar-lo i seguir l’assistent d’instal·lació:
+1. Un cop descarregat l’instal·lador, executar-lo i seguir l’assistent d’instal·lació:
 
-<img src="../../../img/image-140.png" alt="GRUB" width="60%">
-<img src="../../../img/image-141.png" alt="GRUB" width="60%">
-<img src="../../../img/image-142.png" alt="GRUB" width="60%">
-<img src="../../../img/image-143.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-140.png}
+\end{center}
 
-4. Verificar que el **servei de l’agent Zabbix** s’ha iniciat correctament:
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-141.png}
+\end{center}
 
-<img src="../../../img/image-144.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-142.png}
+\end{center}
 
-5. Finalment, accedir a la interfície web de Zabbix i crear el nou host:
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-143.png}
+\end{center}
+
+1. Verificar que el **servei de l’agent Zabbix** s’ha iniciat correctament:
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-144.png}
+\end{center}
+
+1. Finalment, accedir a la interfície web de Zabbix i crear el nou host:
 
    * Menú: **Monitoring → Hosts → Create Host**
 
-<img src="../../../img/image-145.png" alt="GRUB" width="60%">
-<img src="../../../img/image-146.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-145.png}
+\end{center}
 
----
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-146.png}
+\end{center}
 
-## 🐧 2. Afegir un host Linux
+## \emoji{penguin} 2. Afegir un host Linux
 
 Per monitoritzar un sistema Linux, cal seguir aquests passos:
 
 1. Accedir a la web de Zabbix i seleccionar l’agent corresponent al sistema (en aquest cas, per a **SUSE Linux Enterprise Server - SLES**).
 
-<img src="../../../img/image-147.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-147.png}
+\end{center}
 
-2. Seguir les instruccions per instal·lar l’agent:
+1. Seguir les instruccions per instal·lar l’agent:
 
 ### a. Afegir el repositori oficial de Zabbix:
 
@@ -2377,7 +2598,9 @@ rpm -Uvh --nosignature https://repo.zabbix.com/zabbix/7.2/release/sles/15/noarch
 zypper --gpg-auto-import-keys refresh 'Zabbix Official Repository'
 ```
 
-<img src="../../../img/image-148.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-148.png}
+\end{center}
 
 ### b. Instal·lar el paquet de l’agent:
 
@@ -2385,7 +2608,9 @@ zypper --gpg-auto-import-keys refresh 'Zabbix Official Repository'
 zypper in zabbix-agent
 ```
 
-<img src="../../../img/image-149.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-149.png}
+\end{center}
 
 ### c. Configurar el fitxer de configuració de l’agent:
 
@@ -2394,8 +2619,13 @@ Modificar el fitxer `/etc/zabbix/zabbix_agentd.conf` per definir:
 * `Server=` IP del servidor Zabbix
 * `Hostname=` nom del dispositiu
 
-<img src="../../../img/image-150.png" alt="GRUB" width="60%">
-<img src="../../../img/image-151.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-150.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-151.png}
+\end{center}
 
 ### d. Iniciar i habilitar el servei de l’agent:
 
@@ -2404,16 +2634,20 @@ systemctl restart zabbix-agent
 systemctl enable zabbix-agent
 ```
 
-<img src="../../../img/image-152.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-152.png}
+\end{center}
 
-3. Afegir el nou host des de la interfície web del servidor Zabbix:
+1. Afegir el nou host des de la interfície web del servidor Zabbix:
 
-<img src="../../../img/image-153.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-153.png}
+\end{center}
 
 Un cop afegits els sistemes, apareixeran llistats a l’apartat de *Hosts*:
 
-<img src="../../../img/image-154.png" alt="GRUB" width="60%">
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-154.png}
+\end{center}
 
----
-
-🔍 Amb aquest procés, tant equips Windows com Linux poden ser incorporats al sistema de monitoratge, permetent la supervisió de mètriques com consum de CPU, ús de memòria, estat dels serveis i molt més, tot centralitzat des del panell de control de Zabbix.
+\emoji{magnifying-glass-tilted-left} Amb aquest procés, tant equips Windows com Linux poden ser incorporats al sistema de monitoratge, permetent la supervisió de mètriques com consum de CPU, ús de memòria, estat dels serveis i molt més, tot centralitzat des del panell de control de Zabbix.

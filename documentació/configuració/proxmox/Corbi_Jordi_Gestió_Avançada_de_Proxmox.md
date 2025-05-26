@@ -552,7 +552,7 @@ PBS s’integra directament amb **Proxmox VE**, permetent configurar des de la p
 
 * **Jobs de backup programats**, amb horaris i freqüències personalitzades.
 * **Estratègies de retenció** per controlar quants snapshots es conserven.
-* **Restauracions selectives**, incloent fitxers individuals dins de contenidors o VMs.
+* **Restauracions selectives**, incloent màquines completes, discos, contenidors, i **la recuperació granular de fitxers individuals** dins de contenidors o VMs.
 
 Les comunicacions entre Proxmox VE i PBS es realitzen a través del protocol **Proxmox Backup Protocol**, altament optimitzat per rendiment i seguretat.
 
@@ -566,6 +566,7 @@ PBS pot situar-se **fora del clúster principal** (recomanat), la qual cosa el c
 * **Reducció de l’impacte en el rendiment del clúster** gràcies al backup incremental.
 * **Escalabilitat**: un únic PBS pot gestionar còpies de seguretat de múltiples clústers.
 * **Integració perfecta** amb la interfície de Proxmox VE i amb suport de CLI i API per a automatitzacions.
+* **Recuperació granular de fitxers**, permetent restaurar només els arxius necessaris sense haver de recuperar la VM o CT complet.
 
 En definitiva, **Proxmox Backup Server** és una eina essencial per garantir la **resiliència i recuperació** del sistema virtualitzat, protegint-lo de pèrdues accidentals, errors humans o fallades greus de maquinari.
 
@@ -1276,39 +1277,19 @@ Selecciona la plantilla que has descarregat anteriorment.
 
 Indica quin **storage** utilitzarà el contenidor.
 
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{../../../img/image-43.png}
-\end{center}
-
 ### \emoji{abacus} Pas 5: Configuració de recursos
 
 * **CPU:** nombre de nuclis assignats
-* 
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{../../../img/image-44.png}
-\end{center}
 
 * **RAM:** memòria en MB
-* 
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{../../../img/image-45.png}
-\end{center}
 
 ### \emoji{globe-with-meridians} Pas 6: Xarxa
 
 Defineix la configuració de xarxa (bridge, IP, VLAN, etc.)
 
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{../../../img/image-46.png}
-\end{center}
-
 ### Finalització
 
 Un cop completats tots els passos, el contenidor serà creat i apareixerà a la llista de recursos del node.
-
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{../../../img/image-47.png}
-\end{center}
 
 ## \emoji{desktop-computer} Creació d’una Màquina Virtual (VM)
 
@@ -1904,6 +1885,86 @@ Amb els **rols** i **pools**, es pot habilitar un entorn **multiusuari segur**, 
 * \emoji{family} Facilitat per delegar la gestió a equips tècnics o usuaris finals
 * \emoji{puzzle-piece} Escalabilitat per a entorns educatius, empresarials o d'hosting
 
+## \emoji{test-tube} Casos Pràctics de Gestió Delegada i Multiusuari en Proxmox VE
+
+### \emoji{graduation-cap} **Cas 1: Entorn educatiu amb alumnes de pràctiques**
+
+#### Escenari:
+
+L’institut ha desplegat un clúster de Proxmox per a alumnes del cicle de sistemes. Cada alumne ha de gestionar una VM pròpia, però sense accés al sistema complet.
+
+#### Configuració:
+
+* **Usuari:** `alumne01@pve`
+* **Pool:** `alumnes`
+* **VM assignada:** `vm104` (alumne01-ubuntu24)
+* **Rol:** `PVEVMUser`
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-105.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-106.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-107.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-108.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-109.png}
+\end{center}
+
+#### Resultat:
+
+L’alumne pot:
+
+* Engegar/parar la seua VM
+* Accedir per consola
+* No pot crear ni esborrar màquines
+* No pot veure cap altra VM
+
+### \emoji{hammer-and-wrench} **Cas 2: Tècnic amb accés complet a un node concret**
+
+#### Escenari:
+
+Un tècnic extern col·labora en la gestió de sistemes, però només se li vol donar accés al node `node3`.
+
+#### Configuració:
+
+* **Usuari:** `tecnic@pve`
+* **Àrea assignada:** `/nodes/node3`
+* **Rol:** `PVEAdmin`
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-116.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-117.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-118.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-119.png}
+\end{center}
+
+#### Resultat:
+
+Té accés complet només a les màquines i configuració d’eixe node, però no pot accedir a altres nodes ni al datacenter.
+
+### Conclusions dels casos pràctics
+
+Aquests escenaris mostren com Proxmox permet adaptar-se fàcilment a entorns **multiusuari**, amb control granular de permisos i una gestió segura i delegada, mantenint la **seguretat**, **eficiència** i **flexibilitat** del sistema.
+
 ### **8.1. Actualitzacions i Pegats de Seguretat**
 
 \emoji{check-mark-button} **Accions recomanades:**
@@ -1977,7 +2038,12 @@ Amb els **rols** i **pools**, es pot habilitar un entorn **multiusuari segur**, 
 
 En aquest projecte s’ha optat per utilitzar **Netdata en mode núvol** (*Netdata Cloud*) per garantir:
 
-* \emoji{globe-with-meridians} **Accessibilitat des de qualsevol lloc** amb connexió a Internet
+* \emoji{globe-with-meridian### \emoji{jigsaw} **Cas 4: Hosting amb gestió delegada per client**
+
+#### Escenari:
+
+Una empresa ofereix màquines virtuals com a servei. Cada client gestiona la seua pròpia màquina.
+s} **Accessibilitat des de qualsevol lloc** amb connexió a Internet
 * \emoji{cloud} **Alta disponibilitat** sense necessitat de desplegar servidors de monitoratge propis
 * \emoji{chart-increasing} Visualització centralitzada de tots els nodes Proxmox i del PBS en un únic panell
 
@@ -2047,167 +2113,6 @@ Aquesta estratègia es basa en instal·lar únicament l’**agent de Netdata** a
 ###  Resultat
 
 Amb aquest sistema, es garanteix una **monitorització eficaç i des de qualsevol lloc**, sense haver de desplegar ni mantindre servidors propis per a l’anàlisi. Netdata Cloud facilita una supervisió **proactiva i àgil** del clúster Proxmox i del Proxmox Backup Server (PBS).
-
-## \emoji{test-tube} Casos Pràctics de Gestió Delegada i Multiusuari en Proxmox VE
-
-### \emoji{graduation-cap} **Cas 1: Entorn educatiu amb alumnes de pràctiques**
-
-#### Escenari:
-
-L’institut ha desplegat un clúster de Proxmox per a alumnes del cicle de sistemes. Cada alumne ha de gestionar una VM pròpia, però sense accés al sistema complet.
-
-#### Configuració:
-
-* **Usuari:** `alumne01@pve`
-* **Pool:** `alumnes`
-* **VM assignada:** `vm104` (alumne01-ubuntu24)
-* **Rol:** `PVEVMUser`
-
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{../../../img/image-105.png}
-\end{center}
-
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{../../../img/image-106.png}
-\end{center}
-
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{../../../img/image-107.png}
-\end{center}
-
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{../../../img/image-108.png}
-\end{center}
-
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{../../../img/image-109.png}
-\end{center}
-
-#### Resultat:
-
-L’alumne pot:
-
-* Engegar/parar la seua VM
-* Accedir per consola
-* No pot crear ni esborrar màquines
-* No pot veure cap altra VM
-
-### \emoji{office-building} **Cas 2: Departament de Desenvolupament en una empresa**
-
-#### Escenari:
-
-L’equip de desenvolupament necessita accedir a diverses màquines de testing, però no ha de poder modificar la infraestructura general.
-
-#### Configuració:
-
-* **Usuaris:** `david@pve`, `jordi@pve`
-* **Pool:** `dev_pool`
-* **Rols:** `gestor_vm_custom` (creat amb permisos limitats com `VM.Console`, `VM.Start`, `VM.Shutdown`)
-
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{../../../img/image-110.png}
-\end{center}
-
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{../../../img/image-111.png}
-\end{center}
-
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{../../../img/image-112.png}
-\end{center}
-
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{../../../img/image-113.png}
-\end{center}
-
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{../../../img/image-114.png}
-\end{center}
-
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{../../../img/image-115.png}
-\end{center}
-
-#### Resultat:
-
-Els usuaris poden:
-
-* Utilitzar i gestionar les seues VMs
-* No poden crear VMs noves ni modificar configuracions globals
-
-### \emoji{hammer-and-wrench} **Cas 3: Tècnic amb accés complet a un node concret**
-
-#### Escenari:
-
-Un tècnic extern col·labora en la gestió de sistemes, però només se li vol donar accés al node `node3`.
-
-#### Configuració:
-
-* **Usuari:** `tecnic@pve`
-* **Àrea assignada:** `/nodes/node3`
-* **Rol:** `PVEAdmin`
-
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{../../../img/image-116.png}
-\end{center}
-
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{../../../img/image-117.png}
-\end{center}
-
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{../../../img/image-118.png}
-\end{center}
-
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{../../../img/image-119.png}
-\end{center}
-
-#### Resultat:
-
-Té accés complet només a les màquines i configuració d’eixe node, però no pot accedir a altres nodes ni al datacenter.
-
-### \emoji{jigsaw} **Cas 4: Hosting amb gestió delegada per client**
-
-#### Escenari:
-
-Una empresa ofereix màquines virtuals com a servei. Cada client gestiona la seua pròpia màquina.
-
-#### Configuració:
-
-* **Client:** `client_a@pve`
-* **Pool:** `client_a_pool`
-* **VM assignada:** `vm104`
-* **Rol:** `PVEVMUser`
-
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{../../../img/image-122.png}
-\end{center}
-
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{../../../img/image-123.png}
-\end{center}
-
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{../../../img/image-124.png}
-\end{center}
-
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{../../../img/image-125.png}
-\end{center}
-
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{../../../img/image-126.png}
-\end{center}
-
-
-#### Resultat:
-
-Cada client pot administrar la seua pròpia màquina, sense cap visibilitat sobre altres clients o parts del sistema.
-
-### Conclusions dels casos pràctics
-
-Aquests escenaris mostren com Proxmox permet adaptar-se fàcilment a entorns **multiusuari**, amb control granular de permisos i una gestió segura i delegada, mantenint la **seguretat**, **eficiència** i **flexibilitat** del sistema.
 
 # Proxmox Backup Server
 
@@ -2537,6 +2442,9 @@ Aquestes polítiques poden combinar-se per cobrir tant recuperacions recents com
 ### Resultat
 
 Amb una estratègia de retenció ben definida, el sistema manté un equilibri entre **disponibilitat de dades** i **optimització de recursos**, evitant tant la pèrdua d’informació com la sobrecàrrega del sistema d’emmagatzematge.
+
+## Casos Practicos
+
 
 # Zabbix
 
