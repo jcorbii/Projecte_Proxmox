@@ -63,6 +63,7 @@ header-includes:
   \item 7.3 Gestió delegada i multiusuari  
 \end{itemize}
 
+<<<<<<< HEAD
 \section*{8. \emoji{locked-with-key} Seguretat i Bones Pràctiques}
 \begin{itemize}
   \item 8.1 Actualitzacions i pegats de seguretat  
@@ -76,6 +77,10 @@ header-includes:
 
 # Proxmox
 
+=======
+\newpage
+
+>>>>>>> 5f1743b0b55e97b15524447e8679e76bde24a73c
 # 3. \emoji{desktop-computer} Implementació del Clúster Proxmox
 
 A continuació et detallem pas a pas com crear un clúster en Proxmox i unir-hi altres nodes.
@@ -239,20 +244,54 @@ Selecciona la plantilla que has descarregat anteriorment.
 
 Indica quin **storage** utilitzarà el contenidor.
 
+<<<<<<< HEAD
 ### \emoji{abacus} Pas 5: Configuració de recursos
 
 * **CPU:** nombre de nuclis assignats
 
 * **RAM:** memòria en MB
+=======
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-43.png}
+\end{center}
+
+### \emoji{abacus} Pas 5: Configuració de recursos
+
+* **CPU:** nombre de nuclis assignats
+* 
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-44.png}
+\end{center}
+
+* **RAM:** memòria en MB
+* 
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-45.png}
+\end{center}
+>>>>>>> 5f1743b0b55e97b15524447e8679e76bde24a73c
 
 ### \emoji{globe-with-meridians} Pas 6: Xarxa
 
 Defineix la configuració de xarxa (bridge, IP, VLAN, etc.)
 
+<<<<<<< HEAD
+=======
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-46.png}
+\end{center}
+
+>>>>>>> 5f1743b0b55e97b15524447e8679e76bde24a73c
 ### Finalització
 
 Un cop completats tots els passos, el contenidor serà creat i apareixerà a la llista de recursos del node.
 
+<<<<<<< HEAD
+=======
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/image-47.png}
+\end{center}
+
+>>>>>>> 5f1743b0b55e97b15524447e8679e76bde24a73c
 ## \emoji{desktop-computer} Creació d’una Màquina Virtual (VM)
 
 Els passos per crear una màquina virtual són **molt similars** als del contenidor, amb l’única diferència que:
@@ -841,6 +880,15 @@ Amb els **rols** i **pools**, es pot habilitar un entorn **multiusuari segur**, 
     \includegraphics[width=0.6\textwidth]{../../../img/image-104.png}
 \end{center}
 
+<<<<<<< HEAD
+=======
+### \emoji{check-mark-button} Beneficis
+
+* \emoji{locked} Major seguretat mitjançant la separació de privilegis
+* \emoji{family} Facilitat per delegar la gestió a equips tècnics o usuaris finals
+* \emoji{puzzle-piece} Escalabilitat per a entorns educatius, empresarials o d'hosting
+
+>>>>>>> 5f1743b0b55e97b15524447e8679e76bde24a73c
 ## \emoji{test-tube} Casos Pràctics de Gestió Delegada i Multiusuari en Proxmox VE
 
 ### \emoji{graduation-cap} **Cas 1: Entorn educatiu amb alumnes de pràctiques**
@@ -993,15 +1041,25 @@ Una empresa ofereix màquines virtuals com a servei. Cada client gestiona la seu
     \includegraphics[width=0.6\textwidth]{../../../img/image-126.png}
 \end{center}
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5f1743b0b55e97b15524447e8679e76bde24a73c
 #### Resultat:
 
 Cada client pot administrar la seua pròpia màquina, sense cap visibilitat sobre altres clients o parts del sistema.
 
+<<<<<<< HEAD
 ### \emoji{check-mark-button} Beneficis
 
 * \emoji{locked} Major seguretat mitjançant la separació de privilegis
 * \emoji{family} Facilitat per delegar la gestió a equips tècnics o usuaris finals
 * \emoji{puzzle-piece} Escalabilitat per a entorns educatius, empresarials o d'hosting
+=======
+### Conclusions dels casos pràctics
+
+Aquests escenaris mostren com Proxmox permet adaptar-se fàcilment a entorns **multiusuari**, amb control granular de permisos i una gestió segura i delegada, mantenint la **seguretat**, **eficiència** i **flexibilitat** del sistema.
+>>>>>>> 5f1743b0b55e97b15524447e8679e76bde24a73c
 
 ### **8.1. Actualitzacions i Pegats de Seguretat**
 
@@ -1145,8 +1203,12 @@ Aquesta estratègia es basa en instal·lar únicament l’**agent de Netdata** a
 
 ###  Resultat
 
+<<<<<<< HEAD
 Amb aquest sistema, es garanteix una **monitorització eficaç i des de qualsevol lloc**, sense haver de desplegar ni mantindre servidors propis per a l’anàlisi. Netdata Cloud facilita una supervisió **proactiva i àgil** del clúster Proxmox i del Proxmox Backup Server (PBS).
 
 ### Conclusions dels casos pràctics
 
 Aquests escenaris mostren com Proxmox permet adaptar-se fàcilment a entorns **multiusuari**, amb control granular de permisos i una gestió segura i delegada, mantenint la **seguretat**, **eficiència** i **flexibilitat** del sistema.
+=======
+Amb aquest sistema, es garanteix una **monitorització eficaç i des de qualsevol lloc**, sense haver de desplegar ni mantindre servidors propis per a l’anàlisi. Netdata Cloud facilita una supervisió **proactiva i àgil** del clúster Proxmox i del Proxmox Backup Server (PBS).
+>>>>>>> 5f1743b0b55e97b15524447e8679e76bde24a73c
