@@ -1,13 +1,7 @@
 ---
-<<<<<<< HEAD
 title: ""
 titlepage: true
 subtitle: ""
-=======
-title:
-titlepage: true
-subtitle:
->>>>>>> 85aceeb99ce590c2760d06ebddebf19e374a7a96
 lang: es
 documentclass: scrartcl
 toc-own-page: true
@@ -15,11 +9,7 @@ toc-title: Índex
 numbersections: false
 titlepage-rule-height: 0
 titlepage-text-color: "7714C6"
-<<<<<<< HEAD
 titlepage-background: "../../backgrounds/portada.png"
-=======
-titlepage-background: "../../backgrounds/portada.jpeg"
->>>>>>> 85aceeb99ce590c2760d06ebddebf19e374a7a96
 footer-left: IES Jaume II el Just - Projecte ASIX
 footer-right: \thepage/\pageref{LastPage}
 header-includes:
@@ -1287,13 +1277,13 @@ Selecciona la plantilla que has descarregat anteriorment.
 
 Indica quin **storage** utilitzarà el contenidor.
 
-<<<<<<< HEAD
+
 ### \emoji{abacus} Pas 5: Configuració de recursos
 
 * **CPU:** nombre de nuclis assignats
 
 * **RAM:** memòria en MB
-=======
+
 \begin{center}
     \includegraphics[width=0.6\textwidth]{../../../img/image-43.png}
 \end{center}
@@ -1301,40 +1291,35 @@ Indica quin **storage** utilitzarà el contenidor.
 ### \emoji{abacus} Pas 5: Configuració de recursos
 
 * **CPU:** nombre de nuclis assignats
-* 
+
 \begin{center}
     \includegraphics[width=0.6\textwidth]{../../../img/image-44.png}
 \end{center}
 
 * **RAM:** memòria en MB
-* 
+
 \begin{center}
     \includegraphics[width=0.6\textwidth]{../../../img/image-45.png}
 \end{center}
->>>>>>> 5f1743b0b55e97b15524447e8679e76bde24a73c
+
 
 ### \emoji{globe-with-meridians} Pas 6: Xarxa
 
 Defineix la configuració de xarxa (bridge, IP, VLAN, etc.)
 
-<<<<<<< HEAD
-=======
 \begin{center}
     \includegraphics[width=0.6\textwidth]{../../../img/image-46.png}
 \end{center}
 
->>>>>>> 5f1743b0b55e97b15524447e8679e76bde24a73c
 ### Finalització
 
 Un cop completats tots els passos, el contenidor serà creat i apareixerà a la llista de recursos del node.
 
-<<<<<<< HEAD
-=======
 \begin{center}
     \includegraphics[width=0.6\textwidth]{../../../img/image-47.png}
 \end{center}
 
->>>>>>> 5f1743b0b55e97b15524447e8679e76bde24a73c
+
 ## \emoji{desktop-computer} Creació d’una Màquina Virtual (VM)
 
 Els passos per crear una màquina virtual són **molt similars** als del contenidor, amb l’única diferència que:
