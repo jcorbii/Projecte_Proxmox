@@ -1,13 +1,5 @@
 ---
-<<<<<<< HEAD
-title: ""
 titlepage: true
-subtitle: ""
-=======
-title:
-titlepage: true
-subtitle:
->>>>>>> 85aceeb99ce590c2760d06ebddebf19e374a7a96
 lang: es
 documentclass: scrartcl
 toc-own-page: true
@@ -15,11 +7,7 @@ toc-title: Índex
 numbersections: false
 titlepage-rule-height: 0
 titlepage-text-color: "7714C6"
-<<<<<<< HEAD
 titlepage-background: "../../backgrounds/portada.png"
-=======
-titlepage-background: "../../backgrounds/portada.jpeg"
->>>>>>> 85aceeb99ce590c2760d06ebddebf19e374a7a96
 footer-left: IES Jaume II el Just - Projecte ASIX
 footer-right: \thepage/\pageref{LastPage}
 header-includes:
@@ -519,11 +507,11 @@ Gràcies a aquesta integració:
 
 L’**Alta Disponibilitat (HA)** és un conjunt de tecnologies i configuracions dissenyades per garantir que els serveis crítics d’un sistema **romanguen operatius de manera contínua**, fins i tot davant fallades de maquinari, programari o xarxa. En entorns virtualitzats com **Proxmox VE**, la funcionalitat HA és essencial per assegurar la **mínima interrupció dels serveis** que allotgen màquines virtuals i contenidors.
 
-#### Finalitat de la HA:
+## Finalitat de la HA:
 
 L'objectiu principal de la HA és **reduir al màxim el temps d’inactivitat (downtime)**. Quan un servidor físic (node) del clúster deixa de funcionar —ja siga per avaria, reinici o manteniment imprevist—, el sistema HA detecta automàticament la fallada i **reinicia les màquines virtuals afectades en un altre node actiu** del clúster, sense intervenció manual.
 
-#### \emoji{gear} Funcionament dins de Proxmox VE:
+### \emoji{gear} Funcionament dins de Proxmox VE:
 
 Proxmox VE incorpora un subsistema HA que treballa estretament amb **Corosync**, el qual s’encarrega de supervisar la salut dels nodes i mantenir el quòrum del clúster. Les màquines virtuals que es volen protegir es configuren dins de **grups HA**, i el gestor HA pren decisions automàtiques segons l’estat dels nodes.
 
@@ -547,7 +535,7 @@ En resum, la **Alta Disponibilitat** és un component fonamental en infraestruct
 
 **Proxmox Backup Server (PBS)** és una solució de còpia de seguretat **específicament dissenyada per a entorns virtualitzats amb Proxmox VE**. Proporciona una plataforma eficient, ràpida i segura per realitzar **backups i restauracions** de màquines virtuals (VMs), contenidors (CTs) i fins i tot discos individuals, garantint la **protecció i recuperació de dades** davant de fallades o pèrdua d’informació.
 
-#### Finalitat de PBS:
+## Finalitat de PBS:
 
 PBS s’encarrega de centralitzar totes les còpies de seguretat dels recursos virtuals del clúster, amb funcionalitats com:
 
@@ -556,13 +544,13 @@ PBS s’encarrega de centralitzar totes les còpies de seguretat dels recursos v
 * **Xifratge (opcional)**: garanteix la confidencialitat de les dades tant en repòs com en trànsit.
 * **Verificació de consistència**: comprova automàticament la integritat dels backups emmagatzemats.
 
-#### \emoji{gear} Integració amb Proxmox VE:
+### \emoji{gear} Integració amb Proxmox VE:
 
 PBS s’integra directament amb **Proxmox VE**, permetent configurar des de la pròpia interfície de Proxmox:
 
 * **Jobs de backup programats**, amb horaris i freqüències personalitzades.
 * **Estratègies de retenció** per controlar quants snapshots es conserven.
-* **Restauracions selectives**, incloent màquines completes, discos, contenidors, i **la recuperació granular de fitxers individuals** dins de contenidors o VMs.
+* **Restauracions selectives**, incloent fitxers individuals dins de contenidors o VMs.
 
 Les comunicacions entre Proxmox VE i PBS es realitzen a través del protocol **Proxmox Backup Protocol**, altament optimitzat per rendiment i seguretat.
 
@@ -576,7 +564,6 @@ PBS pot situar-se **fora del clúster principal** (recomanat), la qual cosa el c
 * **Reducció de l’impacte en el rendiment del clúster** gràcies al backup incremental.
 * **Escalabilitat**: un únic PBS pot gestionar còpies de seguretat de múltiples clústers.
 * **Integració perfecta** amb la interfície de Proxmox VE i amb suport de CLI i API per a automatitzacions.
-* **Recuperació granular de fitxers**, permetent restaurar només els arxius necessaris sense haver de recuperar la VM o CT complet.
 
 En definitiva, **Proxmox Backup Server** és una eina essencial per garantir la **resiliència i recuperació** del sistema virtualitzat, protegint-lo de pèrdues accidentals, errors humans o fallades greus de maquinari.
 
@@ -584,11 +571,11 @@ En definitiva, **Proxmox Backup Server** és una eina essencial per garantir la 
 
 La **gestió d’usuaris** dins d’un entorn virtualitzat com **Proxmox VE** és essencial per controlar **qui pot accedir**, **què pot fer** i **sobre quins recursos pot actuar**. Aquesta gestió garanteix la **seguretat, organització i eficiència** en la utilització del sistema, especialment en entorns compartits, corporatius o amb administració delegada.
 
-#### Finalitat de la gestió d’usuaris:
+## Finalitat de la gestió d’usuaris:
 
 L’objectiu principal és **definir rols i permisos específics per a cada usuari o grup d’usuaris**, segons les seues responsabilitats o necessitats. Això evita l’accés indegut a recursos crítics i redueix el risc d’errors humans que podrien afectar el funcionament del clúster o les màquines virtuals.
 
-#### \emoji{gear} Funcionalitats clau a Proxmox VE:
+### \emoji{gear} Funcionalitats clau a Proxmox VE:
 
 * **Creació d’usuaris locals o via integració externa (LDAP/AD):**
   Permet administrar tant usuaris interns com externs mitjançant sistemes d’autenticació centralitzada.
@@ -690,7 +677,6 @@ Per garantir la **continuitat del monitoratge fins i tot en cas de fallada d’u
 * Assignació a un **grup HA**.
 * Configuració del servei Zabbix com a recurs gestionat per `ha-manager`.
 * En cas de caiguda del node actiu, **el servei es migrarà automàticament** a un altre node disponible, assegurant una supervisió contínua.
-
 
 ## \emoji{brain}10. Conclusions i Valoració Personal
 
@@ -2082,12 +2068,7 @@ Aquests escenaris mostren com Proxmox permet adaptar-se fàcilment a entorns **m
 
 En aquest projecte s’ha optat per utilitzar **Netdata en mode núvol** (*Netdata Cloud*) per garantir:
 
-* \emoji{globe-with-meridian### \emoji{jigsaw} **Cas 4: Hosting amb gestió delegada per client**
-
-#### Escenari:
-
-Una empresa ofereix màquines virtuals com a servei. Cada client gestiona la seua pròpia màquina.
-s} **Accessibilitat des de qualsevol lloc** amb connexió a Internet
+* \emoji{globe-with-meridians} **Accessibilitat des de qualsevol lloc** amb connexió a Internet
 * \emoji{cloud} **Alta disponibilitat** sense necessitat de desplegar servidors de monitoratge propis
 * \emoji{chart-increasing} Visualització centralitzada de tots els nodes Proxmox i del PBS en un únic panell
 
@@ -2389,11 +2370,11 @@ Proxmox permet dues modalitats principals de restauració:
 
 #### 1. Accedir al la backup
 
-* Entra a la interfície web del **Proxmox **
+* Entra a la interfície web del **Proxmox**
 * Ves a `Datacenter → Storage → pbs`
 * Selecciona la còpia de seguretat desitjada
 
-![](../../../img/image-48.png){ width=60% }
+![Proba](../../../img/image-48.png){ width=60% }
 
 #### 2. Llençar la restauració
 
@@ -2423,8 +2404,8 @@ Proxmox permet dues modalitats principals de restauració:
 
 ### \emoji{light-bulb} Consells pràctics
 
-*  Fes proves de restauració periòdiques per assegurar que les còpies són vàlides
-*  Assigna nous ID o noms per evitar conflictes amb màquines existents
+* Fes proves de restauració periòdiques per assegurar que les còpies són vàlides
+* Assigna nous ID o noms per evitar conflictes amb màquines existents
 * \emoji{warning} Evita restaurar sobre una màquina activa si no és estrictament necessari
 
 ### Resultat
@@ -2488,8 +2469,6 @@ Aquestes polítiques poden combinar-se per cobrir tant recuperacions recents com
 Amb una estratègia de retenció ben definida, el sistema manté un equilibri entre **disponibilitat de dades** i **optimització de recursos**, evitant tant la pèrdua d’informació com la sobrecàrrega del sistema d’emmagatzematge.
 
 ## \emoji{test-tube} Casos Pràctics amb recuperació de còpies de seguretat(fitxers)
-
-
 
 # Zabbix
 
