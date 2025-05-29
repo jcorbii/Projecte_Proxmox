@@ -331,16 +331,9 @@ Aquest capítol és fonamental per garantir que el desplegament posterior es rea
 
 ### \emoji{desktop-computer} Diagrama:
 
-```plaintext
-             ┌───────────────────────────────────────────────────────────────────────┐
-             │         Servidor físic amb Proxmox VE                                 │
-             │                                                                       │
-             │   ┌────────────┐   ┌────────────┐   ┌────────────┐   ┌────────────┐   │
-             │   │  Node 1 VM │ ←→│  Node 2 VM │ ←→│  Node 3 VM │   │   PBS VM   │   │
-             │   └────────────┘   └────────────┘   └────────────┘   └────────────┘   │
-             │                                                                       │
-             └───────────────────────────────────────────────────────────────────────┘
-```
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{../../../img/topologia.png}
+\end{center}
 
 \emoji{wrench} *Tots els nodes i el PBS són màquines virtuals creades dins del mateix host Proxmox VE.*
 

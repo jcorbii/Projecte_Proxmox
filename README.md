@@ -30,28 +30,36 @@ Projecte_Proxmox/
 │       ├── instalació/
 │       │   ├── proxmox/
 │       │   │   ├──  README.md
-│       │   │   └──  install.pdf
+│       │   │   ├──  install.pdf
+│       │   │   └──  install.md
 │       │   ├── proxmox_backup/
 │       │   │   ├──  README.md
-│       │   │   └──  install.pdf
+│       │   │   ├──  install.pdf
+│       │   │   └──  install.md
 │       │   └── zabbix/
 │       │       ├──  README.md
-│       │       └──  install.pdf
+│       │       ├──  install.pdf
+│       │       └──  install.md
 │       │
 │       │
 │       └── configuració/
 │           ├── proxmox/
 │           │   ├──  README.md
+│           │   ├──  conf.md
 │           │   └──  conf.pdf
 │           ├── proxmox backup server/
 │           │   ├──  README.md
+│           │   ├──  conf.md
 │           │   └──  conf.pdf
 │           └── zabbix/
 │               ├──  README.md
+│               ├──  conf.md
 │               └──  conf.pdf
 │
 │
 ├── img/
+├── Corbi_Jordi_Gestió_Avançada_de_Proxmox.md
+├── Corbi_Jordi_Gestió_Avançada_de_Proxmox.pdf
 └──  README.md
 ```
 
@@ -73,7 +81,7 @@ Projecte_Proxmox/
 
 ### 🔧 **Què és Proxmox VE?**
 
-**Proxmox VE (Virtual Environment)** és una **plataforma de virtualització d'entorns oberts** basada en Debian GNU/Linux, orientada a la creació i gestió de **màquines virtuals (VMs)** i **contenidors (LXCs)** en entorns de producció.
+**Proxmox VE (Virtual Environment)** és una **[text](documentació/configuració/proxmox/Corbi_Jordi_Gestió_Avançada_de_Proxmox.pdf) [text](documentació/configuració/proxmox/Corbi_Jordi_Gestió_Avançada_de_Proxmox.md)plataforma de virtualització d'entorns oberts** basada en Debian GNU/Linux, orientada a la creació i gestió de **màquines virtuals (VMs)** i **contenidors (LXCs)** en entorns de producció.
 
 Proxmox VE integra dues tecnologies principals de virtualització:
 
@@ -227,16 +235,7 @@ Aquest capítol és fonamental per garantir que el desplegament posterior es rea
 
 ### 🖥️ Diagrama:
 
-```plaintext
-             ┌───────────────────────────────────────────────────────────────────────┐
-             │         Servidor físic amb Proxmox VE                                 │
-             │                                                                       │
-             │   ┌────────────┐   ┌────────────┐   ┌────────────┐   ┌────────────┐   │
-             │   │  Node 1 VM │ ←→│  Node 2 VM │ ←→│  Node 3 VM │   │   PBS VM   │   │
-             │   └────────────┘   └────────────┘   └────────────┘   └────────────┘   │
-             │                                                                       │
-             └───────────────────────────────────────────────────────────────────────┘
-```
+![Topologia](/img/topologia.png)
 
 🔧 *Tots els nodes i el PBS són màquines virtuals creades dins del mateix host Proxmox VE.*
 
