@@ -332,7 +332,7 @@ Aquest capítol és fonamental per garantir que el desplegament posterior es rea
 ### \emoji{desktop-computer} Diagrama:
 
 \begin{center}
-    \includegraphics[width=0.6\textwidth]{../../../img/topologia.png}
+    \includegraphics[width=0.9\textwidth]{../../../img/topologia.png}
 \end{center}
 
 \emoji{wrench} *Tots els nodes i el PBS són màquines virtuals creades dins del mateix host Proxmox VE.*
